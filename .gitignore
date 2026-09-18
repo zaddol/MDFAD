@@ -1,0 +1,19 @@
+# dati personali — mai commitare
+foto/
+public/
+AGENTS.md
+macro-analisi.md
+dati-nutrizionista.html
+dati-nutrizionista-vecchio.html
+_validate_mechanics.js
+
+# file di lavoro
+tmp-*
+shot-*
+strip-*
+grid-*
+test-*.png
+*.tmp
+Thumbs.db
+.DS_Store
+
