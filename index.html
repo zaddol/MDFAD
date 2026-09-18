@@ -3,7 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Umberto — Scheda Allenamento & Body Composition</title>
+<title>Umberto — Scheda Allenamento & Body Composition — TEST PESATURE</title>
+<style>
+  /* ============ PANNELLO PESATURE (solo test) ============ */
+  section#bodycomp .pz-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;}
+  section#bodycomp .pz-tabs label{
+    cursor:pointer;
+    background:var(--card);border:1px solid var(--line);border-radius:999px;
+    padding:9px 18px;font-size:13px;font-weight:700;color:var(--muted);
+    display:inline-flex;align-items:center;gap:8px;
+    transition:background .15s,color .15s,border-color .15s;
+  }
+  section#bodycomp .pz-tabs label::before{
+    content:"";width:8px;height:8px;border-radius:50%;background:var(--line2);transition:background .15s;
+  }
+  section#bodycomp .pz-tabs label:hover{border-color:var(--line2);color:var(--text);}
+  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz1"],
+  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz2"]{
+    background:var(--accent);border-color:var(--accent);color:#fff;
+  }
+  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz1"]::before,
+  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz2"]::before{background:#fff;}
+  .pz-panel{display:none;}
+  section#bodycomp input#pz1:checked ~ .pz-zone .pz1,
+  section#bodycomp input#pz2:checked ~ .pz-zone .pz2{display:block;}
+  /* chip differenza (Δ) */
+  .stat .delta{margin-top:8px;font-size:11.5px;font-weight:700;font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:5px;}
+  .stat .delta i{font-style:normal;font-size:9px;}
+  .stat .delta.down{color:var(--green);}
+  .stat .delta.up{color:var(--red);}
+  .stat .delta.flat{color:var(--dim);}
+  .stat .delta.flat i{display:none;}
+  .pz-summary{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 20px;margin-bottom:18px;
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;
+  }
+  .pz-summary .ps-title{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--text);}
+  .pz-summary .ps-note{font-size:12px;color:var(--dim);font-weight:600;}
+  .pz-summary .ps-delta{
+    margin-left:auto;
+    font-size:13px;font-weight:800;color:var(--green);font-variant-numeric:tabular-nums;
+    background:rgba(57,192,122,.08);border:1px solid rgba(57,192,122,.25);
+    border-radius:999px;padding:6px 16px;
+  }
+  /* card storica (archivio) */
+  .pz-hist{
+    background:var(--bg2);border:1px dashed var(--line2);border-radius:12px;
+    padding:14px 18px;margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 22px;
+    font-size:12.5px;color:var(--dim);font-weight:600;
+  }
+  .pz-hist b{color:var(--muted);font-weight:800;}
+  .pz-hist .hv{font-variant-numeric:tabular-nums;color:var(--text);font-weight:700;}
+  .pz-hist label{cursor:pointer;color:var(--accent);font-weight:800;font-size:12.5px;}
+</style>
 <style>
   :root{
     --bg:#0d0e12;
@@ -222,6 +275,7 @@
 
   /* ============ BODY COMPOSITION ============ */
   .stats-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-bottom:20px;}
+  .stats-grid .stat:nth-child(n+7){grid-column:1/-1;}
   .stat{
     background:var(--card);border:1px solid var(--line);border-radius:12px;
     padding:16px 15px;position:relative;overflow:hidden;
@@ -393,14 +447,42 @@
        (e i badge inline) escono dalla cella e restano fuori vista */
     overflow-wrap:break-word;
   }
-  .f-kcal{display:inline-block;white-space:nowrap;overflow-wrap:normal;margin-left:2px;}
-  .kcal-u{font-size:10px;font-weight:700;color:var(--dim);margin-left:2px;white-space:nowrap;}
-  .f-lead{display:inline-flex;align-items:center;flex-wrap:wrap;gap:0 6px;flex:0 0 auto;min-width:0;max-width:100%;}
-  .f-lead .ficon{flex:0 0 auto;flex-shrink:0;}
-  .f-lead .f-lead-txt{min-width:0;}
-  .f-lead .f-kcal{flex:0 0 auto;flex-shrink:0;margin-left:8px;}
-  .f-lead .kcal-u{flex:0 0 auto;flex-shrink:0;}
-  .f-lead > .fporz{flex:0 0 100%;margin-top:2px;margin-left:24px;display:inline-block;}
+  /* P·G·C agganciati al bordo DESTRO della cella (25/09): su desktop i numeri
+     erano a sinistra e lasciavano ~110px di vuoto a destra; tablet/phone
+     avevano già text-align:right, ora è uniforme su tutti i viewport */
+  .f-kcal{display:inline-block;white-space:nowrap;overflow-wrap:normal;margin-left:2px;flex:0 0 auto;}
+  .kcal-u{font-size:10px;font-weight:700;color:var(--dim);margin-left:2px;white-space:nowrap;flex:0 0 auto;}
+  /* GRID a 2 righe — kcal SEMPRE in colonna 3 (destra), identica in ogni riga:
+     Riga 1: [icon] [nome (flex:1, max 2 righe)] [kcal] [Kc]
+     Riga 2: [porzione (flex:0 0 100%, sinistra, sotto l'icona)] */
+  /* FLEX 2 righe (non grid — la grid collassava il nome a 0px, bug 50/51/52/53).
+     25/09 — RISTRUTTURA: il gruppo kcal+"Kc" è UN SOLO elemento .fkcal
+     Riga 1: [icon] [nome (flex:1, 2 righe)] [kcal][Kc]   (Kc flex:0 0 auto,
+     agganciato al numero — sempre unito, mai spezzato: bug 53 chiuso)
+     Riga 2: [porzione (flex:0 0 100%, sempre sotto l'icona, mai inline)] */
+  .f-lead{display:flex;flex-wrap:wrap;align-items:flex-start;column-gap:6px;row-gap:2px;min-width:0;max-width:100%;width:100%;}
+  .f-lead .ficon{flex:0 0 auto;}
+  .f-lead .f-lead-txt{flex:1 1 auto;min-width:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer;border-radius:3px;}
+  .f-lead .f-lead-txt:hover{background:rgba(255,255,255,.045);}
+  .f-lead .f-lead-txt:focus{outline:none;}
+  .f-lead .f-lead-txt:focus-visible{outline:1px solid rgba(255,77,46,.55);outline-offset:2px;}
+  /* 25/09 — porzione: flex:0 0 auto (riga 2 fissa) + max-width:100%.
+     Il badge ha white-space:nowrap: se la porzione è più lunga della cella
+     (es. "1 cucchiaino · ~5 g" su desktop, bug 55.png) il box NON si espande
+     (la riga resta fissa) e il testo interno viene troncato SOTTO il bordo:
+     il badge non supera mai il bordo destro della cella. */
+  .f-lead > .fporz{flex:0 0 auto;margin-top:0;display:inline-block;max-width:100%;overflow:hidden;}
+  /* 25/09 — nome espandibile SENZA JS: tabindex su ogni .f-lead-txt (via sed).
+     Click/tap = :focus → espanso completo (line-clamp via); click fuori =
+     blur → richiuso. Solo l'elemento espanso occupa spazio extra (la cella
+     si allarga, le altre righe non si muovono). */
+  .f-lead .f-lead-txt:focus{display:block;-webkit-line-clamp:unset;-webkit-box-orient:initial;white-space:normal;overflow:visible;cursor:default;background:rgba(255,77,46,.06);}
+  /* Simmetria card giorno (25/09): .dc-detail e .dc-macro flex-grow:1 →
+     la card occupata si STIRA fino a eguagliare le altre della stessa
+     settimana (griglia auto-stretch), il riepilogo si aggancia al fondo e
+     l'aria va nella parte vuota. Niente layout fisso, niente JS. */
+  .day-card > .dc-detail{display:flex;flex-direction:column;flex:1 1 auto;min-height:0;}
+  .day-card > .dc-macro{flex:1 1 auto;margin-top:auto;}
   table.foods tr:last-child td{border-bottom:none;}
   table.foods tbody tr:hover{background:rgba(255,255,255,.02);}
   table.foods tr.meal-row td{
@@ -411,32 +493,36 @@
        forzava la tabella (layout auto) a ~390px e la spingeva fuori dalla card */
     white-space:normal;word-break:break-word;
   }
-  .f-item{display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap;}
+  /* BLOCK (non flex): .f-lead dentro è flex width:100% — se .f-item
+     restasse flex, la larghezza non si risolverebbe e il nome collasserebbe
+     → nome spezzato lettera per lettera (bug 50.png) */
+  .f-item{display:block;width:100%;min-width:0;overflow:hidden;max-width:100%;}
   .f-item > div{min-width:0;}
-  .f-item .fname{word-break:break-word;}
+  /* NB: word-break:break-word MAI qui né su .f-lead-txt — permette lo spezzamento
+     lettera per lettera quando la colonna è stretta (bug 50/51.png). */
+  .f-item .fname{overflow-wrap:normal;}
   .f-item .ficon{font-size:16px;line-height:1.2;flex:0 0 auto;}
-  .f-item .fname{font-weight:600;color:var(--text);font-size:13px;}
   .f-item .fporz{
     font-weight:800;font-variant-numeric:tabular-nums;
-    color:var(--accent2);font-size:12px;
+    color:var(--accent2);font-size:10.5px;
     background:rgba(255,210,63,.08);border:1px solid rgba(255,210,63,.22);
-    border-radius:6px;padding:2px 7px;line-height:1.3;white-space:nowrap;
+    border-radius:5px;padding:1px 6px;line-height:1.3;white-space:nowrap;
     display:inline-block;margin-top:1px;
-    /* su card strette il badge non deve restare su una riga sola (min-content
-       irriducibile = ~85px) altrimenti spinge la tabella oltre la card */
-    white-space:normal;
   }
   .f-kcol{white-space:normal;}
-  .f-kcal{font-weight:800;font-variant-numeric:tabular-nums;color:var(--text);}
-  .f-mcol{min-width:0;}
+  .f-kcal{font-weight:800;font-variant-numeric:tabular-nums;color:var(--text);min-width:0;}
+  .f-mcol{min-width:0;text-align:right;}
+  /* P·G·C agganciati al bordo DESTRO della cella (25/09): su desktop i numeri
+     erano a sinistra e lasciavano ~110px di vuoto a destra; tablet/phone
+     avevano già text-align:right, ora è uniforme su tutti i viewport */
   /* COLONNA P·G·C FISSA: 3 righe verticali, ogni valore sulla sua riga.
      Il separatore "·" diventa un interlinea nascosto (display:block + font-size:0)
      → niente scivolamento da una riga all'altra, altezza identica in ogni riga */
-  .f-macros{font-variant-numeric:tabular-nums;font-size:12px;color:var(--muted);min-width:0;overflow:hidden;
+  .f-macros{font-variant-numeric:tabular-nums;font-size:11px;color:var(--muted);min-width:0;overflow:hidden;
     white-space:nowrap;line-height:1.5;}
   .f-macros .sep{display:block;width:100%;font-size:0;line-height:0;height:0;margin:0;}
   .f-macros .mv{font-weight:700;color:var(--text);}
-  .f-macros .u{font-size:10px;color:var(--dim);margin-left:1px;}
+  .f-macros .u{font-size:9px;color:var(--dim);margin-left:1px;}
 
   /* riepilogo macro sotto tabella */
   .dc-macro{
@@ -486,6 +572,10 @@
 
     .wk-grid{grid-template-columns:repeat(4,1fr);}
     .wk-summary .ws-total{margin-left:0;}
+
+    /* pesature: summary bar su tablet */
+    .pz-summary .ps-delta{margin-left:0;width:100%;}
+    .pz-hist{justify-content:flex-start;}
 
     /* pasti: mostra SOLO il riepilogo (m-mini), nascondi il titolo pasto (meal-row) per evitare doppi titoli */
     table.foods tr.meal-row{display:none;}
@@ -568,6 +658,12 @@
     /* DIARIO: griglia 1 colonna (ogni giorno card piena, in verticale) */
     .wk-grid{grid-template-columns:1fr;}
 
+    /* pesature su phone: tab e summary a tutto width */
+    .pz-tabs label{font-size:12px;padding:8px 14px;}
+    .pz-summary{gap:8px 14px;padding:12px 16px;}
+    .pz-summary .ps-delta{margin-left:0;width:100%;}
+    .pz-hist{flex-direction:column;align-items:flex-start;gap:8px;}
+
     /* NAV: font/padding rimpiccioliti → tutti e 5 i link + brand stanno in una riga.
        overflow-x:auto resta come rete di sicurezza sui telefoni molto stretti (≤330px) */
     nav.topnav .wrap{
@@ -621,10 +717,11 @@
     <h1>Um<span class="stroke">berto</span></h1>
     <p class="sub">Protocollo di allenamento settimanale, dati antropometrici e diario alimentare. Documento condiviso per l'analisi nutrizionale.</p>
     <div class="hero-chips">
-      <span class="chip"><span class="dot" style="background:var(--accent)"></span>Misurazione <b>11 / 09 / 2026</b></span>
-      <span class="chip"><span class="dot" style="background:var(--accent2)"></span>Peso <b>80.75 kg</b></span>
-      <span class="chip"><span class="dot" style="background:var(--blue)"></span>BMI <b>26.4</b></span>
-      <span class="chip"><span class="dot" style="background:var(--green)"></span>Grasso corporeo <b>26.6%</b></span>
+      <span class="chip"><span class="dot" style="background:var(--accent)"></span>Misurazione <b>18 / 09 / 2026</b></span>
+      <!-- NB: i chip hero riflettono SEMPRE l'ultima pesatura (non reagiscono alle tab) -->
+      <span class="chip"><span class="dot" style="background:var(--accent2)"></span>Peso <b>79.30 kg</b></span>
+      <span class="chip"><span class="dot" style="background:var(--blue)"></span>BMI <b>25.9</b></span>
+      <span class="chip"><span class="dot" style="background:var(--green)"></span>Grasso corporeo <b>26.1%</b></span>
       <span class="chip"><span class="dot" style="background:var(--dim)"></span>Obiettivo <b>in definizione</b></span>
     </div>
   </div>
@@ -792,17 +889,44 @@
       <span class="num">04</span>
       <h2>Composizione Corporea</h2>
       <div class="rule"></div>
-      <span class="tag">Bilancia RENPHO · 11/09/2026</span>
+      <span class="tag">Bilancia RENPHO · ogni venerdì</span>
     </div>
 
-    <!-- stat chiave -->
-    <div class="stats-grid">
-      <div class="stat"><div class="k">Peso</div><div class="v">80.75<small> kg</small></div><div class="s"><span class="st sopra">Sopra la media</span></div></div>
-      <div class="stat"><div class="k">BMI</div><div class="v">26.4</div><div class="s"><span class="st sopra">Sopra la media</span></div></div>
-      <div class="stat"><div class="k">Grasso corporeo</div><div class="v">26.6<small> %</small></div><div class="s"><span class="st alto">Alto</span></div></div>
-      <div class="stat"><div class="k">Massa muscolare</div><div class="v">56.28<small> kg</small></div><div class="s"><span class="st nella">Nella media</span></div></div>
-      <div class="stat"><div class="k">BMR</div><div class="v">1661<small> kcal</small></div><div class="s"><span class="st sotto">Sotto la media</span></div></div>
-      <div class="stat"><div class="k">Età metabolica</div><div class="v">36</div><div class="s"><span class="st sopra">Sopra la media</span></div></div>
+    <!--
+      CARTE PESAURE (senza JS, solo CSS — stessa meccanica del diario):
+      - un <input type="radio" name="pz" id="pzN"> (sibling di .pz-tabs e .pz-zone, DENTRO .wrap)
+      - regola CSS: #pzN:checked ~ .pz-zone .pzN { display:block; }
+      - WORKFLOW OGNI VENERDÌ: 1) il vecchio pz1 diventa il nuovo pz2 (copia il pannello, rinomina, svuota .delta)
+        2) il nuovo pz1 prende i valori del report RENPHO (foto pesatura_XX_YY.jpg) 3) Δ = pz1 − pz2 (peso, BMI, % grasso, muscoli, BMR, età metab.)
+        4) aggiungo radio+label pzN+regola CSS (pz1, pz2, … estensione: lista multi-selezione) 5) aggiorno tab (contatore), pz-hist, chip hero, footer
+      - l'ultima pesatura è SEMPRE pz1 (in cima, checked); le precedenti = archivio in ordine cronologico inverso
+      - le .delta sulle stat mostrano la variazione rispetto alla pesatura precedente (verde = down su peso/grasso/muscoli, rosso = up; grigio = invariato)
+    -->
+    <input type="radio" name="pz" id="pz1" checked>
+    <input type="radio" name="pz" id="pz2">
+
+    <div class="pz-tabs">
+      <label for="pz1">Pesatura · Ven 18/09/2026 (2)</label>
+      <label for="pz2">Archivio · Ven 11/09/2026 (1)</label>
+    </div>
+
+    <div class="pz-zone">
+
+      <!-- ===== PZ1 — pesatura ATTIVA (18/09/2026, valori dal report RENPHO) ===== -->
+      <div class="pz-panel pz1">
+        <div class="pz-summary">
+          <span class="ps-title">Pesatura attiva · Venerdì 18/09/2026</span>
+          <span class="ps-note">1a settimana di tracking</span>
+          <span class="ps-delta">Δ Peso −1.45 kg vs. 11/09</span>
+        </div>
+        <!-- stat chiave -->
+        <div class="stats-grid">
+      <div class="stat"><div class="k">Peso</div><div class="v">79.30<small> kg</small></div><div class="s"><span class="st sopra">Sopra la media</span></div><div class="delta down"><i>▼</i> −1.45 kg</div></div>
+      <div class="stat"><div class="k">BMI</div><div class="v">25.9</div><div class="s"><span class="st sopra">Sopra la media</span></div><div class="delta down"><i>▼</i> −0.5</div></div>
+      <div class="stat"><div class="k">Grasso corporeo</div><div class="v">26.1<small> %</small></div><div class="s"><span class="st alto">Alto</span></div><div class="delta down"><i>▼</i> −0.5 %</div></div>
+      <div class="stat"><div class="k">Massa muscolare</div><div class="v">55.67<small> kg</small></div><div class="s"><span class="st nella">Nella media</span></div><div class="delta down"><i>▼</i> −0.61 kg</div></div>
+      <div class="stat"><div class="k">BMR</div><div class="v">1635<small> kcal</small></div><div class="s"><span class="st sotto">Sotto la media</span></div><div class="delta down"><i>▼</i> −26 kcal</div></div>
+      <div class="stat"><div class="k">Età metabolica</div><div class="v">35</div><div class="s"><span class="st sopra">Sopra la media</span></div><div class="delta down"><i>▼</i> −1 anno</div></div>
     </div>
 
     <!-- tabella completa -->
@@ -811,27 +935,83 @@
         <tr><th>Parametro</th><th>Valore</th><th>Stato</th></tr>
       </thead>
       <tbody>
-        <tr><td class="param">Peso</td><td class="val">80.75<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
-        <tr><td class="param">BMI<small>Indice massa corporea</small></td><td class="val">26.4</td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
-        <tr><td class="param">Percentuale di grasso corporeo</td><td class="val">26.6<span class="u">%</span></td><td class="stat-col"><span class="st alto">Alto</span></td></tr>
-        <tr><td class="param">Massa grassa corporea</td><td class="val">21.48<span class="u">kg</span></td><td class="stat-col"><span class="st alto">Alto</span></td></tr>
-        <tr><td class="param">Grasso sottocutaneo</td><td class="val">23.6<span class="u">%</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+        <tr><td class="param">Peso</td><td class="val">79.30<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+        <tr><td class="param">BMI<small>Indice massa corporea</small></td><td class="val">25.9</td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+        <tr><td class="param">Percentuale di grasso corporeo</td><td class="val">26.1<span class="u">%</span></td><td class="stat-col"><span class="st alto">Alto</span></td></tr>
+        <tr><td class="param">Massa grassa corporea</td><td class="val">20.70<span class="u">kg</span></td><td class="stat-col"><span class="st alto">Alto</span></td></tr>
+        <tr><td class="param">Grasso sottocutaneo</td><td class="val">23.2<span class="u">%</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
         <tr><td class="param">Grasso viscerale</td><td class="val">9</td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
-        <tr><td class="param">Percentuale muscolare</td><td class="val">69.7<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
-        <tr><td class="param">Massa muscolare</td><td class="val">56.28<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
-        <tr><td class="param">Percentuale muscolo-scheletrica</td><td class="val">47.3<span class="u">%</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
-        <tr><td class="param">Massa muscolare scheletrica</td><td class="val">38.19<span class="u">kg</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
+        <tr><td class="param">Percentuale muscolare</td><td class="val">70.2<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Massa muscolare</td><td class="val">55.67<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Percentuale muscolo-scheletrica</td><td class="val">47.6<span class="u">%</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
+        <tr><td class="param">Massa muscolare scheletrica</td><td class="val">37.75<span class="u">kg</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
         <tr><td class="param">Percentuale ossea</td><td class="val">3.7<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
-        <tr><td class="param">Massa ossea</td><td class="val">2.99<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
-        <tr><td class="param">Peso corporeo senza grassi</td><td class="val">59.27<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
-        <tr><td class="param">Età metabolica</td><td class="val">36</td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
-        <tr><td class="param">BMR<small>Metabolismo basale</small></td><td class="val">1661<span class="u">kcal</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
-        <tr><td class="param">Percentuale di acqua corporea</td><td class="val">53.0<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
-        <tr><td class="param">Massa di acqua corporea</td><td class="val">42.80<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
-        <tr><td class="param">Percentuale proteica</td><td class="val">16.7<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
-        <tr><td class="param">Massa proteica</td><td class="val">13.49<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Massa ossea</td><td class="val">2.93<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Peso corporeo senza grassi</td><td class="val">58.60<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+        <tr><td class="param">Età metabolica</td><td class="val">35</td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+        <tr><td class="param">BMR<small>Metabolismo basale</small></td><td class="val">1635<span class="u">kcal</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
+        <tr><td class="param">Percentuale di acqua corporea</td><td class="val">53.4<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Massa di acqua corporea</td><td class="val">42.35<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Percentuale proteica</td><td class="val">16.9<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Massa proteica</td><td class="val">13.40<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
       </tbody>
     </table>
+    <div class="pz-hist">
+      <b>Archivio pesature</b>
+      <span>Pesatura 1 · <span class="hv">Venerdì 11/09/2026</span> · <span class="hv">80.75 kg</span></span>
+      <label for="pz2">Vedi storico →</label>
+    </div>
+      </div>
+
+      <!-- ===== PZ2 — ARCHIVIO: 1ª pesatura (11/09/2026) ===== -->
+      <div class="pz-panel pz2">
+        <div class="pz-summary">
+          <span class="ps-title">Archivio · 1ª pesatura · Venerdì 11/09/2026</span>
+          <span class="ps-note">Nessuna pesatura precedente</span>
+          <span class="ps-delta" style="color:var(--dim);background:rgba(107,113,133,.08);border-color:rgba(107,113,133,.3);">—</span>
+        </div>
+        <div class="stats-grid">
+          <div class="stat"><div class="k">Peso</div><div class="v">80.75<small> kg</small></div><div class="s"><span class="st sopra">Sopra la media</span></div></div>
+          <div class="stat"><div class="k">BMI</div><div class="v">26.4</div><div class="s"><span class="st sopra">Sopra la media</span></div></div>
+          <div class="stat"><div class="k">Grasso corporeo</div><div class="v">26.6<small> %</small></div><div class="s"><span class="st alto">Alto</span></div></div>
+          <div class="stat"><div class="k">Massa muscolare</div><div class="v">56.28<small> kg</small></div><div class="s"><span class="st nella">Nella media</span></div></div>
+          <div class="stat"><div class="k">BMR</div><div class="v">1661<small> kcal</small></div><div class="s"><span class="st sotto">Sotto la media</span></div></div>
+          <div class="stat"><div class="k">Età metabolica</div><div class="v">36</div><div class="s"><span class="st sopra">Sopra la media</span></div></div>
+        </div>
+        <table class="comp">
+          <thead>
+            <tr><th>Parametro</th><th>Valore</th><th>Stato</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="param">Peso</td><td class="val">80.75<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+            <tr><td class="param">BMI<small>Indice massa corporea</small></td><td class="val">26.4</td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+            <tr><td class="param">Percentuale di grasso corporeo</td><td class="val">26.6<span class="u">%</span></td><td class="stat-col"><span class="st alto">Alto</span></td></tr>
+            <tr><td class="param">Massa grassa corporea</td><td class="val">21.48<span class="u">kg</span></td><td class="stat-col"><span class="st alto">Alto</span></td></tr>
+            <tr><td class="param">Grasso sottocutaneo</td><td class="val">23.6<span class="u">%</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+            <tr><td class="param">Grasso viscerale</td><td class="val">9</td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+            <tr><td class="param">Percentuale muscolare</td><td class="val">69.7<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+            <tr><td class="param">Massa muscolare</td><td class="val">56.28<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+            <tr><td class="param">Percentuale muscolo-scheletrica</td><td class="val">47.3<span class="u">%</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
+            <tr><td class="param">Massa muscolare scheletrica</td><td class="val">38.19<span class="u">kg</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
+            <tr><td class="param">Percentuale ossea</td><td class="val">3.7<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+            <tr><td class="param">Massa ossea</td><td class="val">2.99<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+            <tr><td class="param">Peso corporeo senza grassi</td><td class="val">59.27<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+            <tr><td class="param">Età metabolica</td><td class="val">36</td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+            <tr><td class="param">BMR<small>Metabolismo basale</small></td><td class="val">1661<span class="u">kcal</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
+            <tr><td class="param">Percentuale di acqua corporea</td><td class="val">53.0<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+            <tr><td class="param">Massa di acqua corporea</td><td class="val">42.80<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+            <tr><td class="param">Percentuale proteica</td><td class="val">16.7<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+            <tr><td class="param">Massa proteica</td><td class="val">13.49<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+          </tbody>
+        </table>
+        <div class="pz-hist">
+          <b>Archivio pesature</b>
+          <span>Pesatura 1 · <span class="hv">11/09/2026</span> · <span class="hv">80.75 kg</span></span>
+          <label for="pz1">← Torna all'ultima pesatura</label>
+        </div>
+      </div>
+
+    </div><!-- /.pz-zone -->
 
     <div class="legend">
       <span class="li"><span class="st nella">Nella media</span></span>
@@ -906,35 +1086,35 @@
                   <tr class="meal-row"><td colspan="3">☕ Colazione</td></tr>
                   <tr class="m-mini"><td colspan="3"><span class="m-ico">☕</span><span class="m-t">Colazione</span><span class="m-k">286 kcal</span></td></tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🌾</span><span class="f-lead-txt"><span class="fname">Avena (overnight, con acqua)</span></span><span class="f-kcal">146</span><span class="kcal-u">Kc</span><span class="fporz">40 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🌾</span><span class="f-lead-txt" tabindex="0"><span class="fname">Avena (overnight, con acqua)</span></span><span class="f-kcal">146</span><span class="kcal-u">Kc</span></span><span class="fporz">40 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">4,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">24,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍯</span><span class="f-lead-txt"><span class="fname">Miele (1 cucchiaino)</span></span><span class="f-kcal">16</span><span class="kcal-u">Kc</span><span class="fporz">~5 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍯</span><span class="f-lead-txt" tabindex="0"><span class="fname">Miele (1 cucchiaino)</span></span><span class="f-kcal">16</span><span class="kcal-u">Kc</span></span><span class="fporz">~5 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">0,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,8</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt"><span class="fname">Kefir</span></span><span class="f-kcal">46</span><span class="kcal-u">Kc</span><span class="fporz">100 ml</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍎</span><span class="f-lead-txt"><span class="fname">Mela</span></span><span class="f-kcal">78</span><span class="kcal-u">Kc</span><span class="fporz">~150 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍎</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mela</span></span><span class="f-kcal">78</span><span class="kcal-u">Kc</span></span><span class="fporz">~150 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">0,5</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">21,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr class="meal-row"><td colspan="3">🍽️ Pranzo</td></tr>
                   <tr class="m-mini"><td colspan="3"><span class="m-ico">🍽️</span><span class="m-t">Pranzo</span><span class="m-k">681 kcal</span></td></tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥪</span><span class="f-lead-txt"><span class="fname">Tramezzini (2 confezioni)</span></span><span class="f-kcal">681</span><span class="kcal-u">Kc</span><span class="fporz">260 g · 4 pz</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥪</span><span class="f-lead-txt" tabindex="0"><span class="fname">Tramezzini (2 confezioni)</span></span><span class="f-kcal">681</span><span class="kcal-u">Kc</span></span><span class="fporz">260 g · 4 pz</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">46,5</span><span class="u">P</span><span class="sep">·</span><span class="mv">36,7</span><span class="u">G</span><span class="sep">·</span><span class="mv">36,1</span><span class="u">C</span></span></td>
                   </tr>
                   <tr class="meal-row"><td colspan="3">🍽️ Cena</td></tr>
                   <tr class="m-mini"><td colspan="3"><span class="m-ico">🍽️</span><span class="m-t">Cena</span><span class="m-k">275 kcal</span></td></tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥩</span><span class="f-lead-txt"><span class="fname">Tagliata di manzo</span></span><span class="f-kcal">260</span><span class="kcal-u">Kc</span><span class="fporz">200 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥩</span><span class="f-lead-txt" tabindex="0"><span class="fname">Tagliata di manzo</span></span><span class="f-kcal">260</span><span class="kcal-u">Kc</span></span><span class="fporz">200 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">53,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">5,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥬</span><span class="f-lead-txt"><span class="fname">Insalata</span></span><span class="f-kcal">15</span><span class="kcal-u">Kc</span><span class="fporz">100 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥬</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata</span></span><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">1,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">2,9</span><span class="u">C</span></span></td>
                   </tr>
                 </tbody>
@@ -968,43 +1148,43 @@
                   <tr class="meal-row"><td colspan="3">☕ Colazione</td></tr>
                   <tr class="m-mini"><td colspan="3"><span class="m-ico">☕</span><span class="m-t">Colazione</span><span class="m-k">411 kcal</span></td></tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt"><span class="fname">Kefir</span></span><span class="f-kcal">46</span><span class="kcal-u">Kc</span><span class="fporz">100 ml</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥚</span><span class="f-lead-txt"><span class="fname">Uova (con poco sale)</span></span><span class="f-kcal">140</span><span class="kcal-u">Kc</span><span class="fporz">2 pz</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥚</span><span class="f-lead-txt" tabindex="0"><span class="fname">Uova (con poco sale)</span></span><span class="f-kcal">140</span><span class="kcal-u">Kc</span></span><span class="fporz">2 pz</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">12,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">9,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">1,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt"><span class="fname">Olio EVO (a freddo)</span></span><span class="f-kcal">40</span><span class="kcal-u">Kc</span><span class="fporz">1 cucchiaino</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio EVO (a freddo)</span></span><span class="f-kcal">40</span><span class="kcal-u">Kc</span></span><span class="fporz">1 cucchiaino</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">0,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍏</span><span class="f-lead-txt"><span class="fname">Mela verde</span></span><span class="f-kcal">78</span><span class="kcal-u">Kc</span><span class="fporz">~150 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍏</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mela verde</span></span><span class="f-kcal">78</span><span class="kcal-u">Kc</span></span><span class="fporz">~150 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">0,5</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">21,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍌</span><span class="f-lead-txt"><span class="fname">Banana</span></span><span class="f-kcal">107</span><span class="kcal-u">Kc</span><span class="fporz">~120 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍌</span><span class="f-lead-txt" tabindex="0"><span class="fname">Banana</span></span><span class="f-kcal">107</span><span class="kcal-u">Kc</span></span><span class="fporz">~120 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">1,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,4</span><span class="u">G</span><span class="sep">·</span><span class="mv">27,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr class="meal-row"><td colspan="3">🍚 Pranzo</td></tr>
                   <tr class="m-mini"><td colspan="3"><span class="m-ico">🍚</span><span class="m-t">Pranzo</span><span class="m-k">292 kcal</span></td></tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍚</span><span class="f-lead-txt"><span class="fname">Riso (a crudo)</span></span><span class="f-kcal">172</span><span class="kcal-u">Kc</span><span class="fporz">50 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍚</span><span class="f-lead-txt" tabindex="0"><span class="fname">Riso (a crudo)</span></span><span class="f-kcal">172</span><span class="kcal-u">Kc</span></span><span class="fporz">50 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">5,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">37,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt"><span class="fname">Pollo (petto)</span></span><span class="f-kcal">120</span><span class="kcal-u">Kc</span><span class="fporz">100 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Pollo (petto)</span></span><span class="f-kcal">120</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">23,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,6</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr class="meal-row"><td colspan="3">🍽️ Cena</td></tr>
                   <tr class="m-mini"><td colspan="3"><span class="m-ico">🍽️</span><span class="m-t">Cena</span><span class="m-k">382 kcal</span></td></tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🐟</span><span class="f-lead-txt"><span class="fname">Bastoncini di merluzzo</span></span><span class="f-kcal">360</span><span class="kcal-u">Kc</span><span class="fporz">8 pz · 200 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🐟</span><span class="f-lead-txt" tabindex="0"><span class="fname">Bastoncini di merluzzo</span></span><span class="f-kcal">360</span><span class="kcal-u">Kc</span></span><span class="fporz">8 pz · 200 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">26,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">16,6</span><span class="u">G</span><span class="sep">·</span><span class="mv">26,4</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥕</span><span class="f-lead-txt"><span class="fname">Carote</span></span><span class="f-kcal">22</span><span class="kcal-u">Kc</span><span class="fporz">50 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Carote</span></span><span class="f-kcal">22</span><span class="kcal-u">Kc</span></span><span class="fporz">50 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">0,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,8</span><span class="u">C</span></span></td>
                   </tr>
                 </tbody>
@@ -1037,35 +1217,35 @@
                   <tr class="meal-row"><td colspan="3">☕ Colazione</td></tr>
                   <tr class="m-mini"><td colspan="3"><span class="m-ico">☕</span><span class="m-t">Colazione</span><span class="m-k">395 kcal</span></td></tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt"><span class="fname">Kefir</span></span><span class="f-kcal">46</span><span class="kcal-u">Kc</span><span class="fporz">100 ml</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍶</span><span class="f-lead-txt"><span class="fname">Yogurt Fage (greco 0%)</span></span><span class="f-kcal">300</span><span class="kcal-u">Kc</span><span class="fporz">150 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍶</span><span class="f-lead-txt" tabindex="0"><span class="fname">Yogurt Fage (greco 0%)</span></span><span class="f-kcal">300</span><span class="kcal-u">Kc</span></span><span class="fporz">150 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">13,5</span><span class="u">P</span><span class="sep">·</span><span class="mv">26,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,2</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫐</span><span class="f-lead-txt"><span class="fname">Mirtilli</span></span><span class="f-kcal">33</span><span class="kcal-u">Kc</span><span class="fporz">36 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫐</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mirtilli</span></span><span class="f-kcal">33</span><span class="kcal-u">Kc</span></span><span class="fporz">36 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">0,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">7,4</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍯</span><span class="f-lead-txt"><span class="fname">Miele acacia</span></span><span class="f-kcal">16</span><span class="kcal-u">Kc</span><span class="fporz">1 cucchiaino · ~5 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍯</span><span class="f-lead-txt" tabindex="0"><span class="fname">Miele acacia</span></span><span class="f-kcal">16</span><span class="kcal-u">Kc</span></span><span class="fporz">1 cucchiaino · ~5 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">0,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,3</span><span class="u">C</span></span></td>
                   </tr>
                   <tr class="meal-row"><td colspan="3">🥪 Pranzo</td></tr>
                   <tr class="m-mini"><td colspan="3"><span class="m-ico">🥪</span><span class="m-t">Pranzo</span><span class="m-k">558 kcal</span></td></tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥪</span><span class="f-lead-txt"><span class="fname">Club sandwich pollo (pan bauletto 3 fette, pollo croccante, bacon, pomodoro, maionese, salsa BBQ)</span></span><span class="f-kcal">558</span><span class="kcal-u">Kc</span><span class="fporz">1 pz · ~180 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥪</span><span class="f-lead-txt" tabindex="0"><span class="fname">Club sandwich pollo (pan bauletto 3 fette, pollo croccante, bacon, pomodoro, maionese, salsa BBQ)</span></span><span class="f-kcal">558</span><span class="kcal-u">Kc</span></span><span class="fporz">1 pz · ~180 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">31,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">22,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">60,2</span><span class="u">C</span></span></td>
                   </tr>
                   <tr class="meal-row"><td colspan="3">🍽️ Cena</td></tr>
                   <tr class="m-mini"><td colspan="3"><span class="m-ico">🍽️</span><span class="m-t">Cena</span><span class="m-k">231 kcal</span></td></tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt"><span class="fname">Latte parzialmente scremato</span></span><span class="f-kcal">135</span><span class="kcal-u">Kc</span><span class="fporz">300 ml</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Latte parzialmente scremato</span></span><span class="f-kcal">135</span><span class="kcal-u">Kc</span></span><span class="fporz">300 ml</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">10,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">8,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">12,6</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥤</span><span class="f-lead-txt"><span class="fname">Proteine in polvere (whey)</span></span><span class="f-kcal">96</span><span class="kcal-u">Kc</span><span class="fporz">24 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥤</span><span class="f-lead-txt" tabindex="0"><span class="fname">Proteine in polvere (whey)</span></span><span class="f-kcal">96</span><span class="kcal-u">Kc</span></span><span class="fporz">24 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">20,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">1,0</span><span class="u">C</span></span></td>
                   </tr>
                 </tbody>
@@ -1098,43 +1278,43 @@
                   <tr class="meal-row"><td colspan="3">☕ Colazione</td></tr>
                   <tr class="m-mini"><td colspan="3"><span class="m-ico">☕</span><span class="m-t">Colazione</span><span class="m-k">252 kcal</span></td></tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt"><span class="fname">Kefir</span></span><span class="f-kcal">46</span><span class="kcal-u">Kc</span><span class="fporz">100 ml</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥚</span><span class="f-lead-txt"><span class="fname">Uova (con poco sale)</span></span><span class="f-kcal">140</span><span class="kcal-u">Kc</span><span class="fporz">2 pz</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥚</span><span class="f-lead-txt" tabindex="0"><span class="fname">Uova (con poco sale)</span></span><span class="f-kcal">140</span><span class="kcal-u">Kc</span></span><span class="fporz">2 pz</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">12,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">9,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">1,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt"><span class="fname">Olio EVO (a freddo)</span></span><span class="f-kcal">40</span><span class="kcal-u">Kc</span><span class="fporz">1 cucchiaino</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio EVO (a freddo)</span></span><span class="f-kcal">40</span><span class="kcal-u">Kc</span></span><span class="fporz">1 cucchiaino</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">0,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍏</span><span class="f-lead-txt"><span class="fname">Mela verde</span></span><span class="f-kcal">78</span><span class="kcal-u">Kc</span><span class="fporz">~150 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍏</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mela verde</span></span><span class="f-kcal">78</span><span class="kcal-u">Kc</span></span><span class="fporz">~150 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">0,5</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">21,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr class="meal-row"><td colspan="3">🍚 Pranzo</td></tr>
                   <tr class="m-mini"><td colspan="3"><span class="m-ico">🍚</span><span class="m-t">Pranzo</span><span class="m-k">292 kcal</span></td></tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍚</span><span class="f-lead-txt"><span class="fname">Riso (a crudo)</span></span><span class="f-kcal">172</span><span class="kcal-u">Kc</span><span class="fporz">50 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍚</span><span class="f-lead-txt" tabindex="0"><span class="fname">Riso (a crudo)</span></span><span class="f-kcal">172</span><span class="kcal-u">Kc</span></span><span class="fporz">50 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">5,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">37,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt"><span class="fname">Pollo (petto)</span></span><span class="f-kcal">120</span><span class="kcal-u">Kc</span><span class="fporz">100 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Pollo (petto)</span></span><span class="f-kcal">120</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">23,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,6</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">C</span></span></td>
                   </tr>
                   <tr class="meal-row"><td colspan="3">🍽️ Cena</td></tr>
                   <tr class="m-mini"><td colspan="3"><span class="m-ico">🍽️</span><span class="m-t">Cena</span><span class="m-k">473 kcal</span></td></tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫓</span><span class="f-lead-txt"><span class="fname">Gallette di lenticchie</span></span><span class="f-kcal">66</span><span class="kcal-u">Kc</span><span class="fporz">3 pz (~18 g)</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫓</span><span class="f-lead-txt" tabindex="0"><span class="fname">Gallette di lenticchie</span></span><span class="f-kcal">66</span><span class="kcal-u">Kc</span></span><span class="fporz">3 pz (~18 g)</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">4,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">10,5</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt"><span class="fname">Pollo Durango (affettato)</span></span><span class="f-kcal">396</span><span class="kcal-u">Kc</span><span class="fporz">200 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Pollo Durango (affettato)</span></span><span class="f-kcal">396</span><span class="kcal-u">Kc</span></span><span class="fporz">200 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">38,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">22,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">11,4</span><span class="u">C</span></span></td>
                   </tr>
                   <tr>
-                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt"><span class="fname">Insalata mix</span></span><span class="f-kcal">50</span><span class="kcal-u">Kc</span><span class="fporz">150 g</span></span></div></td>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata mix</span></span><span class="f-kcal">50</span><span class="kcal-u">Kc</span></span><span class="fporz">150 g</span></span></div></td>
                     <td class="f-mcol"><span class="f-macros"><span class="mv">2,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,6</span><span class="u">G</span><span class="sep">·</span><span class="mv">6,8</span><span class="u">C</span></span></td>
                   </tr>
                 </tbody>
@@ -1238,7 +1418,7 @@
 <footer>
   <div class="wrap">
     <span><b>Umberto</b> · Scheda allenamento, body composition &amp; diario alimentazione</span>
-    <span>Dati bilancia: 11/09/2026 · Documento per analisi nutrizionale</span>
+    <span>Dati bilancia: 11/09 e 18/09/2026 · Documento per analisi nutrizionale</span>
   </div>
 </footer>
 
