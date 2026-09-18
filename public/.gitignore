@@ -1,4 +1,4 @@
-# file di lavoro e screenshot temporanei
+# working files and temporary screenshots
 tmp-*.html
 tmp-*.png
 tmp-*.py
@@ -11,7 +11,7 @@ strip-*.png
 Thumbs.db
 .DS_Store
 
-# il template non usa foto reali: se servono esempi, aggiungere esplicitamente
-# (mai committare foto personali senza volerlo)
+# this template doesn't use real photos: if examples are needed, add them explicitly
+# (never commit personal photos accidentally)
 foto/*
 !foto/.gitkeep

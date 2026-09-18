@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nome — Scheda Allenamento &amp; Body Composition · Tracker</title>
+<title>Name — Workout Plan & Body Composition · Tracker</title>
 <style>
-  /* ============ PANNELLO PESATURE (solo test) ============ */
+  /* ============ WEIGH-IN PANEL (test only) ============ */
   section#bodycomp .pz-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;}
   section#bodycomp .pz-tabs label{
     cursor:pointer;
@@ -24,7 +24,7 @@
   section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz1"]::before{background:#fff;}
   .pz-panel{display:none;}
   section#bodycomp input#pz1:checked ~ .pz-zone .pz1{display:block;}
-  /* chip differenza (Δ) */
+  /* delta chip (Δ) */
   .stat .delta{margin-top:8px;font-size:11.5px;font-weight:700;font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:5px;}
   .stat .delta i{font-style:normal;font-size:9px;}
   .stat .delta.down{color:var(--green);}
@@ -44,7 +44,7 @@
     background:rgba(57,192,122,.08);border:1px solid rgba(57,192,122,.25);
     border-radius:999px;padding:6px 16px;
   }
-  /* card storica (archivio) */
+  /* historical card (archive) */
   .pz-hist{
     background:var(--bg2);border:1px dashed var(--line2);border-radius:12px;
     padding:14px 18px;margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 22px;
@@ -65,8 +65,8 @@
     --text:#f3f4f8;
     --muted:#9aa0b2;
     --dim:#6b7185;
-    --accent:#ff4d2e;      /* arancio/rosso palestra */
-    --accent2:#ffd23f;     /* giallo highlight */
+    --accent:#ff4d2e;      /* gym orange/red */
+    --accent2:#ffd23f;     /* highlight yellow */
     --green:#39c07a;
     --blue:#3aa0ff;
     --amber:#f5a623;
@@ -86,7 +86,7 @@
     overflow-x:clip;max-width:100%;
   }
 
-  /* fondo con pattern diagonale leggero */
+  /* background with light diagonal pattern */
   body::before{
     content:"";
     position:fixed;inset:0;z-index:-1;
@@ -179,7 +179,7 @@
     font-size:12px;color:var(--dim);font-weight:600;letter-spacing:.14em;text-transform:uppercase;
   }
 
-  /* ============ STRISSETTIMANA ============ */
+  /* ============ STRIPE-WEEK ============ */
   .weekstrip{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;}
   .day-pill{
     background:var(--card);
@@ -283,7 +283,7 @@
   .stat .v small{font-size:13px;color:var(--muted);font-weight:600;}
   .stat .s{margin-top:8px;}
 
-  /* badge stato */
+  /* status badge */
   .st{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.02em;}
   .st.nella{color:var(--green);background:rgba(57,192,122,.12);border:1px solid rgba(57,192,122,.3);}
   .st.sotto{color:var(--blue);background:rgba(58,160,255,.12);border:1px solid rgba(58,160,255,.3);}
@@ -316,11 +316,11 @@
   .legend .li{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);}
   .legend .li .st{margin:0;}
 
-  /* ============ DIARIO ALIMENTAZIONE ============ */
+  /* ============ MEAL LOG ============ */
 
   /* radio inputs (nascosti, siblings di .wk-tabs e .diet-zone) */
-  section#diario input[type="radio"]{position:absolute;opacity:0;pointer-events:none;}
-  section#diario input[type="radio"]:focus-visible ~ .wk-tabs label{outline:2px solid var(--accent2);outline-offset:2px;}
+  section#diary input[type="radio"]{position:absolute;opacity:0;pointer-events:none;}
+  section#diary input[type="radio"]:focus-visible ~ .wk-tabs label{outline:2px solid var(--accent2);outline-offset:2px;}
 
   /* tab pill */
   .wk-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;}
@@ -336,7 +336,7 @@
   }
   .wk-tabs label:hover{border-color:var(--line2);color:var(--text);}
 
-  /* tab attiva (CSS-only) */
+  /* active tab (CSS-only) */
   #wk1:checked ~ .wk-tabs label[for="wk1"],
   #wk2:checked ~ .wk-tabs label[for="wk2"],
   #wk3:checked ~ .wk-tabs label[for="wk3"],
@@ -350,7 +350,7 @@
   #wk4:checked ~ .wk-tabs label[for="wk4"]::before,
   #wk5:checked ~ .wk-tabs label[for="wk5"]::before{background:#fff;}
 
-  /* pannelli settimana */
+  /* week panels */
   .wk-panel{display:none;}
   #wk1:checked ~ .diet-zone .wk1,
   #wk2:checked ~ .diet-zone .wk2,
@@ -358,7 +358,7 @@
   #wk4:checked ~ .diet-zone .wk4,
   #wk5:checked ~ .diet-zone .wk5{display:block;}
 
-  /* barra riepilogo settimana */
+  /* week summary bar */
   .wk-summary{
     background:var(--card);border:1px solid var(--line);border-radius:12px;
     padding:14px 20px;margin-bottom:18px;
@@ -373,7 +373,7 @@
     border-radius:999px;padding:6px 16px;
   }
 
-  /* griglia 7 giorni */
+  /* 7-day grid */
   .wk-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;}
 
   /* card giorno (filled) */
@@ -435,7 +435,7 @@
      non comprimibili che allargherebbero la tabella */
 
   /* tabella alimenti — layout fisso in BASE: il colgroup 47/53 deve essere
-     rispettato a tutte le larghezze, altrimenti la colonna P·G·C viene spinta
+     rispettato a tutte le larghezze, altrimenti la colonna P·F·C viene spinta
      fuori dalla card (overflow:hidden) → bug "Kcal mancanti" */
   table.foods{width:100%;max-width:100%;table-layout:fixed;border-collapse:collapse;}
   table.foods td{
@@ -444,40 +444,40 @@
        (e i badge inline) escono dalla cella e restano fuori vista */
     overflow-wrap:break-word;
   }
-  /* P·G·C agganciati al bordo DESTRO della cella (25/09): su desktop i numeri
-     erano a sinistra e lasciavano ~110px di vuoto a destra; tablet/phone
-     avevano già text-align:right, ora è uniforme su tutti i viewport */
+  /* P·F·C anchored to the RIGHT border of the cell (25/09): on desktop the numbers
+     were on the left leaving ~110px of empty space on the right; tablet/phone
+     already had text-align:right, now uniform across all viewports */
   .f-kcal{display:inline-block;white-space:nowrap;overflow-wrap:normal;margin-left:2px;flex:0 0 auto;}
   .kcal-u{font-size:10px;font-weight:700;color:var(--dim);margin-left:2px;white-space:nowrap;flex:0 0 auto;}
-  /* GRID a 2 righe — kcal SEMPRE in colonna 3 (destra), identica in ogni riga:
-     Riga 1: [icon] [nome (flex:1, max 2 righe)] [kcal] [Kc]
-     Riga 2: [porzione (flex:0 0 100%, sinistra, sotto l'icona)] */
-  /* FLEX 2 righe (non grid — la grid collassava il nome a 0px, bug 50/51/52/53).
-     25/09 — RISTRUTTURA: il gruppo kcal+"Kc" è UN SOLO elemento .fkcal
-     Riga 1: [icon] [nome (flex:1, 2 righe)] [kcal][Kc]   (Kc flex:0 0 auto,
-     agganciato al numero — sempre unito, mai spezzato: bug 53 chiuso)
-     Riga 2: [porzione (flex:0 0 100%, sempre sotto l'icona, mai inline)] */
+  /* 2-row GRID — kcal ALWAYS in column 3 (right), identical in every row:
+     Row 1: [icon] [name (flex:1, max 2 lines)] [kcal] [Kc]
+     Row 2: [portion (flex:0 0 100%, left, under the icon)] */
+  /* FLEX 2 rows (not grid — the grid collapsed the name to 0px, bug 50/51/52/53).
+     25/09 — RESTRUCTURE: the kcal+"Kc" group is a SINGLE element .fkcal
+     Row 1: [icon] [name (flex:1, 2 lines)] [kcal][Kc]   (Kc flex:0 0 auto,
+     anchored to the number — always joined, never broken: bug 53 closed)
+     Row 2: [portion (flex:0 0 100%, always under the icon, never inline)] */
   .f-lead{display:flex;flex-wrap:wrap;align-items:flex-start;column-gap:6px;row-gap:2px;min-width:0;max-width:100%;width:100%;}
   .f-lead .ficon{flex:0 0 auto;}
   .f-lead .f-lead-txt{flex:1 1 auto;min-width:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer;border-radius:3px;}
   .f-lead .f-lead-txt:hover{background:rgba(255,255,255,.045);}
   .f-lead .f-lead-txt:focus{outline:none;}
   .f-lead .f-lead-txt:focus-visible{outline:1px solid rgba(255,77,46,.55);outline-offset:2px;}
-  /* 25/09 — porzione: flex:0 0 auto (riga 2 fissa) + max-width:100%.
-     Il badge ha white-space:nowrap: se la porzione è più lunga della cella
-     (es. "1 cucchiaino · ~5 g" su desktop, bug 55.png) il box NON si espande
-     (la riga resta fissa) e il testo interno viene troncato SOTTO il bordo:
-     il badge non supera mai il bordo destro della cella. */
+  /* 25/09 — portion: flex:0 0 auto (fixed row 2) + max-width:100%.
+     The badge has white-space:nowrap: if the portion is longer than the cell
+     (e.g. "1 teaspoon · ~5 g" on desktop, bug 55.png) the box does NOT expand
+     (the row stays fixed) and the inner text is clipped BELOW the border:
+     the badge never exceeds the right border of the cell. */
   .f-lead > .fporz{flex:0 0 auto;margin-top:0;display:inline-block;max-width:100%;overflow:hidden;}
-  /* 25/09 — nome espandibile SENZA JS: tabindex su ogni .f-lead-txt (via sed).
-     Click/tap = :focus → espanso completo (line-clamp via); click fuori =
-     blur → richiuso. Solo l'elemento espanso occupa spazio extra (la cella
-     si allarga, le altre righe non si muovono). */
+  /* 25/09 — expandable name WITHOUT JS: tabindex on every .f-lead-txt (via sed).
+     Click/tap = :focus → fully expanded (line-clamp removed); click outside =
+     blur → collapsed. Only the expanded element takes extra space (the cell
+     expands, other rows don't move). */
   .f-lead .f-lead-txt:focus{display:block;-webkit-line-clamp:unset;-webkit-box-orient:initial;white-space:normal;overflow:visible;cursor:default;background:rgba(255,77,46,.06);}
-  /* Simmetria card giorno (25/09): .dc-detail e .dc-macro flex-grow:1 →
-     la card occupata si STIRA fino a eguagliare le altre della stessa
-     settimana (griglia auto-stretch), il riepilogo si aggancia al fondo e
-     l'aria va nella parte vuota. Niente layout fisso, niente JS. */
+  /* Day card symmetry (25/09): .dc-detail and .dc-macro flex-grow:1 →
+     the filled card STRETCHES to match the others of the same
+     week (auto-stretch grid), the summary anchors to the bottom and
+     the empty space fills the gap. No fixed layout, no JS. */
   .day-card > .dc-detail{display:flex;flex-direction:column;flex:1 1 auto;min-height:0;}
   .day-card > .dc-macro{flex:1 1 auto;margin-top:auto;}
   table.foods tr:last-child td{border-bottom:none;}
@@ -486,17 +486,17 @@
     background:var(--card);
     padding:7px 12px 4px;border-bottom:1px solid var(--line2);
     font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--text);
-    /* NB: qui NON display:flex — il contenuto inline-block non comprimibile
-       forzava la tabella (layout auto) a ~390px e la spingeva fuori dalla card */
+    /* NB: NOT display:flex here — the non-compressible inline-block content
+       forced the table (auto layout) to ~390px and pushed it out of the card */
     white-space:normal;word-break:break-word;
   }
-  /* BLOCK (non flex): .f-lead dentro è flex width:100% — se .f-item
-     restasse flex, la larghezza non si risolverebbe e il nome collasserebbe
-     → nome spezzato lettera per lettera (bug 50.png) */
+  /* BLOCK (not flex): .f-lead inside is flex width:100% — if .f-item
+     stayed flex, the width wouldn't resolve and the name would collapse
+     → name broken letter by letter (bug 50.png) */
   .f-item{display:block;width:100%;min-width:0;overflow:hidden;max-width:100%;}
   .f-item > div{min-width:0;}
-  /* NB: word-break:break-word MAI qui né su .f-lead-txt — permette lo spezzamento
-     lettera per lettera quando la colonna è stretta (bug 50/51.png). */
+  /* NB: word-break:break-word NEVER here or on .f-lead-txt — allows breaking
+     letter by letter when the column is narrow (bug 50/51.png). */
   .f-item .fname{overflow-wrap:normal;}
   .f-item .ficon{font-size:16px;line-height:1.2;flex:0 0 auto;}
   .f-item .fporz{
@@ -509,12 +509,12 @@
   .f-kcol{white-space:normal;}
   .f-kcal{font-weight:800;font-variant-numeric:tabular-nums;color:var(--text);min-width:0;}
   .f-mcol{min-width:0;text-align:right;}
-  /* P·G·C agganciati al bordo DESTRO della cella (25/09): su desktop i numeri
-     erano a sinistra e lasciavano ~110px di vuoto a destra; tablet/phone
-     avevano già text-align:right, ora è uniforme su tutti i viewport */
-  /* COLONNA P·G·C FISSA: 3 righe verticali, ogni valore sulla sua riga.
-     Il separatore "·" diventa un interlinea nascosto (display:block + font-size:0)
-     → niente scivolamento da una riga all'altra, altezza identica in ogni riga */
+  /* P·F·C anchored to the RIGHT border of the cell (25/09): on desktop the numbers
+     were on the left leaving ~110px of empty space on the right; tablet/phone
+     already had text-align:right, now uniform across all viewports */
+  /* FIXED P·F·C COLUMN: 3 vertical lines, each value on its own line.
+     The separator "·" becomes a hidden interline (display:block + font-size:0)
+     → no shifting between lines, identical height in every row */
   .f-macros{font-variant-numeric:tabular-nums;font-size:11px;color:var(--muted);min-width:0;overflow:hidden;
     white-space:nowrap;line-height:1.5;}
   .f-macros .sep{display:block;width:100%;font-size:0;line-height:0;height:0;margin:0;}
@@ -652,7 +652,7 @@
     table.comp td.val{border-right:1px solid var(--line);}
     table.comp td.stat-col .st{font-size:10.5px;}
 
-    /* DIARIO: griglia 1 colonna (ogni giorno card piena, in verticale) */
+    /* DIARY: 1-column grid (each day a full card, stacked vertically) */
     .wk-grid{grid-template-columns:1fr;}
 
     /* pesature su phone: tab e summary a tutto width */
@@ -699,48 +699,48 @@
 <nav class="topnav">
   <div class="wrap">
     <span class="brand">Nom<span class="stroke">e</span></span>
-    <a href="#week">Settimana</a>
-    <a href="#force">Forza</a>
+    <a href="#week">Week</a>
+    <a href="#force">Strength</a>
     <a href="#cardio">Cardio</a>
-    <a href="#bodycomp">Corpo</a>
-    <a href="#diario">Diario</a>
+    <a href="#bodycomp">Body</a>
+    <a href="#diary">Meal Log</a>
   </div>
 </nav>
 
 <!-- ============ HERO ============ -->
 <header>
   <div class="wrap hero">
-    <span class="eyebrow">Scheda Allenamento &amp; Body Composition</span>
+    <span class="eyebrow">Workout Plan & Body Composition</span>
     <h1>Nom<span class="stroke">e</span></h1>
-    <p class="sub">Protocollo di allenamento settimanale, dati antropometrici e diario alimentare. Documento condiviso per l'analisi nutrizionale.</p>
+    <p class="sub">Weekly workout protocol, body composition data, and meal log. Shared document for nutritional analysis.</p>
     <div class="hero-chips">
       <span class="chip"><span class="dot" style="background:var(--accent)"></span>Misurazione <b>GG / MM / AAAA</b></span>
-      <!-- NB: i chip hero riflettono SEMPRE l'ultima pesatura (non reagiscono alle tab) -->
-      <span class="chip"><span class="dot" style="background:var(--accent2)"></span>Peso <b>XX.XX kg</b></span>
+      <!-- NB: hero chips ALWAYS reflect the latest weigh-in (don't react to tabs) -->
+      <span class="chip"><span class="dot" style="background:var(--accent2)"></span>Weight <b>XX.XX kg</b></span>
       <span class="chip"><span class="dot" style="background:var(--blue)"></span>BMI <b>XX.X</b></span>
-      <span class="chip"><span class="dot" style="background:var(--green)"></span>Grasso corporeo <b>XX.X%</b></span>
-      <span class="chip"><span class="dot" style="background:var(--dim)"></span>Obiettivo <b>da definire</b></span>
+      <span class="chip"><span class="dot" style="background:var(--green)"></span>Body fat <b>XX.X%</b></span>
+      <span class="chip"><span class="dot" style="background:var(--dim)"></span>Goal <b>to be set</b></span>
     </div>
   </div>
 </header>
 
-<!-- ============ STRISSETTIMANA ============ -->
+<!-- ============ STRIPE-WEEK ============ -->
 <section id="week">
   <div class="wrap">
     <div class="sec-head">
       <span class="num">01</span>
-      <h2>Settimana Tipo</h2>
+      <h2>Typical Week</h2>
       <div class="rule"></div>
-      <span class="tag">6 giorni attivi</span>
+      <span class="tag">6 active days</span>
     </div>
     <div class="weekstrip">
-      <div class="day-pill strength"><div class="dname">Lun</div><div class="dtype">Forza</div></div>
-      <div class="day-pill cardio"><div class="dname">Mar</div><div class="dtype">Cardio</div></div>
-      <div class="day-pill strength"><div class="dname">Mer</div><div class="dtype">Forza</div></div>
-      <div class="day-pill cardio"><div class="dname">Gio</div><div class="dtype">Cardio</div></div>
-      <div class="day-pill strength"><div class="dname">Ven</div><div class="dtype">Forza</div></div>
-      <div class="day-pill cardio"><div class="dname">Sab</div><div class="dtype">Cardio</div></div>
-      <div class="day-pill rest"><div class="dname">Dom</div><div class="dtype">Riposo</div></div>
+      <div class="day-pill strength"><div class="dname">Mon</div><div class="dtype">Strength</div></div>
+      <div class="day-pill cardio"><div class="dname">Tue</div><div class="dtype">Cardio</div></div>
+      <div class="day-pill strength"><div class="dname">Wed</div><div class="dtype">Strength</div></div>
+      <div class="day-pill cardio"><div class="dname">Thu</div><div class="dtype">Cardio</div></div>
+      <div class="day-pill strength"><div class="dname">Fri</div><div class="dtype">Strength</div></div>
+      <div class="day-pill cardio"><div class="dname">Sat</div><div class="dtype">Cardio</div></div>
+      <div class="day-pill rest"><div class="dname">Sun</div><div class="dtype">Riposo</div></div>
     </div>
   </div>
 </section>
@@ -750,24 +750,24 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="num">02</span>
-      <h2>Allenamento di Forza</h2>
+      <h2>Strength Training</h2>
       <div class="rule"></div>
-      <span class="tag">Calisthenics · 4 serie per esercizio</span>
+      <span class="tag">Calisthenics · 4 sets per exercise</span>
     </div>
 
     <div class="force-grid">
 
-      <!-- LUNEDI -->
+      <!-- MONDAY -->
       <div class="fcard">
         <div class="fhead">
           <div>
-            <div class="fname">Lunedì</div>
+            <div class="fname">Monday</div>
             <div class="fnote">Spinte / Trazione / Core</div>
           </div>
           <div class="fcount">7 esercizi</div>
         </div>
         <table class="ex">
-          <thead><tr><th>Esercizio</th><th>Set</th><th>Ripetizioni</th></tr></thead>
+          <thead><tr><th>Exercise</th><th>Set</th><th>Reps</th></tr></thead>
           <tbody>
             <tr><td class="name">Pike Push-Ups</td><td class="set">4</td><td class="rep">6–10<span class="u">rip</span></td></tr>
             <tr><td class="name">Tricep Extensions</td><td class="set">4</td><td class="rep">6–8<span class="u">rip</span></td></tr>
@@ -780,17 +780,17 @@
         </table>
       </div>
 
-      <!-- MERCOLEDI -->
+      <!-- WEDNESDAY -->
       <div class="fcard">
         <div class="fhead">
           <div>
-            <div class="fname">Mercoledì</div>
+            <div class="fname">Wednesday</div>
             <div class="fnote">Tricipiti / Dorsali / Core</div>
           </div>
           <div class="fcount">7 esercizi</div>
         </div>
         <table class="ex">
-          <thead><tr><th>Esercizio</th><th>Set</th><th>Ripetizioni</th></tr></thead>
+          <thead><tr><th>Exercise</th><th>Set</th><th>Reps</th></tr></thead>
           <tbody>
             <tr><td class="name">Diamond Push-Ups</td><td class="set">4</td><td class="rep">3–12<span class="u">rip</span></td></tr>
             <tr><td class="name">Pike Walks</td><td class="set">4</td><td class="rep">3–5<span class="u">rip</span></td></tr>
@@ -798,22 +798,22 @@
             <tr><td class="name">Sleep Rows</td><td class="set">4</td><td class="rep">6–10<span class="u">rip</span></td></tr>
             <tr><td class="name">Hollow Body Hold</td><td class="set">4</td><td class="rep">30–45<span class="u">sec</span></td></tr>
             <tr><td class="name">Superman Hold</td><td class="set">4</td><td class="rep">30–45<span class="u">sec</span></td></tr>
-            <tr><td class="name">Lunges</td><td class="set">4</td><td class="rep">10–20<span class="u">rip</span></td></tr>
+            <tr><td class="name">Monges</td><td class="set">4</td><td class="rep">10–20<span class="u">rip</span></td></tr>
           </tbody>
         </table>
       </div>
 
-      <!-- VENERDI -->
+      <!-- FRIDAY -->
       <div class="fcard">
         <div class="fhead">
           <div>
-            <div class="fname">Venerdì</div>
+            <div class="fname">Friday</div>
             <div class="fnote">Spinte / Trazione / Core</div>
           </div>
           <div class="fcount">7 esercizi</div>
         </div>
         <table class="ex">
-          <thead><tr><th>Esercizio</th><th>Set</th><th>Ripetizioni</th></tr></thead>
+          <thead><tr><th>Exercise</th><th>Set</th><th>Reps</th></tr></thead>
           <tbody>
             <tr><td class="name">Bench Dips</td><td class="set">4</td><td class="rep">8–15<span class="u">rip</span></td></tr>
             <tr><td class="name">Push-Ups</td><td class="set">4</td><td class="rep">8–15<span class="u">rip</span></td></tr>
@@ -821,7 +821,7 @@
             <tr><td class="name">Towel Row</td><td class="set">4</td><td class="rep">8–12<span class="u">rip</span></td></tr>
             <tr><td class="name">Floor Windshield Wipes</td><td class="set">4</td><td class="rep">8–16<span class="u">rip</span></td></tr>
             <tr><td class="name">Plank</td><td class="set">4</td><td class="rep">30–45<span class="u">sec</span></td></tr>
-            <tr><td class="name">Side Lunges</td><td class="set">4</td><td class="rep">8–16<span class="u">rip</span></td></tr>
+            <tr><td class="name">Side Monges</td><td class="set">4</td><td class="rep">8–16<span class="u">rip</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -835,22 +835,22 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="num">03</span>
-      <h2>Allenamento Aerobico</h2>
+      <h2>Cardio Workout</h2>
       <div class="rule"></div>
-      <span class="tag">Martedì, Giovedì &amp; Sabato</span>
+      <span class="tag">Tuesday, Thursday &amp; Saturday</span>
     </div>
 
     <div class="cardio-card">
       <div class="cardio-top">
-        <h3><span class="ico">🔥</span> Salto della Corda</h3>
-        <span class="badge">30 min di lavoro totale</span>
+        <h3><span class="ico">🔥</span> Jump Rope</h3>
+        <span class="badge">30 min total work</span>
       </div>
 
       <div class="intervals">
         <div class="interval">
           <div class="round">Round 1</div>
           <div class="mins">10<small> min</small></div>
-          <div class="lbl">Salto corda</div>
+          <div class="lbl">Jump rope</div>
         </div>
         <div class="interval rest-i">
           <div class="round">Recupero</div>
@@ -860,7 +860,7 @@
         <div class="interval">
           <div class="round">Round 2</div>
           <div class="mins">10<small> min</small></div>
-          <div class="lbl">Salto corda</div>
+          <div class="lbl">Jump rope</div>
         </div>
         <div class="interval rest-i">
           <div class="round">Recupero</div>
@@ -870,11 +870,11 @@
         <div class="interval">
           <div class="round">Round 3</div>
           <div class="mins">10<small> min</small></div>
-          <div class="lbl">Salto corda</div>
+          <div class="lbl">Jump rope</div>
         </div>
       </div>
 
-      <p class="cardio-note">Struttura: <b>3 blocchi da 10 minuti</b> di salto della corda con <b>2 minuti di pausa</b> tra un blocco e l'altro. Ripetuta il <b>martedì</b>, il <b>giovedì</b> e il <b>sabato</b>.</p>
+      <p class="cardio-note">Structure: <b>3 blocks of 10 minutes</b> of jump rope with <b>2 minutes rest</b> between blocks. Repeated on <b>Tuesday</b>, <b>Thursday</b> and <b>Saturday</b>.</p>
     </div>
   </div>
 </section>
@@ -884,104 +884,104 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="num">04</span>
-      <h2>Composizione Corporea</h2>
+      <h2>Body Composition</h2>
       <div class="rule"></div>
-      <span class="tag">Bilancia · ogni settimana</span>
+      <span class="tag">Scale · every week</span>
     </div>
 
     <!--
-      CARTE PESAURE (senza JS, solo CSS — stessa meccanica del diario):
-      - un <input type="radio" name="pz" id="pzN"> (sibling di .pz-tabs e .pz-zone, DENTRO .wrap)
-      - regola CSS: #pzN:checked ~ .pz-zone .pzN { display:block; }
-      - WORKFLOW OGNI VENERDÌ: 1) il vecchio pz1 diventa il nuovo pz2 (copia il pannello, rinomina, svuota .delta)
-        2) il nuovo pz1 prende i valori del report della bilancia (foto pesatura_XX_YY.jpg) 3) Δ = pz1 − pz2 (peso, BMI, % grasso, muscoli, BMR, età metab.)
-        4) aggiungo radio+label pzN+regola CSS (pz1, pz2, … estensione: lista multi-selezione) 5) aggiorno tab (contatore), pz-hist, chip hero, footer
-      - l'ultima pesatura è SEMPRE pz1 (in cima, checked); le precedenti = archivio in ordine cronologico inverso
-      - le .delta sulle stat mostrano la variazione rispetto alla pesatura precedente (verde = down su peso/grasso/muscoli, rosso = up; grigio = invariato)
+      WEIGH-IN CARDS (no JS, CSS only — same mechanics as the meal log):
+      - one <input type="radio" name="pz" id="pzN"> (sibling of .pz-tabs and .pz-zone, INSIDE .wrap)
+      - CSS rule: #pzN:checked ~ .pz-zone .pzN { display:block; }
+      - WORKFLOW EVERY FRIDAY: 1) the old pz1 becomes the new pz2 (copy the panel, rename, clear .delta)
+        2) the new pz1 takes values from the scale report (photo pesatura_XX_YY.jpg) 3) Δ = pz1 − pz2 (weight, BMI, % fat, muscles, BMR, metabolic age)
+        4) add radio+label pzN+CSS rule (pz1, pz2, … extension: multi-select list) 5) update tab (counter), pz-hist, hero chip, footer
+      - the latest weigh-in is ALWAYS pz1 (on top, checked); previous ones = archive in reverse chronological order
+      - the .delta on stats show the change vs the previous weigh-in (green = down on weight/fat/muscles, red = up; grey = unchanged)
     -->
     <input type="radio" name="pz" id="pz1" checked>
 
     <div class="pz-tabs">
-      <label for="pz1">Pesatura · GG/MM/AAAA (1)</label>
+      <label for="pz1">Weigh-in · MM/DD/YYYY (1)</label>
     </div>
 
     <div class="pz-zone">
 
-      <!-- ===== PZ1 — pesatura ATTIVA (valori dal report bilancia: foto pesatura_XX_YY.jpg) ===== -->
+      <!-- ===== PZ1 — ACTIVE WEIGH-IN (values from scale report: photo pesatura_XX_YY.jpg) ===== -->
       <div class="pz-panel pz1">
         <div class="pz-summary">
-          <span class="ps-title">Pesatura attiva · GG/MM/AAAA</span>
-          <span class="ps-note">primo tracking</span>
-          <span class="ps-delta">Δ Peso — </span>
+          <span class="ps-title">Active weigh-in · MM/DD/YYYY</span>
+          <span class="ps-note">first tracking</span>
+          <span class="ps-delta">Δ Weight — </span>
         </div>
-        <!-- stat chiave -->
+        <!-- key stats -->
         <div class="stats-grid">
-      <div class="stat"><div class="k">Peso</div><div class="v">XX.XX<small> kg</small></div><div class="s"><span class="st nella">Nella media</span></div><div class="delta flat"><i>—</i> —</div></div>
-      <div class="stat"><div class="k">BMI</div><div class="v">XX.X</div><div class="s"><span class="st nella">Nella media</span></div><div class="delta flat"><i>—</i> —</div>
-      <div class="stat"><div class="k">Grasso corporeo</div><div class="v">XX.X<small> %</small></div><div class="s"><span class="st nella">Nella media</span></div><div class="delta flat"><i>—</i> —</div>
-      <div class="stat"><div class="k">Massa muscolare</div><div class="v">XX.XX<small> kg</small></div><div class="s"><span class="st nella">Nella media</span></div><div class="delta flat"><i>—</i> —</div>
-      <div class="stat"><div class="k">BMR</div><div class="v">XXXX<small> kcal</small></div><div class="s"><span class="st nella">Nella media</span></div><div class="delta flat"><i>—</i> —</div>
-      <div class="stat"><div class="k">Età metabolica</div><div class="v">XX</div><div class="s"><span class="st nella">Nella media</span></div><div class="delta flat"><i>—</i> —</div>
+      <div class="stat"><div class="k">Weight</div><div class="v">XX.XX<small> kg</small></div><div class="s"><span class="st nella">In range</span></div><div class="delta flat"><i>—</i> —</div></div>
+      <div class="stat"><div class="k">BMI</div><div class="v">XX.X</div><div class="s"><span class="st nella">In range</span></div><div class="delta flat"><i>—</i> —</div>
+      <div class="stat"><div class="k">Body fat</div><div class="v">XX.X<small> %</small></div><div class="s"><span class="st nella">In range</span></div><div class="delta flat"><i>—</i> —</div>
+      <div class="stat"><div class="k">Muscle mass</div><div class="v">XX.XX<small> kg</small></div><div class="s"><span class="st nella">In range</span></div><div class="delta flat"><i>—</i> —</div>
+      <div class="stat"><div class="k">BMR</div><div class="v">XXXX<small> kcal</small></div><div class="s"><span class="st nella">In range</span></div><div class="delta flat"><i>—</i> —</div>
+      <div class="stat"><div class="k">Metabolic age</div><div class="v">XX</div><div class="s"><span class="st nella">In range</span></div><div class="delta flat"><i>—</i> —</div>
     </div>
 
-    <!-- tabella completa -->
+    <!-- full table -->
     <table class="comp">
       <thead>
-        <tr><th>Parametro</th><th>Valore</th><th>Stato</th></tr>
+        <tr><th>Parameter</th><th>Value</th><th>Status</th></tr>
       </thead>
       <tbody>
-        <tr><td class="param">Peso</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
-        <tr><td class="param">BMI<small>Indice massa corporea</small></td><td class="val">XX.X</td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
-        <tr><td class="param">Percentuale di grasso corporeo</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st alto">Alto</span></td></tr>
-        <tr><td class="param">Massa grassa corporea</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st alto">Alto</span></td></tr>
-        <tr><td class="param">Grasso sottocutaneo</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
-        <tr><td class="param">Grasso viscerale</td><td class="val">X</td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
-        <tr><td class="param">Percentuale muscolare</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
-        <tr><td class="param">Massa muscolare</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
-        <tr><td class="param">Percentuale muscolo-scheletrica</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
-        <tr><td class="param">Massa muscolare scheletrica</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
-        <tr><td class="param">Percentuale ossea</td><td class="val">X.X<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
-        <tr><td class="param">Massa ossea</td><td class="val">X.XX<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
-        <tr><td class="param">Peso corporeo senza grassi</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
-        <tr><td class="param">Età metabolica</td><td class="val">XX</td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
-        <tr><td class="param">BMR<small>Metabolismo basale</small></td><td class="val">XXXX<span class="u">kcal</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
-        <tr><td class="param">Percentuale di acqua corporea</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
-        <tr><td class="param">Massa di acqua corporea</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
-        <tr><td class="param">Percentuale proteica</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
-        <tr><td class="param">Massa proteica</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Weight</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
+        <tr><td class="param">BMI<small>Body Mass Index</small></td><td class="val">XX.X</td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
+        <tr><td class="param">Body fat percentage</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st alto">High</span></td></tr>
+        <tr><td class="param">Body fat mass</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st alto">High</span></td></tr>
+        <tr><td class="param">Subcutaneous fat</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
+        <tr><td class="param">Visceral fat</td><td class="val">X</td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Muscle percentage</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Muscle mass</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Skeletal muscle percentage</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st sotto">Below average</span></td></tr>
+        <tr><td class="param">Skeletal muscle mass</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st sotto">Below average</span></td></tr>
+        <tr><td class="param">Bone percentage</td><td class="val">X.X<span class="u">%</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Bone mass</td><td class="val">X.XX<span class="u">kg</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Fat-free body weight</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
+        <tr><td class="param">Metabolic age</td><td class="val">XX</td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
+        <tr><td class="param">BMR<small>Basal Metabolism</small></td><td class="val">XXXX<span class="u">kcal</span></td><td class="stat-col"><span class="st sotto">Below average</span></td></tr>
+        <tr><td class="param">Body water percentage</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Body water mass</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Protein percentage</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Protein mass</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
       </tbody>
     </table>
     <div class="pz-hist">
-      <b>Archivio pesature</b>
-      <span>Pesatura 1 · <span class="hv">GG/MM/AAAA</span> · <span class="hv">XX.XX kg</span></span>
+      <b>Weigh-in archive</b>
+      <span>Weigh-in 1 · <span class="hv">MM/DD/YYYY</span> · <span class="hv">XX.XX kg</span></span>
     </div>
       </div>    </div><!-- /.pz-zone -->
 
     <div class="legend">
-      <span class="li"><span class="st nella">Nella media</span></span>
-      <span class="li"><span class="st sotto">Sotto la media</span></span>
-      <span class="li"><span class="st sopra">Sopra la media</span></span>
-      <span class="li"><span class="st alto">Alto</span></span>
+      <span class="li"><span class="st nella">In range</span></span>
+      <span class="li"><span class="st sotto">Below average</span></span>
+      <span class="li"><span class="st sopra">Above average</span></span>
+      <span class="li"><span class="st alto">High</span></span>
     </div>
   </div>
 </section>
 
-<!-- ============ DIARIO ALIMENTAZIONE ============ -->
-<section id="diario">
+<!-- ============ MEAL LOG ============ -->
+<section id="diary">
   <div class="wrap">
     <div class="sec-head">
       <span class="num">05</span>
-      <h2>Diario Alimentazione</h2>
+      <h2>Meal Log</h2>
       <div class="rule"></div>
-      <span class="tag">Settimanale · Macro per giornata</span>
+      <span class="tag">Weekle · Macro per giornata</span>
     </div>
 
     <!--
       CAROSELLO SETTIMANE (senza JS, solo CSS):
       - un <input type="radio" name="wk" id="wkN"> (sibling di .wk-tabs e .diet-zone)
       - regola CSS: #wkN:checked ~ .diet-zone .wkN { display:block; }
-      - per aggiungere una settimana: duplica radio + label + pannello .wkN + regola CSS
-      - ogni settimana = barra riepilogo + griglia 7 giorni (Lun→Dom)
+      - per aggiungere una week: duplica radio + label + pannello .wkN + regola CSS
+      - each week = summary bar + 7-day grid (Mon→Sun)
       - giorno compilato = &lt;details class="day-card"&gt; (clic per espandere i pasti)
       - giorno da compilare = &lt;div class="day-card empty"&gt; (placeholder)
     -->
@@ -992,11 +992,11 @@
     <input type="radio" name="wk" id="wk5">
 
     <div class="wk-tabs">
-      <label for="wk1">Settimana 1 · 14–20 / 09 / 2026</label>
-      <label for="wk2">Settimana 2 · 21–27 / 09 / 2026</label>
-      <label for="wk3">Settimana 3 · 28 / 09 – 04 / 10 / 2026</label>
-      <label for="wk4">Settimana 4 · 05–11 / 10 / 2026</label>
-      <label for="wk5">Settimana 5 · 12–18 / 10 / 2026</label>
+      <label for="wk1">Week 1 · 14–20 / 09 / 2026</label>
+      <label for="wk2">Week 2 · 21–27 / 09 / 2026</label>
+      <label for="wk3">Week 3 · 28 / 09 – 04 / 10 / 2026</label>
+      <label for="wk4">Week 4 · 05–11 / 10 / 2026</label>
+      <label for="wk5">Week 5 · 12–18 / 10 / 2026</label>
     </div>
 
     <div class="diet-zone">
@@ -1004,37 +1004,37 @@
       <!-- ===== SETTIMANA 1 (14–20/09) ===== -->
       <div class="wk-panel wk1">
         <div class="wk-summary">
-          <span class="ws-title">Settimana 1 · 14–20 / 09 / 2026</span>
-          <span class="ws-days">0 / 7 giorni registrati</span>
-          <span class="ws-total">Totale sett. —</span>
+          <span class="ws-title">Week 1 · 14–20 / 09 / 2026</span>
+          <span class="ws-days">0 / 7 days logged</span>
+          <span class="ws-total">Week total —</span>
         </div>
         <div class="wk-grid">
 
-          <!-- LUNEDÌ 14/09 — placeholder (settimana 1) -->
-                    <!-- LUN — ESEMPIO RIMOSSO: inserire un details.day-card compilato -->
-          <div class="day-card empty"><span class="dc-day">Lun</span><span class="dc-date">14 / 09</span><span class="dc-dash">—</span></div>
+          <!-- MONDAY 14/09 — placeholder (week 1) -->
+                    <!-- LUN — EXAMPLE REMOVED: insert a filled details.day-card -->
+          <div class="day-card empty"><span class="dc-day">Mon</span><span class="dc-date">14 / 09</span><span class="dc-dash">—</span></div>
 
 
-          <!-- MARTEDÌ 15/09 — placeholder (settimana 1) -->
-                    <!-- MAR — ESEMPIO RIMOSSO: inserire un details.day-card compilato -->
-          <div class="day-card empty"><span class="dc-day">Mar</span><span class="dc-date">15 / 09</span><span class="dc-dash">—</span></div>
+          <!-- TUESDAY 15/09 — placeholder (week 1) -->
+                    <!-- MAR — EXAMPLE REMOVED: insert a filled details.day-card -->
+          <div class="day-card empty"><span class="dc-day">Tue</span><span class="dc-date">15 / 09</span><span class="dc-dash">—</span></div>
 
-          <!-- MERCOLEDÌ 16/09 — placeholder (settimana 1) -->
-                    <!-- MER — ESEMPIO RIMOSSO: inserire un details.day-card compilato -->
-          <div class="day-card empty"><span class="dc-day">Mer</span><span class="dc-date">16 / 09</span><span class="dc-dash">—</span></div>
+          <!-- WEDNESDAY 16/09 — placeholder (week 1) -->
+                    <!-- MER — EXAMPLE REMOVED: insert a filled details.day-card -->
+          <div class="day-card empty"><span class="dc-day">Wed</span><span class="dc-date">16 / 09</span><span class="dc-dash">—</span></div>
 
-          <!-- GIOVEDÌ 17/09 — placeholder (settimana 1) -->
-                    <!-- GIO — ESEMPIO RIMOSSO: inserire un details.day-card compilato -->
-          <div class="day-card empty"><span class="dc-day">Gio</span><span class="dc-date">17 / 09</span><span class="dc-dash">—</span></div>
+          <!-- THURSDAY 17/09 — placeholder (week 1) -->
+                    <!-- GIO — EXAMPLE REMOVED: insert a filled details.day-card -->
+          <div class="day-card empty"><span class="dc-day">Thu</span><span class="dc-date">17 / 09</span><span class="dc-dash">—</span></div>
 
-          <!-- VENERDÌ — ESEMPIO RIMOSSO: placeholder -->
-                    <!-- VEN — ESEMPIO RIMOSSO: inserire un details.day-card compilato -->
-          <div class="day-card empty"><span class="dc-day">Ven</span><span class="dc-date">18 / 09</span><span class="dc-dash">—</span></div>
+          <!-- FRIDAY — EXAMPLE REMOVED: placeholder -->
+                    <!-- VEN — EXAMPLE REMOVED: insert a filled details.day-card -->
+          <div class="day-card empty"><span class="dc-day">Fri</span><span class="dc-date">18 / 09</span><span class="dc-dash">—</span></div>
 
-          <!-- SABATO 19/09 — placeholder -->
-          <div class="day-card empty"><span class="dc-day">Sab</span><span class="dc-date">19 / 09</span><span class="dc-dash">—</span></div>
-          <!-- DOMENICA 20/09 — placeholder -->
-          <div class="day-card empty"><span class="dc-day">Dom</span><span class="dc-date">20 / 09</span><span class="dc-dash">—</span></div>
+          <!-- SATURDAY 19/09 — placeholder -->
+          <div class="day-card empty"><span class="dc-day">Sat</span><span class="dc-date">19 / 09</span><span class="dc-dash">—</span></div>
+          <!-- SUNDAY 20/09 — placeholder -->
+          <div class="day-card empty"><span class="dc-day">Sun</span><span class="dc-date">20 / 09</span><span class="dc-dash">—</span></div>
 
         </div>
       </div>
@@ -1042,72 +1042,72 @@
       <!-- ===== SETTIMANA 2 (21–27/09) ===== -->
       <div class="wk-panel wk2">
         <div class="wk-summary">
-          <span class="ws-title">Settimana 2 · 21–27 / 09 / 2026</span>
-          <span class="ws-days">0 / 7 giorni registrati</span>
-          <span class="ws-total">Totale sett. —</span>
+          <span class="ws-title">Week 2 · 21–27 / 09 / 2026</span>
+          <span class="ws-days">0 / 7 days logged</span>
+          <span class="ws-total">Week total —</span>
         </div>
         <div class="wk-grid">
-          <div class="day-card empty"><span class="dc-day">Lun</span><span class="dc-date">21 / 09</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Mar</span><span class="dc-date">22 / 09</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Mer</span><span class="dc-date">23 / 09</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Gio</span><span class="dc-date">24 / 09</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Ven</span><span class="dc-date">25 / 09</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Sab</span><span class="dc-date">26 / 09</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Dom</span><span class="dc-date">27 / 09</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Mon</span><span class="dc-date">21 / 09</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Tue</span><span class="dc-date">22 / 09</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Wed</span><span class="dc-date">23 / 09</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Thu</span><span class="dc-date">24 / 09</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Fri</span><span class="dc-date">25 / 09</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Sat</span><span class="dc-date">26 / 09</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Sun</span><span class="dc-date">27 / 09</span><span class="dc-dash">—</span></div>
         </div>
       </div>
 
       <!-- ===== SETTIMANA 3 (28/09–04/10) ===== -->
       <div class="wk-panel wk3">
         <div class="wk-summary">
-          <span class="ws-title">Settimana 3 · 28 / 09 – 04 / 10 / 2026</span>
-          <span class="ws-days">0 / 7 giorni registrati</span>
-          <span class="ws-total">Totale sett. —</span>
+          <span class="ws-title">Week 3 · 28 / 09 – 04 / 10 / 2026</span>
+          <span class="ws-days">0 / 7 days logged</span>
+          <span class="ws-total">Week total —</span>
         </div>
         <div class="wk-grid">
-          <div class="day-card empty"><span class="dc-day">Lun</span><span class="dc-date">28 / 09</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Mar</span><span class="dc-date">29 / 09</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Mer</span><span class="dc-date">30 / 09</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Gio</span><span class="dc-date">01 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Ven</span><span class="dc-date">02 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Sab</span><span class="dc-date">03 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Dom</span><span class="dc-date">04 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Mon</span><span class="dc-date">28 / 09</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Tue</span><span class="dc-date">29 / 09</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Wed</span><span class="dc-date">30 / 09</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Thu</span><span class="dc-date">01 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Fri</span><span class="dc-date">02 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Sat</span><span class="dc-date">03 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Sun</span><span class="dc-date">04 / 10</span><span class="dc-dash">—</span></div>
         </div>
       </div>
 
       <!-- ===== SETTIMANA 4 (05–11/10) ===== -->
       <div class="wk-panel wk4">
         <div class="wk-summary">
-          <span class="ws-title">Settimana 4 · 05–11 / 10 / 2026</span>
-          <span class="ws-days">0 / 7 giorni registrati</span>
-          <span class="ws-total">Totale sett. —</span>
+          <span class="ws-title">Week 4 · 05–11 / 10 / 2026</span>
+          <span class="ws-days">0 / 7 days logged</span>
+          <span class="ws-total">Week total —</span>
         </div>
         <div class="wk-grid">
-          <div class="day-card empty"><span class="dc-day">Lun</span><span class="dc-date">05 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Mar</span><span class="dc-date">06 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Mer</span><span class="dc-date">07 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Gio</span><span class="dc-date">08 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Ven</span><span class="dc-date">09 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Sab</span><span class="dc-date">10 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Dom</span><span class="dc-date">11 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Mon</span><span class="dc-date">05 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Tue</span><span class="dc-date">06 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Wed</span><span class="dc-date">07 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Thu</span><span class="dc-date">08 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Fri</span><span class="dc-date">09 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Sat</span><span class="dc-date">10 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Sun</span><span class="dc-date">11 / 10</span><span class="dc-dash">—</span></div>
         </div>
       </div>
 
       <!-- ===== SETTIMANA 5 (12–18/10) ===== -->
       <div class="wk-panel wk5">
         <div class="wk-summary">
-          <span class="ws-title">Settimana 5 · 12–18 / 10 / 2026</span>
-          <span class="ws-days">0 / 7 giorni registrati</span>
-          <span class="ws-total">Totale sett. —</span>
+          <span class="ws-title">Week 5 · 12–18 / 10 / 2026</span>
+          <span class="ws-days">0 / 7 days logged</span>
+          <span class="ws-total">Week total —</span>
         </div>
         <div class="wk-grid">
-          <div class="day-card empty"><span class="dc-day">Lun</span><span class="dc-date">12 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Mar</span><span class="dc-date">13 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Mer</span><span class="dc-date">14 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Gio</span><span class="dc-date">15 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Ven</span><span class="dc-date">16 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Sab</span><span class="dc-date">17 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Dom</span><span class="dc-date">18 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Mon</span><span class="dc-date">12 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Tue</span><span class="dc-date">13 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Wed</span><span class="dc-date">14 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Thu</span><span class="dc-date">15 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Fri</span><span class="dc-date">16 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Sat</span><span class="dc-date">17 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Sun</span><span class="dc-date">18 / 10</span><span class="dc-dash">—</span></div>
         </div>
       </div>
 
@@ -1119,8 +1119,8 @@
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
-    <span><b>Nome</b> · Scheda allenamento, body composition &amp; diario alimentazione</span>
-    <span>Dati bilancia: GG/MM/AAAA · Diario: da compilare · Template da personalizzare</span>
+    <span><b>Nome</b> · Workout plan, body composition & meal log</span>
+    <span>Scale data: MM/DD/YYYY · Meal log: to be filled · Template to customize</span>
   </div>
 </footer>
 

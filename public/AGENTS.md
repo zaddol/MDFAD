@@ -1,117 +1,117 @@
-# Contesto di progetto — AI-Editable Nutrition & Fitness Tracker
+# Project Context — AI-Editable Nutrition & Fitness Tracker
 
-> Caricato automaticamente dall'agente AI (es. **pi**) a ogni sessione. Qui sta il **come** (workflow, struttura, convenzioni).
-> I **dati** (pesature, allenamento, body comp, dieta) vivono in `tracker.html` e `macro-analisi.md`: leggerli quando servono, non duplicarli qui.
-> Questa cartella NON usa tool esterni: tutte le memorie vivono nei file scritti qui (AGENTS.md, macro-analisi.md). Non serve un backend: il "database" è HTML + Markdown, modificato dall'agente.
+> Automatically loaded by the AI agent (e.g. **pi**) at every session. This file holds the **how** (workflow, structure, conventions).
+> The **data** (weigh-ins, workouts, body comp, diet) lives in `tracker.html` and `macro-analisi.md`: read them when needed, don't duplicate them here.
+> This folder doesn't use external tools: all memory lives in the files written here (AGENTS.md, macro-analisi.md). No backend needed: the "database" is HTML + Markdown, modified by the agent.
 
-> ⚠️ **REGOLA VINCOLANTE**: provare le modifiche in un file `test-*.html` di lavoro (copia di `tracker.html`), poi portarle in `tracker.html` **solo dopo conferma dell'utente**. Mai toccare il file principale senza conferma esplicita.
+> ⚠️ **BINDING RULE**: test changes in a working file `test-*.html` (a copy of `tracker.html`), then port them to `tracker.html` **only after user confirmation**. Never touch the main file without explicit confirmation.
 
-## Requisiti dell'agente
-- Lettura/scrittura di file e bash (pi, Codex CLI, Gemini CLI, ecc.).
-- **Vision**: per lo scan delle etichette nutrizionali dalle foto serve un modello multimodale. Senza vision: stimare i macro con tabelle standard (vedi `macro-analisi.md`) e chiedere all'utente i valori.
-- Playwright per la verifica visiva (sezione "Come si opera"); se non disponibile, chiedere all'utente uno screenshot.
+## Agent requirements
+- File read/write and bash (pi, Codex CLI, Gemini CLI, etc.).
+- **Vision**: scanning nutrition labels from photos requires a multimodal model. Without vision: estimate macros with standard tables (see `macro-analisi.md`) and ask the user for values.
+- Playwright for visual verification ("Operating workflow" section); if unavailable, ask the user for a screenshot.
 
-## Obiettivi
-1. **Sito web / documento** (`tracker.html`) — one-page da condividere col nutrizionista o tenere per sé: allenamento, body comp, dieta. HTML puro, **niente JavaScript**.
-2. **Analisi macro giornaliera** — l'utente riporta tutto ciò che ha mangiato; l'agente calcola il riepilogo (kcal, P, G, C) in tabella in chat, lo archivia in `macro-analisi.md` e **aggiorna in parallelo** il diario HTML.
-3. **Tracking pesature** — ogni settimana (o cadenza scelta) l'utente fa pesatura con bilancia smart e salva lo screenshot; l'agente aggiorna la sezione body comp con carosello + delta.
+## Objectives
+1. **Website / document** (`tracker.html`) — one-pager to share with a nutritionist or keep for yourself: workout, body comp, diet. Pure HTML, **no JavaScript**.
+2. **Daily macro analysis** — the user reports everything they ate; the agent calculates the summary (kcal, P, F, C) in a chat table, archives it in `macro-analisi.md`, and **updates the HTML diary in parallel**.
+3. **Weigh-in tracking** — every week (or chosen cadence) the user weighs in with a smart scale and saves the screenshot; the agent updates the body comp section with carousel + deltas.
 
-## Quick start (nuova istanza)
-1. Copiare questa cartella in un nuovo progetto.
-2. In `tracker.html`: sostituire "Nome" (brand/h1/footer), i chip hero (`GG/MM/AAAA`, `XX.XX kg`…), i placeholder della sezione 04 con i dati della prima pesatura, le date delle 5 settimane e la scheda allenamento.
-3. Rinnovare `macro-analisi.md` (tabella alimenti + giornate).
-4. Dire all'agente: "segui AGENTS.md" — il resto viene dai workflow.
+## Quick start (new instance)
+1. Copy this folder into a new project.
+2. In `tracker.html`: replace "Name" (brand/h1/footer), the hero chips (`MM/DD/YYYY`, `XX.XX kg`…), the section 04 placeholders with the first weigh-in data, the 5-week dates, and the workout plan.
+3. Reset `macro-analisi.md` (food table + days).
+4. Tell the agent: "follow AGENTS.md" — the rest comes from the workflows.
 
-### Workflow per una nuova giornata (diario)
-1. Calcola i macro: **prima le etichette dalle foto** in `foto/<nome_alimento>.jpg`, solo se assente stima standard.
-2. Tabella in chat: voce | porzione | kcal | P | G | C + totali giornata + % kcal per macro.
-3. Aggiungi il riepilogo in `macro-analisi.md` (sezione `## Giornate analizzate`).
-4. In `tracker.html` → sezione Diario: sostituisci il `<div class="day-card empty">` del giorno con un `<details class="day-card">` (summary: giorno + data + kcal totali + mini pasti; `dc-detail`: `table.foods` con `tr.m-mini` per pasto + `dc-macro` con totali P/G/C). **Ogni riga alimento usa il pattern corrente (con `tabindex` e `.fkcal`)** — vedi "Struttura delle tabelle alimenti" in fondo a questo file.
-5. Aggiorna `.ws-days` (N/7) e `.ws-total` (totale kcal settimana) nella `.wk-summary` della settimana.
-6. Se il giorno è in una settimana non presente: duplicare `radio` + `label` + pannello `.wkN` + regola CSS `#wkN:checked ~ .diet-zone .wkN` (i radio devono restare **sibling** di `.wk-tabs`/`.diet-zone`, MAI dentro `.wk-tabs`).
+### Workflow for a new day (diary)
+1. Calculate macros: **first labels from photos** in `foto/<food_name>.jpg`; only if absent, use standard estimates.
+2. Table in chat: item | portion | kcal | P | F | C + day totals + % kcal per macro.
+3. Add the summary to `macro-analisi.md` (section `## Analyzed days`).
+4. In `tracker.html` → Meal Log section: replace the `<div class="day-card empty">` for that day with a `<details class="day-card">` (summary: day + date + total kcal + mini meals; `dc-detail`: `table.foods` with `tr.m-mini` per meal + `dc-macro` with P/F/C totals). **Each food row uses the current pattern (with `tabindex` and `.fkcal`)** — see "Food table structure" at the bottom of this file.
+5. Update `.ws-days` (N/7) and `.ws-total` (week total kcal) in the week's `.wk-summary`.
+6. If the day is in a week that doesn't exist yet: duplicate `radio` + `label` + panel `.wkN` + CSS rule `#wkN:checked ~ .diet-zone .wkN` (radios must stay as **siblings** of `.wk-tabs`/`.diet-zone`, NEVER inside `.wk-tabs`).
 
-## Ruolo dei file (dati vs workflow)
-- `AGENTS.md` — il **come** (workflow, struttura, convenzioni) + archivio pesature (dati bilancia).
-- `macro-analisi.md` — contiene **SOLO i valori alimentari**: tabelle nutrizionali degli alimenti (dalle etichette foto) e i riepiloghi macro per giornata. Niente istruzioni di workflow, niente dati pesature.
-- `tracker.html` — la pagina one-page (HTML, no JS). **Fonte unica dei dati visibili**.
-- `_validate_mechanics.js` — script Node che valida le meccaniche dei caroselli senza rendering: `node _validate_mechanics.js tracker.html`. Usare dopo modifiche alla struttura dei radio/caroselli.
-- `foto/` — etichette alimenti (`.jpg`), screenshot pesature (`pesatura_XX_YY.jpg`), foglio routine allenamento se manoscritto.
+## Role of files (data vs workflow)
+- `AGENTS.md` — the **how** (workflow, structure, conventions) + weigh-in archive (scale data).
+- `macro-analisi.md` — contains **ONLY food values**: nutrition tables for foods (from label photos) and daily macro summaries. No workflow instructions, no weigh-in data.
+- `tracker.html` — the one-pager (HTML, no JS). **Single source of visible data**.
+- `_validate_mechanics.js` — Node script that validates carousel mechanics without rendering: `node _validate_mechanics.js tracker.html`. Use after changes to radio/carousel structure.
+- `foto/` — food labels (`.jpg`), weigh-in screenshots (`pesatura_XX_YY.jpg`), handwritten routine sheet if applicable.
 
-**Convenzione foto**: ogni alimento con etichetta scattato → `foto/<nome_alimento>.jpg` (nome in snake_case, ascii). Per i macro usare SEMPRE prima i valori dell'etichetta; solo gli alimenti senza foto (uova, mela, banana, riso a crudo, pollo, olio EVO…) si stimano.
+**Photo convention**: every food with a scanned label → `foto/<food_name>.jpg` (snake_case, ascii name). Always use label values for macros first; only foods without photos (eggs, apple, banana, raw rice, chicken, olive oil…) are estimated.
 
-## Come si opera (workflow agenzia)
-> Regole operative obbligatorie per ogni sessione. Questo è il "come si fa", non il "cosa".
+## Operating workflow
+> Mandatory operating rules for every session. This is the "how to do it", not the "what".
 
-### 1. Regola vincolante (ripetuta)
-- **PRIMA un file `test-*.html` di lavoro** (copia di `tracker.html`), sempre. Solo dopo conferma dell'utente: portare la modifica nel file principale.
+### 1. Binding rule (repeated)
+- **ALWAYS a working file `test-*.html` first** (copy of `tracker.html`), always. Only after user confirmation: port the change to the main file.
 
-### 2. Verifica visiva automatica con Playwright (NON chiedere screenshot a mano)
-Prima di consegnare una modifica CSS, **verificarla sempre** con screenshot headless. Comandi (dalla cartella del progetto):
+### 2. Automated visual verification with Playwright (DO NOT ask for manual screenshots)
+Before delivering a CSS change, **always verify** it with headless screenshots. Commands (from the project folder):
 ```
-# screenshot base (viewport 1280x900):
+# base screenshot (viewport 1280x900):
 npx -y playwright screenshot --viewport-size=1280,900 file:///<path>/tracker.html out.png
 
-# pagina intera:
+# full page:
 npx -y playwright screenshot --viewport-size=1280,5200 --full-page file:///<path>/tracker.html out.png
 
-# altri breakpoint: 1280 (desktop), 900 (tablet 760px+), 420 (phone 480px-)
+# other breakpoints: 1280 (desktop), 900 (tablet 760px+), 420 (phone 480px-)
 ```
-**Trucco per il diario collassato**: i giorni compilati sono `<details class="day-card">` (chiusi per default). Per vederli nello screenshot, fare una **copia temporanea** del file con `open` aggiunto:
+**Trick for collapsed diary**: filled days are `<details class="day-card">` (closed by default). To see them in the screenshot, make a **temporary copy** of the file with `open` added:
 ```
 python -c "src=open('tracker.html',encoding='utf-8').read().replace('<details class=\"day-card\">','<details class=\"day-card\" open>'); open('tmp-open-check.html','w',encoding='utf-8').write(src)"
 ```
-e scattare la copia (NON il file originale). **Pulire i file `tmp-*` e screenshot a fine sessione.**
+and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screenshots at end of session.**
 
-**Regola di debug in loop**: se una modifica CSS non dà l'effetto atteso, NON chiedere subito all'utente "come appare" — prima creare una **pagina HTML isolata minima** (solo la card in questione, stessa CSS, stesso colgroup 47/53%) e testare varianti (A, B, C…) con screenshot affiancati. Solo quando si ha una soluzione funzionante in isolamento, portarla nel file reale e ri-verificare.
+**Loop debug rule**: if a CSS change doesn't produce the expected effect, DON'T immediately ask the user "how does it look" — first create a **minimal isolated HTML page** (just the card in question, same CSS, same colgroup 47/53%) and test variants (A, B, C…) with side-by-side screenshots. Only when you have a working solution in isolation, port it to the real file and re-verify. This solved the 50–53 bug in 1 cycle instead of N.
 
-### 3. Regole CSS non negoziabili (memoria d'uso)
-- **`word-break:break-word` MAI** su elementi di nome alimento (`.f-lead-txt`, `.fname`, …). Spezza per carattere in colonne strette → testo in verticale. Usare `overflow-wrap:normal` (spezza solo sui spazi) o `overflow-wrap:break-word` (solo parole che non entrano).
-- **`.f-lead` = `display:flex`, MAI `display:grid`** (vedi storia bug 50–53 sotto).
-- **`.f-item` = `display:block`**, MAI `display:flex`: il child `.f-lead` width:100% dentro un flex container non risolve la larghezza e il nome collassa a 0.
-- **`.fporz` sempre su riga 2, sotto l'icona, `margin-left:0`, mai inline**.
-- **`.f-lead-txt` max 2 righe con ellipsis** (`-webkit-line-clamp:2`): il compromesso per tenere la kcal sempre visibile anche con nomi lunghissimi.
+### 3. Non-negotiable CSS rules (memory)
+- **`word-break:break-word` NEVER** on food name elements (`.f-lead-txt`, `.fname`, …). Breaks per-character in narrow columns → vertical text. Use `overflow-wrap:normal` (breaks only on spaces) or `overflow-wrap:break-word` (only words that don't fit).
+- **`.f-lead` = `display:flex`, NEVER `display:grid`** (see bug 50–53 history below).
+- **`.f-item` = `display:block`**, NEVER `display:flex`: the child `.f-lead` width:100% inside a flex container doesn't resolve width and the name collapses to 0.
+- **`.fporz` always on row 2, under the icon, `margin-left:0`, never inline**.
+- **`.f-lead-txt` max 2 lines with ellipsis** (`-webkit-line-clamp:2`): the compromise to keep kcal always visible even with very long names.
 
-### 4. Convenzione file di lavoro
-- **Niente file temporanei lasciati**: `tmp-*.html`, `tmp-*.png`, `*.png` di screenshot → cancellare a fine sessione.
-- **AGENTS.md va aggiornato a OGNI modifica significativa** (CSS, struttura, workflow). Questo file è la memoria di progetto: se una regola non è qui, è come se non esistesse nella sessione successiva.
+### 4. Working file convention
+- **No temporary files left behind**: `tmp-*.html`, `tmp-*.png`, `*.png` screenshots → delete at end of session.
+- **AGENTS.md must be updated at EVERY significant change** (CSS, structure, workflow). This file is the project memory: if a rule isn't here, it's as if it didn't exist in the next session.
 
-## Stile / design (regole vincolanti)
-- Single page, look "sito palestra" dark (accento `#ff4d2e`, bold uppercase). Un solo file, CSS inline, **niente JavaScript** (caroselli = radio + `:checked ~`, espansioni = `<details>`).
-- Breakpoint: `960px`, `760px` (tablet), `480px` (phone).
-- **Trappole CSS già risolte — NON riaprire**:
-  - Overflow orizzontale su phone: `table-layout:fixed` + `max-width:100%` + `<colgroup>` (47/53%, 2 colonne) su `table.foods`; `.f-macros{white-space:nowrap}`; nav compatta su phone con `overflow-x:auto` fallback; safety net `html,body{overflow-x:clip}` — **`clip`, mai `hidden`** su html/body (crea un contesto di scroll e fa saltare lo smooth scroll sulle ancore).
-  - Doppio titolo pasto: su tablet/phone `tr.meal-row{display:none}` + `tr.m-mini{display:table-row}`; su desktop il contrario. **Mai** nascondere le celle macro in alcun blocco responsive: i macro sparirebbero.
-  - `scroll-margin-top:56px` sulle sezioni (nav sticky, jump ancore).
-  - Composizione corporea su phone: `table.comp` → card impilate (td `display:block`, thead nascosto).
-  - **kcal+"Kc" atomici**: `.fkcal{display:inline-flex;white-space:nowrap;flex:0 0 auto;}` (mai spezzare "Kc" sotto il numero).
-  - **Nome espandibile SENZA JS**: `tabindex="0"` su ogni `.f-lead-txt` + `:focus{display:block;-webkit-line-clamp:unset;...}` → click/tap espande il nome completo, click fuori richiude.
-  - **P·G·C a destra della cella**: `.f-mcol{text-align:right;}`.
-  - **Simmetria card giorno**: `.day-card{display:flex;flex-direction:column}` + `.dc-detail` e `.dc-macro` `flex:1 1 auto` → il riepilogo si aggancia sempre al fondo, le card della settimana sono uguali in altezza.
-  - **Porzione sempre visibile**: `.f-lead > .fporz{flex:0 0 auto;max-width:100%;overflow:hidden;}` — il badge non supera il bordo destro della cella.
+## Style / design (binding rules)
+- Single page, dark "gym site" look (accent `#ff4d2e`, bold uppercase). One file, inline CSS, **no JavaScript** (carousels = radio + `:checked ~`, expansions = `<details>`).
+- Breakpoints: `960px`, `760px` (tablet), `480px` (phone).
+- **CSS traps already resolved — DO NOT reopen**:
+  - Horizontal overflow on phone: `table-layout:fixed` + `max-width:100%` + `<colgroup>` (47/53%, 2 columns) on `table.foods`; `.f-macros{white-space:nowrap}`; compact nav on phone with `overflow-x:auto` fallback; safety net `html,body{overflow-x:clip}` — **`clip`, never `hidden`** on html/body (creates a scroll context and breaks smooth scroll on anchors).
+  - Double meal title: on tablet/phone `tr.meal-row{display:none}` + `tr.m-mini{display:table-row}`; on desktop the opposite. **Never** hide the macro cells in any responsive block: the macros would disappear.
+  - `scroll-margin-top:56px` on sections (sticky nav, anchor jumps).
+  - Body composition on phone: `table.comp` → stacked cards (td `display:block`, thead hidden).
+  - **kcal+"Kc" atomic**: `.fkcal{display:inline-flex;white-space:nowrap;flex:0 0 auto;}` (never break "Kc" under the number).
+  - **Expandable name WITHOUT JS**: `tabindex="0"` on every `.f-lead-txt` + `:focus{display:block;-webkit-line-clamp:unset;...}` → click/tap expands the full name, click outside collapses.
+  - **P·F·C right-aligned in cell**: `.f-mcol{text-align:right;}`.
+  - **Day card symmetry**: `.day-card{display:flex;flex-direction:column}` + `.dc-detail` and `.dc-macro` `flex:1 1 auto` → the summary always anchors to the bottom, week cards are equal height.
+  - **Portion always visible**: `.f-lead > .fporz{flex:0 0 auto;max-width:100%;overflow:hidden;}` — the badge doesn't exceed the right border of the cell.
 
-## Struttura delle tabelle alimenti (diario)
+## Food table structure (diary)
 
-### Layout: 2 colonne — colgroup 47/53
+### Layout: 2 columns — colgroup 47/53
 
-| Colonna | `td` | Larghezza | Contenuto |
-|---------|-----|-----------|-----------|
+| Column | `td` | Width | Content |
+|--------|------|-------|--------|
 | 1 | `<td>` (no class) | 47% | `<div class="f-item"><span class="f-lead">…</span></div>` |
-| 2 | `<td class="f-mcol">` | 53% | `<span class="f-macros">P·G·C</span>` |
+| 2 | `<td class="f-mcol">` | 53% | `<span class="f-macros">P·F·C</span>` |
 
-### `.f-lead` — struttura riga (da usare per OGNI alimento)
+### `.f-lead` — row structure (to use for EVERY food)
 
 ```
 <span class="f-lead">
-  <span class="ficon">🥛</span>              ← icona (PRIMA)
+  <span class="ficon">🥛</span>              ← icon (FIRST)
   <span class="f-lead-txt" tabindex="0">
-    <span class="fname">Kefir</span>         ← nome (SECONDARIO, espandibile col click)
+    <span class="fname">Kefir</span>         ← name (SECONDARY, expandable on click)
   </span>
-  <span class="fkcal"><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span>  ← kcal+"Kc" atomici (TERZO)
-  <span class="fporz">100 ml</span>           ← porzione (QUARTO, 2° riga)
+  <span class="fkcal"><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span>  ← kcal+"Kc" atomic (THIRD)
+  <span class="fporz">100 ml</span>           ← portion (FOURTH, row 2)
 </span>
 ```
 
-**CSS base (desktop + tablet + phone) — FLEX, NON GRID (bug 50–53 chiuso)**:
+**Base CSS (desktop + tablet + phone) — FLEX, NOT GRID (bug 50–53 closed)**:
 ```
 .f-lead{display:flex;flex-wrap:wrap;align-items:flex-start;column-gap:6px;row-gap:2px;min-width:0;max-width:100%;width:100%;}
 .f-lead .ficon{flex:0 0 auto;}
@@ -125,73 +125,73 @@ e scattare la copia (NON il file originale). **Pulire i file `tmp-*` e screensho
 .f-macros{font-variant-numeric:tabular-nums;font-size:11px;…}   .f-macros .u{font-size:9px;…}
 ```
 
-**Storia del bug (NON riaprire)**:
-- `.f-lead` era `display:inline-flex` → non occupava la cella → il valore kcal si posizionava DOPO il nome → posizione variabile.
-- **Tentativo grid** (`display:grid; grid-template-columns:auto minmax(min-content,1fr) max-content max-content`): **NON FUNZIONA** — con `table-layout:fixed` + colgroup 47% la cella del primo `<td>` è ~50–120px; il *contention resolution* del CSS Grid, con nome spezzabile (min-content ≈ 1 char), fa ricevere ~0px alla colonna `1fr` e il nome va **in verticale**. `minmax(0,1fr)` peggiora. **La grid con `table-layout:fixed` + colgroup % è un vicolo cieco per questo pattern.**
-- **SOLUZIONE (flex)**: `display:flex; flex-wrap:wrap`. `.f-lead-txt{flex:1 1 auto;min-width:0}` prende SEMPRE lo spazio tra icona e kcal (riga 1, mai a 0); `.f-kcal`/`.kcal-u{flex:0 0 auto}` non comprimono il nome e restano in riga 1; `.fporz{flex:0 0 100%}` va SEMPRE in riga 2 sotto l'icona. `flex-wrap:wrap` risolve anche il ribaltamento dell'ordine su phone (icona dopo i Kcal).
-- `.f-item` resta `display:block` (NON flex).
-- `word-break:break-word` **MAI** su `.f-lead-txt` né su `.fname`.
+**Bug history (DO NOT reopen)**:
+- `.f-lead` was `display:inline-flex` → didn't occupy the cell → kcal value positioned AFTER the name → variable position.
+- **Grid attempt** (`display:grid; grid-template-columns:auto minmax(min-content,1fr) max-content max-content`): **DOES NOT WORK** — with `table-layout:fixed` + colgroup 47% the first `<td>` cell is ~50–120px; the CSS Grid contention resolution, with a breakable name (min-content ≈ 1 char), gives ~0px to the `1fr` column and the name goes **vertical**. `minmax(0,1fr)` makes it worse. **Grid with `table-layout:fixed` + colgroup % is a dead end for this pattern.**
+- **SOLUTION (flex)**: `display:flex; flex-wrap:wrap`. `.f-lead-txt{flex:1 1 auto;min-width:0}` ALWAYS takes the space between icon and kcal (row 1, never 0); `.f-kcal`/`.kcal-u{flex:0 0 auto}` don't compress the name and stay in row 1; `.fporz{flex:0 0 100%}` ALWAYS goes to row 2 under the icon. `flex-wrap:wrap` also fixes the order reversal on phone (icon after kcal).
+- `.f-item` stays `display:block` (NOT flex).
+- `word-break:break-word` **NEVER** on `.f-lead-txt` or `.fname`.
 
-### Struttura riga HTML (2 `<td>`) — da usare per OGNI alimento
+### HTML row structure (2 `<td>`) — to use for EVERY food
 ```
 <tr>
-  <td><div class="f-item"><span class="f-lead"><span class="ficon">ICONA</span><span class="f-lead-txt" tabindex="0"><span class="fname">NOME</span></span><span class="fkcal"><span class="f-kcal">NNN</span><span class="kcal-u">Kc</span></span><span class="fporz">PORZIONE</span></span></div></td>
-  <td class="f-mcol"><span class="f-macros">P<span class="sep"> · </span>G<span class="sep"> · </span>C</span></td>
+  <td><div class="f-item"><span class="f-lead"><span class="ficon">ICON</span><span class="f-lead-txt" tabindex="0"><span class="fname">NAME</span></span><span class="fkcal"><span class="f-kcal">NNN</span><span class="kcal-u">Kc</span></span><span class="fporz">PORTION</span></span></div></td>
+  <td class="f-mcol"><span class="f-macros">P<span class="sep"> · </span>F<span class="sep"> · </span>C</span></td>
 </tr>
 ```
 
-## Struttura del carosello (meccanica CSS-only)
-- Caroselli = `<input type="radio">` + `:checked ~` + CSS, **zero JS**.
-- **Ordine sibling vincolante**: i radio devono essere **sibling PRINCIPALI** di tabs e zone (entrambi dentro lo stesso `<div class="wrap">`), **NON dentro** i contenitori `.pz-tabs`/`.wk-tabs` — altrimenti `:checked ~` non funziona mai.
-- Regole per ogni pannello:
+## Carousel structure (CSS-only mechanics)
+- Carousels = `<input type="radio">` + `:checked ~` + CSS, **zero JS**.
+- **Mandatory sibling order**: radios must be **TOP-LEVEL siblings** of tabs and zones (both inside the same `<div class="wrap">`), **NOT inside** the `.pz-tabs`/`.wk-tabs` containers — otherwise `:checked ~` never works.
+- Rules for each panel:
   ```
-  section#bodycomp input#pzN:checked ~ .pz-tabs label[for="pzN"]{ …stato attivo… }
+  section#bodycomp input#pzN:checked ~ .pz-tabs label[for="pzN"]{ …active state… }
   section#bodycomp input#pzN:checked ~ .pz-zone .pzN{display:block;}
   ```
-- **Mai mescolare i radio `pz` e i radio `wk`**: sono due gruppi separati.
-- **Validare sempre** dopo modifiche: `node _validate_mechanics.js tracker.html`.
+- **Never mix `pz` radios and `wk` radios**: they are two separate groups.
+- **Always validate** after changes: `node _validate_mechanics.js tracker.html`.
 
-### Diario
-- 5 tab Settimana 1–5 (estendibili: duplicare radio + label + pannello `.wkN` + regole CSS).
-- Ogni settimana: `.wk-summary` (`.ws-days` + `.ws-total`) + `.wk-grid` (7 colonne → 4 su tablet → 1 su phone).
-- Giorno compilato: `<details class="day-card">`; da compilare: `<div class="day-card empty">`.
-- Le tabelle `table.foods` NON hanno `<thead>`.
+### Diary
+- 5 tabs Week 1–5 (extendable: duplicate radio + label + panel `.wkN` + CSS rules).
+- Each week: `.wk-summary` (`.ws-days` + `.ws-total`) + `.wk-grid` (7 columns → 4 on tablet → 1 on phone).
+- Filled day: `<details class="day-card">`; to fill: `<div class="day-card empty">`.
+- `table.foods` tables have NO `<thead>`.
 
-### Pesature
-- pz1 = ultima pesatura (checked, in cima, con Δ vs precedente); pz2… = archivio cronologico inverso (senza delta).
-- Tab con contatore `(N)`. Chip hero + tag sezione + footer riflettono SEMPRE l'ultima pesatura.
+### Weigh-ins
+- pz1 = latest weigh-in (checked, on top, with Δ vs previous); pz2… = reverse chronological archive (no deltas).
+- Tab with counter `(N)`. Hero chips + section tag + footer always reflect the latest weigh-in.
 
-## Archivio pesature (bilancia)
+## Weigh-in archive (scale)
 
-> Fonte: screenshot app bilancia salvati in `foto/pesatura_XX_YY.jpg`. I valori mostrati su `tracker.html` (sezione 04, caroselle pz1/pz2/…) riflettono SEMPRE l'ultima pesatura.
+> Source: scale app screenshots saved in `foto/pesatura_XX_YY.jpg`. Values shown in `tracker.html` (section 04, carousels pz1/pz2/…) always reflect the latest weigh-in.
 
-| # | Data | Peso (kg) | BMI | %Grasso | Massa grassa (kg) | %Muscolo | Massa musc. (kg) | BMR (kcal) | Età metab. |
-|---|------|-----------|-----|---------|-------------------|----------|------------------|------------|------------|
+| # | Date | Weight (kg) | BMI | %Fat | Fat mass (kg) | %Muscle | Muscle mass (kg) | BMR (kcal) | Metabolic age |
+|---|------|-------------|-----|------|---------------|---------|------------------|------------|---------------|
 | 1 | … | … | … | … | … | … | … | … | … |
 
-Δ 1→2: (da compilare)
+Δ 1→2: (to be filled)
 
-## Workflow pesature — aggiungere una nuova pesatura (cadenza settimanale)
-> Fonte: screenshot app bilancia salvato in `foto/pesatura_XX_YY.jpg`. Questo è il "come": i VALORI vivono nella tabella "Archivio pesature" (sopra) e nel file HTML, NON in `macro-analisi.md`.
+## Weigh-in workflow — adding a new weigh-in (weekly cadence)
+> Source: scale app screenshot saved in `foto/pesatura_XX_YY.jpg`. This is the "how": the VALUES live in the "Weigh-in archive" table (above) and in the HTML file, NOT in `macro-analisi.md`.
 
-1. **Salvare lo screenshot** della pesatura in `foto/pesatura_XX_YY.jpg`.
-2. **Aggiornare l'"Archivio pesature"** in questo file: nuova riga nella tabella + riga Δ vs precedente.
-3. **In `tracker.html`, sezione 04 (carosello pz)**:
-   - Spostare l'attributo `checked` dal radio corrente (pz1) al nuovo radio.
-   - Aggiungere `<input type="radio" name="pz" id="pzN" checked>` — **sibling** dei radio `pz` esistenti, NON dentro `.pz-tabs`.
-   - Aggiungere `<label for="pzN">Pesatura (N)</label>` in `.pz-tabs` (N = numero totale pesature).
-   - Aggiungere il pannello `<div class="pzN">`: copiare il pannello `pz1` esistente, sostituire i valori con quelli nuovi, **aggiungere i `div.delta`** (Δ vs precedente: peso, BMI, % grasso, massa grassa, % muscolo, massa musc., BMR, età metab.) — i pannelli archivio NON hanno delta.
-   - Il pannello `pz1` vecchio RESTA com'è (i suoi `div.delta` restano, sono relativi alla pesatura precedente) e diventa archivio (niente più `checked`).
-   - Aggiungere le regole CSS (stesso schema delle esistenti): copiare i selettori `#pz1:checked ~ …` e cambiare il numero.
-4. **Aggiornare i 3 punti che riflettono l'ultima pesatura** (SEMPRE l'ultima):
-   - **Chip hero**: Peso (kg) + data misurazione.
-   - **Tag sezione 04**: data della pesatura.
-   - **Footer**: elenco date delle pesature.
-5. **Validare**: `node _validate_mechanics.js tracker.html` → i radio `pz` e `wk` tutti presenti, ordine sibling corretto, UN solo `checked` per gruppo.
-6. **Verifica visiva Playwright**: screenshot della zona sezione 04 per controllare che la nuova card sia quella visibile e i delta corretti.
+1. **Save the screenshot** of the weigh-in in `foto/pesatura_XX_YY.jpg`.
+2. **Update the "Weigh-in archive"** in this file: new row in the table + Δ row vs previous.
+3. **In `tracker.html`, section 04 (pz carousel)**:
+   - Move the `checked` attribute from the current radio (pz1) to the new radio.
+   - Add `<input type="radio" name="pz" id="pzN" checked>` — **sibling** of existing `pz` radios, NOT inside `.pz-tabs`.
+   - Add `<label for="pzN">Weigh-in (N)</label>` in `.pz-tabs` (N = total number of weigh-ins).
+   - Add the panel `<div class="pzN">`: copy the existing `pz1` panel, replace values with the new ones, **add the `div.delta`** (Δ vs previous: weight, BMI, % fat, fat mass, % muscle, muscle mass, BMR, metabolic age) — archive panels have NO deltas.
+   - The old `pz1` panel STAYS as-is (its `div.delta` remain, they are relative to the previous weigh-in) and simply becomes archive (no more `checked`).
+   - Add the CSS rules (same schema as existing): copy the `#pz1:checked ~ …` selectors and change the number.
+4. **Update the 3 points that reflect the latest weigh-in** (ALWAYS the latest):
+   - **Hero chips**: Weight (kg) + measurement date.
+   - **Section 04 tag**: weigh-in date.
+   - **Footer**: list of weigh-in dates.
+5. **Validate**: `node _validate_mechanics.js tracker.html` → all `pz` and `wk` radios present, correct sibling order, exactly ONE `checked` per group.
+6. **Playwright visual verification**: screenshot of the section 04 area to check the new card is the visible one and deltas are correct.
 
-## TODO (da personalizzare nell'istanza)
-- [ ] **Obiettivo** reale (dimagrimento / massa / ricomposizione) — chip hero.
-- [ ] **Altezza, età, sesso** — da inserire in un box informativo.
-- [ ] **Orari dei pasti** (se richiesti).
-- [ ] Rinominare i placeholder `GG/MM/AAAA`, `XX.XX kg` in tutta la pagina alla prima pesatura.
+## TODO (to customize in the instance)
+- [ ] **Real goal** (cutting / bulking / recomposition) — hero chip.
+- [ ] **Height, age, sex** — to be entered in an info box.
+- [ ] **Meal times** (if requested).
+- [ ] Rename placeholders `MM/DD/YYYY`, `XX.XX kg` throughout the page at the first weigh-in.
