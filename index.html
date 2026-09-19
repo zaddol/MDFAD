@@ -2,8 +2,9 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Umberto - Scheda Allenamento/Dati Bilancia/Diario Alimentare</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="theme-color" content="#0d0e12">
+<title>Zad - Scheda Allenamento/Dati Bilancia/Diario Alimentare</title>
 <style>
   /* ============ PANNELLO PESATURE (solo test) ============ */
   section#bodycomp .pz-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;}
@@ -12,12 +13,11 @@
     background:var(--card);border:1px solid var(--line);border-radius:999px;
     padding:9px 18px;font-size:13px;font-weight:700;color:var(--muted);
     display:inline-flex;align-items:center;gap:8px;
-    transition:background .15s,color .15s,border-color .15s;
+    transition:background 150ms var(--ease),color 150ms var(--ease),border-color 150ms var(--ease),transform 120ms var(--ease-out);
   }
   section#bodycomp .pz-tabs label::before{
-    content:"";width:8px;height:8px;border-radius:50%;background:var(--line2);transition:background .15s;
+    content:"";width:8px;height:8px;border-radius:50%;background:var(--line2);transition:background 150ms var(--ease);
   }
-  section#bodycomp .pz-tabs label:hover{border-color:var(--line2);color:var(--text);}
   section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz1"],
   section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz2"]{
     background:var(--accent);border-color:var(--accent);color:#fff;
@@ -68,6 +68,8 @@
     --text:#f3f4f8;
     --muted:#9aa0b2;
     --dim:#6b7185;
+    --ease:cubic-bezier(.25,.46,.45,.94);
+    --ease-out:cubic-bezier(.23,1,.32,1);
     --accent:#ff4d2e;      /* arancio/rosso palestra */
     --accent2:#ffd23f;     /* giallo highlight */
     --green:#39c07a;
@@ -79,7 +81,7 @@
   }
 
   *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;overflow-x:clip;}
+  html{scroll-behavior:smooth;overflow-x:clip;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;}
   body{
     font-family:var(--font);
     background:var(--bg);
@@ -120,7 +122,6 @@
     letter-spacing:.06em;text-transform:uppercase;
     padding:7px 12px;border-radius:8px;transition:background .15s,color .15s;
   }
-  nav.topnav a:hover{background:var(--card);color:var(--text);}
 
   /* ============ HERO ============ */
   header{
@@ -190,9 +191,8 @@
     border-radius:12px;
     padding:14px 10px 12px;
     text-align:center;
-    transition:transform .15s ease, border-color .15s ease;
+    transition:transform 180ms var(--ease-out), border-color 150ms var(--ease);
   }
-  .day-pill:hover{transform:translateY(-3px);border-color:var(--line2);}
   .day-pill .dname{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);}
   .day-pill .dtype{
     margin-top:8px;font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;
@@ -236,8 +236,7 @@
     font-size:14px;
   }
   table.ex tr:last-child td{border-bottom:none;}
-  table.ex tr{transition:background .12s;}
-  table.ex tr:hover{background:rgba(255,255,255,.025);}
+  table.ex tr{transition:background 120ms var(--ease);}
   .ex .name{font-weight:600;color:var(--text);}
   .ex .set{
     text-align:center;font-weight:800;color:var(--accent2);font-variant-numeric:tabular-nums;
@@ -306,7 +305,6 @@
   table.comp td{
     padding:13px 20px;border-bottom:1px solid var(--line);font-size:14.5px;
   }
-  table.comp tbody tr:hover{background:rgba(255,255,255,.025);}
   table.comp tr:last-child td{border-bottom:none;}
   table.comp .param{font-weight:600;color:var(--text);}
   table.comp .param small{color:var(--dim);font-weight:400;}
@@ -332,12 +330,11 @@
     background:var(--card);border:1px solid var(--line);border-radius:999px;
     padding:9px 18px;font-size:13px;font-weight:700;color:var(--muted);
     display:inline-flex;align-items:center;gap:8px;
-    transition:background .15s,color .15s,border-color .15s;
+    transition:background 150ms var(--ease),color 150ms var(--ease),border-color 150ms var(--ease),transform 120ms var(--ease-out);
   }
   .wk-tabs label::before{
-    content:"";width:8px;height:8px;border-radius:50%;background:var(--line2);transition:background .15s;
+    content:"";width:8px;height:8px;border-radius:50%;background:var(--line2);transition:background 150ms var(--ease);
   }
-  .wk-tabs label:hover{border-color:var(--line2);color:var(--text);}
 
   /* tab attiva (CSS-only) */
   #wk1:checked ~ .wk-tabs label[for="wk1"],
@@ -388,10 +385,8 @@
     list-style:none;cursor:pointer;
     padding:14px 10px 12px;
     display:flex;flex-direction:column;align-items:center;gap:3px;
-    transition:background .15s;
+    transition:background 150ms var(--ease);
   }
-  .day-card summary::-webkit-details-marker{display:none;}
-  .day-card summary:hover{background:rgba(255,255,255,.03);}
   .day-card .dc-day{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);}
   .day-card .dc-date{font-size:10.5px;color:var(--dim);font-weight:600;}
   .day-card .dc-kcal{
@@ -412,9 +407,40 @@
     min-width:2.6em;text-align:right;display:inline-block;
   }
   .day-card .dc-chev{
-    margin-top:8px;font-size:9px;color:var(--dim);transition:transform .2s;
+    margin-top:8px;font-size:9px;color:var(--dim);transition:transform 220ms var(--ease-out);
   }
   .day-card[open] > summary .dc-chev{transform:rotate(180deg);}
+  /* ============ MOBILE-NATIVE (mobile-native skill) ============
+     1) tap: nessun lag (doppio-tap zoom disabilitato solo sui controlli)
+     2) long-press: niente selezione testo/callout su link, tab, chip, day-card
+        (il contenuto informativo resta selezionabile: body toccato)
+     3) :active: feedback istantaneo al tocco su ogni elemento pressabile
+     4) hover: tutto sotto @media (hover:hover)+(pointer:fine) — su touch
+        lo :hover non resta "appiccicato" dopo il primo tap */
+  nav.topnav a, .wk-tabs label, section#bodycomp .pz-tabs label,
+  .day-card summary, .f-lead .f-lead-txt{touch-action:manipulation;}
+  nav.topnav a, .wk-tabs label, section#bodycomp .pz-tabs label,
+  .day-card summary{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;}
+  nav.topnav a:active{background:var(--card);color:var(--text);}
+  .wk-tabs label:active, section#bodycomp .pz-tabs label:active{transform:scale(.97);}
+  .day-card summary:active{background:rgba(255,255,255,.05);}
+  .day-card[open] summary:active{background:rgba(0,0,0,.25);}
+  .day-card summary::-webkit-details-marker{display:none;}
+  @media (hover:hover) and (pointer:fine){
+    section#bodycomp .pz-tabs label:hover{border-color:var(--line2);color:var(--text);}
+    nav.topnav a:hover{background:var(--card);color:var(--text);}
+    .day-pill:hover{transform:translateY(-3px);border-color:var(--line2);}
+    table.ex tr:hover{background:rgba(255,255,255,.025);}
+    table.comp tbody tr:hover{background:rgba(255,255,255,.025);}
+    .wk-tabs label:hover{border-color:var(--line2);color:var(--text);}
+    .day-card summary:hover{background:rgba(255,255,255,.03);}
+    .day-card[open] summary:hover{background:rgba(0,0,0,.25);}
+    .f-lead .f-lead-txt:hover{background:rgba(255,255,255,.045);}
+    table.foods tbody tr:hover{background:rgba(255,255,255,.02);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+  }
 
   /* card giorno (vuota) */
   .day-card.empty{
@@ -462,8 +488,7 @@
      Riga 2: [porzione (flex:0 0 100%, sempre sotto l'icona, mai inline)] */
   .f-lead{display:flex;flex-wrap:wrap;align-items:flex-start;column-gap:6px;row-gap:2px;min-width:0;max-width:100%;width:100%;}
   .f-lead .ficon{flex:0 0 auto;}
-  .f-lead .f-lead-txt{flex:1 1 auto;min-width:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer;border-radius:3px;}
-  .f-lead .f-lead-txt:hover{background:rgba(255,255,255,.045);}
+  .f-lead .f-lead-txt{flex:1 1 auto;min-width:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer;border-radius:3px;transition:background 120ms var(--ease);}
   .f-lead .f-lead-txt:focus{outline:none;}
   .f-lead .f-lead-txt:focus-visible{outline:1px solid rgba(255,77,46,.55);outline-offset:2px;}
   /* 25/09 — porzione: flex:0 0 auto (riga 2 fissa) + max-width:100%.
@@ -484,7 +509,7 @@
   .day-card > .dc-detail{display:flex;flex-direction:column;flex:1 1 auto;min-height:0;}
   .day-card > .dc-macro{flex:1 1 auto;margin-top:auto;}
   table.foods tr:last-child td{border-bottom:none;}
-  table.foods tbody tr:hover{background:rgba(255,255,255,.02);}
+  table.foods tbody tr{transition:background 120ms var(--ease);}
   table.foods tr.meal-row td{
     background:var(--card);
     padding:7px 12px 4px;border-bottom:1px solid var(--line2);
@@ -701,7 +726,7 @@
 <!-- ============ NAV ============ -->
 <nav class="topnav">
   <div class="wrap">
-    <span class="brand">Um<span class="stroke">berto</span></span>
+    <span class="brand">Z<span class="stroke">ad</span></span>
     <a href="#week">Settimana</a>
     <a href="#force">Forza</a>
     <a href="#cardio">Cardio</a>
@@ -714,7 +739,7 @@
 <header>
   <div class="wrap hero">
     <span class="eyebrow">Scheda Allenamento &amp; Body Composition</span>
-    <h1>Um<span class="stroke">berto</span></h1>
+    <h1>Z<span class="stroke">ad</span></h1>
     <p class="sub">Protocollo di allenamento settimanale, dati antropometrici e diario alimentare. Documento condiviso per l'analisi nutrizionale.</p>
     <div class="hero-chips">
       <span class="chip"><span class="dot" style="background:var(--accent)"></span>Misurazione <b>18 / 09 / 2026</b></span>
@@ -1061,8 +1086,8 @@
       <div class="wk-panel wk1">
         <div class="wk-summary">
           <span class="ws-title">Settimana 1 · 14–20 / 09 / 2026</span>
-          <span class="ws-days">5 / 7 giorni registrati</span>
-          <span class="ws-total">Totale sett. ≈ 6 190 kcal</span>
+          <span class="ws-days">6 / 7 giorni registrati</span>
+          <span class="ws-total">Totale sett. ≈ 7 856 kcal</span>
         </div>
         <div class="wk-grid">
 
@@ -1438,8 +1463,71 @@
               </div>
             </div>
           </details>
-          <!-- SABATO 19/09 — placeholder -->
-          <div class="day-card empty"><span class="dc-day">Sab</span><span class="dc-date">19 / 09</span><span class="dc-dash">—</span></div>
+          <!-- SABATO 19/09 — compilato -->
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Sab</span>
+              <span class="dc-date">19 / 09</span>
+              <span class="dc-kcal">1 666<small> kcal</small></span>
+              <span class="dc-meals">
+                <span>☕ <span class="ml-k">433</span></span>
+                <span>🍚 <span class="ml-k">835</span></span>
+                <span>🍽️ <span class="ml-k">398</span></span>
+              </span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="3">☕ Colazione</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">☕</span><span class="m-t">Colazione</span><span class="m-k">433 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥣</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kellogg's Barchette (cereal)</span></span><span class="fkcal"><span class="f-kcal">228</span><span class="kcal-u">Kc</span></span><span class="fporz">60 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">6,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">46,2</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Latte parzialmente scremato (Lidl)</span></span><span class="fkcal"><span class="f-kcal">94</span><span class="kcal-u">Kc</span></span><span class="fporz">200 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">6,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">3,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">9,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫐</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mirtilli</span></span><span class="fkcal"><span class="f-kcal">22</span><span class="kcal-u">Kc</span></span><span class="fporz">24 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">5,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🌻</span><span class="f-lead-txt" tabindex="0"><span class="fname">Semi di zucca</span></span><span class="fkcal"><span class="f-kcal">89</span><span class="kcal-u">Kc</span></span><span class="fporz">15 semi · ~15 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">3,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">6,9</span><span class="u">G</span><span class="sep">·</span><span class="mv">2,7</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🍚 Pranzo</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🍚</span><span class="m-t">Pranzo</span><span class="m-k">835 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥟</span><span class="f-lead-txt" tabindex="0"><span class="fname">Tortellini al prosciutto crudo (Fini)</span></span><span class="fkcal"><span class="f-kcal">819</span><span class="kcal-u">Kc</span></span><span class="fporz">300 g (cotti)</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">36,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">13,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">135,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍲</span><span class="f-lead-txt" tabindex="0"><span class="fname">Brodo (2 dadi vegetali Star)</span></span><span class="fkcal"><span class="f-kcal">16</span><span class="kcal-u">Kc</span></span><span class="fporz">156 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,8</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🍽️ Cena</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🍽️</span><span class="m-t">Cena</span><span class="m-k">398 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Pollo con zucchine alla griglia (Glovo)</span></span><span class="fkcal"><span class="f-kcal">182</span><span class="kcal-u">Kc</span></span><span class="fporz">200 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">30,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍫</span><span class="f-lead-txt" tabindex="0"><span class="fname">Brownie (ricetta fatta a casa)</span></span><span class="fkcal"><span class="f-kcal">216</span><span class="kcal-u">Kc</span></span><span class="fporz">1 quadrato · ~50 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">3,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">13,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">21,8</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 666</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>86,7 g</b> P <small>21%</small></span>
+                <span class="mc g"><span class="sd"></span><b>44,2 g</b> G <small>24%</small></span>
+                <span class="mc c"><span class="sd"></span><b>225,9 g</b> C <small>54%</small></span>
+              </div>
+            </div>
+          </details>
           <!-- DOMENICA 20/09 — placeholder -->
           <div class="day-card empty"><span class="dc-day">Dom</span><span class="dc-date">20 / 09</span><span class="dc-dash">—</span></div>
 
@@ -1526,7 +1614,7 @@
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
-    <span><b>Umberto</b> · Scheda allenamento, body composition &amp; diario alimentazione</span>
+    <span><b>Zad</b> · Scheda allenamento, body composition &amp; diario alimentazione</span>
     <span>Dati bilancia: 11/09 e 18/09/2026 · Diario: fino a Ven 18/09 · Documento per analisi nutrizionale</span>
   </div>
 </footer>
