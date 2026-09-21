@@ -2,28 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Name — Workout Plan & Body Composition · Tracker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="theme-color" content="#0d0e12">
+<title>You — Workout Plan & Body Composition · Meal Log</title>
 <style>
-  /* ============ WEIGH-IN PANEL (test only) ============ */
+  /* ============ WEIGH-IN PANELS (template demo) ============ */
   section#bodycomp .pz-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;}
   section#bodycomp .pz-tabs label{
     cursor:pointer;
     background:var(--card);border:1px solid var(--line);border-radius:999px;
     padding:9px 18px;font-size:13px;font-weight:700;color:var(--muted);
     display:inline-flex;align-items:center;gap:8px;
-    transition:background .15s,color .15s,border-color .15s;
+    transition:background 150ms var(--ease),color 150ms var(--ease),border-color 150ms var(--ease),transform 120ms var(--ease-out);
   }
   section#bodycomp .pz-tabs label::before{
-    content:"";width:8px;height:8px;border-radius:50%;background:var(--line2);transition:background .15s;
+    content:"";width:8px;height:8px;border-radius:50%;background:var(--line2);transition:background 150ms var(--ease);
   }
-  section#bodycomp .pz-tabs label:hover{border-color:var(--line2);color:var(--text);}
-  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz1"]{
+  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz1"],
+  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz2"]{
     background:var(--accent);border-color:var(--accent);color:#fff;
   }
-  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz1"]::before{background:#fff;}
+  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz1"]::before,
+  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz2"]::before{background:#fff;}
   .pz-panel{display:none;}
-  section#bodycomp input#pz1:checked ~ .pz-zone .pz1{display:block;}
+  section#bodycomp input#pz1:checked ~ .pz-zone .pz1,
+  section#bodycomp input#pz2:checked ~ .pz-zone .pz2{display:block;}
   /* delta chip (Δ) */
   .stat .delta{margin-top:8px;font-size:11.5px;font-weight:700;font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:5px;}
   .stat .delta i{font-style:normal;font-size:9px;}
@@ -44,7 +47,7 @@
     background:rgba(57,192,122,.08);border:1px solid rgba(57,192,122,.25);
     border-radius:999px;padding:6px 16px;
   }
-  /* historical card (archive) */
+  /* archive card (history) */
   .pz-hist{
     background:var(--bg2);border:1px dashed var(--line2);border-radius:12px;
     padding:14px 18px;margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 22px;
@@ -65,6 +68,8 @@
     --text:#f3f4f8;
     --muted:#9aa0b2;
     --dim:#6b7185;
+    --ease:cubic-bezier(.25,.46,.45,.94);
+    --ease-out:cubic-bezier(.23,1,.32,1);
     --accent:#ff4d2e;      /* gym orange/red */
     --accent2:#ffd23f;     /* highlight yellow */
     --green:#39c07a;
@@ -76,7 +81,7 @@
   }
 
   *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;overflow-x:clip;}
+  html{scroll-behavior:smooth;overflow-x:clip;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;}
   body{
     font-family:var(--font);
     background:var(--bg);
@@ -117,7 +122,6 @@
     letter-spacing:.06em;text-transform:uppercase;
     padding:7px 12px;border-radius:8px;transition:background .15s,color .15s;
   }
-  nav.topnav a:hover{background:var(--card);color:var(--text);}
 
   /* ============ HERO ============ */
   header{
@@ -179,7 +183,7 @@
     font-size:12px;color:var(--dim);font-weight:600;letter-spacing:.14em;text-transform:uppercase;
   }
 
-  /* ============ STRIPE-WEEK ============ */
+  /* ============ STRISSETTIMANA ============ */
   .weekstrip{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;}
   .day-pill{
     background:var(--card);
@@ -187,9 +191,8 @@
     border-radius:12px;
     padding:14px 10px 12px;
     text-align:center;
-    transition:transform .15s ease, border-color .15s ease;
+    transition:transform 180ms var(--ease-out), border-color 150ms var(--ease);
   }
-  .day-pill:hover{transform:translateY(-3px);border-color:var(--line2);}
   .day-pill .dname{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);}
   .day-pill .dtype{
     margin-top:8px;font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;
@@ -233,8 +236,7 @@
     font-size:14px;
   }
   table.ex tr:last-child td{border-bottom:none;}
-  table.ex tr{transition:background .12s;}
-  table.ex tr:hover{background:rgba(255,255,255,.025);}
+  table.ex tr{transition:background 120ms var(--ease);}
   .ex .name{font-weight:600;color:var(--text);}
   .ex .set{
     text-align:center;font-weight:800;color:var(--accent2);font-variant-numeric:tabular-nums;
@@ -303,7 +305,6 @@
   table.comp td{
     padding:13px 20px;border-bottom:1px solid var(--line);font-size:14.5px;
   }
-  table.comp tbody tr:hover{background:rgba(255,255,255,.025);}
   table.comp tr:last-child td{border-bottom:none;}
   table.comp .param{font-weight:600;color:var(--text);}
   table.comp .param small{color:var(--dim);font-weight:400;}
@@ -311,14 +312,14 @@
   table.comp .val .u{color:var(--muted);font-weight:500;font-size:12.5px;margin-left:4px;}
   table.comp .stat-col{text-align:center;}
 
-  /* legenda */
+  /* legend */
   .legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;}
   .legend .li{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);}
   .legend .li .st{margin:0;}
 
   /* ============ MEAL LOG ============ */
 
-  /* radio inputs (nascosti, siblings di .wk-tabs e .diet-zone) */
+  /* radio inputs (hidden, must be siblings of .wk-tabs and .diet-zone) */
   section#diary input[type="radio"]{position:absolute;opacity:0;pointer-events:none;}
   section#diary input[type="radio"]:focus-visible ~ .wk-tabs label{outline:2px solid var(--accent2);outline-offset:2px;}
 
@@ -329,12 +330,11 @@
     background:var(--card);border:1px solid var(--line);border-radius:999px;
     padding:9px 18px;font-size:13px;font-weight:700;color:var(--muted);
     display:inline-flex;align-items:center;gap:8px;
-    transition:background .15s,color .15s,border-color .15s;
+    transition:background 150ms var(--ease),color 150ms var(--ease),border-color 150ms var(--ease),transform 120ms var(--ease-out);
   }
   .wk-tabs label::before{
-    content:"";width:8px;height:8px;border-radius:50%;background:var(--line2);transition:background .15s;
+    content:"";width:8px;height:8px;border-radius:50%;background:var(--line2);transition:background 150ms var(--ease);
   }
-  .wk-tabs label:hover{border-color:var(--line2);color:var(--text);}
 
   /* active tab (CSS-only) */
   #wk1:checked ~ .wk-tabs label[for="wk1"],
@@ -376,7 +376,7 @@
   /* 7-day grid */
   .wk-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;}
 
-  /* card giorno (filled) */
+  /* day card (filled) */
   .day-card{
     background:var(--card);border:1px solid var(--line);border-radius:12px;
     overflow:hidden;min-height:140px;
@@ -385,10 +385,8 @@
     list-style:none;cursor:pointer;
     padding:14px 10px 12px;
     display:flex;flex-direction:column;align-items:center;gap:3px;
-    transition:background .15s;
+    transition:background 150ms var(--ease);
   }
-  .day-card summary::-webkit-details-marker{display:none;}
-  .day-card summary:hover{background:rgba(255,255,255,.03);}
   .day-card .dc-day{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);}
   .day-card .dc-date{font-size:10.5px;color:var(--dim);font-weight:600;}
   .day-card .dc-kcal{
@@ -409,11 +407,42 @@
     min-width:2.6em;text-align:right;display:inline-block;
   }
   .day-card .dc-chev{
-    margin-top:8px;font-size:9px;color:var(--dim);transition:transform .2s;
+    margin-top:8px;font-size:9px;color:var(--dim);transition:transform 220ms var(--ease-out);
   }
   .day-card[open] > summary .dc-chev{transform:rotate(180deg);}
+  /* ============ MOBILE-NATIVE (mobile-native skill) ============
+     1) tap: no lag (double-tap zoom disabled only on controls)
+     2) long-press: no text selection/callout on links, tabs, chips, day-card
+        (informational content stays selectable: touch the body)
+     3) :active: instant press feedback on every pressable element
+     4) hover: all under @media (hover:hover)+(pointer:fine) — on touch
+        :hover does not stay stuck after the first tap */
+  nav.topnav a, .wk-tabs label, section#bodycomp .pz-tabs label,
+  .day-card summary, .f-lead .f-lead-txt{touch-action:manipulation;}
+  nav.topnav a, .wk-tabs label, section#bodycomp .pz-tabs label,
+  .day-card summary{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;}
+  nav.topnav a:active{background:var(--card);color:var(--text);}
+  .wk-tabs label:active, section#bodycomp .pz-tabs label:active{transform:scale(.97);}
+  .day-card summary:active{background:rgba(255,255,255,.05);}
+  .day-card[open] summary:active{background:rgba(0,0,0,.25);}
+  .day-card summary::-webkit-details-marker{display:none;}
+  @media (hover:hover) and (pointer:fine){
+    section#bodycomp .pz-tabs label:hover{border-color:var(--line2);color:var(--text);}
+    nav.topnav a:hover{background:var(--card);color:var(--text);}
+    .day-pill:hover{transform:translateY(-3px);border-color:var(--line2);}
+    table.ex tr:hover{background:rgba(255,255,255,.025);}
+    table.comp tbody tr:hover{background:rgba(255,255,255,.025);}
+    .wk-tabs label:hover{border-color:var(--line2);color:var(--text);}
+    .day-card summary:hover{background:rgba(255,255,255,.03);}
+    .day-card[open] summary:hover{background:rgba(0,0,0,.25);}
+    .f-lead .f-lead-txt:hover{background:rgba(255,255,255,.045);}
+    table.foods tbody tr:hover{background:rgba(255,255,255,.02);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+  }
 
-  /* card giorno (vuota) */
+  /* day card (empty) */
   .day-card.empty{
     background:var(--bg2);border:1px dashed var(--line2);
     display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -423,80 +452,79 @@
   .day-card.empty .dc-date{font-size:10.5px;color:var(--dim);opacity:.6;font-weight:600;}
   .day-card.empty .dc-dash{font-size:22px;color:var(--line2);margin-top:10px;}
 
-  /* dettaglio (tabella alimenti, quando espansa) */
+  /* detail (food table, when expanded) */
   .dc-detail{
     border-top:1px solid var(--line2);
     background:var(--bg2);
   }
 
-  /* mini-riga riepilogo pasto (visibile solo su tablet/phone; su desktop nasconduta) */
+  /* mini meal summary row (visible on tablet/phone only; hidden on desktop) */
   table.foods tr.m-mini{display:none;}
-  /* le m-mini (riepilogo pasto) restano inline: niente contenuti inline-block
-     non comprimibili che allargherebbero la tabella */
+  /* m-mini (meal summary) stay inline: no non-compressible inline-block
+     content that would widen the table */
 
-  /* tabella alimenti — layout fisso in BASE: il colgroup 47/53 deve essere
-     rispettato a tutte le larghezze, altrimenti la colonna P·F·C viene spinta
-     fuori dalla card (overflow:hidden) → bug "Kcal mancanti" */
+  /* food table — FIXED layout in BASE: the 47/53 colgroup must be
+     respected at all widths, otherwise the P·F·C column gets pushed
+     out of the card (overflow:hidden) → missing-Kcal bug */
   table.foods{width:100%;max-width:100%;table-layout:fixed;border-collapse:collapse;}
   table.foods td{
     padding:9px 10px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:top;
-    /* le colonne Kcal/Macro sono strette: senza questo i numeri
-       (e i badge inline) escono dalla cella e restano fuori vista */
+    /* the Kcal/Macro columns are narrow: without this, numbers
+       (and inline badges) would overflow the cell and go out of view */
     overflow-wrap:break-word;
   }
-  /* P·F·C anchored to the RIGHT border of the cell (25/09): on desktop the numbers
-     were on the left leaving ~110px of empty space on the right; tablet/phone
-     already had text-align:right, now uniform across all viewports */
+  /* P·F·C anchored to the RIGHT edge of the cell: on desktop the numbers
+     used to sit left with ~110px of empty space on the right; tablet/phone
+     already had text-align:right, now it is uniform across all viewports */
   .f-kcal{display:inline-block;white-space:nowrap;overflow-wrap:normal;margin-left:2px;flex:0 0 auto;}
   .kcal-u{font-size:10px;font-weight:700;color:var(--dim);margin-left:2px;white-space:nowrap;flex:0 0 auto;}
-  /* 2-row GRID — kcal ALWAYS in column 3 (right), identical in every row:
+  /* 2-ROW layout — kcal ALWAYS in column 3 (right), identical in every row:
      Row 1: [icon] [name (flex:1, max 2 lines)] [kcal] [Kc]
      Row 2: [portion (flex:0 0 100%, left, under the icon)] */
-  /* FLEX 2 rows (not grid — the grid collapsed the name to 0px, bug 50/51/52/53).
-     25/09 — RESTRUCTURE: the kcal+"Kc" group is a SINGLE element .fkcal
+  /* FLEX 2 rows (not grid — grid collapsed the name to 0px, bug 50/51/52/53).
+     RESTRUCTURE: the kcal+Kc group is ONE single .fkcal element
      Row 1: [icon] [name (flex:1, 2 lines)] [kcal][Kc]   (Kc flex:0 0 auto,
-     anchored to the number — always joined, never broken: bug 53 closed)
+     glued to the number — always joined, never split: bug 53 closed)
      Row 2: [portion (flex:0 0 100%, always under the icon, never inline)] */
   .f-lead{display:flex;flex-wrap:wrap;align-items:flex-start;column-gap:6px;row-gap:2px;min-width:0;max-width:100%;width:100%;}
   .f-lead .ficon{flex:0 0 auto;}
-  .f-lead .f-lead-txt{flex:1 1 auto;min-width:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer;border-radius:3px;}
-  .f-lead .f-lead-txt:hover{background:rgba(255,255,255,.045);}
+  .f-lead .f-lead-txt{flex:1 1 auto;min-width:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer;border-radius:3px;transition:background 120ms var(--ease);}
   .f-lead .f-lead-txt:focus{outline:none;}
   .f-lead .f-lead-txt:focus-visible{outline:1px solid rgba(255,77,46,.55);outline-offset:2px;}
-  /* 25/09 — portion: flex:0 0 auto (fixed row 2) + max-width:100%.
+  /* portion: flex:0 0 auto (fixed row 2) + max-width:100%.
      The badge has white-space:nowrap: if the portion is longer than the cell
-     (e.g. "1 teaspoon · ~5 g" on desktop, bug 55.png) the box does NOT expand
-     (the row stays fixed) and the inner text is clipped BELOW the border:
-     the badge never exceeds the right border of the cell. */
+     (e.g. 1 tsp · ~5 g on desktop) the box does NOT expand
+     (the row stays fixed) and the inner text is clipped UNDER the border:
+     the badge never crosses the right edge of the cell. */
   .f-lead > .fporz{flex:0 0 auto;margin-top:0;display:inline-block;max-width:100%;overflow:hidden;}
-  /* 25/09 — expandable name WITHOUT JS: tabindex on every .f-lead-txt (via sed).
-     Click/tap = :focus → fully expanded (line-clamp removed); click outside =
-     blur → collapsed. Only the expanded element takes extra space (the cell
-     expands, other rows don't move). */
+  /* expandable name, NO JS: tabindex on every .f-lead-txt.
+     Click/tap = :focus → fully expanded (line-clamp off); click outside =
+     blur → collapsed. Only the expanded element takes extra space (its cell
+     widens, the other rows do not move). */
   .f-lead .f-lead-txt:focus{display:block;-webkit-line-clamp:unset;-webkit-box-orient:initial;white-space:normal;overflow:visible;cursor:default;background:rgba(255,77,46,.06);}
-  /* Day card symmetry (25/09): .dc-detail and .dc-macro flex-grow:1 →
-     the filled card STRETCHES to match the others of the same
-     week (auto-stretch grid), the summary anchors to the bottom and
-     the empty space fills the gap. No fixed layout, no JS. */
+  /* Day card symmetry: .dc-detail and .dc-macro flex-grow:1 →
+     a filled card STRETCHES to match the others of the same
+     week (grid auto-stretch), the summary anchors to the bottom and
+     the empty space goes to the blank area. No fixed layout, no JS. */
   .day-card > .dc-detail{display:flex;flex-direction:column;flex:1 1 auto;min-height:0;}
   .day-card > .dc-macro{flex:1 1 auto;margin-top:auto;}
   table.foods tr:last-child td{border-bottom:none;}
-  table.foods tbody tr:hover{background:rgba(255,255,255,.02);}
+  table.foods tbody tr{transition:background 120ms var(--ease);}
   table.foods tr.meal-row td{
     background:var(--card);
     padding:7px 12px 4px;border-bottom:1px solid var(--line2);
     font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--text);
-    /* NB: NOT display:flex here — the non-compressible inline-block content
-       forced the table (auto layout) to ~390px and pushed it out of the card */
+    /* NB: NOT display:flex here — non-compressible inline-block content
+       would force the table (auto layout) to ~390px and push it out of the card */
     white-space:normal;word-break:break-word;
   }
   /* BLOCK (not flex): .f-lead inside is flex width:100% — if .f-item
-     stayed flex, the width wouldn't resolve and the name would collapse
-     → name broken letter by letter (bug 50.png) */
+     stayed flex, the width would not resolve and the name would collapse
+     → name broken letter by letter */
   .f-item{display:block;width:100%;min-width:0;overflow:hidden;max-width:100%;}
   .f-item > div{min-width:0;}
-  /* NB: word-break:break-word NEVER here or on .f-lead-txt — allows breaking
-     letter by letter when the column is narrow (bug 50/51.png). */
+  /* NB: word-break:break-word NEVER here or on .f-lead-txt — it allows
+     breaking letter by letter when the column is narrow. */
   .f-item .fname{overflow-wrap:normal;}
   .f-item .ficon{font-size:16px;line-height:1.2;flex:0 0 auto;}
   .f-item .fporz{
@@ -509,19 +537,19 @@
   .f-kcol{white-space:normal;}
   .f-kcal{font-weight:800;font-variant-numeric:tabular-nums;color:var(--text);min-width:0;}
   .f-mcol{min-width:0;text-align:right;}
-  /* P·F·C anchored to the RIGHT border of the cell (25/09): on desktop the numbers
-     were on the left leaving ~110px of empty space on the right; tablet/phone
-     already had text-align:right, now uniform across all viewports */
-  /* FIXED P·F·C COLUMN: 3 vertical lines, each value on its own line.
-     The separator "·" becomes a hidden interline (display:block + font-size:0)
-     → no shifting between lines, identical height in every row */
+  /* P·F·C anchored to the RIGHT edge of the cell: on desktop the numbers
+     used to sit left with ~110px of empty space on the right; tablet/phone
+     already had text-align:right, now it is uniform across all viewports */
+  /* FIXED P·F·C COLUMN: 3 vertical rows, each value on its own row.
+     The middle-dot separator becomes a hidden line break (display:block + font-size:0)
+     → no drifting from one row to the next, identical height in every row */
   .f-macros{font-variant-numeric:tabular-nums;font-size:11px;color:var(--muted);min-width:0;overflow:hidden;
     white-space:nowrap;line-height:1.5;}
   .f-macros .sep{display:block;width:100%;font-size:0;line-height:0;height:0;margin:0;}
   .f-macros .mv{font-weight:700;color:var(--text);}
   .f-macros .u{font-size:9px;color:var(--dim);margin-left:1px;}
 
-  /* riepilogo macro sotto tabella */
+  /* macro summary under the table */
   .dc-macro{
     padding:10px 12px;border-top:1px solid var(--line2);
     background:var(--card);
@@ -570,11 +598,11 @@
     .wk-grid{grid-template-columns:repeat(4,1fr);}
     .wk-summary .ws-total{margin-left:0;}
 
-    /* pesature: summary bar su tablet */
+    /* weigh-ins: summary bar on tablet */
     .pz-summary .ps-delta{margin-left:0;width:100%;}
     .pz-hist{justify-content:flex-start;}
 
-    /* pasti: mostra SOLO il riepilogo (m-mini), nascondi il titolo pasto (meal-row) per evitare doppi titoli */
+    /* meals: show ONLY the summary (m-mini), hide the meal title (meal-row) to avoid double titles */
     table.foods tr.meal-row{display:none;}
     table.foods tr.m-mini{display:table-row;}
     table.foods tr.m-mini td{display:block;border-bottom:1px solid var(--line);}
@@ -602,7 +630,7 @@
 
     .st{font-size:10px;padding:2px 8px;}
 
-    /* tabella alimenti (tablet) */
+    /* food table (tablet) */
     table.foods td:nth-child(2){
       text-align:right;padding:11px 14px;vertical-align:middle;
       border-bottom:1px solid var(--line);
@@ -627,13 +655,13 @@
     .chip{font-size:12px;padding:7px 13px;}
     .sec-head h2{font-size:23px;}
 
-    /* NAV: compensa la barra sticky (sempre visibile) nei jump alle ancore */
+    /* NAV: compensates for the sticky bar (always visible) on anchor jumps */
     section{scroll-margin-top:56px;}
 
     table.ex th:nth-child(1){width:56%;}
     table.ex .rep{white-space:normal;}
 
-    /* COMPOSIZIONE CORPOREA: da tabella a card impilate */
+    /* BODY COMPOSITION: from table to stacked cards */
     table.comp, table.comp thead, table.comp tbody, table.comp tr, table.comp td{display:block;width:100%;}
     table.comp thead{display:none;}
     table.comp tr{
@@ -652,17 +680,17 @@
     table.comp td.val{border-right:1px solid var(--line);}
     table.comp td.stat-col .st{font-size:10.5px;}
 
-    /* DIARY: 1-column grid (each day a full card, stacked vertically) */
+    /* MEAL LOG: 1-column grid (each day a full card, vertical) */
     .wk-grid{grid-template-columns:1fr;}
 
-    /* pesature su phone: tab e summary a tutto width */
+    /* weigh-ins on phone: tabs and summary full width */
     .pz-tabs label{font-size:12px;padding:8px 14px;}
     .pz-summary{gap:8px 14px;padding:12px 16px;}
     .pz-summary .ps-delta{margin-left:0;width:100%;}
     .pz-hist{flex-direction:column;align-items:flex-start;gap:8px;}
 
-    /* NAV: font/padding rimpiccioliti → tutti e 5 i link + brand stanno in una riga.
-       overflow-x:auto resta come rete di sicurezza sui telefoni molto stretti (≤330px) */
+    /* NAV: smaller font/padding → all 5 links + brand fit in one line.
+       overflow-x:auto remains as a safety net on very narrow phones (≤330px) */
     nav.topnav .wrap{
       gap:4px;padding:8px 12px;
       overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
@@ -672,7 +700,7 @@
     nav.topnav a{font-size:10.5px;letter-spacing:.03em;padding:6px 7px;white-space:nowrap;}
     nav.topnav .brand, nav.topnav a{flex:0 0 auto;white-space:nowrap;}
 
-    /* tabella alimenti (phone) */
+    /* food table (phone) */
     table.foods th, table.foods td{border:0;padding:0;}
     table.foods td:nth-child(2){
       text-align:right;padding:11px 14px;vertical-align:middle;
@@ -698,7 +726,7 @@
 <!-- ============ NAV ============ -->
 <nav class="topnav">
   <div class="wrap">
-    <span class="brand">Nom<span class="stroke">e</span></span>
+    <span class="brand">Y<span class="stroke">ou</span></span>
     <a href="#week">Week</a>
     <a href="#force">Strength</a>
     <a href="#cardio">Cardio</a>
@@ -710,21 +738,21 @@
 <!-- ============ HERO ============ -->
 <header>
   <div class="wrap hero">
-    <span class="eyebrow">Workout Plan & Body Composition</span>
-    <h1>Nom<span class="stroke">e</span></h1>
-    <p class="sub">Weekly workout protocol, body composition data, and meal log. Shared document for nutritional analysis.</p>
+    <span class="eyebrow">Workout Plan &amp; Body Composition</span>
+    <h1>Y<span class="stroke">ou</span></h1>
+    <p class="sub">Weekly workout plan, body data and meal log. Shared document for nutritional analysis.</p>
     <div class="hero-chips">
-      <span class="chip"><span class="dot" style="background:var(--accent)"></span>Misurazione <b>GG / MM / AAAA</b></span>
-      <!-- NB: hero chips ALWAYS reflect the latest weigh-in (don't react to tabs) -->
-      <span class="chip"><span class="dot" style="background:var(--accent2)"></span>Weight <b>XX.XX kg</b></span>
-      <span class="chip"><span class="dot" style="background:var(--blue)"></span>BMI <b>XX.X</b></span>
-      <span class="chip"><span class="dot" style="background:var(--green)"></span>Body fat <b>XX.X%</b></span>
-      <span class="chip"><span class="dot" style="background:var(--dim)"></span>Goal <b>to be set</b></span>
+      <span class="chip"><span class="dot" style="background:var(--accent)"></span>Weigh-in <b>01 / 13 / 2025</b></span>
+      <!-- NB: the hero chips ALWAYS reflect the latest weigh-in (they do not react to the tabs) -->
+      <span class="chip"><span class="dot" style="background:var(--accent2)"></span>Peso <b>81.40 kg</b></span>
+      <span class="chip"><span class="dot" style="background:var(--blue)"></span>BMI <b>26.6</b></span>
+      <span class="chip"><span class="dot" style="background:var(--green)"></span>Body fat <b>26.8%</b></span>
+      <span class="chip"><span class="dot" style="background:var(--dim)"></span>Goal <b>fat loss</b></span>
     </div>
   </div>
 </header>
 
-<!-- ============ STRIPE-WEEK ============ -->
+<!-- ============ STRISSETTIMANA ============ -->
 <section id="week">
   <div class="wrap">
     <div class="sec-head">
@@ -740,7 +768,7 @@
       <div class="day-pill cardio"><div class="dname">Thu</div><div class="dtype">Cardio</div></div>
       <div class="day-pill strength"><div class="dname">Fri</div><div class="dtype">Strength</div></div>
       <div class="day-pill cardio"><div class="dname">Sat</div><div class="dtype">Cardio</div></div>
-      <div class="day-pill rest"><div class="dname">Sun</div><div class="dtype">Riposo</div></div>
+      <div class="day-pill rest"><div class="dname">Sun</div><div class="dtype">Rest</div></div>
     </div>
   </div>
 </section>
@@ -767,15 +795,15 @@
           <div class="fcount">7 esercizi</div>
         </div>
         <table class="ex">
-          <thead><tr><th>Exercise</th><th>Set</th><th>Reps</th></tr></thead>
+          <thead><tr><th>Activity</th><th>Set</th><th>Ripetizioni</th></tr></thead>
           <tbody>
-            <tr><td class="name">Pike Push-Ups</td><td class="set">4</td><td class="rep">6–10<span class="u">rip</span></td></tr>
-            <tr><td class="name">Tricep Extensions</td><td class="set">4</td><td class="rep">6–8<span class="u">rip</span></td></tr>
-            <tr><td class="name">Assisted Pull-Ups</td><td class="set">4</td><td class="rep">6–10<span class="u">rip</span></td></tr>
-            <tr><td class="name">Rear Delt Pulses</td><td class="set">4</td><td class="rep">6–10<span class="u">rip</span></td></tr>
+            <tr><td class="name">Pike Push-Ups</td><td class="set">4</td><td class="rep">6–10<span class="u">reps</span></td></tr>
+            <tr><td class="name">Tricep Extensions</td><td class="set">4</td><td class="rep">6–8<span class="u">reps</span></td></tr>
+            <tr><td class="name">Assisted Pull-Ups</td><td class="set">4</td><td class="rep">6–10<span class="u">reps</span></td></tr>
+            <tr><td class="name">Rear Delt Pulses</td><td class="set">4</td><td class="rep">6–10<span class="u">reps</span></td></tr>
             <tr><td class="name">Plank</td><td class="set">4</td><td class="rep">30–45<span class="u">sec</span></td></tr>
-            <tr><td class="name">Squats</td><td class="set">4</td><td class="rep">10–20<span class="u">rip</span></td></tr>
-            <tr><td class="name">Hip Thrust</td><td class="set">4</td><td class="rep">10–20<span class="u">rip</span></td></tr>
+            <tr><td class="name">Squats</td><td class="set">4</td><td class="rep">10–20<span class="u">reps</span></td></tr>
+            <tr><td class="name">Hip Thrust</td><td class="set">4</td><td class="rep">10–20<span class="u">reps</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -790,15 +818,15 @@
           <div class="fcount">7 esercizi</div>
         </div>
         <table class="ex">
-          <thead><tr><th>Exercise</th><th>Set</th><th>Reps</th></tr></thead>
+          <thead><tr><th>Activity</th><th>Set</th><th>Ripetizioni</th></tr></thead>
           <tbody>
-            <tr><td class="name">Diamond Push-Ups</td><td class="set">4</td><td class="rep">3–12<span class="u">rip</span></td></tr>
-            <tr><td class="name">Pike Walks</td><td class="set">4</td><td class="rep">3–5<span class="u">rip</span></td></tr>
-            <tr><td class="name">Lat Slides</td><td class="set">4</td><td class="rep">6–8<span class="u">rip</span></td></tr>
-            <tr><td class="name">Sleep Rows</td><td class="set">4</td><td class="rep">6–10<span class="u">rip</span></td></tr>
+            <tr><td class="name">Diamond Push-Ups</td><td class="set">4</td><td class="rep">3–12<span class="u">reps</span></td></tr>
+            <tr><td class="name">Pike Walks</td><td class="set">4</td><td class="rep">3–5<span class="u">reps</span></td></tr>
+            <tr><td class="name">Lat Slides</td><td class="set">4</td><td class="rep">6–8<span class="u">reps</span></td></tr>
+            <tr><td class="name">Sleep Rows</td><td class="set">4</td><td class="rep">6–10<span class="u">reps</span></td></tr>
             <tr><td class="name">Hollow Body Hold</td><td class="set">4</td><td class="rep">30–45<span class="u">sec</span></td></tr>
             <tr><td class="name">Superman Hold</td><td class="set">4</td><td class="rep">30–45<span class="u">sec</span></td></tr>
-            <tr><td class="name">Monges</td><td class="set">4</td><td class="rep">10–20<span class="u">rip</span></td></tr>
+            <tr><td class="name">Lunges</td><td class="set">4</td><td class="rep">10–20<span class="u">reps</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -813,15 +841,15 @@
           <div class="fcount">7 esercizi</div>
         </div>
         <table class="ex">
-          <thead><tr><th>Exercise</th><th>Set</th><th>Reps</th></tr></thead>
+          <thead><tr><th>Activity</th><th>Set</th><th>Ripetizioni</th></tr></thead>
           <tbody>
-            <tr><td class="name">Bench Dips</td><td class="set">4</td><td class="rep">8–15<span class="u">rip</span></td></tr>
-            <tr><td class="name">Push-Ups</td><td class="set">4</td><td class="rep">8–15<span class="u">rip</span></td></tr>
-            <tr><td class="name">Australian Chin-Up</td><td class="set">4</td><td class="rep">6–10<span class="u">rip</span></td></tr>
-            <tr><td class="name">Towel Row</td><td class="set">4</td><td class="rep">8–12<span class="u">rip</span></td></tr>
-            <tr><td class="name">Floor Windshield Wipes</td><td class="set">4</td><td class="rep">8–16<span class="u">rip</span></td></tr>
+            <tr><td class="name">Bench Dips</td><td class="set">4</td><td class="rep">8–15<span class="u">reps</span></td></tr>
+            <tr><td class="name">Push-Ups</td><td class="set">4</td><td class="rep">8–15<span class="u">reps</span></td></tr>
+            <tr><td class="name">Australian Chin-Up</td><td class="set">4</td><td class="rep">6–10<span class="u">reps</span></td></tr>
+            <tr><td class="name">Towel Row</td><td class="set">4</td><td class="rep">8–12<span class="u">reps</span></td></tr>
+            <tr><td class="name">Floor Windshield Wipes</td><td class="set">4</td><td class="rep">8–16<span class="u">reps</span></td></tr>
             <tr><td class="name">Plank</td><td class="set">4</td><td class="rep">30–45<span class="u">sec</span></td></tr>
-            <tr><td class="name">Side Monges</td><td class="set">4</td><td class="rep">8–16<span class="u">rip</span></td></tr>
+            <tr><td class="name">Side Lunges</td><td class="set">4</td><td class="rep">8–16<span class="u">reps</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -835,7 +863,7 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="num">03</span>
-      <h2>Cardio Workout</h2>
+      <h2>Cardio Training</h2>
       <div class="rule"></div>
       <span class="tag">Tuesday, Thursday &amp; Saturday</span>
     </div>
@@ -853,9 +881,9 @@
           <div class="lbl">Jump rope</div>
         </div>
         <div class="interval rest-i">
-          <div class="round">Recupero</div>
+          <div class="round">Rest</div>
           <div class="mins">2<small> min</small></div>
-          <div class="lbl">Pausa</div>
+          <div class="lbl">Pause</div>
         </div>
         <div class="interval">
           <div class="round">Round 2</div>
@@ -863,9 +891,9 @@
           <div class="lbl">Jump rope</div>
         </div>
         <div class="interval rest-i">
-          <div class="round">Recupero</div>
+          <div class="round">Rest</div>
           <div class="mins">2<small> min</small></div>
-          <div class="lbl">Pausa</div>
+          <div class="lbl">Pause</div>
         </div>
         <div class="interval">
           <div class="round">Round 3</div>
@@ -886,42 +914,44 @@
       <span class="num">04</span>
       <h2>Body Composition</h2>
       <div class="rule"></div>
-      <span class="tag">Scale · every week</span>
+      <span class="tag">RENPHO scale · every Friday</span>
     </div>
 
     <!--
       WEIGH-IN CARDS (no JS, CSS only — same mechanics as the meal log):
       - one <input type="radio" name="pz" id="pzN"> (sibling of .pz-tabs and .pz-zone, INSIDE .wrap)
       - CSS rule: #pzN:checked ~ .pz-zone .pzN { display:block; }
-      - WORKFLOW EVERY FRIDAY: 1) the old pz1 becomes the new pz2 (copy the panel, rename, clear .delta)
-        2) the new pz1 takes values from the scale report (photo pesatura_XX_YY.jpg) 3) Δ = pz1 − pz2 (weight, BMI, % fat, muscles, BMR, metabolic age)
-        4) add radio+label pzN+CSS rule (pz1, pz2, … extension: multi-select list) 5) update tab (counter), pz-hist, hero chip, footer
-      - the latest weigh-in is ALWAYS pz1 (on top, checked); previous ones = archive in reverse chronological order
-      - the .delta on stats show the change vs the previous weigh-in (green = down on weight/fat/muscles, red = up; grey = unchanged)
+      - EVERY-FRIDAY WORKFLOW: 1) the old pz1 becomes the new pz2 (copy the panel, rename, empty .delta)
+        2) the new pz1 gets the values from the RENPHO report 3) delta = pz1 - pz2 (weight, BMI, % fat, muscles, BMR, metab. age)
+        4) add radio+label pzN+CSS rule 5) update tabs (counter), pz-hist, hero chips, footer
+      - the latest weigh-in is ALWAYS pz1 (on top, checked); the previous ones = archive in reverse chronological order
+      - the .delta on the stats show the change vs. the previous weigh-in (green = down, red = up; grey = unchanged)
     -->
     <input type="radio" name="pz" id="pz1" checked>
+    <input type="radio" name="pz" id="pz2">
 
     <div class="pz-tabs">
-      <label for="pz1">Weigh-in · MM/DD/YYYY (1)</label>
+      <label for="pz1">Weigh-in · Fri 01/13/2025 (2)</label>
+      <label for="pz2">Archive · Fri 01/06/2025 (1)</label>
     </div>
 
     <div class="pz-zone">
 
-      <!-- ===== PZ1 — ACTIVE WEIGH-IN (values from scale report: photo pesatura_XX_YY.jpg) ===== -->
+      <!-- ===== PZ1 — ACTIVE WEIGH-IN (values from the RENPHO report) ===== -->
       <div class="pz-panel pz1">
         <div class="pz-summary">
-          <span class="ps-title">Active weigh-in · MM/DD/YYYY</span>
-          <span class="ps-note">first tracking</span>
-          <span class="ps-delta">Δ Weight — </span>
+          <span class="ps-title">Active weigh-in · Friday 01/13/2025</span>
+          <span class="ps-note">1st week of tracking</span>
+          <span class="ps-delta">Δ Weight −1.80 kg vs. 01/06</span>
         </div>
         <!-- key stats -->
         <div class="stats-grid">
-      <div class="stat"><div class="k">Weight</div><div class="v">XX.XX<small> kg</small></div><div class="s"><span class="st nella">In range</span></div><div class="delta flat"><i>—</i> —</div></div>
-      <div class="stat"><div class="k">BMI</div><div class="v">XX.X</div><div class="s"><span class="st nella">In range</span></div><div class="delta flat"><i>—</i> —</div>
-      <div class="stat"><div class="k">Body fat</div><div class="v">XX.X<small> %</small></div><div class="s"><span class="st nella">In range</span></div><div class="delta flat"><i>—</i> —</div>
-      <div class="stat"><div class="k">Muscle mass</div><div class="v">XX.XX<small> kg</small></div><div class="s"><span class="st nella">In range</span></div><div class="delta flat"><i>—</i> —</div>
-      <div class="stat"><div class="k">BMR</div><div class="v">XXXX<small> kcal</small></div><div class="s"><span class="st nella">In range</span></div><div class="delta flat"><i>—</i> —</div>
-      <div class="stat"><div class="k">Metabolic age</div><div class="v">XX</div><div class="s"><span class="st nella">In range</span></div><div class="delta flat"><i>—</i> —</div>
+      <div class="stat"><div class="k">Weight</div><div class="v">81.40<small> kg</small></div><div class="s"><span class="st sopra">Above average</span></div><div class="delta down"><i>▼</i> −1.80 kg</div></div>
+      <div class="stat"><div class="k">BMI</div><div class="v">26.6</div><div class="s"><span class="st sopra">Above average</span></div><div class="delta down"><i>▼</i> −0.6</div></div>
+      <div class="stat"><div class="k">Body fat</div><div class="v">26.8<small> %</small></div><div class="s"><span class="st alto">High</span></div><div class="delta down"><i>▼</i> −0.7 %</div></div>
+      <div class="stat"><div class="k">Muscle mass</div><div class="v">56.57<small> kg</small></div><div class="s"><span class="st nella">In range</span></div><div class="delta down"><i>▼</i> −1.06 kg</div></div>
+      <div class="stat"><div class="k">BMR</div><div class="v">1670<small> kcal</small></div><div class="s"><span class="st sotto">Below average</span></div><div class="delta down"><i>▼</i> −20 kcal</div></div>
+      <div class="stat"><div class="k">Metabolic age</div><div class="v">36</div><div class="s"><span class="st sopra">Above average</span></div><div class="delta down"><i>▼</i> −1 year</div></div>
     </div>
 
     <!-- full table -->
@@ -930,32 +960,83 @@
         <tr><th>Parameter</th><th>Value</th><th>Status</th></tr>
       </thead>
       <tbody>
-        <tr><td class="param">Weight</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
-        <tr><td class="param">BMI<small>Body Mass Index</small></td><td class="val">XX.X</td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
-        <tr><td class="param">Body fat percentage</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st alto">High</span></td></tr>
-        <tr><td class="param">Body fat mass</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st alto">High</span></td></tr>
-        <tr><td class="param">Subcutaneous fat</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
-        <tr><td class="param">Visceral fat</td><td class="val">X</td><td class="stat-col"><span class="st nella">In range</span></td></tr>
-        <tr><td class="param">Muscle percentage</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
-        <tr><td class="param">Muscle mass</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
-        <tr><td class="param">Skeletal muscle percentage</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st sotto">Below average</span></td></tr>
-        <tr><td class="param">Skeletal muscle mass</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st sotto">Below average</span></td></tr>
-        <tr><td class="param">Bone percentage</td><td class="val">X.X<span class="u">%</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
-        <tr><td class="param">Bone mass</td><td class="val">X.XX<span class="u">kg</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
-        <tr><td class="param">Fat-free body weight</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
-        <tr><td class="param">Metabolic age</td><td class="val">XX</td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
-        <tr><td class="param">BMR<small>Basal Metabolism</small></td><td class="val">XXXX<span class="u">kcal</span></td><td class="stat-col"><span class="st sotto">Below average</span></td></tr>
-        <tr><td class="param">Body water percentage</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
-        <tr><td class="param">Body water mass</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
-        <tr><td class="param">Protein percentage</td><td class="val">XX.X<span class="u">%</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
-        <tr><td class="param">Protein mass</td><td class="val">XX.XX<span class="u">kg</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Body weight</td><td class="val">81.40<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
+        <tr><td class="param">BMI<small>Body mass index</small></td><td class="val">26.6</td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
+        <tr><td class="param">Body fat percentage</td><td class="val">26.8<span class="u">%</span></td><td class="stat-col"><span class="st alto">High</span></td></tr>
+        <tr><td class="param">Body fat mass</td><td class="val">21.82<span class="u">kg</span></td><td class="stat-col"><span class="st alto">High</span></td></tr>
+        <tr><td class="param">Subcutaneous fat</td><td class="val">23.3<span class="u">%</span></td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
+        <tr><td class="param">Visceral fat</td><td class="val">9</td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Muscle percentage</td><td class="val">69.5<span class="u">%</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Muscle mass</td><td class="val">56.57<span class="u">kg</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Skeletal muscle %</td><td class="val">47.6<span class="u">%</span></td><td class="stat-col"><span class="st sotto">Below average</span></td></tr>
+        <tr><td class="param">Skeletal muscle mass</td><td class="val">38.57<span class="u">kg</span></td><td class="stat-col"><span class="st sotto">Below average</span></td></tr>
+        <tr><td class="param">Bone %</td><td class="val">3.7<span class="u">%</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Bone mass</td><td class="val">2.99<span class="u">kg</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Lean body weight</td><td class="val">57.76<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
+        <tr><td class="param">Metabolic age</td><td class="val">36</td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
+        <tr><td class="param">BMR<small>Basal metabolism</small></td><td class="val">1670<span class="u">kcal</span></td><td class="stat-col"><span class="st sotto">Below average</span></td></tr>
+        <tr><td class="param">Body water %</td><td class="val">53.3<span class="u">%</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Body water mass</td><td class="val">43.39<span class="u">kg</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Protein %</td><td class="val">17.1<span class="u">%</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+        <tr><td class="param">Protein mass</td><td class="val">13.82<span class="u">kg</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
       </tbody>
     </table>
     <div class="pz-hist">
       <b>Weigh-in archive</b>
-      <span>Weigh-in 1 · <span class="hv">MM/DD/YYYY</span> · <span class="hv">XX.XX kg</span></span>
+      <span>Weigh-in 1 · <span class="hv">Friday 01/06/2025</span> · <span class="hv">83.20 kg</span></span>
+      <label for="pz2">View archive →</label>
     </div>
-      </div>    </div><!-- /.pz-zone -->
+      </div>
+
+      <!-- ===== PZ2 — ARCHIVE: 1st weigh-in ===== -->
+      <div class="pz-panel pz2">
+        <div class="pz-summary">
+          <span class="ps-title">Archive · 1st weigh-in · Friday 01/06/2025</span>
+          <span class="ps-note">No previous weigh-in</span>
+          <span class="ps-delta" style="color:var(--dim);background:rgba(107,113,133,.08);border-color:rgba(107,113,133,.3);">—</span>
+        </div>
+        <div class="stats-grid">
+          <div class="stat"><div class="k">Weight</div><div class="v">83.20<small> kg</small></div><div class="s"><span class="st sopra">Above average</span></div></div>
+          <div class="stat"><div class="k">BMI</div><div class="v">27.2</div><div class="s"><span class="st sopra">Above average</span></div></div>
+          <div class="stat"><div class="k">Body fat</div><div class="v">27.5<small> %</small></div><div class="s"><span class="st alto">High</span></div></div>
+          <div class="stat"><div class="k">Muscle mass</div><div class="v">57.32<small> kg</small></div><div class="s"><span class="st nella">In range</span></div></div>
+          <div class="stat"><div class="k">BMR</div><div class="v">1690<small> kcal</small></div><div class="s"><span class="st sotto">Below average</span></div></div>
+          <div class="stat"><div class="k">Metabolic age</div><div class="v">37</div><div class="s"><span class="st sopra">Above average</span></div></div>
+        </div>
+        <table class="comp">
+          <thead>
+            <tr><th>Parameter</th><th>Value</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="param">Body weight</td><td class="val">83.20<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
+            <tr><td class="param">BMI<small>Body mass index</small></td><td class="val">27.2</td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
+            <tr><td class="param">Body fat percentage</td><td class="val">27.5<span class="u">%</span></td><td class="stat-col"><span class="st alto">High</span></td></tr>
+            <tr><td class="param">Body fat mass</td><td class="val">22.88<span class="u">kg</span></td><td class="stat-col"><span class="st alto">High</span></td></tr>
+            <tr><td class="param">Subcutaneous fat</td><td class="val">24.1<span class="u">%</span></td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
+            <tr><td class="param">Visceral fat</td><td class="val">9</td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+            <tr><td class="param">Muscle percentage</td><td class="val">68.9<span class="u">%</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+            <tr><td class="param">Muscle mass</td><td class="val">57.32<span class="u">kg</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+            <tr><td class="param">Skeletal muscle %</td><td class="val">47.3<span class="u">%</span></td><td class="stat-col"><span class="st sotto">Below average</span></td></tr>
+            <tr><td class="param">Skeletal muscle mass</td><td class="val">39.12<span class="u">kg</span></td><td class="stat-col"><span class="st sotto">Below average</span></td></tr>
+            <tr><td class="param">Bone %</td><td class="val">3.7<span class="u">%</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+            <tr><td class="param">Bone mass</td><td class="val">2.99<span class="u">kg</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+            <tr><td class="param">Lean body weight</td><td class="val">58.72<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
+            <tr><td class="param">Metabolic age</td><td class="val">37</td><td class="stat-col"><span class="st sopra">Above average</span></td></tr>
+            <tr><td class="param">BMR<small>Basal metabolism</small></td><td class="val">1690<span class="u">kcal</span></td><td class="stat-col"><span class="st sotto">Below average</span></td></tr>
+            <tr><td class="param">Body water %</td><td class="val">53.4<span class="u">%</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+            <tr><td class="param">Body water mass</td><td class="val">44.43<span class="u">kg</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+            <tr><td class="param">Protein %</td><td class="val">17.0<span class="u">%</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+            <tr><td class="param">Protein mass</td><td class="val">14.14<span class="u">kg</span></td><td class="stat-col"><span class="st nella">In range</span></td></tr>
+          </tbody>
+        </table>
+        <div class="pz-hist">
+          <b>Weigh-in archive</b>
+          <span>Weigh-in 1 · <span class="hv">11/09/2026</span> · <span class="hv">83.20 kg</span></span>
+          <label for="pz1">← Back to latest weigh-in</label>
+        </div>
+      </div>
+
+    </div><!-- /.pz-zone -->
 
     <div class="legend">
       <span class="li"><span class="st nella">In range</span></span>
@@ -973,81 +1054,649 @@
       <span class="num">05</span>
       <h2>Meal Log</h2>
       <div class="rule"></div>
-      <span class="tag">Weekle · Macro per giornata</span>
+      <span class="tag">Weekly · Daily macros</span>
     </div>
 
     <!--
-      CAROSELLO SETTIMANE (senza JS, solo CSS):
-      - un <input type="radio" name="wk" id="wkN"> (sibling di .wk-tabs e .diet-zone)
-      - regola CSS: #wkN:checked ~ .diet-zone .wkN { display:block; }
-      - per aggiungere una week: duplica radio + label + pannello .wkN + regola CSS
+      WEEK CAROUSEL (no JS, CSS only):
+      - one <input type="radio" name="wk" id="wkN"> (sibling of .wk-tabs and .diet-zone)
+      - CSS rule: #wkN:checked ~ .diet-zone .wkN { display:block; }
+      - to add a week: duplicate radio + label + .wkN panel + CSS rule
       - each week = summary bar + 7-day grid (Mon→Sun)
-      - giorno compilato = &lt;details class="day-card"&gt; (clic per espandere i pasti)
-      - giorno da compilare = &lt;div class="day-card empty"&gt; (placeholder)
+      - filled day = &lt;details class="day-card"&gt; (click to expand the meals)
+      - day to fill = &lt;div class="day-card empty"&gt; (placeholder)
     -->
-    <input type="radio" name="wk" id="wk1" checked>
-    <input type="radio" name="wk" id="wk2">
+    <input type="radio" name="wk" id="wk1">
+    <input type="radio" name="wk" id="wk2" checked>
     <input type="radio" name="wk" id="wk3">
     <input type="radio" name="wk" id="wk4">
     <input type="radio" name="wk" id="wk5">
 
     <div class="wk-tabs">
-      <label for="wk1">Week 1 · 14–20 / 09 / 2026</label>
-      <label for="wk2">Week 2 · 21–27 / 09 / 2026</label>
-      <label for="wk3">Week 3 · 28 / 09 – 04 / 10 / 2026</label>
-      <label for="wk4">Week 4 · 05–11 / 10 / 2026</label>
-      <label for="wk5">Week 5 · 12–18 / 10 / 2026</label>
+      <label for="wk1">Week 1 · 09/15 – 09/21 / 2025</label>
+      <label for="wk2">Week 2 · 09/22 – 09/28 / 2025</label>
+      <label for="wk3">Week 3 · 09/29 – 10/05 / 2025</label>
+      <label for="wk4">Week 4 · 10/06 – 10/12 / 2025</label>
+      <label for="wk5">Week 5 · 10/13 – 10/19 / 2025</label>
     </div>
 
     <div class="diet-zone">
 
-      <!-- ===== SETTIMANA 1 (14–20/09) ===== -->
+      <!-- ===== WEEK 1 ===== -->
       <div class="wk-panel wk1">
         <div class="wk-summary">
-          <span class="ws-title">Week 1 · 14–20 / 09 / 2026</span>
-          <span class="ws-days">0 / 7 days logged</span>
-          <span class="ws-total">Week total —</span>
+          <span class="ws-title">Week 1 · 09/15 – 09/21 / 2025</span>
+          <span class="ws-days">7 / 7 giorni registrati</span>
+          <span class="ws-total">Totale sett. ≈ 9 352 kcal</span>
         </div>
         <div class="wk-grid">
 
-          <!-- MONDAY 14/09 — placeholder (week 1) -->
-                    <!-- LUN — EXAMPLE REMOVED: insert a filled details.day-card -->
-          <div class="day-card empty"><span class="dc-day">Mon</span><span class="dc-date">14 / 09</span><span class="dc-dash">—</span></div>
+          <!-- MONDAY — filled -->
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Mon</span>
+              <span class="dc-date">14 / 09</span>
+              <span class="dc-kcal">1 242<small> kcal</small></span>
+              <span class="dc-meals">
+                <span>☕ <span class="ml-k">286</span></span>
+                <span>🍽️ <span class="ml-k">681</span></span>
+                <span>🍽️ <span class="ml-k">275</span></span>
+              </span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="3">☕ Breakfast</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">☕</span><span class="m-t">Breakfast</span><span class="m-k">286 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🌾</span><span class="f-lead-txt" tabindex="0"><span class="fname">Oats (overnight, with water)</span></span><span class="f-kcal">146</span><span class="kcal-u">Kc</span></span><span class="fporz">40 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">24,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍯</span><span class="f-lead-txt" tabindex="0"><span class="fname">Honey (1 tsp)</span></span><span class="f-kcal">16</span><span class="kcal-u">Kc</span></span><span class="fporz">~5 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍎</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mela</span></span><span class="f-kcal">78</span><span class="kcal-u">Kc</span></span><span class="fporz">~150 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,5</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">21,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🍽️ Lunch</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🍽️</span><span class="m-t">Lunch</span><span class="m-k">681 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥪</span><span class="f-lead-txt" tabindex="0"><span class="fname">Tramezzini (2 confezioni)</span></span><span class="f-kcal">681</span><span class="kcal-u">Kc</span></span><span class="fporz">260 g · 4 pz</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">46,5</span><span class="u">P</span><span class="sep">·</span><span class="mv">36,7</span><span class="u">G</span><span class="sep">·</span><span class="mv">36,1</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🍽️ Dinner</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🍽️</span><span class="m-t">Dinner</span><span class="m-k">275 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥩</span><span class="f-lead-txt" tabindex="0"><span class="fname">Tagliata di manzo</span></span><span class="f-kcal">260</span><span class="kcal-u">Kc</span></span><span class="fporz">200 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">53,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">5,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥬</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata</span></span><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">1,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">2,9</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 242</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>111 g</b> P <small>36%</small></span>
+                <span class="mc g"><span class="sd"></span><b>47 g</b> G <small>34%</small></span>
+                <span class="mc c"><span class="sd"></span><b>89 g</b> C <small>29%</small></span>
+              </div>
+            </div>
+          </details>
 
-
-          <!-- TUESDAY 15/09 — placeholder (week 1) -->
-                    <!-- MAR — EXAMPLE REMOVED: insert a filled details.day-card -->
-          <div class="day-card empty"><span class="dc-day">Tue</span><span class="dc-date">15 / 09</span><span class="dc-dash">—</span></div>
-
-          <!-- WEDNESDAY 16/09 — placeholder (week 1) -->
-                    <!-- MER — EXAMPLE REMOVED: insert a filled details.day-card -->
-          <div class="day-card empty"><span class="dc-day">Wed</span><span class="dc-date">16 / 09</span><span class="dc-dash">—</span></div>
-
-          <!-- THURSDAY 17/09 — placeholder (week 1) -->
-                    <!-- GIO — EXAMPLE REMOVED: insert a filled details.day-card -->
-          <div class="day-card empty"><span class="dc-day">Thu</span><span class="dc-date">17 / 09</span><span class="dc-dash">—</span></div>
-
-          <!-- FRIDAY — EXAMPLE REMOVED: placeholder -->
-                    <!-- VEN — EXAMPLE REMOVED: insert a filled details.day-card -->
-          <div class="day-card empty"><span class="dc-day">Fri</span><span class="dc-date">18 / 09</span><span class="dc-dash">—</span></div>
-
-          <!-- SATURDAY 19/09 — placeholder -->
-          <div class="day-card empty"><span class="dc-day">Sat</span><span class="dc-date">19 / 09</span><span class="dc-dash">—</span></div>
-          <!-- SUNDAY 20/09 — placeholder -->
-          <div class="day-card empty"><span class="dc-day">Sun</span><span class="dc-date">20 / 09</span><span class="dc-dash">—</span></div>
+          <!-- TUESDAY — filled -->
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Tue</span>
+              <span class="dc-date">15 / 09</span>
+              <span class="dc-kcal">1 085<small> kcal</small></span>
+              <span class="dc-meals">
+                <span>☕ <span class="ml-k">411</span></span>
+                <span>🍚 <span class="ml-k">292</span></span>
+                <span>🍽️ <span class="ml-k">382</span></span>
+              </span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="3">☕ Breakfast</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">☕</span><span class="m-t">Breakfast</span><span class="m-k">411 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥚</span><span class="f-lead-txt" tabindex="0"><span class="fname">Uova (con poco sale)</span></span><span class="f-kcal">140</span><span class="kcal-u">Kc</span></span><span class="fporz">2 pz</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">12,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">9,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">1,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio EVO (a freddo)</span></span><span class="f-kcal">40</span><span class="kcal-u">Kc</span></span><span class="fporz">1 tsp</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍏</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mela verde</span></span><span class="f-kcal">78</span><span class="kcal-u">Kc</span></span><span class="fporz">~150 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,5</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">21,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍌</span><span class="f-lead-txt" tabindex="0"><span class="fname">Banana</span></span><span class="f-kcal">107</span><span class="kcal-u">Kc</span></span><span class="fporz">~120 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">1,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,4</span><span class="u">G</span><span class="sep">·</span><span class="mv">27,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🍚 Lunch</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🍚</span><span class="m-t">Lunch</span><span class="m-k">292 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍚</span><span class="f-lead-txt" tabindex="0"><span class="fname">Riso (a crudo)</span></span><span class="f-kcal">172</span><span class="kcal-u">Kc</span></span><span class="fporz">50 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">5,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">37,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Pollo (petto)</span></span><span class="f-kcal">120</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">23,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,6</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🍽️ Dinner</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🍽️</span><span class="m-t">Dinner</span><span class="m-k">382 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🐟</span><span class="f-lead-txt" tabindex="0"><span class="fname">Bastoncini di merluzzo</span></span><span class="f-kcal">360</span><span class="kcal-u">Kc</span></span><span class="fporz">8 pz · 200 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">26,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">16,6</span><span class="u">G</span><span class="sep">·</span><span class="mv">26,4</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Carote</span></span><span class="f-kcal">22</span><span class="kcal-u">Kc</span></span><span class="fporz">50 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,8</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 085</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>73,5 g</b> P <small>27%</small></span>
+                <span class="mc g"><span class="sd"></span><b>36,7 g</b> G <small>30%</small></span>
+                <span class="mc c"><span class="sd"></span><b>120 g</b> C <small>44%</small></span>
+              </div>
+            </div>
+          </details>
+          <!-- WEDNESDAY -->
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Wed</span>
+              <span class="dc-date">16 / 09</span>
+              <span class="dc-kcal">1 184<small> kcal</small></span>
+              <span class="dc-meals">
+                <span>☕ <span class="ml-k">395</span></span>
+                <span>🥪 <span class="ml-k">558</span></span>
+                <span>🍽️ <span class="ml-k">231</span></span>
+              </span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="3">☕ Breakfast</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">☕</span><span class="m-t">Breakfast</span><span class="m-k">395 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍶</span><span class="f-lead-txt" tabindex="0"><span class="fname">Yogurt Fage (greco 0%)</span></span><span class="f-kcal">300</span><span class="kcal-u">Kc</span></span><span class="fporz">150 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">13,5</span><span class="u">P</span><span class="sep">·</span><span class="mv">26,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,2</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫐</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mirtilli</span></span><span class="f-kcal">33</span><span class="kcal-u">Kc</span></span><span class="fporz">36 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">7,4</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍯</span><span class="f-lead-txt" tabindex="0"><span class="fname">Miele acacia</span></span><span class="f-kcal">16</span><span class="kcal-u">Kc</span></span><span class="fporz">1 tsp · ~5 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,3</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🥪 Lunch</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🥪</span><span class="m-t">Lunch</span><span class="m-k">558 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥪</span><span class="f-lead-txt" tabindex="0"><span class="fname">Chicken club sandwich (3 bread slices, crispy chicken, bacon, tomato, mayo, BBQ sauce)</span></span><span class="f-kcal">558</span><span class="kcal-u">Kc</span></span><span class="fporz">1 pz · ~180 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">31,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">22,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">60,2</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🍽️ Dinner</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🍽️</span><span class="m-t">Dinner</span><span class="m-k">231 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Latte parzialmente scremato</span></span><span class="f-kcal">135</span><span class="kcal-u">Kc</span></span><span class="fporz">300 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">10,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">8,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">12,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥤</span><span class="f-lead-txt" tabindex="0"><span class="fname">Proteine in polvere (whey)</span></span><span class="f-kcal">96</span><span class="kcal-u">Kc</span></span><span class="fporz">24 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">20,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">1,0</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 184</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>79,8 g</b> P <small>26%</small></span>
+                <span class="mc g"><span class="sd"></span><b>59,4 g</b> G <small>44%</small></span>
+                <span class="mc c"><span class="sd"></span><b>92,7 g</b> C <small>30%</small></span>
+              </div>
+            </div>
+          </details>
+          <!-- THURSDAY — filled -->
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Thu</span>
+              <span class="dc-date">17 / 09</span>
+              <span class="dc-kcal">1 017<small> kcal</small></span>
+              <span class="dc-meals">
+                <span>☕ <span class="ml-k">252</span></span>
+                <span>🍚 <span class="ml-k">292</span></span>
+                <span>🍽️ <span class="ml-k">473</span></span>
+              </span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="3">☕ Breakfast</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">☕</span><span class="m-t">Breakfast</span><span class="m-k">252 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥚</span><span class="f-lead-txt" tabindex="0"><span class="fname">Uova (con poco sale)</span></span><span class="f-kcal">140</span><span class="kcal-u">Kc</span></span><span class="fporz">2 pz</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">12,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">9,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">1,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio EVO (a freddo)</span></span><span class="f-kcal">40</span><span class="kcal-u">Kc</span></span><span class="fporz">1 tsp</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍏</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mela verde</span></span><span class="f-kcal">78</span><span class="kcal-u">Kc</span></span><span class="fporz">~150 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,5</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">21,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🍚 Lunch</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🍚</span><span class="m-t">Lunch</span><span class="m-k">292 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍚</span><span class="f-lead-txt" tabindex="0"><span class="fname">Riso (a crudo)</span></span><span class="f-kcal">172</span><span class="kcal-u">Kc</span></span><span class="fporz">50 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">5,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">37,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Pollo (petto)</span></span><span class="f-kcal">120</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">23,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,6</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🍽️ Dinner</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🍽️</span><span class="m-t">Dinner</span><span class="m-k">473 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫓</span><span class="f-lead-txt" tabindex="0"><span class="fname">Gallette di lenticchie</span></span><span class="f-kcal">66</span><span class="kcal-u">Kc</span></span><span class="fporz">3 pz (~18 g)</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">10,5</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Pollo Durango (affettato)</span></span><span class="f-kcal">396</span><span class="kcal-u">Kc</span></span><span class="fporz">200 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">38,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">22,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">11,4</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata mix</span></span><span class="f-kcal">50</span><span class="kcal-u">Kc</span></span><span class="fporz">150 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">2,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,6</span><span class="u">G</span><span class="sep">·</span><span class="mv">6,8</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 017</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>73,7 g</b> P <small>29%</small></span>
+                <span class="mc g"><span class="sd"></span><b>42,3 g</b> G <small>38%</small></span>
+                <span class="mc c"><span class="sd"></span><b>71,9 g</b> C <small>33%</small></span>
+              </div>
+            </div>
+          </details>
+          <!-- FRIDAY — placeholder -->
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Fri</span>
+              <span class="dc-date">18 / 09</span>
+              <span class="dc-kcal">1 662<small> kcal</small></span>
+              <span class="dc-meals">
+                <span>☕ <span class="ml-k">435</span></span>
+                <span>🥤 <span class="ml-k">127</span></span>
+                <span>🍚 <span class="ml-k">535</span></span>
+                <span>🥜 <span class="ml-k">187</span></span>
+                <span>🍽️ <span class="ml-k">378</span></span>
+              </span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="3">☕ Breakfast</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">☕</span><span class="m-t">Breakfast</span><span class="m-k">435 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="fkcal"><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥚</span><span class="f-lead-txt" tabindex="0"><span class="fname">Uova (con poco sale)</span></span><span class="fkcal"><span class="f-kcal">140</span><span class="kcal-u">Kc</span></span><span class="fporz">2 pz</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">12,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">9,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">1,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio EVO (a freddo)</span></span><span class="fkcal"><span class="f-kcal">40</span><span class="kcal-u">Kc</span></span><span class="fporz">1 tsp</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍏</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mela verde</span></span><span class="fkcal"><span class="f-kcal">78</span><span class="kcal-u">Kc</span></span><span class="fporz">~150 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,5</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">21,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍘</span><span class="f-lead-txt" tabindex="0"><span class="fname">Cracker Norvegese</span></span><span class="fkcal"><span class="f-kcal">112</span><span class="kcal-u">Kc</span></span><span class="fporz">23 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,1</span><span class="u">P</span><span class="sep">·</span><span class="mv">6,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">8,3</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫐</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mirtilli</span></span><span class="fkcal"><span class="f-kcal">22</span><span class="kcal-u">Kc</span></span><span class="fporz">24 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">5,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🌻</span><span class="f-lead-txt" tabindex="0"><span class="fname">Semi di zucca</span></span><span class="fkcal"><span class="f-kcal">65</span><span class="kcal-u">Kc</span></span><span class="fporz">11 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">2,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,9</span><span class="u">G</span><span class="sep">·</span><span class="mv">2,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🥤 Post-workout snack</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🥤</span><span class="m-t">Post-workout snack</span><span class="m-k">127 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Latte di soia (senza zuccheri)</span></span><span class="fkcal"><span class="f-kcal">108</span><span class="kcal-u">Kc</span></span><span class="fporz">300 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">6,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,3</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥤</span><span class="f-lead-txt" tabindex="0"><span class="fname">Proteine in polvere (whey)</span></span><span class="fkcal"><span class="f-kcal">19</span><span class="kcal-u">Kc</span></span><span class="fporz">24 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">20,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">1,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🍚 Lunch</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🍚</span><span class="m-t">Lunch</span><span class="m-k">535 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫑</span><span class="f-lead-txt" tabindex="0"><span class="fname">Peperoni in agrodolce (sgocciolato)</span></span><span class="fkcal"><span class="f-kcal">57</span><span class="kcal-u">Kc</span></span><span class="fporz">110 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,8</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">11,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍘</span><span class="f-lead-txt" tabindex="0"><span class="fname">Cracker Norvegese</span></span><span class="fkcal"><span class="f-kcal">112</span><span class="kcal-u">Kc</span></span><span class="fporz">23 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,1</span><span class="u">P</span><span class="sep">·</span><span class="mv">6,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">8,3</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥩</span><span class="f-lead-txt" tabindex="0"><span class="fname">Bresaola 2%</span></span><span class="fkcal"><span class="f-kcal">108</span><span class="kcal-u">Kc</span></span><span class="fporz">70 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">23,8</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,4</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍌</span><span class="f-lead-txt" tabindex="0"><span class="fname">Banana</span></span><span class="fkcal"><span class="f-kcal">107</span><span class="kcal-u">Kc</span></span><span class="fporz">~120 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">1,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,4</span><span class="u">G</span><span class="sep">·</span><span class="mv">27,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🥜 Snack</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🥜</span><span class="m-t">Snack</span><span class="m-k">187 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Yogurt greco Fage 0%</span></span><span class="fkcal"><span class="f-kcal">81</span><span class="kcal-u">Kc</span></span><span class="fporz">150 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">15,5</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,5</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥜</span><span class="f-lead-txt" tabindex="0"><span class="fname">Burro d'arachidi (100% arachidi)</span></span><span class="fkcal"><span class="f-kcal">106</span><span class="kcal-u">Kc</span></span><span class="fporz">18 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">5,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">8,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">2,1</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🍽️ Dinner</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🍽️</span><span class="m-t">Dinner</span><span class="m-k">200 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🐟</span><span class="f-lead-txt" tabindex="0"><span class="fname">Merluzzo croccante (surgelato)</span></span><span class="fkcal"><span class="f-kcal">198</span><span class="kcal-u">Kc</span></span><span class="fporz">200 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">26,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">19,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">30,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mini chicken schnitzel</span></span><span class="fkcal"><span class="f-kcal">178</span><span class="kcal-u">Kc</span></span><span class="fporz">77 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">12,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">8,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">12,3</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 662</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>111,7 g</b> P <small>27%</small></span>
+                <span class="mc g"><span class="sd"></span><b>75,4 g</b> G <small>36%</small></span>
+                <span class="mc c"><span class="sd"></span><b>128,4 g</b> C <small>32%</small></span>
+              </div>
+            </div>
+          </details>
+          <!-- SATURDAY — filled -->
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Sat</span>
+              <span class="dc-date">19 / 09</span>
+              <span class="dc-kcal">1 666<small> kcal</small></span>
+              <span class="dc-meals">
+                <span>☕ <span class="ml-k">433</span></span>
+                <span>🍚 <span class="ml-k">835</span></span>
+                <span>🍫 <span class="ml-k">216</span></span>
+                <span>🍽️ <span class="ml-k">182</span></span>
+              </span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="3">☕ Breakfast</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">☕</span><span class="m-t">Breakfast</span><span class="m-k">433 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥣</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kellogg's Barchette (cereal)</span></span><span class="fkcal"><span class="f-kcal">228</span><span class="kcal-u">Kc</span></span><span class="fporz">60 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">6,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">46,2</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Latte parzialmente scremato (Lidl)</span></span><span class="fkcal"><span class="f-kcal">94</span><span class="kcal-u">Kc</span></span><span class="fporz">200 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">6,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">3,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">9,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫐</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mirtilli</span></span><span class="fkcal"><span class="f-kcal">22</span><span class="kcal-u">Kc</span></span><span class="fporz">24 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">5,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🌻</span><span class="f-lead-txt" tabindex="0"><span class="fname">Semi di zucca</span></span><span class="fkcal"><span class="f-kcal">89</span><span class="kcal-u">Kc</span></span><span class="fporz">15 semi · ~15 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">3,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">6,9</span><span class="u">G</span><span class="sep">·</span><span class="mv">2,7</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🍚 Lunch</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🍚</span><span class="m-t">Lunch</span><span class="m-k">835 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥟</span><span class="f-lead-txt" tabindex="0"><span class="fname">Tortellini al prosciutto crudo (Fini)</span></span><span class="fkcal"><span class="f-kcal">819</span><span class="kcal-u">Kc</span></span><span class="fporz">300 g (cotti)</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">36,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">13,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">135,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍲</span><span class="f-lead-txt" tabindex="0"><span class="fname">Brodo (2 dadi vegetali Star)</span></span><span class="fkcal"><span class="f-kcal">16</span><span class="kcal-u">Kc</span></span><span class="fporz">156 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,8</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🍫 Afternoon snack</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🍫</span><span class="m-t">Afternoon snack</span><span class="m-k">216 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍫</span><span class="f-lead-txt" tabindex="0"><span class="fname">Brownie (ricetta fatta a casa)</span></span><span class="fkcal"><span class="f-kcal">216</span><span class="kcal-u">Kc</span></span><span class="fporz">1 quadrato · ~50 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">3,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">13,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">21,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🍽️ Dinner</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🍽️</span><span class="m-t">Dinner</span><span class="m-k">182 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Pollo con Zucchine</span></span><span class="fkcal"><span class="f-kcal">182</span><span class="kcal-u">Kc</span></span><span class="fporz">200 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">30,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 666</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>86,7 g</b> P <small>21%</small></span>
+                <span class="mc g"><span class="sd"></span><b>44,2 g</b> G <small>24%</small></span>
+                <span class="mc c"><span class="sd"></span><b>225,9 g</b> C <small>54%</small></span>
+              </div>
+            </div>
+          </details>
+          <!-- DOMENICA 20/09 — compilato -->
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Sun</span>              <span class="dc-date">20 / 09</span>
+              <span class="dc-kcal">1 496<small> kcal</small></span>
+              <span class="dc-meals">
+                <span>☕ <span class="ml-k">375</span></span>
+                <span>🍽️ <span class="ml-k">599</span></span>
+                <span>🌙 <span class="ml-k">522</span></span>
+              </span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="3">☕ Breakfast</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">☕</span><span class="m-t">Breakfast</span><span class="m-k">375 kcal</span></td></tr><tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Fage 0%</span></span><span class="fkcal"><span class="f-kcal">62</span><span class="kcal-u">Kc</span></span><span class="fporz">115 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">11,8</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,4</span><span class="u">C</span></span></span></td>
+                  </tr><tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥜</span><span class="f-lead-txt" tabindex="0"><span class="fname">Burro d'arachidi</span></span><span class="fkcal"><span class="f-kcal">107</span><span class="kcal-u">Kc</span></span><span class="fporz">18 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">5,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">8,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">2,1</span><span class="u">C</span></span></span></td>
+                  </tr><tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍌</span><span class="f-lead-txt" tabindex="0"><span class="fname">Banana</span></span><span class="fkcal"><span class="f-kcal">74</span><span class="kcal-u">Kc</span></span><span class="fporz">44 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">11,9</span><span class="u">C</span></span></span></td>
+                  </tr><tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫐</span><span class="f-lead-txt" tabindex="0"><span class="fname">Fichi</span></span><span class="fkcal"><span class="f-kcal">124</span><span class="kcal-u">Kc</span></span><span class="fporz">65 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">1,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,4</span><span class="u">G</span><span class="sep">·</span><span class="mv">12,4</span><span class="u">C</span></span></span></td>
+                  </tr>                  <tr class="meal-row"><td colspan="3">🍽️ Lunch</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🍽️</span><span class="m-t">Lunch</span><span class="m-k">599 kcal</span></td></tr><tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Goma wakame</span></span><span class="fkcal"><span class="f-kcal">126</span><span class="kcal-u">Kc</span></span><span class="fporz">70 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">2,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">7,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">7,0</span><span class="u">C</span></span></span></td>
+                  </tr><tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍜</span><span class="f-lead-txt" tabindex="0"><span class="fname">Riso con pollo fritto croccante, uovo in salsa don, cipolla, alga nori ed erba cipollina (Shifu)</span></span><span class="fkcal"><span class="f-kcal">473</span><span class="kcal-u">Kc</span></span><span class="fporz">~250 g · stima</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">26,5</span><span class="u">P</span><span class="sep">·</span><span class="mv">16,9</span><span class="u">G</span><span class="sep">·</span><span class="mv">55,5</span><span class="u">C</span></span></span></td>
+                  </tr>                  <tr class="meal-row"><td colspan="3">🌙 Dinner</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🌙</span><span class="m-t">Dinner</span><span class="m-k">522 kcal</span></td></tr><tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🧀</span><span class="f-lead-txt" tabindex="0"><span class="fname">Ricotta vaccina</span></span><span class="fkcal"><span class="f-kcal">140</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">11,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">3,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></span></td>
+                  </tr><tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍅</span><span class="f-lead-txt" tabindex="0"><span class="fname">Pomodori all'insalata</span></span><span class="fkcal"><span class="f-kcal">31</span><span class="kcal-u">Kc</span></span><span class="fporz">170 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">1,5</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">6,6</span><span class="u">C</span></span></span></td>
+                  </tr><tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍞</span><span class="f-lead-txt" tabindex="0"><span class="fname">Pane di segale</span></span><span class="fkcal"><span class="f-kcal">132</span><span class="kcal-u">Kc</span></span><span class="fporz">56 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">28,8</span><span class="u">C</span></span></span></td>
+                  </tr><tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio EVO (a freddo) + sale/origano</span></span><span class="fkcal"><span class="f-kcal">40</span><span class="kcal-u">Kc</span></span><span class="fporz">~4,5 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">C</span></span></span></td>
+                  </tr><tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥨</span><span class="f-lead-txt" tabindex="0"><span class="fname">Gallette mini di orzo con semi (Fiorentini)</span></span><span class="fkcal"><span class="f-kcal">179</span><span class="kcal-u">Kc</span></span><span class="fporz">45 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">11,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">20,7</span><span class="u">C</span></span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 496</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>76,6 g</b> P <small>20%</small></span>
+                <span class="mc g"><span class="sd"></span><b>46,5 g</b> G <small>28%</small></span>
+                <span class="mc c"><span class="sd"></span><b>179,5 g</b> C <small>48%</small></span>
+              </div>
+            </div>
+          </details>
 
         </div>
       </div>
 
-      <!-- ===== SETTIMANA 2 (21–27/09) ===== -->
+      <!-- ===== WEEK 2 ===== -->
       <div class="wk-panel wk2">
         <div class="wk-summary">
-          <span class="ws-title">Week 2 · 21–27 / 09 / 2026</span>
-          <span class="ws-days">0 / 7 days logged</span>
-          <span class="ws-total">Week total —</span>
+          <span class="ws-title">Week 2 · 09/22 – 09/28 / 2025</span>
+          <span class="ws-days">1 / 7 giorni registrati</span>
+          <span class="ws-total">Totale sett. ≈ 1 814 kcal</span>
         </div>
         <div class="wk-grid">
-          <div class="day-card empty"><span class="dc-day">Mon</span><span class="dc-date">21 / 09</span><span class="dc-dash">—</span></div>
+          <!-- LUNEDÌ 21/09 — compilato -->
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Mon</span>
+              <span class="dc-date">21 / 09</span>
+              <span class="dc-kcal">1 814<small> kcal</small></span>
+              <span class="dc-meals">
+                <span>☕ <span class="ml-k">378</span></span>
+                <span>🥤 <span class="ml-k">233</span></span>
+                <span>🍚 <span class="ml-k">430</span></span>
+                <span>🥜 <span class="ml-k">237</span></span>
+                <span>🍽️ <span class="ml-k">536</span></span>
+              </span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="3">☕ Breakfast</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">☕</span><span class="m-t">Breakfast</span><span class="m-k">378 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥚</span><span class="f-lead-txt" tabindex="0"><span class="fname">Uova</span></span><span class="fkcal"><span class="f-kcal">140</span><span class="kcal-u">Kc</span></span><span class="fporz">2 pz</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">12,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">9,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">1,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍎</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mela</span></span><span class="fkcal"><span class="f-kcal">78</span><span class="kcal-u">Kc</span></span><span class="fporz">~150 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,5</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">21,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍑</span><span class="f-lead-txt" tabindex="0"><span class="fname">Albicocche</span></span><span class="fkcal"><span class="f-kcal">44</span><span class="kcal-u">Kc</span></span><span class="fporz">2 pz · ~120 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">1,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">11,2</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🌻</span><span class="f-lead-txt" tabindex="0"><span class="fname">Semi di zucca (Lidl)</span></span><span class="fkcal"><span class="f-kcal">116</span><span class="kcal-u">Kc</span></span><span class="fporz">23 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">5,5</span><span class="u">P</span><span class="sep">·</span><span class="mv">10,6</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,1</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🥤 Post-workout snack</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🥤</span><span class="m-t">Post-workout snack</span><span class="m-k">233 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Latte parzialmente scremato (Lidl)</span></span><span class="fkcal"><span class="f-kcal">141</span><span class="kcal-u">Kc</span></span><span class="fporz">300 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">14,7</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥤</span><span class="f-lead-txt" tabindex="0"><span class="fname">Proteine in polvere (whey)</span></span><span class="fkcal"><span class="f-kcal">92</span><span class="kcal-u">Kc</span></span><span class="fporz">23 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">19,1</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,6</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🍚 Lunch</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🍚</span><span class="m-t">Lunch</span><span class="m-k">430 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍣</span><span class="f-lead-txt" tabindex="0"><span class="fname">Salmone al naturale con riso nero e zucchine trifolate</span></span><span class="fkcal"><span class="f-kcal">430</span><span class="kcal-u">Kc</span></span><span class="fporz">300 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">29,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">14,7</span><span class="u">G</span><span class="sep">·</span><span class="mv">29,3</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="3">🥜 Snack</td></tr>
+                  <tr class="m-mini"><td colspan="3"><span class="m-ico">🥜</span><span class="m-t">Snack</span><span class="m-k">237 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥛</span><span class="f-lead-txt" tabindex="0"><span class="fname">Yogurt greco Fage 2%</span></span><span class="fkcal"><span class="f-kcal">106</span><span class="kcal-u">Kc</span></span><span class="fporz">150 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">14,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,5</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫐</span><span class="f-lead-txt" tabindex="0"><span class="fname">Fico</span></span><span class="fkcal"><span class="f-kcal">127</span><span class="kcal-u">Kc</span></span><span class="fporz">67 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">1,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,4</span><span class="u">G</span><span class="sep">·</span><span class="mv">12,9</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍇</span><span class="f-lead-txt" tabindex="0"><span class="fname">Uva verde</span></span><span class="fkcal"><span class="f-kcal">67</span><span class="kcal-u">Kc</span></span><span class="fporz">102 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">17,8</span><span class="u">C</span></span></td>
+                  </tr>
+                <tr class="meal-row"><td colspan="3">🍽️ Dinner</td></tr>
+<tr class="m-mini"><td colspan="3"><span class="m-ico">🍽️</span><span class="m-t">Dinner</span><span class="m-k">536 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍔</span><span class="f-lead-txt" tabindex="0"><span class="fname">Hamburger di scottona</span></span><span class="fkcal"><span class="f-kcal">375</span><span class="kcal-u">Kc</span></span><span class="fporz">250 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">50,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">16,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">0,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥬</span><span class="f-lead-txt" tabindex="0"><span class="fname">Finocchio</span></span><span class="fkcal"><span class="f-kcal">45</span><span class="kcal-u">Kc</span></span><span class="fporz">144 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">1,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">10,5</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥔</span><span class="f-lead-txt" tabindex="0"><span class="fname">Patate al forno</span></span><span class="fkcal"><span class="f-kcal">116</span><span class="kcal-u">Kc</span></span><span class="fporz">122 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">2,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,6</span><span class="u">G</span><span class="sep">·</span><span class="mv">24,4</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 814</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>140,4 g</b> P <small>31%</small></span>
+                <span class="mc g"><span class="sd"></span><b>60,7 g</b> G <small>30%</small></span>
+                <span class="mc c"><span class="sd"></span><b>134,1 g</b> C <small>29%</small></span>
+              </div>
+            </div>
+          </details>
           <div class="day-card empty"><span class="dc-day">Tue</span><span class="dc-date">22 / 09</span><span class="dc-dash">—</span></div>
           <div class="day-card empty"><span class="dc-day">Wed</span><span class="dc-date">23 / 09</span><span class="dc-dash">—</span></div>
           <div class="day-card empty"><span class="dc-day">Thu</span><span class="dc-date">24 / 09</span><span class="dc-dash">—</span></div>
@@ -1057,10 +1706,10 @@
         </div>
       </div>
 
-      <!-- ===== SETTIMANA 3 (28/09–04/10) ===== -->
+      <!-- ===== WEEK 3 ===== -->
       <div class="wk-panel wk3">
         <div class="wk-summary">
-          <span class="ws-title">Week 3 · 28 / 09 – 04 / 10 / 2026</span>
+          <span class="ws-title">Week 3 · 09/29 – 10/05 / 2025</span>
           <span class="ws-days">0 / 7 days logged</span>
           <span class="ws-total">Week total —</span>
         </div>
@@ -1075,10 +1724,10 @@
         </div>
       </div>
 
-      <!-- ===== SETTIMANA 4 (05–11/10) ===== -->
+      <!-- ===== WEEK 4 ===== -->
       <div class="wk-panel wk4">
         <div class="wk-summary">
-          <span class="ws-title">Week 4 · 05–11 / 10 / 2026</span>
+          <span class="ws-title">Week 4 · 10/06 – 10/12 / 2025</span>
           <span class="ws-days">0 / 7 days logged</span>
           <span class="ws-total">Week total —</span>
         </div>
@@ -1093,10 +1742,10 @@
         </div>
       </div>
 
-      <!-- ===== SETTIMANA 5 (12–18/10) ===== -->
+      <!-- ===== WEEK 5 ===== -->
       <div class="wk-panel wk5">
         <div class="wk-summary">
-          <span class="ws-title">Week 5 · 12–18 / 10 / 2026</span>
+          <span class="ws-title">Week 5 · 10/13 – 10/19 / 2025</span>
           <span class="ws-days">0 / 7 days logged</span>
           <span class="ws-total">Week total —</span>
         </div>
@@ -1119,8 +1768,8 @@
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
-    <span><b>Nome</b> · Workout plan, body composition & meal log</span>
-    <span>Scale data: MM/DD/YYYY · Meal log: to be filled · Template to customize</span>
+    <span><b>You</b> · Workout plan, body composition &amp; meal log</span>
+    <span>Weigh-ins: 01/06 & 01/13/2025 · Meal log: through Fri 01/13 · Document for nutritional analysis</span>
   </div>
 </footer>
 

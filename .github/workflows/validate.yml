@@ -1,0 +1,19 @@
+name: validate
+
+on:
+  push:
+    paths:
+      - 'index.html'
+      - '_validate_mechanics.js'
+  pull_request:
+
+jobs:
+  validate-mechanics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Validate carousel mechanics
+        run: node _validate_mechanics.js index.html
