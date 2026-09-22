@@ -36,6 +36,9 @@
 | Tortellini with prosciutto crudo (Fini, cooked) | 100 g | 273 | 12 | 4.6 | 45 | photo `tortellini_fini_prosciutto.jpg` — **weighed cooked** (100 g raw → ~200 g cooked) |
 | Star vegetable stock cube | 1 serving (~4 g) | 8 | 0.4 | 0.6 | 0.4 | photo `stock_cube_star.jpg` (330 kcal/100 g) |
 | Mini barley crackers with seeds (Fiorentini) | 100 g | 397 | 26 | 10 | 46 | photo `fiorentini_mini_crackers.jpg` (20/09) |
+| **Avena (common flakes, default)** | 100 g | ~380 | 13 | 7 | 66 | standard estimate — ⚠️ **DEFAULT**: when the user says just "avena", it's this one |
+| **Avena Pro (Fiorentini)** | 100 g | 403 | 21 | 6.3 | 59 | photo `avena_pro.jpg` (22/09) — used ONLY when the user explicitly says **"avena pro"** (the more protein-rich one) |
+| Tinned fish (tuna, drained — label) | 100 g | 173 | 27 | 7.2 | 0 | photo `tonno_all_olio.jpg` (22/09) — **sempre sgocciolato** (rule: l'olio serve solo da conservante, si butta) |
 
 > **Foods WITHOUT label (standard estimates, used only when no photo exists)**: eggs (~70 kcal / 6.3 P / 4.9 F / 0.8 C each) · olive oil (1 teaspoon ≈ 4.5 g ≈ 40 kcal / 4.4 F) · green apple ~150 g (~78 kcal / 0.5 P / 0.3 F / 21 C) · banana ~120 g (~107 kcal / 1.3 P / 0.4 F / 27 C) · raw rice (345 kcal / 7.9 P / 0.9 F / 78 C per 100 g) · chicken breast (120 kcal / 22.5 P / 1.5 F / 0 C per 100 g) · blueberries (92 kcal / 1.5 P / 0 F / 23.5 C per 100 g) · semi-skimmed milk (45 kcal / 3.1 P / 1.8 F / 4.8 C per 100 ml) · whey (400 kcal / 83 P / 2.7 F / 2.4 C per 100 g) · raw sliced beef (~130 kcal / 26.7 P / 2.7 F / 0 C per 100 g) · leafy greens (~15 kcal / 0.7 P / 0.1 F / 3 C per 100 g).
 
@@ -146,3 +149,17 @@ Notes: tortellini weighed **cooked** (300 g). Post-workout snack: none. Day clos
 % kcal: P 20% · F 28% · C 48% — ~18.9 kcal/kg · ~0.97 g P/kg (nearly 1 g/kg, recovered with the crackers)
 Source: label photos — **Fage 0% (54 kcal / 10.3 P / 0 F / 3 C per 100 g)**, **peanut butter (596 kcal / 29.6 P / 46 F / 11.6 C per 100 g)**, **Fiorentini crackers (397 kcal / 26 P / 10 F / 46 C per 100 g → 45 g: 179 kcal / 11.7 P / 4.5 F / 20.7 C)**; estimates: banana (168 kcal/100 g), figs (190 kcal/100 g), goma wakame (≈180 kcal/100 g), don sauce (≈70 kcal/100 g), cooked rice (130 kcal/100 g), crispy fried chicken (~230 kcal/100 g), cow's-milk ricotta (140 kcal / 11 P / 3.5 F / 3 C per 100 g — already in the table), tomato (17 kcal / 100 g), rye bread (~230 kcal / 7.5 P / 1.8 F / 51.5 C per 100 g), olive oil (1 teaspoon ≈ 4.5 g ≈ 40 kcal). Plate photo: `photos/shifu_rice_chicken.jpg`.
 Notes: snacks NOT done (empty item = not done, 20/09 rule). The lunch (Shifu) has an undeclared portion: estimated ~250 g (cooked rice ~150 g → 195 kcal · fried chicken ~80 g → 184 kcal · egg ~50 g → 75 kcal · sauce ~20 g → 14 kcal · onion/nori → 5 kcal = ~473 kcal). If the dish were ~300 g (~120 g chicken), lunch ≈ 650–680 kcal and total ~1 410–1 440. **20/09 correction**: the 264 kcal value was an estimation error (138 kcal for the dish, too low). **20/09 addition (night)**: Fiorentini crackers 45 g (179 kcal, label photo) added to dinner → dinner 343→522 kcal, total ~1 317→~1 496 kcal, P/kg 0.82→~0.97 (nearly 1 g/kg: the crackers recovered the protein deficit). Week 1 total: ≈ 9 173 → ≈ 9 352 kcal (7/7 days).
+
+### Tue 22/09/2026 (filled in)
+**Food**: Avena Pro (Fiorentini) 20 g · Latte parzialmente scremato (Lidl) ~260 ml · **Pranzo pub-style sandwich (stima da foto)**: 2 fette pane toast (~80 g) + bacon affumicato 40 g + formaggio fuso 30 g + maionese 15 g + insalata/pomodori ~50 g + patate al forno 180 g (con olio) · Spuntino: latte 300 ml + whey 23 g · **Cena**: peperoni agrodolci 17 g · tonno in scatola (sgocciolato) 111 g · insalata mista 150 g
+
+| Meal | kcal | P (g) | F (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast | 203 | 12.8 | 5.5 | 24.5 |
+| Lunch | ~850 | 24.5 | 41.3 | 92.1 |
+| Snack (shaker) | 233 | 29.0 | 5.4 | 15.3 |
+| Dinner | ~251 | 32.4 | 8.7 | 8.5 |
+| **Total** | **~1 537** | **~98.7** | **~60.9** | **~140.4** |
+
+% kcal: P 26% · F 36% · C 37% — obiettivo < 1 500 kcal (ieri 1 814): over di ~37 kcal (shaker). Grasso 61 g: picco al pranzo (bacon + maionese + patate ≈ 48 g F).
+Notes: colazione = Avena Pro (etichetta `avena_pro.jpg`) + latte. Pranzo stimato dalla foto (stime standard per bacon 525 kcal/100 g, maionese 690 kcal/100 g, provolone 375 kcal/100 g, patate al forno con olio ~145 kcal/100 g); photo lunch: `photos/lunch_pub_sandwich.jpg`. Tonno: etichetta a doppia colonna, usato **sgocciolato** (regola: l'olio serve solo da conservante) — photo `tonno_all_olio.jpg`.

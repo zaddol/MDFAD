@@ -10,6 +10,7 @@
 - File read/write and bash (pi, Codex CLI, Gemini CLI, etc.).
 - **Vision**: scanning nutrition labels from photos requires a multimodal model. Without vision: estimate macros with standard tables (see `macro-analysis.md`) and ask the user for values.
 - Playwright for visual verification ("Operating workflow" section); if unavailable, ask the user for a screenshot.
+- **"Avena" (default) = common oats** (standard estimates, no label). **"Avena Pro"** = Fiorentini protein oats (403 kcal / 21 P / 6.3 F / 59 C per 100 g, photo `avena_pro.jpg`) — used ONLY when the user explicitly says "avena pro".
 
 ## Objectives
 1. **Website / document** (`tracker.html`) — one-pager to share with a nutritionist or keep for yourself: workout, body comp, diet. Pure HTML, **no JavaScript**.
@@ -169,7 +170,8 @@ and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screens
 - **Always validate** after changes: `node _validate_mechanics.js tracker.html`.
 
 ### Diary
-- 5 tabs Week 1–5 (extendable: duplicate radio + label + panel `.wkN` + CSS rules). Weeks are unlabeled ("Week 1…Week 5") so the template carries no dates; day-card placeholders show `DD/MM`.
+- 5 tabs Week 1–5 (extendable: duplicate radio + label + panel `.wkN` + CSS rules). Day-card placeholders show `DD/MM`.
+- **Tab order (convention, fixed in this instance)**: week tabs in the order **current first** (leftmost, `checked`, with a `CORRENTE` badge via `<span class="wcur">`), then future weeks in chronological order, and **past weeks last** (dimmed, with a `PASSATA` badge via `<span class="wpast">` + `.wk-past` class on the label). When a new current week starts: move `checked` to the new radio, add its `wcur` badge rule, remove `wcur` from the old label, add `class="wk-past"` + `.wpast` badge to the old label, append its pill at the end of `.wk-tabs`, and add `wk-past` to the old panel's div (opacity .85 + dashed borders). CSS: `.wk-tabs .wk-past{opacity:.55;background:var(--bg2);}`, `#wkN:checked ~ .wk-tabs .wk-past{opacity:1;}` (for each past radio), `.wk-panel.wk-past{opacity:.85;}` + dashed borders on `.wk-summary`/`.day-card`.
 - Each week: `.wk-summary` (`.ws-days` + `.ws-total`) + `.wk-grid` (7 columns → 4 on tablet → 1 on phone).
 - Filled day: `<details class="day-card">`; to fill: `<div class="day-card empty">`.
 - `table.foods` tables have NO `<thead>` and use `<colgroup><col style="width:47%"><col style="width:53%"></colgroup>` (2 columns).
