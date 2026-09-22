@@ -3,7 +3,7 @@
 > Memory del progetto. Regole vincolanti: `AGENTS.md` (workflow). Questo file è per preferenze/decisioni.
 
 ## Regole repo (non violare)
-- **`foto/` NON va in git** (cartella solo locale). Solo le immagini in `photos/` che servono ai file (etichette di alimenti nuovi, weigh-in, foto pasti) vanno caricate, e **solo quando l'utente lo chiede**.
+- **MAI caricare foto/immagini su GitHub** (né `foto/`, né `photos/`, mai). Il repo serve solo ai file che servono a chi replica il progetto in locale (HTML/MD); le immagini restano SEMPRE solo locali.
 - Non pushare mai file senza esplicito consenso.
 
 ## Preferenze utente (vissute in sessione)

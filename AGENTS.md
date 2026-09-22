@@ -91,7 +91,7 @@ and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screens
   - **Portion always visible**: `.f-lead > .fporz{flex:0 0 auto;max-width:100%;overflow:hidden;}` — the badge doesn't exceed the right border of the cell.
 
 ## Repo rule (binding)
-- **`foto/` is LOCAL-ONLY — never committed.** Only images in `photos/` that feed the site (new food labels, weigh-ins, meal photos) may go to git, and **only when the user explicitly asks**.
+- **NEVER commit photos/images to git** — neither `foto/` nor `photos/`, ever. The repo exists only for the files needed to replicate the project locally (HTML/MD); images stay local only.
 - **Never push files without explicit user consent.**
 
 ## Platform layer & motion (applied — DO NOT regress)
