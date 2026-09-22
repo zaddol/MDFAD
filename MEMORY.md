@@ -2,6 +2,10 @@
 
 > Memory del progetto. Regole vincolanti: `AGENTS.md` (workflow). Questo file è per preferenze/decisioni.
 
+## Regole repo (non violare)
+- **`foto/` NON va in git** (cartella solo locale). Solo le immagini in `photos/` che servono ai file (etichette di alimenti nuovi, weigh-in, foto pasti) vanno caricate, e **solo quando l'utente lo chiede**.
+- Non pushare mai file senza esplicito consenso.
+
 ## Preferenze utente (vissute in sessione)
 - **Conserve in scatola (tonno ecc.)**: l'utente **sgocciola sempre** l'olio (serve solo da conservante) → con etichette a doppia colonna usare SEMPRE i valori "sgocciolato".
 - **"Avena"** = fiocchi comuni di avena (standard: 380 kcal / 13P / 7F / 66C per 100 g).
