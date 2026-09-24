@@ -12,7 +12,7 @@
 | Kefir | 100 ml | 46 | 4 | 1.5 | 4 | photo `kefir.jpg` |
 | Oats (overnight) | 100 g | — | — | — | — | photo `oats.jpg` |
 | Honey | 1 teaspoon (~5 g) | 17 | 0 | 0 | 4.3 | photo `honey.jpg` |
-| Sandwiches (tramezzini) | 1 pc (65 g) | — | — | — | — | photo `sandwiches.jpg` |
+| Sandwiches (tramezzini) | 1 pc (65 g) | 133 | 11.6 | 9.2 | 9.0 | photo `tramezzini.jpg` (24/09: 262 kcal / 17,9 P / 14,1 F / 13,9 C per 100 g) |
 | Cod fish sticks | 1 pc (25 g) | 45 | 3.3 | 2.1 | 3.3 | photo `cod_fish_sticks.jpg` |
 | Carrots | 100 g | 43 | 1.3 | 0.3 | 10 | photo `carrots.jpg` |
 | Loacker chocolate wafer | 75 g | 374 | 6.2 | 18.8 | 43.5 | photo `wafer.jpg` |
@@ -22,6 +22,7 @@
 | Lentil crackers | 1 pc (~6 g) | 22 | 1.4 | 0.05 | 3.5 | photo `lentil_crackers.jpg` |
 | Norwegian cracker (protein cracker) | 100 g | 488 | 18 | 27 | 36 | photo `norwegian_cracker.jpg` |
 | Pumpkin seeds (Lidl) | 100 g | 593 | 24 | 46 | 18 | photo `pumpkin_seeds.jpg` |
+| Cod fish (battered, frozen) | 100 g | 198 | 13 | 9.6 | 15 | photo `merluzzo_croccante.jpg` |
 | Unsweetened soy milk (Lidl) | 100 ml | 36 | 3.0 | 2.0 | 1.1 | photo `soy_milk.jpg` |
 | Sweet & sour peppers (drained) | 100 g | 52 | 0.7 | 0.7 | 10 | photo `sweet_sour_peppers.jpg` |
 | Bresaola 2% (sliced) | 100 g | 154 | 34 | 2.0 | <0.5 | photo `bresaola.jpg` |
@@ -163,3 +164,31 @@ Notes: snacks NOT done (empty item = not done, 20/09 rule). The lunch (Shifu) ha
 
 % kcal: P 26% · F 36% · C 37% — obiettivo < 1 500 kcal (ieri 1 814): over di ~37 kcal (shaker). Grasso 61 g: picco al pranzo (bacon + maionese + patate ≈ 48 g F).
 Notes: colazione = Avena Pro (etichetta `avena_pro.jpg`) + latte. Pranzo stimato dalla foto (stime standard per bacon 525 kcal/100 g, maionese 690 kcal/100 g, provolone 375 kcal/100 g, patate al forno con olio ~145 kcal/100 g); photo lunch: `photos/lunch_pub_sandwich.jpg`. Tonno: etichetta a doppia colonna, usato **sgocciolato** (regola: l'olio serve solo da conservante) — photo `tonno_all_olio.jpg`.
+
+### Wed 23/09/2026 (filled in)
+**Food**: Kefir 100 ml · 2 uova (sale) · Olio EVO 1 cucchiaino · Banana mezza (~60 g) · Fico (~50 g) · Semi di zucca (Lidl) 30 g · Pane di segale 56 g · Riso **cotto** (bollito, pesato cotto) 120 g · Petto di pollo 100 g · Albicocche 3 (~150 g) · Spuntino: latte parz. scremato (Lidl) 300 ml + whey 24 g · **Cena: merluzzo in panatura (surgelato) 150 g + melanzane al vapore 100 g**
+
+| Meal | kcal | P (g) | F (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast | 682 | 29.9 | 30.9 | 75.8 |
+| Lunch | 330 | 26.6 | 1.7 | 38.9 |
+| Snack (post workout) | 237 | 29.8 | 5.4 | 15.3 |
+| Dinner (Merluzzo in panatura 150 g · Melanzane al vapore 100 g) | 322 | 20.5 | 14.6 | 28.3 |
+| **Total** | **1 570** | **107.7** | **53.0** | **166.1** |
+
+% kcal: P 27% · F 30% · C 42% — sopra l'obiettivo di ~70 kcal (ieri 1 537). **Correzione 23/09: il riso è pesato COTTO (120 g ≈ 84 g crudo), non crudo** — prima calcolato come crudo (414 kcal), ora cotto (156 kcal, USDA cooked rice ~130 kcal/100 g).
+Notes: kefir (46 kcal/100 ml) + latte Lidl (47 kcal/100 ml) + semi di zucca Lidl (593 kcal/100 g) da tabella etichette; stime: uova (70 kcal/6,3 P/4,9 G a pezzo), olio EVO 1 cucchiaino ~4,5 g (40 kcal), banana mezza ~60 g, fico ~50 g (190 kcal/100 g), albicocche (USDA 36 kcal/1,2 P/0,1 G/8,6 C per 100 g → ~18 kcal / 0,6 P / 0,03 G / 4,3 C a frutto), riso cotto 130 kcal/100 g, petto di pollo 120 kcal/100 g, pane di segale ~230 kcal/100 g, melanzane al vapore (25 kcal/100 g); merluzzo in panatura surgelato (198 kcal / 13 P / 9,6 F / 15 C per 100 g, foto `merluzzo_croccante.jpg`) da tabella etichette. **Verificato 23/09: prima stime albicocche troppo alte (2,3 P / 0,8 G / 13,7 C per 150 g), corrette a 1,8 / 0,2 / 12,9.**
+
+### Thu 24/09/2026 (filled in)
+**Food**: Kefir 100 ml · Avena Pro (Fiorentini) 40 g · Miele 1 cucchiaio (~20 g) · Mirtilli 33 g · **4 tramezzini (260 g, etichetta)** · Spuntino post-workout: latte parz. scremato (Lidl) 300 ml + whey 24 g · Cena: mozzarella 150 g · salsiccia al ragù ~75 g · mezza fetta pane ~30 g · pomodoro 160 g
+
+| Meal | kcal | P (g) | F (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast | 301 | 12.7 | 4.0 | 52.8 |
+| Lunch (4 tramezzini) | 408 | 47.2 | 36.4 | 36.0 |
+| Snack (post workout) | 237 | 29.8 | 5.4 | 15.3 |
+| Dinner | 753 | 48.7 | 45.5 | 24.2 |
+| **Total** | **1 823** | **138.4** | **91.3** | **128.3** |
+
+% kcal: P 30% · F 45% · C 28% — sopra l'obiettivo di ~320 kcal. Grassi alti (91 g, 45%) per la salsiccia + mozzarella: da evitare domani come fonte grassa.
+Notes: tramezzini da etichetta `tramezzini.jpg` (262 kcal / 17.9 P / 14.1 F / 13.9 C per 100 g; 4 pz = 260 g). Kefir da etichetta; Avena Pro (403/21/6.3/59 per 100 g); miele 304 kcal/100 g (1 cucchiaio ≈ 20 g); mirtilli 92 kcal/100 g; latte Lidl 47 kcal/100 ml; whey 400 kcal/100 g, 83 P/100 g; mozzarella 280 kcal/100 g (22 P/17 F/2 C); salsiccia al ragù ~300 kcal/100 g (15 P/25 F) stima standard; pane ~265 kcal/100 g (10 P/3 F/50 C); pomodoro 18 kcal/100 g (USDA).
