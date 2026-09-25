@@ -27,6 +27,7 @@
 | Sweet & sour peppers (drained) | 100 g | 52 | 0.7 | 0.7 | 10 | photo `sweet_sour_peppers.jpg` |
 | Bresaola 2% (sliced) | 100 g | 154 | 34 | 2.0 | <0.5 | photo `bresaola.jpg` |
 | Fage 0% Greek yogurt (skim milk) | 100 g | 54 | 10.3 | 0 | 3.0 | photo `fage_0.jpg` |
+| Fage 2% Greek yogurt | 100 g | 70 | 9.9 | 2.0 | 3.0 | photo `fage_2.jpg` (25/09) |
 | 100% peanut butter | 100 g | 596 | 29.6 | 46 | 11.6 | photo `peanut_butter.jpg` |
 | Crispy cod (frozen) | 100 g | 198 | 13 | 9.6 | 15 | photo `crispy_cod.jpg` |
 | **Brownie (homemade recipe)** | 1 square (~50 g) | **~216** | **3.3** | **13.8** | **21.8** | handwritten recipe sheet (Desktop `brownie_recipe.jpg`), standard ingredient estimates, −50 g sugar as instructed |
@@ -37,6 +38,8 @@
 | Tortellini with prosciutto crudo (Fini, cooked) | 100 g | 273 | 12 | 4.6 | 45 | photo `tortellini_fini_prosciutto.jpg` — **weighed cooked** (100 g raw → ~200 g cooked) |
 | Star vegetable stock cube | 1 serving (~4 g) | 8 | 0.4 | 0.6 | 0.4 | photo `stock_cube_star.jpg` (330 kcal/100 g) |
 | Mini barley crackers with seeds (Fiorentini) | 100 g | 397 | 26 | 10 | 46 | photo `fiorentini_mini_crackers.jpg` (20/09) |
+| **Alette di pollo Findus (con la pelle, air fryer)** | 100 g | 211 | 20 | 13 | 3.2 | photo `allete_di_pollo_findus.jpg` (25/09) — per porzione 3 alette = 78 g parte edibile |
+| **Schnitzel di pollo Lidl (mini)** | 100 g | 231 | 16 | 11 | 16 | photo `schnitzel_di_pollo_lidl.jpg` (18/09) |
 | **Avena (common flakes, default)** | 100 g | ~380 | 13 | 7 | 66 | standard estimate — ⚠️ **DEFAULT**: when the user says just "avena", it's this one |
 | **Avena Pro (Fiorentini)** | 100 g | 403 | 21 | 6.3 | 59 | photo `avena_pro.jpg` (22/09) — used ONLY when the user explicitly says **"avena pro"** (the more protein-rich one) |
 | Tinned fish (tuna, drained — label) | 100 g | 173 | 27 | 7.2 | 0 | photo `tonno_all_olio.jpg` (22/09) — **sempre sgocciolato** (rule: l'olio serve solo da conservante, si butta) |
@@ -192,3 +195,19 @@ Notes: kefir (46 kcal/100 ml) + latte Lidl (47 kcal/100 ml) + semi di zucca Lidl
 
 % kcal: P 30% · F 45% · C 28% — sopra l'obiettivo di ~320 kcal. Grassi alti (91 g, 45%) per la salsiccia + mozzarella: da evitare domani come fonte grassa.
 Notes: tramezzini da etichetta `tramezzini.jpg` (262 kcal / 17.9 P / 14.1 F / 13.9 C per 100 g; 4 pz = 260 g). Kefir da etichetta; Avena Pro (403/21/6.3/59 per 100 g); miele 304 kcal/100 g (1 cucchiaio ≈ 20 g); mirtilli 92 kcal/100 g; latte Lidl 47 kcal/100 ml; whey 400 kcal/100 g, 83 P/100 g; mozzarella 280 kcal/100 g (22 P/17 F/2 C); salsiccia al ragù ~300 kcal/100 g (15 P/25 F) stima standard; pane ~265 kcal/100 g (10 P/3 F/50 C); pomodoro 18 kcal/100 g (USDA).
+
+### Fri 25/09/2026
+**Food**: Avena Pro (Fiorentini) 40 g · Miele 1 cucchiaio (~20 g) · Mirtilli 36 g · Fage 2% 100 g · Spuntino post-workout: — · Riso 130 g (**cotto**) · Petto di pollo 100 g · Spuntino: latte parzialmente scremato (Lidl) 300 ml + whey 24 g · **Cena: alette di pollo Findus 191 g · Schnitzel di pollo Lidl 180 g · Snack Fiorentini 15 g**
+
+| Meal | kcal | P (g) | G (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast | 325 | 18.8 | 4.5 | 52.2 |
+| Post-workout snack | 0 | — | — | — |
+| Lunch | 289 | 26.1 | 1.9 | 37.1 |
+| Snack (shaker) | 237 | 29.8 | 5.5 | 15.3 |
+| Dinner | 878 | 70.9 | 46.1 | 41.8 |
+| **Total** | **~1 730** | **~145.7** | **~58.0** | **~146.3** |
+
+% kcal: P 34% · G 30% · C 34% — ~21.8 kcal/kg · ~1.84 g P/kg
+Source: Avena Pro (403/21/6.3/59 per 100 g, etichetta) · miele 304 kcal/100 g (1 cucchiaio ≈ 20 g) · mirtilli 92 kcal/100 g · **Fage 2% (70 kcal / 9,9 P / 2,0 G / 3,0 C per 100 g, etichetta `fage_2.jpg`)** · riso cotto 130 kcal/100 g (USDA) · petto di pollo 120 kcal/100 g · latte Lidl 47 kcal/100 ml · whey 400 kcal/100 g, 83 P/100 g · **alette Findus (211 kcal / 20 P / 13 G / 3,2 C per 100 g, etichetta `allete_di_pollo_findus.jpg`)** · **Schnitzel Lidl (231 / 16 / 11 / 16 per 100 g, etichetta `schnitzel_di_pollo_lidl.jpg`)** · **Fiorentini snack (397 / 26 / 10 / 46 per 100 g, etichetta `fiorentini_mini_gallette.jpg`)**.
+Notes: spuntino post-workout saltato. **25/09: il riso 130 g era pesato COTTO (regola: l'utente dà il riso sempre già cotto, pesato cotto)** — riscritto da crudo a cotto: pranzo 595→289 kcal, totale ~1 136→~851 kcal. **Correzione 25/09 (sera, segnalata dall'utente)**: due errori di somma corretti — (1) colazione P: 9.2→18.8 (era mancata la P dello yogurt Fage 2%: 8.4 avena + 9.9 Fage + 0.5 mirtilli); (2) riso cotto P: 1.7→3.6 (2.8 P/100 g × 130 g, non la metà). Totale P corretto: ~74.8 g (~0.94 g/kg), non 39.1.

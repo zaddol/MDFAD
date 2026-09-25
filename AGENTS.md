@@ -1,10 +1,10 @@
 # Project Context — AI-Editable Nutrition & Fitness Tracker
 
 > Automatically loaded by the AI agent (e.g. **pi**) at every session. This file holds the **how** (workflow, structure, conventions).
-> The **data** (weigh-ins, workouts, body comp, diet) lives in `tracker.html` and `macro-analysis.md`: read them when needed, don't duplicate them here.
+> The **data** (weigh-ins, workouts, body comp, diet) lives in `index.html` and `macro-analysis.md`: read them when needed, don't duplicate them here.
 > This folder doesn't use external tools: all memory lives in the files written here (AGENTS.md, macro-analysis.md). No backend needed: the "database" is HTML + Markdown, modified by the agent.
 
-> ⚠️ **BINDING RULE**: test changes in a working file `test-*.html` (a copy of `tracker.html`), then port them to `tracker.html` **only after user confirmation**. Never touch the main file without explicit confirmation.
+> ⚠️ **BINDING RULE**: test changes in a working file `test-*.html` (a copy of `index.html`), then port them to `index.html` **only after user confirmation**. Never touch the main file without explicit confirmation.
 
 ## Agent requirements
 - File read/write and bash (pi, Codex CLI, Gemini CLI, etc.).
@@ -13,29 +13,30 @@
 - **"Avena" (default) = common oats** (standard estimates, no label). **"Avena Pro"** = Fiorentini protein oats (403 kcal / 21 P / 6.3 F / 59 C per 100 g, photo `avena_pro.jpg`) — used ONLY when the user explicitly says "avena pro".
 
 ## Objectives
-1. **Website / document** (`tracker.html`) — one-pager to share with a nutritionist or keep for yourself: workout, body comp, diet. Pure HTML, **no JavaScript**.
+1. **Website / document** (`index.html`) — one-pager to share with a nutritionist or keep for yourself: workout, body comp, diet. Pure HTML, **no JavaScript**.
 2. **Daily macro analysis** — the user reports everything they ate; the agent calculates the summary (kcal, P, F, C) in a chat table, archives it in `macro-analysis.md`, and **updates the HTML diary in parallel**.
 3. **Weigh-in tracking** — every week (or chosen cadence) the user weighs in with a smart scale and saves the screenshot; the agent updates the body comp section with carousel + deltas.
 
 ## Quick start (new instance)
 1. Copy this folder into a new project.
-2. In `tracker.html`: replace "Name" (brand/h1/footer), the hero chips (`MM/DD/YYYY`, `XX.XX kg`…), the section 04 placeholders with the first weigh-in data, the 5-week dates, and the workout plan.
+2. In `index.html`: replace "Name" (brand/h1/footer), the hero chips (`MM/DD/YYYY`, `XX.XX kg`…), the section 04 placeholders with the first weigh-in data, the 5-week dates, and the workout plan.
 3. Reset `macro-analysis.md` (food table + days).
 4. Tell the agent: "follow AGENTS.md" — the rest comes from the workflows.
 
 ### Workflow for a new day (diary)
 1. Calculate macros: **first labels from photos** in `photos/<food_name>.jpg`; only if absent, use standard estimates.
+1b. **Calcolo SEMPRE via script Python (mai a mano)**: uno script che somma i valori per-alimento dalla tabella di `macro-analysis.md` per pasto e per giorno (kcal, P, G, C + % kcal + kcal/kg + P/kg + totale settimana). L'output dello script è l'UNICA fonte dei numeri che vanno in chat, in `macro-analysis.md` e in `index.html` — non mai aritmetica mentale, mai riutilizzare cifre parziali di uno schizzo precedente (regola nata il 25/09: errore P colazione 9.2→18.8 e P riso 1.7→3.6, entrambi portati in avanti da versioni precedenti senza ricalcolo).
 2. Table in chat: item | portion | kcal | P | F | C + day totals + % kcal per macro.
 3. Add the summary to `macro-analysis.md` (section `## Analyzed days`).
-4. In `tracker.html` → Meal Log section: replace the `<div class="day-card empty">` for that day with a `<details class="day-card">` (summary: day + date + total kcal + mini meals; `dc-detail`: `table.foods` with `tr.m-mini` per meal + `dc-macro` with P/F/C totals). **Each food row uses the current pattern (with `tabindex` and `.fkcal`)** — see "Food table structure" at the bottom of this file.
+4. In `index.html` → Meal Log section: replace the `<div class="day-card empty">` for that day with a `<details class="day-card">` (summary: day + date + total kcal + mini meals; `dc-detail`: `table.foods` with `tr.m-mini` per meal + `dc-macro` with P/F/C totals). **Each food row uses the current pattern (with `tabindex` and `.fkcal`)** — see "Food table structure" at the bottom of this file.
 5. Update `.ws-days` (N/7) and `.ws-total` (week total kcal) in the week's `.wk-summary`.
 6. If the day is in a week that doesn't exist yet: duplicate `radio` + `label` + panel `.wkN` + CSS rule `#wkN:checked ~ .diet-zone .wkN` (radios must stay as **siblings** of `.wk-tabs`/`.diet-zone`, NEVER inside `.wk-tabs`).
 
 ## Role of files (data vs workflow)
 - `AGENTS.md` — the **how** (workflow, structure, conventions) + weigh-in archive (scale data).
 - `macro-analysis.md` — contains **ONLY food values**: nutrition tables for foods (from label photos) and daily macro summaries. No workflow instructions, no weigh-in data.
-- `tracker.html` — the one-pager (HTML, no JS). **Single source of visible data**.
-- `_validate_mechanics.js` — Node script that validates carousel mechanics without rendering: `node _validate_mechanics.js tracker.html`. Use after changes to radio/carousel structure.
+- `index.html` — the one-pager (HTML, no JS). **Single source of visible data**.
+- `_validate_mechanics.js` — Node script that validates carousel mechanics without rendering: `node _validate_mechanics.js index.html`. Use after changes to radio/carousel structure.
 - `photos/` — food labels (`.jpg`), weigh-in screenshots (`weighin_XX_YY.jpg`), handwritten routine sheet if applicable.
 
 **Photo convention**: every food with a scanned label → `photos/<food_name>.jpg` (snake_case, ascii name). Always use label values for macros first; only foods without photos (eggs, apple, banana, raw rice, chicken, olive oil…) are estimated.
@@ -44,22 +45,22 @@
 > Mandatory operating rules for every session. This is the "how to do it", not the "what".
 
 ### 1. Binding rule (repeated)
-- **ALWAYS a working file `test-*.html` first** (copy of `tracker.html`), always. Only after user confirmation: port the change to the main file.
+- **ALWAYS a working file `test-*.html` first** (copy of `index.html`), always. Only after user confirmation: port the change to the main file.
 
 ### 2. Automated visual verification with Playwright (DO NOT ask for manual screenshots)
 Before delivering a CSS change, **always verify** it with headless screenshots. Commands (from the project folder):
 ```
 # base screenshot (viewport 1280x900):
-npx -y playwright screenshot --viewport-size=1280,900 file:///<path>/tracker.html out.png
+npx -y playwright screenshot --viewport-size=1280,900 file:///<path>/index.html out.png
 
 # full page:
-npx -y playwright screenshot --viewport-size=1280,5200 --full-page file:///<path>/tracker.html out.png
+npx -y playwright screenshot --viewport-size=1280,5200 --full-page file:///<path>/index.html out.png
 
 # other breakpoints: 1280 (desktop), 900 (tablet 760px+), 420 (phone 480px-)
 ```
 **Trick for collapsed diary**: filled days are `<details class="day-card">` (closed by default). To see them in the screenshot, make a **temporary copy** of the file with `open` added:
 ```
-python -c "src=open('tracker.html',encoding='utf-8').read().replace('<details class=\"day-card\">','<details class=\"day-card\" open>'); open('tmp-open-check.html','w',encoding='utf-8').write(src)"
+python -c "src=open('index.html',encoding='utf-8').read().replace('<details class=\"day-card\">','<details class=\"day-card\" open>'); open('tmp-open-check.html','w',encoding='utf-8').write(src)"
 ```
 and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screenshots at end of session.**
 
@@ -95,7 +96,7 @@ and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screens
 - **Never push files without explicit user consent.**
 
 ## Platform layer & motion (applied — DO NOT regress)
-> Small CSS/meta fixes that make the page feel installed, not "a website in a browser". Already in `tracker.html`; any new CSS must follow these rules.
+> Small CSS/meta fixes that make the page feel installed, not "a website in a browser". Already in `index.html`; any new CSS must follow these rules.
 
 - **Easing vars in `:root` (ALWAYS these, never ad-hoc `ease`/`cubic-bezier`)**: `--ease: cubic-bezier(.25,.46,.45,.94)` for color/background/border transitions (120–200ms); `--ease-out: cubic-bezier(.23,1,.32,1)` for transform/rotate/scale (180–240ms, never under 150ms).
 - **Meta (head)**: `viewport-fit=cover` + `interactive-widget=resizes-content`, single dark `theme-color`, `html{scroll-behavior:smooth;overflow-x:clip;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}`.
@@ -104,6 +105,9 @@ and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screens
 - **`touch-action:manipulation` + `user-select:none` ONLY on controls** (nav links, tab labels, day-card summary, `.f-lead-txt`): removes 300ms tap delay; informational text stays selectable.
 - **`@media (prefers-reduced-motion:reduce)`**: disables smooth scroll and transitions (respects OS setting).
 - **`100vh` NEVER** — use `dvh` if a viewport height is needed. No `overscroll-behavior` on html (pull-to-refresh is welcome).
+- **Pesi degli alimenti: quando l'utente dà un peso SENZA specificare, chiedere o assumere il peso COME PESATO** (solitamente = come mangiato/cotto). Regola 23/09: il riso "120 g" era pesato **cotto** (≈ 84 g crudo), non crudo. **Regola 25/09 (confermata): il riso viene SEMPRE dato già cotto, pesato cotto** → usare le tabelle del riso cotto (≈130 kcal/100 g, 2.8 P / 0.3 G / 28.5 C), non quelle del crudo. Se c'è dubbio su un altro alimento, chiedere prima di calcolare.
+- **Anticipo pasti: il giorno può avere solo i pasti già mangati** (es. venerdì 25/09: colazione, pranzo, spuntino — nessuna cena anticipata). La cena si registra il giorno dopo, appena comunicata.
+- **Macros = P · G · C (Proteine · Grassi · Carboidrati), ALWAYS in that order** — NOT P·F·C. "F" is the legacy code name for fat (`.f-macros`, `fporz`, `f-lead`… keep those class names, they're CSS internals); every **visible** label (`.f-macros` unit letters, `dc-macro`, chat tables) must show **P · G · C**.
 - `::-webkit-details-marker{display:none}` on day-card summaries (native marker replaced by `.dc-chev`).
 
 ## Food table structure (diary)
@@ -128,7 +132,7 @@ and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screens
 </span>
 ```
 
-**Base CSS (desktop + tablet + phone) — FLEX, NOT GRID (bug 50–53 closed)** — canonical copy in `tracker.html` ("FOOD ROW" block):
+**Base CSS (desktop + tablet + phone) — FLEX, NOT GRID (bug 50–53 closed)** — canonical copy in `index.html` ("FOOD ROW" block):
 ```
 .f-lead{display:flex;flex-wrap:wrap;align-items:flex-start;column-gap:6px;row-gap:2px;min-width:0;max-width:100%;width:100%;}
 .f-lead .ficon{flex:0 0 auto;font-size:16px;line-height:1.2;}
@@ -171,7 +175,7 @@ and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screens
   section#bodycomp input#pzN:checked ~ .pz-zone .pzN{display:block;}
   ```
 - **Never mix `pz` radios and `wk` radios**: they are two separate groups.
-- **Always validate** after changes: `node _validate_mechanics.js tracker.html`.
+- **Always validate** after changes: `node _validate_mechanics.js index.html`.
 
 ### Diary
 - 5 tabs Week 1–5 (extendable: duplicate radio + label + panel `.wkN` + CSS rules). Day-card placeholders show `DD/MM`.
@@ -186,7 +190,7 @@ and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screens
 
 ## Weigh-in archive (scale)
 
-> Source: scale app screenshots saved in `photos/weighin_XX_YY.jpg`. Values shown in `tracker.html` (section 04, carousels pz1/pz2/…) always reflect the latest weigh-in.
+> Source: scale app screenshots saved in `photos/weighin_XX_YY.jpg`. Values shown in `index.html` (section 04, carousels pz1/pz2/…) always reflect the latest weigh-in.
 
 | # | Date | Weight (kg) | BMI | %Fat | Fat mass (kg) | %Muscle | Muscle mass (kg) | BMR (kcal) | Metabolic age |
 |---|------|-------------|-----|------|---------------|---------|------------------|------------|---------------|
@@ -199,7 +203,7 @@ and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screens
 
 1. **Save the screenshot** of the weigh-in in `photos/weighin_XX_YY.jpg`.
 2. **Update the "Weigh-in archive"** in this file: new row in the table + Δ row vs previous.
-3. **In `tracker.html`, section 04 (pz carousel)**:
+3. **In `index.html`, section 04 (pz carousel)**:
    - Move the `checked` attribute from the current radio (pz1) to the new radio.
    - Add `<input type="radio" name="pz" id="pzN" checked>` — **sibling** of existing `pz` radios, NOT inside `.pz-tabs`.
    - Add `<label for="pzN">Weigh-in (N)</label>` in `.pz-tabs` (N = total number of weigh-ins).
@@ -210,7 +214,7 @@ and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screens
    - **Hero chips**: Weight (kg) + measurement date.
    - **Section 04 tag**: weigh-in date.
    - **Footer**: list of weigh-in dates.
-5. **Validate**: `node _validate_mechanics.js tracker.html` → all `pz` and `wk` radios present, correct sibling order, exactly ONE `checked` per group.
+5. **Validate**: `node _validate_mechanics.js index.html` → all `pz` and `wk` radios present, correct sibling order, exactly ONE `checked` per group.
 6. **Playwright visual verification**: screenshot of the section 04 area to check the new card is the visible one and deltas are correct.
 
 ## TODO (to customize in the instance)
