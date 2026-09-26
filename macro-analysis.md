@@ -43,6 +43,9 @@
 | **Avena (common flakes, default)** | 100 g | ~380 | 13 | 7 | 66 | standard estimate — ⚠️ **DEFAULT**: when the user says just "avena", it's this one |
 | **Avena Pro (Fiorentini)** | 100 g | 403 | 21 | 6.3 | 59 | photo `avena_pro.jpg` (22/09) — used ONLY when the user explicitly says **"avena pro"** (the more protein-rich one) |
 | Tinned fish (tuna, drained — label) | 100 g | 173 | 27 | 7.2 | 0 | photo `tonno_all_olio.jpg` (22/09) — **sempre sgocciolato** (rule: l'olio serve solo da conservante, si butta) |
+| Tinned tuna Findus (al naturale, drained) | 100 g | 134 | 31 | 1.1 | 0 | photo `tonno_findus_al_naturale.jpg` (26/09) — drained |
+| Simmental (cheese, sliced) | 100 g | 59 | 11 | 1.5 | 0.2 | photo `simmental.jpg` (26/09) |
+| Guinness draught | 330 ml | 116 | 0 | 0 | 3 | photo `birra_guinness.jpg` (26/09) — 116 kcal / 11 g alcohol / 35 kcal per 100 ml |
 
 > **Foods WITHOUT label (standard estimates, used only when no photo exists)**: eggs (~70 kcal / 6.3 P / 4.9 F / 0.8 C each) · olive oil (1 teaspoon ≈ 4.5 g ≈ 40 kcal / 4.4 F) · green apple ~150 g (~78 kcal / 0.5 P / 0.3 F / 21 C) · banana ~120 g (~107 kcal / 1.3 P / 0.4 F / 27 C) · raw rice (345 kcal / 7.9 P / 0.9 F / 78 C per 100 g) · chicken breast (120 kcal / 22.5 P / 1.5 F / 0 C per 100 g) · blueberries (92 kcal / 1.5 P / 0 F / 23.5 C per 100 g) · semi-skimmed milk (45 kcal / 3.1 P / 1.8 F / 4.8 C per 100 ml) · whey (400 kcal / 83 P / 2.7 F / 2.4 C per 100 g) · raw sliced beef (~130 kcal / 26.7 P / 2.7 F / 0 C per 100 g) · leafy greens (~15 kcal / 0.7 P / 0.1 F / 3 C per 100 g).
 
@@ -211,3 +214,18 @@ Notes: tramezzini da etichetta `tramezzini.jpg` (262 kcal / 17.9 P / 14.1 F / 13
 % kcal: P 34% · G 30% · C 34% — ~21.8 kcal/kg · ~1.84 g P/kg
 Source: Avena Pro (403/21/6.3/59 per 100 g, etichetta) · miele 304 kcal/100 g (1 cucchiaio ≈ 20 g) · mirtilli 92 kcal/100 g · **Fage 2% (70 kcal / 9,9 P / 2,0 G / 3,0 C per 100 g, etichetta `fage_2.jpg`)** · riso cotto 130 kcal/100 g (USDA) · petto di pollo 120 kcal/100 g · latte Lidl 47 kcal/100 ml · whey 400 kcal/100 g, 83 P/100 g · **alette Findus (211 kcal / 20 P / 13 G / 3,2 C per 100 g, etichetta `allete_di_pollo_findus.jpg`)** · **Schnitzel Lidl (231 / 16 / 11 / 16 per 100 g, etichetta `schnitzel_di_pollo_lidl.jpg`)** · **Fiorentini snack (397 / 26 / 10 / 46 per 100 g, etichetta `fiorentini_mini_gallette.jpg`)**.
 Notes: spuntino post-workout saltato. **25/09: il riso 130 g era pesato COTTO (regola: l'utente dà il riso sempre già cotto, pesato cotto)** — riscritto da crudo a cotto: pranzo 595→289 kcal, totale ~1 136→~851 kcal. **Correzione 25/09 (sera, segnalata dall'utente)**: due errori di somma corretti — (1) colazione P: 9.2→18.8 (era mancata la P dello yogurt Fage 2%: 8.4 avena + 9.9 Fage + 0.5 mirtilli); (2) riso cotto P: 1.7→3.6 (2.8 P/100 g × 130 g, non la metà). Totale P corretto: ~74.8 g (~0.94 g/kg), non 39.1.
+
+### Sat 26/09/2026 (filled in)
+**Food**: Kefir 100 ml · Avena Pro (Fiorentini) 40 g · Miele 1 cucchiaio (~20 g) · Mirtilli 36 g · Fage 2% 150 g · Spuntino post-workout: — · Hamburger di mucca (cotto) 120 g · Pane 2 fette (~60 g) · Formaggio 50 g (stima) · Pizza impasto romano (salsiccia + patate) ~150 g (stima) · **Cena: Tonno Findus al naturale (sgocciolato) 126 g · Simmental 180 g · Insalata fresca 80 g · Birra Guinness 330 ml**
+
+| Meal | kcal | P (g) | G (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast | 406 | 27.8 | 7.0 | 56.7 |
+| Post-workout snack | 0 | — | — | — |
+| Lunch | 986 | 66.2 | 54.0 | 78.0 |
+| Dinner | 403 | 59.4 | 4.2 | 12.7 |
+| **Total** | **~1 795** | **~153.4** | **~65.2** | **~147.4** |
+
+% kcal: P 34% · G 33% · C 33% — ~22.6 kcal/kg · ~1.93 g P/kg
+Source: Avena Pro (403/21/6.3/59 per 100 g, etichetta) · miele 304 kcal/100 g · mirtilli 92 kcal/100 g · **Fage 2% (70 kcal / 9,9 P / 2,0 G / 3,0 C per 100 g, etichetta `fage_2.jpg`)** · kefir (46 kcal/100 ml, etichetta) · stime: hamburger di mucca cotto (200 kcal / 26 P / 16 G per 100 g), pane 265 kcal/100 g (10 P / 3 G / 50 C), formaggio misto 350 kcal/100 g (25 P / 30 G), fetta pizza impasto romano salsiccia+patate (150 g: 412 kcal / 16.5 P / 18 G / 48 C) · **Cena da etichette: Tonno Findus al naturale (134 kcal / 31 P / 1,1 G / 0 C per 100 g, sgocciolato, etichetta `tonno_findus_al_naturale.jpg`) · Simmental (59 kcal / 11 P / 1,5 G / 0,2 C per 100 g, etichetta `simmental.jpg`) · Birra Guinness (116 kcal / 330 ml, 11 g alcool, etichetta `birra_guinness.jpg`)** · insalata fresca ~15 kcal/100 g.
+Notes: spuntino post-workout saltato (niente shaker, proteine recuperate a cena col tonno + simmental). **Dom 27/09: pranzo saltato (giornata da 0 kcal)**. Totale settimana 2: ≈ 8 538 kcal (8 473 − 1 730 ven + 1 795 sab).
