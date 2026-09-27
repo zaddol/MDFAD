@@ -194,9 +194,11 @@ and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screens
 
 | # | Date | Weight (kg) | BMI | %Fat | Fat mass (kg) | %Muscle | Muscle mass (kg) | BMR (kcal) | Metabolic age |
 |---|------|-------------|-----|------|---------------|---------|------------------|------------|---------------|
-| 1 | … | … | … | … | … | … | … | … | … |
+| 1 | 11/09/2026 | 80.75 | 26.4 | 26.6 | 21.48 | 69.7 | 56.28 | 1661 | 36 |
+| 2 | 18/09/2026 | 79.30 | 25.9 | 26.1 | 20.70 | 70.2 | 55.67 | 1635 | 35 |
+| 3 | 25/09/2026 | 79.50 | 26.0 | 26.1 | 20.75 | 70.2 | 55.81 | 1640 | 35 |
 
-Δ 1→2: (to be filled)
+Δ 2→3: peso +0.20 kg · BMI +0.1 · % grasso 0.0 · massa grassa +0.05 kg · % muscolo 0.0 · massa muscolare +0.14 kg · BMR +5 kcal · età metabolica 0
 
 ## Weigh-in workflow — adding a new weigh-in (weekly cadence)
 > Source: scale app screenshot saved in `photos/weighin_XX_YY.jpg`. This is the "how": the VALUES live in the "Weigh-in archive" table (above) and in the HTML file, NOT in `macro-analysis.md`.
