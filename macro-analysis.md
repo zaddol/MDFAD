@@ -45,6 +45,8 @@
 | Tinned fish (tuna, drained — label) | 100 g | 173 | 27 | 7.2 | 0 | photo `tonno_all_olio.jpg` (22/09) — **sempre sgocciolato** (rule: l'olio serve solo da conservante, si butta) |
 | Tinned tuna Findus (al naturale, drained) | 100 g | 134 | 31 | 1.1 | 0 | photo `tonno_findus_al_naturale.jpg` (26/09) — drained |
 | Simmental (cheese, sliced) | 100 g | 59 | 11 | 1.5 | 0.2 | photo `simmental.jpg` (26/09) |
+| Lindt dark chocolate 90% | 100 g | 592 | 10 | 55 | 30 | photo `cioccolata_lindt_90.jpg` (27/09) |
+| Almonds (Lidl) | 100 g | 621 | 24.5 | 53.3 | 4.8 | photo `mandorle.jpg` (27/09) |
 | Guinness draught | 330 ml | 116 | 0 | 0 | 3 | photo `birra_guinness.jpg` (26/09) — 116 kcal / 11 g alcohol / 35 kcal per 100 ml |
 
 > **Foods WITHOUT label (standard estimates, used only when no photo exists)**: eggs (~70 kcal / 6.3 P / 4.9 F / 0.8 C each) · olive oil (1 teaspoon ≈ 4.5 g ≈ 40 kcal / 4.4 F) · green apple ~150 g (~78 kcal / 0.5 P / 0.3 F / 21 C) · banana ~120 g (~107 kcal / 1.3 P / 0.4 F / 27 C) · raw rice (345 kcal / 7.9 P / 0.9 F / 78 C per 100 g) · chicken breast (120 kcal / 22.5 P / 1.5 F / 0 C per 100 g) · blueberries (92 kcal / 1.5 P / 0 F / 23.5 C per 100 g) · semi-skimmed milk (45 kcal / 3.1 P / 1.8 F / 4.8 C per 100 ml) · whey (400 kcal / 83 P / 2.7 F / 2.4 C per 100 g) · raw sliced beef (~130 kcal / 26.7 P / 2.7 F / 0 C per 100 g) · leafy greens (~15 kcal / 0.7 P / 0.1 F / 3 C per 100 g).
@@ -228,4 +230,20 @@ Notes: spuntino post-workout saltato. **25/09: il riso 130 g era pesato COTTO (r
 
 % kcal: P 34% · G 33% · C 33% — ~22.6 kcal/kg · ~1.93 g P/kg
 Source: Avena Pro (403/21/6.3/59 per 100 g, etichetta) · miele 304 kcal/100 g · mirtilli 92 kcal/100 g · **Fage 2% (70 kcal / 9,9 P / 2,0 G / 3,0 C per 100 g, etichetta `fage_2.jpg`)** · kefir (46 kcal/100 ml, etichetta) · stime: hamburger di mucca cotto (200 kcal / 26 P / 16 G per 100 g), pane 265 kcal/100 g (10 P / 3 G / 50 C), formaggio misto 350 kcal/100 g (25 P / 30 G), fetta pizza impasto romano salsiccia+patate (150 g: 412 kcal / 16.5 P / 18 G / 48 C) · **Cena da etichette: Tonno Findus al naturale (134 kcal / 31 P / 1,1 G / 0 C per 100 g, sgocciolato, etichetta `tonno_findus_al_naturale.jpg`) · Simmental (59 kcal / 11 P / 1,5 G / 0,2 C per 100 g, etichetta `simmental.jpg`) · Birra Guinness (116 kcal / 330 ml, 11 g alcool, etichetta `birra_guinness.jpg`)** · insalata fresca ~15 kcal/100 g.
-Notes: spuntino post-workout saltato (niente shaker, proteine recuperate a cena col tonno + simmental). **Dom 27/09: pranzo saltato (giornata da 0 kcal)**. Totale settimana 2: ≈ 8 538 kcal (8 473 − 1 730 ven + 1 795 sab).
+Notes: spuntino post-workout saltato (niente shaker, proteine recuperate a cena col tonno + simmental). Totale settimana 2 pre-Dom: ≈ 8 538 kcal.
+
+### Sun 27/09/2026
+**Food**: Kefir 100 ml · Avena Pro (Fiorentini) 40 g · Miele 1 cucchiaio (~20 g) · Mirtilli 36 g · Fage 2% 150 g · Spuntino post-workout: — · Panino (pane 2 fette ~60 g) + cotolette di pollo 2 pz (~120 g) + insalatina ~50 g + salsa BBQ ~20 g · Patatine fritte dolci 120 g · Spuntino: latte parzialmente scremato (Lidl) 300 ml + whey 24 g · **Cena: pollo in padella (chicken salad) 150 g + peperoni in padella 131 g + mandorle (Lidl) 45 g**
+
+| Meal | kcal | P (g) | G (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast | 406 | 27.8 | 7.0 | 57.1 |
+| Post-workout snack | 0 | — | — | — |
+| Lunch | 540 | 35.9 | 22.3 | 52.1 |
+| Snack (shaker) | 237 | 29.8 | 5.4 | 15.3 |
+| Dinner | 490 | 46.6 | 26.5 | 10.0 |
+| **Total** | **~1 674** | **~140.0** | **~61.0** | **~134.4** |
+
+% kcal: P 34% · G 33% · C 33% — ~21.1 kcal/kg · ~1.76 g P/kg
+Source: Avena Pro (403/21/6.3/59 per 100 g, etichetta) · kefir (46 kcal/100 ml, etichetta) · miele 304 kcal/100 g (1 cucchiaio ≈ 20 g) · mirtilli 92 kcal/100 g · **Fage 2% (70 kcal / 9,9 P / 2,0 G / 3,0 C per 100 g, etichetta `fage_2.jpg`)** · latte Lidl 47 kcal/100 ml · whey 400 kcal/100 g, 83 P/100 g; stime: pane 265 kcal/100 g (10 P / 3 G / 50 C), cotolette di pollo (paned & fried, ~150 kcal/100 g: 22,5 P / 10 G), insalatina 15 kcal/100 g, salsa BBQ ~70 kcal/100 g, patatine fritte dolci (french fries, 150 kcal/100 g: 2 P / 7 G / 15 C), petto di pollo in padella 120 kcal/100 g (22,5 P / 1,5 G), peperoni 26 kcal/100 g (1,4 P / 0,2 G / 6 C), **mandorle Lidl (621 kcal / 24,5 P / 53,3 G / 4,8 C per 100 g, etichetta `mandorle.jpg`)**. Lindt fondente 90% (592 / 10 P / 55 G / 30 C, etichetta `cioccolata_lindt_90.jpg`) non mangiata — registrata in tabella ma non inclusa nel totale.
+Notes: spuntino post-workout saltato. Pranzo da panineria: 540 kcal (cotolette 12 g G + patatine 8,4 G + pane 30 C). Cena proteica (490 kcal, 46,6 g P): pollo in padella 150 g + peperoni 131 g + mandorle 45 g (target 140 g P raggiunto). Stime standard (nessun olio dichiarato nella padella). Totale ~21,1 kcal/kg con P/kg 1,76. **Totale settimana 2 chiuso: ≈ 10 212 kcal** (8 538 + 1 674, 7/7 giorni).

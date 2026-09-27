@@ -39,7 +39,7 @@
 - `_validate_mechanics.js` — Node script that validates carousel mechanics without rendering: `node _validate_mechanics.js index.html`. Use after changes to radio/carousel structure.
 - `photos/` — food labels (`.jpg`), weigh-in screenshots (`weighin_XX_YY.jpg`), handwritten routine sheet if applicable.
 
-**Photo convention**: every food with a scanned label → `photos/<food_name>.jpg` (snake_case, ascii name). Always use label values for macros first; only foods without photos (eggs, apple, banana, raw rice, chicken, olive oil…) are estimated.
+**Photo convention**: every food with a scanned label → `photos/<food_name>.jpg` (snake_case, ascii name). Always use label values for macros first; only foods without photos (eggs, apple, banana, raw rice, chicken, olive oil…) are estimated. **Etichette già scansionate**: `cioccolata_lindt_90.jpg` (Lindt 90%: 592 kcal / 10 P / 55 G / 30 C per 100 g) · `mandorle.jpg` (Lidl mandorle: 621 kcal / 24,5 P / 53,3 G / 4,8 C per 100 g) · `birra_guinness.jpg` (116 kcal / 330 ml) · `simmental.jpg` (59 kcal / 11 P / 1,5 G / 0,2 C per 100 g) · `tonno_findus_al_naturale.jpg` (134 kcal / 31 P / 1,1 G / 0 C per 100 g).
 
 ## Operating workflow
 > Mandatory operating rules for every session. This is the "how to do it", not the "what".
