@@ -48,6 +48,8 @@
 | Lindt dark chocolate 90% | 100 g | 592 | 10 | 55 | 30 | photo `cioccolata_lindt_90.jpg` (27/09) |
 | Almonds (Lidl) | 100 g | 621 | 24.5 | 53.3 | 4.8 | photo `mandorle.jpg` (27/09) |
 | Guinness draught | 330 ml | 116 | 0 | 0 | 3 | photo `birra_guinness.jpg` (26/09) — 116 kcal / 11 g alcohol / 35 kcal per 100 ml |
+| Lidl crispy slice (fetta croccante) | 100 g | 439 | 16.0 | 10.0 | 68.0 | photo `fetta_croccante.jpg` (28/09) — porzione 16,5 g: 72 kcal / 2,6 P / 1,7 F / 11,0 C |
+| Whey protein (DigeZyme, proteine in polvere) | 100 g | 358 | 66.9 | 3.47 | 14.59 | photo `whey_proteine.jpg` (28/09) — **NUOVA marca**: diversa dalla whey generica (400/83 P) usata fino a oggi |
 
 > **Foods WITHOUT label (standard estimates, used only when no photo exists)**: eggs (~70 kcal / 6.3 P / 4.9 F / 0.8 C each) · olive oil (1 teaspoon ≈ 4.5 g ≈ 40 kcal / 4.4 F) · green apple ~150 g (~78 kcal / 0.5 P / 0.3 F / 21 C) · banana ~120 g (~107 kcal / 1.3 P / 0.4 F / 27 C) · raw rice (345 kcal / 7.9 P / 0.9 F / 78 C per 100 g) · chicken breast (120 kcal / 22.5 P / 1.5 F / 0 C per 100 g) · blueberries (92 kcal / 1.5 P / 0 F / 23.5 C per 100 g) · semi-skimmed milk (45 kcal / 3.1 P / 1.8 F / 4.8 C per 100 ml) · whey (400 kcal / 83 P / 2.7 F / 2.4 C per 100 g) · raw sliced beef (~130 kcal / 26.7 P / 2.7 F / 0 C per 100 g) · leafy greens (~15 kcal / 0.7 P / 0.1 F / 3 C per 100 g).
 
@@ -247,3 +249,18 @@ Notes: spuntino post-workout saltato (niente shaker, proteine recuperate a cena 
 % kcal: P 34% · G 33% · C 33% — ~21.1 kcal/kg · ~1.76 g P/kg
 Source: Avena Pro (403/21/6.3/59 per 100 g, etichetta) · kefir (46 kcal/100 ml, etichetta) · miele 304 kcal/100 g (1 cucchiaio ≈ 20 g) · mirtilli 92 kcal/100 g · **Fage 2% (70 kcal / 9,9 P / 2,0 G / 3,0 C per 100 g, etichetta `fage_2.jpg`)** · latte Lidl 47 kcal/100 ml · whey 400 kcal/100 g, 83 P/100 g; stime: pane 265 kcal/100 g (10 P / 3 G / 50 C), cotolette di pollo (paned & fried, ~150 kcal/100 g: 22,5 P / 10 G), insalatina 15 kcal/100 g, salsa BBQ ~70 kcal/100 g, patatine fritte dolci (french fries, 150 kcal/100 g: 2 P / 7 G / 15 C), petto di pollo in padella 120 kcal/100 g (22,5 P / 1,5 G), peperoni 26 kcal/100 g (1,4 P / 0,2 G / 6 C), **mandorle Lidl (621 kcal / 24,5 P / 53,3 G / 4,8 C per 100 g, etichetta `mandorle.jpg`)**. Lindt fondente 90% (592 / 10 P / 55 G / 30 C, etichetta `cioccolata_lindt_90.jpg`) non mangiata — registrata in tabella ma non inclusa nel totale.
 Notes: spuntino post-workout saltato. Pranzo da panineria: 540 kcal (cotolette 12 g G + patatine 8,4 G + pane 30 C). Cena proteica (490 kcal, 46,6 g P): pollo in padella 150 g + peperoni 131 g + mandorle 45 g (target 140 g P raggiunto). Stime standard (nessun olio dichiarato nella padella). Totale ~21,1 kcal/kg con P/kg 1,76. **Totale settimana 2 chiuso: ≈ 10 212 kcal** (8 538 + 1 674, 7/7 giorni).
+
+### Mon 28/09/2026
+**Food**: Kefir 100 ml · Uova in padella 2 pz · Uva bianca 100 g · Fetta croccante (Lidl) 16,5 g · Spuntino post-workout: — · Pizza margherita 1 fetta (~100 g) + pollo in padella 100 g + albicocche 3 pz (~150 g) · Spuntino: latte parzialmente scremato (Lidl) 300 ml + proteine in polvere DigeZyme 30 g · **Cena: piadina 372 g (impasto ~130 g + nuggets di pollo ~110 g + Grana Padano ~25 g + insalata mista ~80 g + peperoncino) + Simmental (carne di mucca in scatola) 180 g**
+
+| Meal | kcal | P (g) | G (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast | 325 | 19.7 | 13.2 | 34.6 |
+| Post-workout snack | 0 | — | — | — |
+| Lunch | 424 | 33.3 | 10.7 | 42.9 |
+| Snack (shaker) | 248 | 30.0 | 5.8 | 19.1 |
+| Dinner (piadina + Simmental) | 868 | 56.0 | 36.6 | 76.2 |
+| **Total** | **~1 866** | **~139.0** | **~66.3** | **~172.7** |
+
+% kcal: P 30% · G 32% · C 37% — ~23,5 kcal/kg · ~1,75 g P/kg
+Source: kefir 46 kcal/100 ml · uova ~70 kcal/each · uva 67 kcal/100 g · **fetta croccante Lidl (439 / 16,0 P / 10,0 G / 68,0 C per 100 g, etichetta `fetta_croccante.jpg`, porzione 16,5 g)** · pizza margherita ~250 kcal/100 g (9 P / 9 G / 30 C, stima) · pollo in padella 120 kcal/100 g · albicocche 36 kcal/100 g · latte Lidl 47 kcal/100 ml · **proteine DigeZyme (358 / 66,9 P / 3,47 G / 14,59 C per 100 g, etichetta `whey_proteine.jpg`, NUOVA marca)** · piadina ~280 kcal/100 g (9 P / 7 G / 48 C, stima) · nuggets fritti ~260 kcal/100 g (14 P / 16 G / 10 C, stima) · Grana Padano 391 kcal/100 g (33 P / 28 G) · insalata 17 kcal/100 g · **Simmental (59 / 11 P / 1,5 G / 0,2 C per 100 g, etichetta `simmental.jpg`, carne di mucca in scatola — 2 conf = 180 g)**. Notes: spuntino post-workout saltato. Piadina pesata complessiva 372 g (ripartizione componenti stimata). Simmental aggiunto a cena per alzare le proteine (target ~140 g P quasi raggiunto: 139 g). Prima giornata della settimana 3.
