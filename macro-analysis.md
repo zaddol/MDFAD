@@ -264,3 +264,19 @@ Notes: spuntino post-workout saltato. Pranzo da panineria: 540 kcal (cotolette 1
 
 % kcal: P 30% · G 32% · C 37% — ~23,5 kcal/kg · ~1,75 g P/kg
 Source: kefir 46 kcal/100 ml · uova ~70 kcal/each · uva 67 kcal/100 g · **fetta croccante Lidl (439 / 16,0 P / 10,0 G / 68,0 C per 100 g, etichetta `fetta_croccante.jpg`, porzione 16,5 g)** · pizza margherita ~250 kcal/100 g (9 P / 9 G / 30 C, stima) · pollo in padella 120 kcal/100 g · albicocche 36 kcal/100 g · latte Lidl 47 kcal/100 ml · **proteine DigeZyme (358 / 66,9 P / 3,47 G / 14,59 C per 100 g, etichetta `whey_proteine.jpg`, NUOVA marca)** · piadina ~280 kcal/100 g (9 P / 7 G / 48 C, stima) · nuggets fritti ~260 kcal/100 g (14 P / 16 G / 10 C, stima) · Grana Padano 391 kcal/100 g (33 P / 28 G) · insalata 17 kcal/100 g · **Simmental (59 / 11 P / 1,5 G / 0,2 C per 100 g, etichetta `simmental.jpg`, carne di mucca in scatola — 2 conf = 180 g)**. Notes: spuntino post-workout saltato. Piadina pesata complessiva 372 g (ripartizione componenti stimata). Simmental aggiunto a cena per alzare le proteine (target ~140 g P quasi raggiunto: 139 g). Prima giornata della settimana 3.
+
+### Tue 29/09/2026 (filled in)
+**Food**: Kefir 100 ml · Avena Pro (Fiorentini) 40 g · Fage 2% 150 g · Mirtilli 36 g · Miele 2 cucchiaini (~10 g) · Semi di zucca (Lidl) 15 g · Spuntino post-workout: — · Bresaola 2% 75 g · Insalata mista 100 g · Fetta croccante (Lidl) 2 fette (33 g) · Mela (~150 g) · Latte scremato 300 ml · Whey (DigeZyme) 30 g · Albicocche 3 pz (~150 g) · **Cena**: Alette Durango (pollo) 173 g · Stick di pollo (Lidl) 88 g · Involtino di primavera (Lidl) 100 g · Wrap barbabietola (Lidl) 1 pz
+
+| Meal | kcal | P (g) | G (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast | 465 | 31.4 | 13.9 | 51.5 |
+| Post-workout snack | 0 | — | — | — |
+| Lunch | 371 | 32.8 | 5.5 | 48.3 |
+| Evening snack | 196 | 31.1 | 1.8 | 29.6 |
+| Dinner | 834 | 56.2 | 36.1 | 68.5 |
+| **Total** | **~1 866** | **~151.5** | **~57.3** | **~197.9** |
+
+% kcal: P 32% · G 28% · C 42% — ~23,5 kcal/kg · ~1,91 g P/kg (target 1.75 — superato)
+Source: kefir 46 kcal/100 ml (etichetta) · Avena Pro (403/21/6.3/59 per 100 g, `avena_pro.jpg`) · Fage 2% (70 / 9,9 P / 2,0 G / 3,0 C per 100 g, `fage_2.jpg`) · miele 304 kcal/100 g · mirtilli 92 kcal/100 g · semi di zucca Lidl (593 / 24 / 46 / 18 per 100 g) · bresaola 2% (154 / 34 / 2,0 / <0,5 per 100 g, `bresaola.jpg`) · insalata mista (33 / 1,5 / 0,4 / 4,5 per 100 g, `mixed_salad.jpg`) · fetta croccante Lidl (439 / 16,0 / 10,0 / 68,0 per 100 g, `fetta_croccante.jpg`, 2 fette = 33 g) · mela verde ~150 g (stima) · latte scremato ~11,3 kcal/100 ml (300 ml) · **proteine DigeZyme (358 / 66,9 P / 3,47 G / 14,59 C per 100 g, `whey_proteine.jpg`)** · albicocche 36 kcal/100 g (3 pz ≈ 150 g) · **Alette Durango pollo (198 / 19 P / 11 G / 5,7 C per 100 g, etichetta `pollo_durango.jpg`)** · **Stick di pollo Lidl (226 / 13,6 P / 11,4 G / 17,0 C per 100 g, `stick_di_pollo.jpg`)** · **Involtino di primavera Lidl (146 / 6,4 P / 4,5 G / 19,2 C per 100 g, `involtino_di_primaavera.jpg`)** · **Wrap barbabietola Lidl (294 / 10,0 P / 5,0 G / 49,0 C per 100 g, `wrap_barbabietola.jpg`)**.
+Notes: spuntino post-workout saltato. Giorno completo. P 151,5 g: target 140 g/day **superato di ~12 g** (cena molto proteica: alette 32,9 + stick 12,0 + involtino 6,4 + wrap 5,0 = 56,2 g). Kcal 1 866: sopra target 1 700 (~166 over). Kcal/kg 23,5: sopra target ~21. 2 fette croccanti (33 g) confermate. **Totale settimana 3: ≈ 3 732 kcal (1 866 + 1 866).**

@@ -1,0 +1,8 @@
+# Regola repo: MAI committare foto/immagini
+photos/
+foto/
+*.png
+nul
+tmp-*.html
+tmp-*.png
+
