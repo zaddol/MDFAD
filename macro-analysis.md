@@ -50,6 +50,7 @@
 | Guinness draught | 330 ml | 116 | 0 | 0 | 3 | photo `birra_guinness.jpg` (26/09) — 116 kcal / 11 g alcohol / 35 kcal per 100 ml |
 | Lidl crispy slice (fetta croccante) | 100 g | 439 | 16.0 | 10.0 | 68.0 | photo `fetta_croccante.jpg` (28/09) — porzione 16,5 g: 72 kcal / 2,6 P / 1,7 F / 11,0 C |
 | Whey protein (DigeZyme, proteine in polvere) | 100 g | 358 | 66.9 | 3.47 | 14.59 | photo `whey_proteine.jpg` (28/09) — **NUOVA marca**: diversa dalla whey generica (400/83 P) usata fino a oggi |
+| Fiocchi di latte 2% (quark) | 100 g | 67 | 12.0 | 0.9 | 2.8 | photo `fiocchi_di_latte.jpg` (30/09) |
 
 > **Foods WITHOUT label (standard estimates, used only when no photo exists)**: eggs (~70 kcal / 6.3 P / 4.9 F / 0.8 C each) · olive oil (1 teaspoon ≈ 4.5 g ≈ 40 kcal / 4.4 F) · green apple ~150 g (~78 kcal / 0.5 P / 0.3 F / 21 C) · banana ~120 g (~107 kcal / 1.3 P / 0.4 F / 27 C) · raw rice (345 kcal / 7.9 P / 0.9 F / 78 C per 100 g) · chicken breast (120 kcal / 22.5 P / 1.5 F / 0 C per 100 g) · blueberries (92 kcal / 1.5 P / 0 F / 23.5 C per 100 g) · semi-skimmed milk (45 kcal / 3.1 P / 1.8 F / 4.8 C per 100 ml) · whey (400 kcal / 83 P / 2.7 F / 2.4 C per 100 g) · raw sliced beef (~130 kcal / 26.7 P / 2.7 F / 0 C per 100 g) · leafy greens (~15 kcal / 0.7 P / 0.1 F / 3 C per 100 g).
 
@@ -280,3 +281,19 @@ Source: kefir 46 kcal/100 ml · uova ~70 kcal/each · uva 67 kcal/100 g · **fet
 % kcal: P 32% · G 28% · C 42% — ~23,5 kcal/kg · ~1,91 g P/kg (target 1.75 — superato)
 Source: kefir 46 kcal/100 ml (etichetta) · Avena Pro (403/21/6.3/59 per 100 g, `avena_pro.jpg`) · Fage 2% (70 / 9,9 P / 2,0 G / 3,0 C per 100 g, `fage_2.jpg`) · miele 304 kcal/100 g · mirtilli 92 kcal/100 g · semi di zucca Lidl (593 / 24 / 46 / 18 per 100 g) · bresaola 2% (154 / 34 / 2,0 / <0,5 per 100 g, `bresaola.jpg`) · insalata mista (33 / 1,5 / 0,4 / 4,5 per 100 g, `mixed_salad.jpg`) · fetta croccante Lidl (439 / 16,0 / 10,0 / 68,0 per 100 g, `fetta_croccante.jpg`, 2 fette = 33 g) · mela verde ~150 g (stima) · latte scremato ~11,3 kcal/100 ml (300 ml) · **proteine DigeZyme (358 / 66,9 P / 3,47 G / 14,59 C per 100 g, `whey_proteine.jpg`)** · albicocche 36 kcal/100 g (3 pz ≈ 150 g) · **Alette Durango pollo (198 / 19 P / 11 G / 5,7 C per 100 g, etichetta `pollo_durango.jpg`)** · **Stick di pollo Lidl (226 / 13,6 P / 11,4 G / 17,0 C per 100 g, `stick_di_pollo.jpg`)** · **Involtino di primavera Lidl (146 / 6,4 P / 4,5 G / 19,2 C per 100 g, `involtino_di_primaavera.jpg`)** · **Wrap barbabietola Lidl (294 / 10,0 P / 5,0 G / 49,0 C per 100 g, `wrap_barbabietola.jpg`)**.
 Notes: spuntino post-workout saltato. Giorno completo. P 151,5 g: target 140 g/day **superato di ~12 g** (cena molto proteica: alette 32,9 + stick 12,0 + involtino 6,4 + wrap 5,0 = 56,2 g). Kcal 1 866: sopra target 1 700 (~166 over). Kcal/kg 23,5: sopra target ~21. 2 fette croccanti (33 g) confermate. **Totale settimana 3: ≈ 3 732 kcal (1 866 + 1 866).**
+
+### Wed 30/09/2026
+**Food**: Avocado 65 g · Fage 2% 85 g · Mandorle (Lidl) 12 g · Fette croccanti (Lidl) 72 g · Albicocche 3 pz (~150 g) · Spuntino post-workout: — · Riso 120 g (**cotto**) · Manzo (sliced) 82 g · Fiocchi di latte 2% 150 g · Latte parzialmente scremato (Lidl) 300 ml · Proteine in polvere (DigeZyme) 30 g · **Cena: Wrap barbabietola (Lidl) 50 g + Tonno Findus al naturale 140 g + Insalata mista 100 g**
+
+| Meal | kcal | P (g) | G (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast | 505 | 25.9 | 25.3 | 70.1 |
+| Post-workout snack | 0 | — | — | — |
+| Lunch | 362 | 43.3 | 3.9 | 38.4 |
+| Snack (shaker) | 249 | 30.0 | 5.8 | 19.1 |
+| Dinner (wrap + tonno + insalata) | 350 | 49.1 | 4.1 | 27.5 |
+| **Total** | **~1 571** | **~148.3** | **~39.0** | **~154.9** |
+
+% kcal: P 38% · G 22% · C 39% — ~19.8 kcal/kg · ~1.87 g P/kg
+Fonte: **Fage 2% (70 kcal / 9,9 P / 2,0 G / 3,0 C per 100 g, etichetta `fage_2.jpg`)** · **fiocchi di latte 2% (67 kcal / 12,0 P / 0,9 G / 2,8 C per 100 g, etichetta `fiocchi_di_latte.jpg` — NUOVO alimento, usato a pranzo)** · mandorle Lidl (621 / 24,5 / 53,3 / 4,8, etichetta) · fette croccanti Lidl (439 / 16,0 / 10,0 / 68,0 per 100 g, etichetta, 72 g) · latte Lidl 47 kcal/100 ml · DigeZyme (358 / 66,9 / 3,47 / 14,59, etichetta, 30 g) · riso cotto 130 kcal/100 g (regola: riso sempre cotto) · manzo sliced crudo ~130 kcal/100 g (26,7 P / 2,7 G, stima) · avocado ~160 kcal/100 g (2 P / 15 G / 9 C, stima) · albicocche 36 kcal/100 g · **wrap barbabietola Lidl (294 / 10,0 / 5,0 / 49,0 per 100 g, etichetta `wrap_barbabietola.jpg`, 50 g)** · **tonno Findus al naturale (134 / 31,0 / 1,1 / 0,0 per 100 g, etichetta `tonno_findus_al_naturale.jpg`, 140 g)** · insalata mista (15 kcal/100 g, stima, 100 g).
+Notes: spuntino post-workout saltato. Correzione 30/09 (utente): nella colazione era **Fage 2% 85 g**, non fiocchi di latte (i fiocchi di latte sono andati a pranzo 150 g). Giorno completo: 1 571 kcal (sotto il tetto di 1 700 con ~130 di margine), 148,3 g P = 1,87 g/kg (target 140 g **superato di ~8 g**, cena proteica: tonno 43,4 + wrap 5,0 + insalata 0,7 = 49,1 g). Kcal/kg 19,8 sotto target ~21. **Totale settimana 3 parziale: ≈ 5 303 kcal (3 732 + 1 571).**
