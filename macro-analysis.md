@@ -51,6 +51,9 @@
 | Lidl crispy slice (fetta croccante) | 100 g | 439 | 16.0 | 10.0 | 68.0 | photo `fetta_croccante.jpg` (28/09) — porzione 16,5 g: 72 kcal / 2,6 P / 1,7 F / 11,0 C |
 | Whey protein (DigeZyme, proteine in polvere) | 100 g | 358 | 66.9 | 3.47 | 14.59 | photo `whey_proteine.jpg` (28/09) — **NUOVA marca**: diversa dalla whey generica (400/83 P) usata fino a oggi |
 | Fiocchi di latte 2% (quark) | 100 g | 67 | 12.0 | 0.9 | 2.8 | photo `fiocchi_di_latte.jpg` (30/09) |
+| Stick di pollo (Lidl, surgelati) | 100 g | 199 | 12.0 | 10.0 | 15.0 | photo `stick_di_pollo.jpg` (01/10) — 2,4 G sat, 1 G zuccheri, 0,6 G fibre, 1,6 g sale |
+| Rings di pollo (AIA, surgelati) | 100 g | 253 | 17.0 | 13.0 | 17.0 | photo `rings_di_pollo.jpg` (01/10) — 1,2 G sat, 0,9 G zuccheri, 1,5 g sale |
+| Fesa di tacchino (Rovagnati, cotto) | 100 g | 85 | 16.0 | 1.0 | 3.1 | photo `fesa_di_tacchino.jpg` (01/10) — pacco 120 g, 0,4 G sat, 1 G zuccheri, 1,8 g sale |
 
 > **Foods WITHOUT label (standard estimates, used only when no photo exists)**: eggs (~70 kcal / 6.3 P / 4.9 F / 0.8 C each) · olive oil (1 teaspoon ≈ 4.5 g ≈ 40 kcal / 4.4 F) · green apple ~150 g (~78 kcal / 0.5 P / 0.3 F / 21 C) · banana ~120 g (~107 kcal / 1.3 P / 0.4 F / 27 C) · raw rice (345 kcal / 7.9 P / 0.9 F / 78 C per 100 g) · chicken breast (120 kcal / 22.5 P / 1.5 F / 0 C per 100 g) · blueberries (92 kcal / 1.5 P / 0 F / 23.5 C per 100 g) · semi-skimmed milk (45 kcal / 3.1 P / 1.8 F / 4.8 C per 100 ml) · whey (400 kcal / 83 P / 2.7 F / 2.4 C per 100 g) · raw sliced beef (~130 kcal / 26.7 P / 2.7 F / 0 C per 100 g) · leafy greens (~15 kcal / 0.7 P / 0.1 F / 3 C per 100 g).
 
@@ -297,3 +300,17 @@ Notes: spuntino post-workout saltato. Giorno completo. P 151,5 g: target 140 g/d
 % kcal: P 38% · G 22% · C 39% — ~19.8 kcal/kg · ~1.87 g P/kg
 Fonte: **Fage 2% (70 kcal / 9,9 P / 2,0 G / 3,0 C per 100 g, etichetta `fage_2.jpg`)** · **fiocchi di latte 2% (67 kcal / 12,0 P / 0,9 G / 2,8 C per 100 g, etichetta `fiocchi_di_latte.jpg` — NUOVO alimento, usato a pranzo)** · mandorle Lidl (621 / 24,5 / 53,3 / 4,8, etichetta) · fette croccanti Lidl (439 / 16,0 / 10,0 / 68,0 per 100 g, etichetta, 72 g) · latte Lidl 47 kcal/100 ml · DigeZyme (358 / 66,9 / 3,47 / 14,59, etichetta, 30 g) · riso cotto 130 kcal/100 g (regola: riso sempre cotto) · manzo sliced crudo ~130 kcal/100 g (26,7 P / 2,7 G, stima) · avocado ~160 kcal/100 g (2 P / 15 G / 9 C, stima) · albicocche 36 kcal/100 g · **wrap barbabietola Lidl (294 / 10,0 / 5,0 / 49,0 per 100 g, etichetta `wrap_barbabietola.jpg`, 50 g)** · **tonno Findus al naturale (134 / 31,0 / 1,1 / 0,0 per 100 g, etichetta `tonno_findus_al_naturale.jpg`, 140 g)** · insalata mista (15 kcal/100 g, stima, 100 g).
 Notes: spuntino post-workout saltato. Correzione 30/09 (utente): nella colazione era **Fage 2% 85 g**, non fiocchi di latte (i fiocchi di latte sono andati a pranzo 150 g). Giorno completo: 1 571 kcal (sotto il tetto di 1 700 con ~130 di margine), 148,3 g P = 1,87 g/kg (target 140 g **superato di ~8 g**, cena proteica: tonno 43,4 + wrap 5,0 + insalata 0,7 = 49,1 g). Kcal/kg 19,8 sotto target ~21. **Totale settimana 3 parziale: ≈ 5 303 kcal (3 732 + 1 571).**
+
+### Thu 01/10/2026 (parziale — cena in attesa)
+**Food**: Kefir 100 ml · Avena Pro (Fiorentini) 40 g · Pane di segale 1 fetta (56 g) · Burro d'arachidi 15 g · Mela (~150 g) · Spuntino post-workout: — · Riso 120 g (**cotto**) · Petto di pollo 100 g · Albicocche 3 pz (~150 g) · Latte parzialmente scremato (Lidl) 300 ml · Proteine in polvere (DigeZyme) 30 g · **Cena (in attesa): bastoncini di merluzzo + insalata + patate al forno**
+
+| Meal | kcal | P (g) | G (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast | 503 | 21.5 | 12.2 | 79.5 |
+| Post-workout snack | 0 | — | — | — |
+| Lunch | 330 | 27.7 | 2.0 | 47.1 |
+| Snack (shaker) | 248 | 30.0 | 5.8 | 19.1 |
+| **Total (no dinner)** | **~1 082** | **~79.1** | **~20.0** | **~145.7** |
+
+Source: kefir (46/4,0/1,5/4,0 per 100 ml, etichetta) · Avena Pro (403/21/6,3/59 per 100 g, `avena_pro.jpg`) · pane di segale ~230 kcal/100 g (7,5 P / 1,8 G / 51,5 C, stima) · burro d'arachidi 100% (596/29,6/46/11,6, etichetta) · mela ~150 g (stima) · riso cotto 130 kcal/100 g (regola: riso sempre cotto) · petto di pollo 120 kcal/100 g · latte Lidl 47 kcal/100 ml · DigeZyme (358/66,9/3,47/14,59, etichetta).
+Notes: spuntino post-workout saltato. Giorno parziale: cena da registrare (bastoncini di merluzzo + insalata + patate al forno). Prima della cena: 1 082 kcal / 79,1 g P (0,99 g/kg).
