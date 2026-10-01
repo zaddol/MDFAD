@@ -301,8 +301,8 @@ Notes: spuntino post-workout saltato. Giorno completo. P 151,5 g: target 140 g/d
 Fonte: **Fage 2% (70 kcal / 9,9 P / 2,0 G / 3,0 C per 100 g, etichetta `fage_2.jpg`)** · **fiocchi di latte 2% (67 kcal / 12,0 P / 0,9 G / 2,8 C per 100 g, etichetta `fiocchi_di_latte.jpg` — NUOVO alimento, usato a pranzo)** · mandorle Lidl (621 / 24,5 / 53,3 / 4,8, etichetta) · fette croccanti Lidl (439 / 16,0 / 10,0 / 68,0 per 100 g, etichetta, 72 g) · latte Lidl 47 kcal/100 ml · DigeZyme (358 / 66,9 / 3,47 / 14,59, etichetta, 30 g) · riso cotto 130 kcal/100 g (regola: riso sempre cotto) · manzo sliced crudo ~130 kcal/100 g (26,7 P / 2,7 G, stima) · avocado ~160 kcal/100 g (2 P / 15 G / 9 C, stima) · albicocche 36 kcal/100 g · **wrap barbabietola Lidl (294 / 10,0 / 5,0 / 49,0 per 100 g, etichetta `wrap_barbabietola.jpg`, 50 g)** · **tonno Findus al naturale (134 / 31,0 / 1,1 / 0,0 per 100 g, etichetta `tonno_findus_al_naturale.jpg`, 140 g)** · insalata mista (15 kcal/100 g, stima, 100 g).
 Notes: spuntino post-workout saltato. Correzione 30/09 (utente): nella colazione era **Fage 2% 85 g**, non fiocchi di latte (i fiocchi di latte sono andati a pranzo 150 g). Giorno completo: 1 571 kcal (sotto il tetto di 1 700 con ~130 di margine), 148,3 g P = 1,87 g/kg (target 140 g **superato di ~8 g**, cena proteica: tonno 43,4 + wrap 5,0 + insalata 0,7 = 49,1 g). Kcal/kg 19,8 sotto target ~21. **Totale settimana 3 parziale: ≈ 5 303 kcal (3 732 + 1 571).**
 
-### Thu 01/10/2026 (parziale — cena in attesa)
-**Food**: Kefir 100 ml · Avena Pro (Fiorentini) 40 g · Pane di segale 1 fetta (56 g) · Burro d'arachidi 15 g · Mela (~150 g) · Spuntino post-workout: — · Riso 120 g (**cotto**) · Petto di pollo 100 g · Albicocche 3 pz (~150 g) · Latte parzialmente scremato (Lidl) 300 ml · Proteine in polvere (DigeZyme) 30 g · **Cena (in attesa): bastoncini di merluzzo + insalata + patate al forno**
+### Thu 01/10/2026 (filled in)
+**Food**: Kefir 100 ml · Avena Pro (Fiorentini) 40 g · Pane di segale 1 fetta (56 g) · Burro d'arachidi 15 g · Mela (~150 g) · Spuntino post-workout: — · Riso 120 g (**cotto**) · Petto di pollo 100 g · Albicocche 3 pz (~150 g) · Latte parzialmente scremato (Lidl) 300 ml · Proteine in polvere (DigeZyme) 30 g · **Cena: Rings di pollo AIA 150 g + Fesa di tacchino Rovagnati 120 g + Patate al forno 150 g + Insalata mista 100 g**
 
 | Meal | kcal | P (g) | G (g) | C (g) |
 |---|---|---|---|---|
@@ -310,7 +310,9 @@ Notes: spuntino post-workout saltato. Correzione 30/09 (utente): nella colazione
 | Post-workout snack | 0 | — | — | — |
 | Lunch | 330 | 27.7 | 2.0 | 47.1 |
 | Snack (shaker) | 248 | 30.0 | 5.8 | 19.1 |
-| **Total (no dinner)** | **~1 082** | **~79.1** | **~20.0** | **~145.7** |
+| Dinner (rings + fesa + patate + insalata) | 612 | 48.4 | 20.9 | 57.7 |
+| **Total** | **~1 694** | **~127.5** | **~41.0** | **~203.4** |
 
-Source: kefir (46/4,0/1,5/4,0 per 100 ml, etichetta) · Avena Pro (403/21/6,3/59 per 100 g, `avena_pro.jpg`) · pane di segale ~230 kcal/100 g (7,5 P / 1,8 G / 51,5 C, stima) · burro d'arachidi 100% (596/29,6/46/11,6, etichetta) · mela ~150 g (stima) · riso cotto 130 kcal/100 g (regola: riso sempre cotto) · petto di pollo 120 kcal/100 g · latte Lidl 47 kcal/100 ml · DigeZyme (358/66,9/3,47/14,59, etichetta).
-Notes: spuntino post-workout saltato. Giorno parziale: cena da registrare (bastoncini di merluzzo + insalata + patate al forno). Prima della cena: 1 082 kcal / 79,1 g P (0,99 g/kg).
+% kcal: P 30% · G 22% · C 48% — ~21.3 kcal/kg · ~1.60 g P/kg
+Fonte: kefir (46/4,0/1,5/4,0 per 100 ml, etichetta) · Avena Pro (403/21/6,3/59 per 100 g, `avena_pro.jpg`) · pane di segale ~230 kcal/100 g (7,5 P / 1,8 G / 51,5 C, stima) · burro d'arachidi 100% (596/29,6/46/11,6, etichetta) · mela ~150 g (stima) · riso cotto 130 kcal/100 g (regola: riso sempre cotto) · petto di pollo 120 kcal/100 g · latte Lidl 47 kcal/100 ml · DigeZyme (358/66,9/3,47/14,59, etichetta) · **rings di pollo AIA (253 / 17,0 P / 13,0 G / 17,0 C / 1,5 g sale per 100 g, etichetta `rings_di_pollo.jpg`)** · **fesa di tacchino Rovagnati cotto (85 / 16,0 P / 1,0 G / 3,1 C per 100 g, etichetta `fesa_di_tacchino.jpg` — NUOVO alimento, pacco 120 g)** · patate al forno no olio 77 kcal/100 g (2,0 P / 0,1 G / 17 C, stima) · insalata mista 15 kcal/100 g (stima, 100 g).
+Notes: spuntino post-workout saltato. Giorno completo: 1 694 kcal (sotto il tetto di 1 700 con ~6 kcal di margine), 127,5 g P = 1,60 g/kg (target 140 g **non raggiunto**: -12,5 g; cena 48,4 g P ma i rings hanno un rapporto P/kcal medio). Kcal/kg 21,3: allineato al target ~21. **Totale settimana 3: ≈ 6 997 kcal (5 303 + 1 694, 4/7 giorni).**
