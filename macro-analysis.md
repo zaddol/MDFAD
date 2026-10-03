@@ -330,3 +330,50 @@ Notes: spuntino post-workout saltato. Giorno completo: 1 694 kcal (sotto il tett
 
 % kcal: P 30% · G 31% · C 39% — ~23.6 kcal/kg · ~1.74 g P/kg
 Fonte: kefir (etichetta) · Avena Pro (`avena_pro.jpg`) · pane di segale (stima ~230 kcal/100 g) · burro d'arachidi (etichetta) · mela (stima) · **tramezzino Lidl (133 kcal / 11,6 P / 9,2 G / 9,0 C per 65 g, etichetta `tramezzini.jpg`)** · latte Lidl (47 kcal/100 ml, etichetta) · DigeZyme (358/66,9/3,47/14,59, etichetta) · **piadina (stima 280 kcal/100 g: 9 P / 7 G / 48 C, impasto farina+olio+sale)** · **agnello crudo magro (stima 130 kcal/100 g: 25,6 P / 3,0 G / 0 C)** · insalata (stima) · **birra (stima 4,75%: 30 kcal/100 ml, 0,5 P / 0 G / 1,1 C — senza etichetta, da verificare con marca)**. Notes: spuntino post-workout saltato. Giorno a 1 874 kcal (sopra il tetto di 1 700 di ~174 kcal — birra +201 kcal, tramezzini +399 kcal rispetto al riso di ieri). P 138 g = 1,74 g/kg (target 140 g quasi raggiunto: -2 g). Kcal/kg 23,6: sopra il target ~21. **Totale settimana 3: ≈ 8 871 kcal (5 303 + 1 694 + 1 874, 5/7 giorni).**
+
+### Sat 03/10/2026
+**Food**: Latte parzialmente scremato (Lidl) 300 ml · Proteine in polvere (DigeZyme) 30 g · Spuntino post-workout: — · **Pranzo: 2 fette di pane (60 g) + Hamburger di manzo 120 g + Formaggio 50 g** · Spuntino: Latte parzialmente scremato (Lidl) 300 ml + DigeZyme 35 g · **Cena: Kebab di pollo 150 g + Verdure miste 100 g + Formaggio fresco 50 g + Tzatziki 30 g**
+
+| Meal | kcal | P (g) | G (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast | 248 | 30.0 | 5.8 | 19.1 |
+| Post-workout snack | 0 | — | — | — |
+| Lunch (pane + hamburger + formaggio) | 574 | 49.7 | 36.0 | 30.0 |
+| Snack (shaker) | 266 | 33.3 | 6.0 | 19.8 |
+| Dinner (kebab + verdure + formaggio fresco + tzatziki) | 392 | 48.6 | 17.8 | 5.7 |
+| **Total** | **~1 481** | **~161.6** | **~65.6** | **~74.5** |
+
+% kcal: P 44% · G 40% · C 20% — ~18.6 kcal/kg · ~2.03 g P/kg
+Fonte: latte Lidl (47 kcal/100 ml, etichetta) · DigeZyme (358/66,9/3,47/14,59, etichetta) · **pane (stima 265 kcal/100 g: 10 P / 3 G / 50 C — senza etichetta)** · **hamburger di manzo (stima 200 kcal/100 g: 26 P / 16 G / 0 C — come 26/09)** · **formaggio (stima 350 kcal/100 g: 25 P / 30 G / 0 C — come 26/09)** · **kebab di pollo (stima 140 kcal/100 g: 24 P / 4.5 G / 0.5 C — pollo alla piastra)** · verdure miste (stima 15 kcal/100 g) · **formaggio fresco (stima 280 kcal/100 g: 22 P / 17 G / 2 C — tipo mozzarella)** · **tzatziki (stima 90 kcal/100 g: 3 P / 8 G / 3 C — salsa greca)**. Notes: spuntino post-workout saltato. Giorno a **1 481 kcal** (sotto il tetto di 1 700 di ~219 kcal — niente carboidrati a cena, solo 5,7 g C). P **161,6 g = 2,03 g/kg** (target 140 g **superato di +21,6 g**: hamburger 31,2 g P + kebab 36,0 g P). Kcal/kg 18,6: sotto il target ~21. **Totale settimana 3: ≈ 10 352 kcal (5 303 + 1 694 + 1 874 +  1 481, 6/7 giorni).**
+
+## Template A/B v3 — opzione A: ~1 730-1 740 kcal · P ≈ 139 g · grassi ~47-49 g
+
+> Giorno A e Giorno B usano **alimenti diversi** ma raggiungono le **stesse kcal (~1 730) e le stesse proteine (≈ 139 g)**. Numeri = output diretto di  (regola 25/09, mai aritmetica a mano), peso di riferimento 79 kg.
+> **v3 (opzione A, 27/09)**: si alzano i grassi (oli: 5 cc pranzo + 3 cc cena al A; 4 cc + 3 cc al B), niente tagli, niente mandorle. Target ~1 730 kcal (21,9 kcal/kg). 1 fonte proteica per pasto · niente spuntino · riso 150 g cotto.
+
+### Giorno A — 1 730,5 kcal · 139,1 g P · 48,9 g G · 166,8 g C
+
+| Meal | kcal | P (g) | G (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast (kefir 100 ml · Avena Pro 40 g · miele 1 cucchiaino · Fage 2% 100 g · mirtilli 80 g) | 385 | 23.5 | 6.0 | 58.0 |
+| Lunch (riso cotto 150 g · petto di pollo 170 g · insalata · olio 5 cucchiaini = 22,5 g) | 617 | 43.1 | 23.4 | 45.8 |
+| Shaker (latte Lidl 300 ml · DigeZyme 20 g) | 213 | 23.3 | 5.5 | 17.6 |
+| Dinner (tonno Findus 140 g · patate al forno 250 g · insalata · olio 3 cucchiaini = 13,5 g) | 517 | 49.1 | 14.0 | 45.5 |
+| **Total** | **~1 731** | **~139.1** | **~48.9** | **~166.8** |
+
+% kcal: P 32% · G 25% · C 39% — 21,9 kcal/kg · 1,76 g P/kg
+
+### Giorno B — 1 741,0 kcal · 139,2 g P · 47,4 g G · 179,8 g C
+
+| Meal | kcal | P (g) | G (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast (kefir 100 ml · Avena Pro 40 g · miele 1 cucchiaino · Fage 2% 100 g · mirtilli 80 g) | 385 | 23.5 | 6.0 | 58.0 |
+| Lunch (pane di segale 2 fette 112 g · fesa di tacchino 210 g · insalata · olio 4 cucchiaini = 18 g) | 613 | 42.7 | 20.4 | 67.2 |
+| Shaker (latte Lidl 300 ml · DigeZyme 20 g) | 213 | 23.3 | 5.5 | 17.6 |
+| Dinner (petto di pollo 200 g · patate al forno 200 g · insalata · olio 3 cucchiaini = 13,5 g) | 531 | 49.7 | 15.5 | 37.0 |
+| **Total** | **~1 741** | **~139.2** | **~47.4** | **~179.8** |
+
+% kcal: P 32% · G 24% · C 41% — 22,0 kcal/kg · 1,76 g P/kg
+
+Fonte valori: kefir (etichetta) · Avena Pro (403/21/6,3/59, avena_pro.jpg) · Fage 2% (70/9,9/2,0/3,0, fage_2.jpg) · miele 304 kcal/100 g · mirtilli 92 kcal/100 g · riso cotto 130 kcal/100 g (regola 25/09) · petto di pollo 120 kcal/100 g · olio 90 kcal/10 g · latte Lidl (47 kcal/100 ml, etichetta) · DigeZyme (358/66,9/3,47/14,59, whey_proteine.jpg, 20 g) · tonno Findus al naturale (134/31,0/1,1/0,0, tonno_findus_al_naturale.jpg) · pane di segale ~230 kcal/100 g (7,5 P / 1,8 G / 51,5 C) · fesa di tacchino Rovagnati (85/16/1/3,1, fesa_di_tacchino.jpg) · patate al forno no olio 77 kcal/100 g (stima) · insalata mista 15 kcal/100 g (stima).
+Notes: P 139,1 (A) / 139,2 (B) g — fisse. Una sola fonte proteica per pasto: A = pollo (pranzo) + tonno (cena); B = fesa 210 g (pranzo) + pollo (cena). Niente spuntino. Grassi alzati a ~47-49 g (24-25% kcal da grassi). Olio: A = 5+3 cc, B = 4+3 cc.
