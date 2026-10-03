@@ -34,7 +34,7 @@
 
 ## Role of files (data vs workflow)
 - `AGENTS.md` — the **how** (workflow, structure, conventions) + weigh-in archive (scale data).
-- `macro-analysis.md` — contains **ONLY food values**: nutrition tables for foods (from label photos) and daily macro summaries. No workflow instructions, no weigh-in data.
+- `macro-analysis.md` — contains **ONLY food values**: nutrition tables for foods (from label photos) and daily macro summaries. No workflow instructions, no weigh-in data. Include a **`## Template A/B`** section: two rotation days (≈1 700 kcal, P max 140 g) calculated by `calc_template.py` — if the user requests a change, re-run the script (rule 25/09), never by hand.
 - `index.html` — the one-pager (HTML, no JS). **Single source of visible data**.
 - `_validate_mechanics.js` — Node script that validates carousel mechanics without rendering: `node _validate_mechanics.js index.html`. Use after changes to radio/carousel structure.
 - `photos/` — food labels (`.jpg`), weigh-in screenshots (`weighin_XX_YY.jpg`), handwritten routine sheet if applicable.
@@ -197,10 +197,13 @@ and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screens
 | 1 | 11/09/2026 | 80.75 | 26.4 | 26.6 | 21.48 | 69.7 | 56.28 | 1661 | 36 |
 | 2 | 18/09/2026 | 79.30 | 25.9 | 26.1 | 20.70 | 70.2 | 55.67 | 1635 | 35 |
 | 3 | 25/09/2026 | 79.50 | 26.0 | 26.1 | 20.75 | 70.2 | 55.81 | 1640 | 35 |
+| 4 | 02/10/2026 | 79.30 | 25.9 | 26.1 | 20.70 | 70.2 | 55.67 | 1635 | 35 |
 
 > Nota 29/09: il giorno può essere **parziale** (solo i pasti già mangati) — es. Mar 29/09: colazione + pranzo registrati, spuntino serale e cena in attesa. La card del giorno mostra i soli pasti comunicati; il `dc-macro` usa `—` per le % kcal (senza giorno completo le percenti sono ingannevoli).
 
 Δ 2→3: peso +0.20 kg · BMI +0.1 · % grasso 0.0 · massa grassa +0.05 kg · % muscolo 0.0 · massa muscolare +0.14 kg · BMR +5 kcal · età metabolica 0
+
+Δ 3→4: peso −0.20 kg · BMI −0.1 · % grasso 0.0 · massa grassa −0.05 kg · % muscolo 0.0 · massa muscolare −0.14 kg · BMR −5 kcal · età metabolica 0
 
 ## Weigh-in workflow — adding a new weigh-in (weekly cadence)
 > Source: scale app screenshot saved in `photos/weighin_XX_YY.jpg`. This is the "how": the VALUES live in the "Weigh-in archive" table (above) and in the HTML file, NOT in `macro-analysis.md`.
