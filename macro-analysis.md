@@ -316,3 +316,17 @@ Notes: spuntino post-workout saltato. Correzione 30/09 (utente): nella colazione
 % kcal: P 30% · G 22% · C 48% — ~21.3 kcal/kg · ~1.60 g P/kg
 Fonte: kefir (46/4,0/1,5/4,0 per 100 ml, etichetta) · Avena Pro (403/21/6,3/59 per 100 g, `avena_pro.jpg`) · pane di segale ~230 kcal/100 g (7,5 P / 1,8 G / 51,5 C, stima) · burro d'arachidi 100% (596/29,6/46/11,6, etichetta) · mela ~150 g (stima) · riso cotto 130 kcal/100 g (regola: riso sempre cotto) · petto di pollo 120 kcal/100 g · latte Lidl 47 kcal/100 ml · DigeZyme (358/66,9/3,47/14,59, etichetta) · **rings di pollo AIA (253 / 17,0 P / 13,0 G / 17,0 C / 1,5 g sale per 100 g, etichetta `rings_di_pollo.jpg`)** · **fesa di tacchino Rovagnati cotto (85 / 16,0 P / 1,0 G / 3,1 C per 100 g, etichetta `fesa_di_tacchino.jpg` — NUOVO alimento, pacco 120 g)** · patate al forno no olio 77 kcal/100 g (2,0 P / 0,1 G / 17 C, stima) · insalata mista 15 kcal/100 g (stima, 100 g).
 Notes: spuntino post-workout saltato. Giorno completo: 1 694 kcal (sotto il tetto di 1 700 con ~6 kcal di margine), 127,5 g P = 1,60 g/kg (target 140 g **non raggiunto**: -12,5 g; cena 48,4 g P ma i rings hanno un rapporto P/kcal medio). Kcal/kg 21,3: allineato al target ~21. **Totale settimana 3: ≈ 6 997 kcal (5 303 + 1 694, 4/7 giorni).**
+
+### Fri 02/10/2026
+**Food**: Kefir 100 ml · Avena Pro (Fiorentini) 40 g · Pane di segale 1 fetta (56 g) · Burro d'arachidi 15 g · Mela (~150 g) · **Pranzo: 4 tramezzini Lidl (260 g)** · Spuntino: Latte parzialmente scremato 300 ml + DigeZyme 35 g · **Cena: Piadina ~85 g + Agnello crudo 100 g + Insalata piccante 20 g + Birra 670 ml (stima 4,75%)**
+
+| Meal | kcal | P (g) | G (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast | 503 | 21.5 | 12.2 | 79.5 |
+| Lunch (4 tramezzini) | 532 | 46.4 | 36.8 | 36.0 |
+| Snack (shaker) | 266 | 33.3 | 6.0 | 19.8 |
+| Dinner (piadina + agnello + insalata + birra) | 572 | 36.7 | 9.0 | 48.8 |
+| **Total** | **~1 874** | **~138.0** | **~64.0** | **~184.1** |
+
+% kcal: P 30% · G 31% · C 39% — ~23.6 kcal/kg · ~1.74 g P/kg
+Fonte: kefir (etichetta) · Avena Pro (`avena_pro.jpg`) · pane di segale (stima ~230 kcal/100 g) · burro d'arachidi (etichetta) · mela (stima) · **tramezzino Lidl (133 kcal / 11,6 P / 9,2 G / 9,0 C per 65 g, etichetta `tramezzini.jpg`)** · latte Lidl (47 kcal/100 ml, etichetta) · DigeZyme (358/66,9/3,47/14,59, etichetta) · **piadina (stima 280 kcal/100 g: 9 P / 7 G / 48 C, impasto farina+olio+sale)** · **agnello crudo magro (stima 130 kcal/100 g: 25,6 P / 3,0 G / 0 C)** · insalata (stima) · **birra (stima 4,75%: 30 kcal/100 ml, 0,5 P / 0 G / 1,1 C — senza etichetta, da verificare con marca)**. Notes: spuntino post-workout saltato. Giorno a 1 874 kcal (sopra il tetto di 1 700 di ~174 kcal — birra +201 kcal, tramezzini +399 kcal rispetto al riso di ieri). P 138 g = 1,74 g/kg (target 140 g quasi raggiunto: -2 g). Kcal/kg 23,6: sopra il target ~21. **Totale settimana 3: ≈ 8 871 kcal (5 303 + 1 694 + 1 874, 5/7 giorni).**
