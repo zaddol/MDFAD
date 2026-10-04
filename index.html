@@ -365,11 +365,12 @@
   /* pill SETTIMANA PASSATA: spenta, retrocede la vista (cliccabile) */
   .wk-tabs .wk-past{opacity:.55;background:var(--bg2);}
   .wk-tabs .wk-past .wpast{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);}
-  #wk1:checked ~ .wk-tabs .wk-past{opacity:1;}
+  #wk1:checked ~ .wk-tabs .wk-past,
+  #wk4:checked ~ .wk-tabs .wk-past{opacity:1;}
 
   /* badge "Corrente" sulla pill della settimana attiva */
   .wk-tabs label .wcur{display:none;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#fff;background:rgba(255,255,255,.22);border-radius:999px;padding:2px 7px;margin-left:2px;}
-  .wk-tabs label[for="wk3"] .wcur{display:inline-block;}
+  .wk-tabs label[for="wk4"] .wcur{display:inline-block;}
 
   /* pannelli settimana */
   .wk-panel{display:none;}
@@ -1193,14 +1194,14 @@
     -->
     <input type="radio" name="wk" id="wk1">
     <input type="radio" name="wk" id="wk2">
-    <input type="radio" name="wk" id="wk3" checked>
-    <input type="radio" name="wk" id="wk4">
+    <input type="radio" name="wk" id="wk3">
+    <input type="radio" name="wk" id="wk4" checked>
     <input type="radio" name="wk" id="wk5">
 
     <div class="wk-tabs">
-      <label for="wk3">Settimana 3 · 28 / 09 – 04 / 10 / 2026<span class="wcur">Corrente</span></label>
-      <label for="wk4">Settimana 4 · 05–11 / 10 / 2026</label>
+      <label for="wk4">Settimana 4 · 05–11 / 10 / 2026<span class="wcur">Corrente</span></label>
       <label for="wk5">Settimana 5 · 12–18 / 10 / 2026</label>
+      <label for="wk3" class="wk-past">Settimana 3 · 28 / 09 – 04 / 10 / 2026<span class="wpast">Passata</span></label>
       <label for="wk2" class="wk-past">Settimana 2 · 21–27 / 09 / 2026<span class="wpast">Passata</span></label>
       <label for="wk1" class="wk-past">Settimana 1 · 14–20 / 09 / 2026<span class="wpast">Passata</span></label>
     </div>
@@ -2355,7 +2356,7 @@
       </div>
 
       <!-- ===== SETTIMANA 3 (28/09–04/10) ===== -->
-      <div class="wk-panel wk3">
+      <div class="wk-panel wk3 wk-past">
         <div class="wk-summary">
           <span class="ws-title">Settimana 3 · 28 / 09 – 04 / 10 / 2026</span>
           <span class="ws-days">6 / 7 giorni registrati</span>
@@ -2937,7 +2938,7 @@
               </div>
             </div>
           </details>
-          <div class="day-card empty"><span class="dc-day">Dom</span><span class="dc-date">04 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Dom</span><span class="dc-date">04 / 10</span><span class="dc-dash">non registrato</span></div>
         </div>
       </div>
 
