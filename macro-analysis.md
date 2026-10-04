@@ -54,6 +54,9 @@
 | Stick di pollo (Lidl, surgelati) | 100 g | 199 | 12.0 | 10.0 | 15.0 | photo `stick_di_pollo.jpg` (01/10) — 2,4 G sat, 1 G zuccheri, 0,6 G fibre, 1,6 g sale |
 | Rings di pollo (AIA, surgelati) | 100 g | 253 | 17.0 | 13.0 | 17.0 | photo `rings_di_pollo.jpg` (01/10) — 1,2 G sat, 0,9 G zuccheri, 1,5 g sale |
 | Fesa di tacchino (Rovagnati, cotto) | 100 g | 85 | 16.0 | 1.0 | 3.1 | photo `fesa_di_tacchino.jpg` (01/10) — pacco 120 g, 0,4 G sat, 1 G zuccheri, 1,8 g sale |
+| Barretta proteica al cioccolato | 100 g | 391 | 36 | 17 | 31 | photo `barretta_proteica.jpg` (04/10) — 1 barretta 55 g = 215 kcal / 20 P / 10 G / 17 C (4,5 G sat, 0,2 G zuccheri, 16 G polioli, 3 G fibre) |
+| Salmone crudo | 100 g | 208 | 20.4 | 13.4 | 0 | standard estimate (11/10) |
+| Edamame (sgranati) | 100 g | 172 | 12 | 8.5 | 8.9 | standard estimate (11/10) |
 
 > **Foods WITHOUT label (standard estimates, used only when no photo exists)**: eggs (~70 kcal / 6.3 P / 4.9 F / 0.8 C each) · olive oil (1 teaspoon ≈ 4.5 g ≈ 40 kcal / 4.4 F) · green apple ~150 g (~78 kcal / 0.5 P / 0.3 F / 21 C) · banana ~120 g (~107 kcal / 1.3 P / 0.4 F / 27 C) · raw rice (345 kcal / 7.9 P / 0.9 F / 78 C per 100 g) · chicken breast (120 kcal / 22.5 P / 1.5 F / 0 C per 100 g) · blueberries (92 kcal / 1.5 P / 0 F / 23.5 C per 100 g) · semi-skimmed milk (45 kcal / 3.1 P / 1.8 F / 4.8 C per 100 ml) · whey (400 kcal / 83 P / 2.7 F / 2.4 C per 100 g) · raw sliced beef (~130 kcal / 26.7 P / 2.7 F / 0 C per 100 g) · leafy greens (~15 kcal / 0.7 P / 0.1 F / 3 C per 100 g).
 
@@ -345,6 +348,21 @@ Fonte: kefir (etichetta) · Avena Pro (`avena_pro.jpg`) · pane di segale (stima
 
 % kcal: P 44% · G 40% · C 20% — ~18.6 kcal/kg · ~2.03 g P/kg
 Fonte: latte Lidl (47 kcal/100 ml, etichetta) · DigeZyme (358/66,9/3,47/14,59, etichetta) · **pane (stima 265 kcal/100 g: 10 P / 3 G / 50 C — senza etichetta)** · **hamburger di manzo (stima 200 kcal/100 g: 26 P / 16 G / 0 C — come 26/09)** · **formaggio (stima 350 kcal/100 g: 25 P / 30 G / 0 C — come 26/09)** · **kebab di pollo (stima 140 kcal/100 g: 24 P / 4.5 G / 0.5 C — pollo alla piastra)** · verdure miste (stima 15 kcal/100 g) · **formaggio fresco (stima 280 kcal/100 g: 22 P / 17 G / 2 C — tipo mozzarella)** · **tzatziki (stima 90 kcal/100 g: 3 P / 8 G / 3 C — salsa greca)**. Notes: spuntino post-workout saltato. Giorno a **1 481 kcal** (sotto il tetto di 1 700 di ~219 kcal — niente carboidrati a cena, solo 5,7 g C). P **161,6 g = 2,03 g/kg** (target 140 g **superato di +21,6 g**: hamburger 31,2 g P + kebab 36,0 g P). Kcal/kg 18,6: sotto il target ~21. **Totale settimana 3: ≈ 10 352 kcal (5 303 + 1 694 + 1 874 +  1 481, 6/7 giorni).**
+
+### Sun 11/10/2026
+**Food**: Kellogg's Barchette 60 g · Barretta proteica 1 pz 55 g · Spuntino post-workout: — · **Pranzo: Riso bianco cotto 120 g + Carne macinata di mucca 90 g + Fiocchi di latte 2% 150 g** · Spuntino: Latte parzialmente scremato (Lidl) 300 ml + Proteine in polvere (DigeZyme) 30 g · **Cena: Wrap (tortilla Lidl 60 g + salmone crudo 125 g + rucola 30 g + carote 30 g + salsa yogurt Fage 2% 35 g + **edamame sgranati 45 g** + erba cipollina 3 g = 328 g totali, stime porzioni)**
+
+| Meal | kcal | P (g) | G (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast (Barchette + barretta) | 443 | 25.8 | 10.7 | 63.2 |
+| Post-workout snack | 0 | — | — | — |
+| Lunch (riso cotto + carne macinata + fiocchi di latte) | 374 | 45.4 | 4.1 | 38.4 |
+| Snack (shaker) | 248 | 30.0 | 5.8 | 19.1 |
+| Dinner (wrap salmone crudo + edamame, 328 g totali) | 559 | 41.2 | 24.4 | 38.1 |
+| **Total** | **~1 624** | **~142.4** | **~45.0** | **~158.8** |
+
+% kcal: P 35% · G 25% · C 39% — ~20.5 kcal/kg · ~1.80 g P/kg
+Fonte: Barchette (380 kcal/100 g: 10 P / 2,2 G / 77 C, etichetta `kellogs_barchette.jpg`) · **barretta proteica (391 kcal/100 g: 36 P / 17 G / 31 C, etichetta `barretta_proteica.jpg` — per barretta 55 g: 215 kcal / 20 P / 10 G / 17 C)** · riso cotto (130 kcal/100 g: 2,8 P / 0,3 G / 28,5 C — regola 25/09: sempre cotto, pesato cotto) · **carne macinata di mucca (stima 130 kcal/100 g: 26,7 P / 2,7 G / 0 C)** · fiocchi di latte 2% (67 kcal/100 g, etichetta `fiocchi_di_latte.jpg`) · latte Lidl (47 kcal/100 ml, etichetta) · DigeZyme (358/66,9/3,47/14,59, etichetta `whey_proteine.jpg`) · **cena wrap: tortilla Lidl (294/10/5/49, etichetta `wrap_barbabietola.jpg`, 60 g) + salmone crudo (stima 208 kcal/100 g: 20,4 P / 13,4 G / 0 C, 125 g) + rucola (stima 16 kcal/100 g, 30 g) + carote (stima 41 kcal/100 g, 30 g) + salsa yogurt Fage 2% (70/9,9/2/3, etichetta `fage_2.jpg`, 35 g) + **edamame sgranati (stima 172 kcal/100 g: 12 P / 8,5 G / 8,9 C, 45 g)** + erba cipollina (stima 134 kcal/100 g, 3 g) — peso totale wrap 328 g dato dall'utente, porzioni stimate (aggiunta edamame 11/10 sera)**. Notes: spuntino post-workout saltato. Giorno completo: 1 624 kcal (sotto il tetto di 1 700 con ~76 kcal di margine), 142,4 g P = 1,80 g/kg (target 140 g superato di ~2 g, cena proteica: salmone 25,5 g P). Kcal/kg 20,5: sotto target ~21. **Totale settimana 4 (1/7 giorni): ≈ 1 624 kcal.**
 
 ## Template A/B v3 — opzione A: ~1 730-1 740 kcal · P ≈ 139 g · grassi ~47-49 g
 
