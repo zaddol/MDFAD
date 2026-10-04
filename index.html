@@ -365,12 +365,11 @@
   /* pill SETTIMANA PASSATA: spenta, retrocede la vista (cliccabile) */
   .wk-tabs .wk-past{opacity:.55;background:var(--bg2);}
   .wk-tabs .wk-past .wpast{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);}
-  #wk1:checked ~ .wk-tabs .wk-past,
-  #wk4:checked ~ .wk-tabs .wk-past{opacity:1;}
+  #wk1:checked ~ .wk-tabs .wk-past{opacity:1;}
 
   /* badge "Corrente" sulla pill della settimana attiva */
   .wk-tabs label .wcur{display:none;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#fff;background:rgba(255,255,255,.22);border-radius:999px;padding:2px 7px;margin-left:2px;}
-  .wk-tabs label[for="wk4"] .wcur{display:inline-block;}
+  .wk-tabs label[for="wk3"] .wcur{display:inline-block;}
 
   /* pannelli settimana */
   .wk-panel{display:none;}
@@ -1194,16 +1193,16 @@
     -->
     <input type="radio" name="wk" id="wk1">
     <input type="radio" name="wk" id="wk2">
-    <input type="radio" name="wk" id="wk3">
-    <input type="radio" name="wk" id="wk4" checked>
+    <input type="radio" name="wk" id="wk3" checked>
+    <input type="radio" name="wk" id="wk4">
     <input type="radio" name="wk" id="wk5">
 
     <div class="wk-tabs">
-      <label for="wk4">Settimana 3 · 05–11 / 10 / 2026<span class="wcur">Corrente</span></label>
-      <label for="wk5">Settimana 4 · 12–18 / 10 / 2026</label>
-      <label for="wk3" class="wk-past">Settimana 2 · 28 / 09 – 04 / 10 / 2026<span class="wpast">Passata</span></label>
-      <label for="wk2" class="wk-past">Settimana 1 · 21–27 / 09 / 2026<span class="wpast">Passata</span></label>
-      <label for="wk1" class="wk-past">Settimana 0 · 14–20 / 09 / 2026<span class="wpast">Passata</span></label>
+      <label for="wk3">Settimana 3 · 28 / 09 – 04 / 10 / 2026<span class="wcur">Corrente</span></label>
+      <label for="wk4">Settimana 4 · 05–11 / 10 / 2026</label>
+      <label for="wk5">Settimana 5 · 12–18 / 10 / 2026</label>
+      <label for="wk2" class="wk-past">Settimana 2 · 21–27 / 09 / 2026<span class="wpast">Passata</span></label>
+      <label for="wk1" class="wk-past">Settimana 1 · 14–20 / 09 / 2026<span class="wpast">Passata</span></label>
     </div>
 
     <div class="diet-zone">
@@ -1211,7 +1210,7 @@
       <!-- ===== SETTIMANA 1 (14–20/09) — PASSATA ===== -->
       <div class="wk-panel wk1 wk-past">
         <div class="wk-summary">
-          <span class="ws-title">Settimana 0 · 14–20 / 09 / 2026</span>
+          <span class="ws-title">Settimana 1 · 14–20 / 09 / 2026</span>
           <span class="ws-days">7 / 7 giorni registrati</span>
           <span class="ws-total">Totale sett. ≈ 9 352 kcal</span>
         </div>
@@ -1727,7 +1726,7 @@
       <!-- ===== SETTIMANA 2 (21–27/09) ===== -->
       <div class="wk-panel wk2 wk-past">
         <div class="wk-summary">
-          <span class="ws-title">Settimana 1 · 21–27 / 09 / 2026</span>
+          <span class="ws-title">Settimana 2 · 21–27 / 09 / 2026</span>
           <span class="ws-days">7 / 7 giorni registrati</span>
           <span class="ws-total">Totale sett. ≈ 10 212 kcal</span>
         </div>
@@ -2356,11 +2355,11 @@
       </div>
 
       <!-- ===== SETTIMANA 3 (28/09–04/10) ===== -->
-      <div class="wk-panel wk3 wk-past">
+      <div class="wk-panel wk3">
         <div class="wk-summary">
-          <span class="ws-title">Settimana 2 · 28 / 09 – 04 / 10 / 2026</span>
-          <span class="ws-days">6 / 7 giorni registrati</span>
-          <span class="ws-total">Totale sett. ≈ 10 352 kcal</span>
+          <span class="ws-title">Settimana 3 · 28 / 09 – 04 / 10 / 2026</span>
+          <span class="ws-days">7 / 7 giorni registrati</span>
+          <span class="ws-total">Totale sett. ≈ 11 976 kcal</span>
         </div>
         <div class="wk-grid">
           <!-- LUNEDÌ 28/09 — compilato -->
@@ -2938,28 +2937,10 @@
               </div>
             </div>
           </details>
-          <div class="day-card empty"><span class="dc-day">Dom</span><span class="dc-date">04 / 10</span><span class="dc-dash">non registrato</span></div>
-        </div>
-      </div>
-
-      <!-- ===== SETTIMANA 4 (05–11/10) ===== -->
-      <div class="wk-panel wk4">
-        <div class="wk-summary">
-          <span class="ws-title">Settimana 3 · 05–11 / 10 / 2026</span>
-          <span class="ws-days">0 / 7 giorni registrati</span>
-          <span class="ws-total">Totale sett. —</span>
-        </div>
-        <div class="wk-grid">
-          <div class="day-card empty"><span class="dc-day">Lun</span><span class="dc-date">05 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Mar</span><span class="dc-date">06 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Mer</span><span class="dc-date">07 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Gio</span><span class="dc-date">08 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Ven</span><span class="dc-date">09 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Sab</span><span class="dc-date">10 / 10</span><span class="dc-dash">—</span></div>
           <details class="day-card">
             <summary>
               <span class="dc-day">Dom</span>
-              <span class="dc-date">11 / 10</span>
+              <span class="dc-date">04 / 10</span>
               <span class="dc-kcal">1 624<small> kcal</small></span>
               <span class="dc-meals">
                 <span>☕ <span class="ml-k">443</span></span>
@@ -3049,10 +3030,29 @@
         </div>
       </div>
 
+      <!-- ===== SETTIMANA 4 (05–11/10) ===== -->
+      <div class="wk-panel wk4">
+        <div class="wk-summary">
+          <span class="ws-title">Settimana 4 · 05–11 / 10 / 2026</span>
+          <span class="ws-days">0 / 7 giorni registrati</span>
+          <span class="ws-total">Totale sett. —</span>
+        </div>
+        <div class="wk-grid">
+          <div class="day-card empty"><span class="dc-day">Lun</span><span class="dc-date">05 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Mar</span><span class="dc-date">06 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Mer</span><span class="dc-date">07 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Gio</span><span class="dc-date">08 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Ven</span><span class="dc-date">09 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Sab</span><span class="dc-date">10 / 10</span><span class="dc-dash">—</span></div>
+          <div class="day-card empty"><span class="dc-day">Dom</span><span class="dc-date">11 / 10</span><span class="dc-dash">—</span></div>
+          
+        </div>
+      </div>
+
       <!-- ===== SETTIMANA 5 (12–18/10) ===== -->
       <div class="wk-panel wk5">
         <div class="wk-summary">
-          <span class="ws-title">Settimana 4 · 12–18 / 10 / 2026</span>
+          <span class="ws-title">Settimana 5 · 12–18 / 10 / 2026</span>
           <span class="ws-days">0 / 7 giorni registrati</span>
           <span class="ws-total">Totale sett. —</span>
         </div>
