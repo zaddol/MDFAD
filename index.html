@@ -369,7 +369,7 @@
 
   /* badge "Corrente" sulla pill della settimana attiva */
   .wk-tabs label .wcur{display:none;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#fff;background:rgba(255,255,255,.22);border-radius:999px;padding:2px 7px;margin-left:2px;}
-  .wk-tabs label[for="wk3"] .wcur{display:inline-block;}
+  .wk-tabs label[for="wk4"] .wcur{display:inline-block;}
 
   /* pannelli settimana */
   .wk-panel{display:none;}
@@ -410,6 +410,7 @@
   }
   .day-card .dc-day{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);}
   .day-card .dc-date{font-size:10.5px;color:var(--dim);font-weight:600;}
+  .day-card .dc-letter{font-size:9px;font-weight:800;color:#fff;background:rgba(255,210,63,.85);border-radius:4px;padding:1px 4px;margin-left:4px;vertical-align:1px;}
   .day-card .dc-kcal{
     font-size:22px;font-weight:900;font-variant-numeric:tabular-nums;
     color:var(--text);line-height:1;margin-top:6px;
@@ -1193,14 +1194,14 @@
     -->
     <input type="radio" name="wk" id="wk1">
     <input type="radio" name="wk" id="wk2">
-    <input type="radio" name="wk" id="wk3" checked>
-    <input type="radio" name="wk" id="wk4">
+    <input type="radio" name="wk" id="wk3">
+    <input type="radio" name="wk" id="wk4" checked>
     <input type="radio" name="wk" id="wk5">
 
     <div class="wk-tabs">
-      <label for="wk3">Settimana 3 · 28 / 09 – 04 / 10 / 2026<span class="wcur">Corrente</span></label>
-      <label for="wk4">Settimana 4 · 05–11 / 10 / 2026</label>
+      <label for="wk4">Settimana 4 · 05–11 / 10 / 2026<span class="wcur">Corrente</span></label>
       <label for="wk5">Settimana 5 · 12–18 / 10 / 2026</label>
+      <label for="wk3" class="wk-past">Settimana 3 · 28 / 09 – 04 / 10 / 2026<span class="wpast">Passata</span></label>
       <label for="wk2" class="wk-past">Settimana 2 · 21–27 / 09 / 2026<span class="wpast">Passata</span></label>
       <label for="wk1" class="wk-past">Settimana 1 · 14–20 / 09 / 2026<span class="wpast">Passata</span></label>
     </div>
@@ -2355,7 +2356,7 @@
       </div>
 
       <!-- ===== SETTIMANA 3 (28/09–04/10) ===== -->
-      <div class="wk-panel wk3">
+      <div class="wk-panel wk3 wk-past">
         <div class="wk-summary">
           <span class="ws-title">Settimana 3 · 28 / 09 – 04 / 10 / 2026</span>
           <span class="ws-days">7 / 7 giorni registrati</span>
@@ -3034,18 +3035,639 @@
       <div class="wk-panel wk4">
         <div class="wk-summary">
           <span class="ws-title">Settimana 4 · 05–11 / 10 / 2026</span>
-          <span class="ws-days">0 / 7 giorni registrati</span>
-          <span class="ws-total">Totale sett. —</span>
+          <span class="ws-days">7 / 7 pianificati (A·B·A·B·A·B·A)</span>
+          <span class="ws-total">≈ 12 140 kcal · P ≈ 974 g</span>
         </div>
-        <div class="wk-grid">
-          <div class="day-card empty"><span class="dc-day">Lun</span><span class="dc-date">05 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Mar</span><span class="dc-date">06 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Mer</span><span class="dc-date">07 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Gio</span><span class="dc-date">08 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Ven</span><span class="dc-date">09 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Sab</span><span class="dc-date">10 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Dom</span><span class="dc-date">11 / 10</span><span class="dc-dash">—</span></div>
-          
+        <div class="wk-grid">          <details class="day-card">
+            <summary>
+              <span class="dc-day">Lun <span class="dc-letter" title="Giorno A">A</span></span>
+              <span class="dc-date">05 / 10</span>
+              <span class="dc-kcal">1 731<small> kcal</small></span>
+              <span class="dc-meals"><span>☕ <span class="ml-k">385</span></span><span>🥪 <span class="ml-k">617</span></span><span>🥤 <span class="ml-k">213</span></span><span>🍽️ <span class="ml-k">517</span></span></span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="2">☕ Colazione</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">☕</span><span class="m-t">Colazione</span><span class="m-k">385 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="fkcal"><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Avena Pro (Fiorentini)</span></span><span class="fkcal"><span class="f-kcal">161</span><span class="kcal-u">Kc</span></span><span class="fporz">40 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">8,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">23,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Miele</span></span><span class="fkcal"><span class="f-kcal">34</span><span class="kcal-u">Kc</span></span><span class="fporz">1 cucchiaino · 10 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0</span><span class="u">G</span><span class="sep">·</span><span class="mv">8,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Fiocchi di latte 2%</span></span><span class="fkcal"><span class="f-kcal">70</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mirtilli</span></span><span class="fkcal"><span class="f-kcal">74</span><span class="kcal-u">Kc</span></span><span class="fporz">80 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">1,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">0</span><span class="u">G</span><span class="sep">·</span><span class="mv">18,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🥪 Pranzo</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🥪</span><span class="m-t">Pranzo</span><span class="m-k">617 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍚</span><span class="f-lead-txt" tabindex="0"><span class="fname">Riso cotto</span></span><span class="fkcal"><span class="f-kcal">195</span><span class="kcal-u">Kc</span></span><span class="fporz">150 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">42,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Petto di pollo</span></span><span class="fkcal"><span class="f-kcal">204</span><span class="kcal-u">Kc</span></span><span class="fporz">170 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">38,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,6</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata verde</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio e.v.o. (5 cucchiaini)</span></span><span class="fkcal"><span class="f-kcal">203</span><span class="kcal-u">Kc</span></span><span class="fporz">22,5 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">20,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🥤 Shaker</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🥤</span><span class="m-t">Shaker</span><span class="m-k">213 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Latte parz. scremato (Lidl)</span></span><span class="fkcal"><span class="f-kcal">141</span><span class="kcal-u">Kc</span></span><span class="fporz">300 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">14,7</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Proteine in polvere (DigeZyme)</span></span><span class="fkcal"><span class="f-kcal">72</span><span class="kcal-u">Kc</span></span><span class="fporz">20 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">13,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,7</span><span class="u">G</span><span class="sep">·</span><span class="mv">2,9</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🍽️ Cena</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🍽️</span><span class="m-t">Cena</span><span class="m-k">517 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥫</span><span class="f-lead-txt" tabindex="0"><span class="fname">Tonno al naturale (Findus)</span></span><span class="fkcal"><span class="f-kcal">188</span><span class="kcal-u">Kc</span></span><span class="fporz">140 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">43,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥔</span><span class="f-lead-txt" tabindex="0"><span class="fname">Patate al forno</span></span><span class="fkcal"><span class="f-kcal">193</span><span class="kcal-u">Kc</span></span><span class="fporz">250 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">5,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">42,5</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata verde</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio e.v.o. (3 cucchiaini)</span></span><span class="fkcal"><span class="f-kcal">122</span><span class="kcal-u">Kc</span></span><span class="fporz">13,5 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">12,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 731</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>139,1 g</b> P <small>32%</small></span>
+                <span class="mc g"><span class="sd"></span><b>48,9 g</b> G <small>25%</small></span>
+                <span class="mc c"><span class="sd"></span><b>166,8 g</b> C <small>39%</small></span>
+              </div>
+            </div>
+          </details>
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Mar <span class="dc-letter" title="Giorno B">B</span></span>
+              <span class="dc-date">06 / 10</span>
+              <span class="dc-kcal">1 741<small> kcal</small></span>
+              <span class="dc-meals"><span>☕ <span class="ml-k">385</span></span><span>🥪 <span class="ml-k">613</span></span><span>🥤 <span class="ml-k">213</span></span><span>🍽️ <span class="ml-k">531</span></span></span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="2">☕ Colazione</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">☕</span><span class="m-t">Colazione</span><span class="m-k">385 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="fkcal"><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Avena Pro (Fiorentini)</span></span><span class="fkcal"><span class="f-kcal">161</span><span class="kcal-u">Kc</span></span><span class="fporz">40 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">8,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">23,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Miele</span></span><span class="fkcal"><span class="f-kcal">34</span><span class="kcal-u">Kc</span></span><span class="fporz">1 cucchiaino · 10 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0</span><span class="u">G</span><span class="sep">·</span><span class="mv">8,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Fiocchi di latte 2%</span></span><span class="fkcal"><span class="f-kcal">70</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mirtilli</span></span><span class="fkcal"><span class="f-kcal">74</span><span class="kcal-u">Kc</span></span><span class="fporz">80 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">1,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">0</span><span class="u">G</span><span class="sep">·</span><span class="mv">18,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🥪 Pranzo</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🥪</span><span class="m-t">Pranzo</span><span class="m-k">613 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍞</span><span class="f-lead-txt" tabindex="0"><span class="fname">Pane di segale</span></span><span class="fkcal"><span class="f-kcal">258</span><span class="kcal-u">Kc</span></span><span class="fporz">2 fette · 112 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">8,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">57,7</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Fesa di tacchino (Rovagnati)</span></span><span class="fkcal"><span class="f-kcal">179</span><span class="kcal-u">Kc</span></span><span class="fporz">210 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">33,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">6,5</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata verde</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio e.v.o. (4 cucchiaini)</span></span><span class="fkcal"><span class="f-kcal">162</span><span class="kcal-u">Kc</span></span><span class="fporz">18 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">16,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🥤 Shaker</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🥤</span><span class="m-t">Shaker</span><span class="m-k">213 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Latte parz. scremato (Lidl)</span></span><span class="fkcal"><span class="f-kcal">141</span><span class="kcal-u">Kc</span></span><span class="fporz">300 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">14,7</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Proteine in polvere (DigeZyme)</span></span><span class="fkcal"><span class="f-kcal">72</span><span class="kcal-u">Kc</span></span><span class="fporz">20 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">13,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,7</span><span class="u">G</span><span class="sep">·</span><span class="mv">2,9</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🍽️ Cena</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🍽️</span><span class="m-t">Cena</span><span class="m-k">531 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Petto di pollo</span></span><span class="fkcal"><span class="f-kcal">240</span><span class="kcal-u">Kc</span></span><span class="fporz">200 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">45,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥔</span><span class="f-lead-txt" tabindex="0"><span class="fname">Patate al forno</span></span><span class="fkcal"><span class="f-kcal">154</span><span class="kcal-u">Kc</span></span><span class="fporz">200 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">34,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata verde</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio e.v.o. (3 cucchiaini)</span></span><span class="fkcal"><span class="f-kcal">122</span><span class="kcal-u">Kc</span></span><span class="fporz">13,5 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">12,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 741</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>139,2 g</b> P <small>32%</small></span>
+                <span class="mc g"><span class="sd"></span><b>47,4 g</b> G <small>24%</small></span>
+                <span class="mc c"><span class="sd"></span><b>179,8 g</b> C <small>41%</small></span>
+              </div>
+            </div>
+          </details>
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Mer <span class="dc-letter" title="Giorno A">A</span></span>
+              <span class="dc-date">07 / 10</span>
+              <span class="dc-kcal">1 731<small> kcal</small></span>
+              <span class="dc-meals"><span>☕ <span class="ml-k">385</span></span><span>🥪 <span class="ml-k">617</span></span><span>🥤 <span class="ml-k">213</span></span><span>🍽️ <span class="ml-k">517</span></span></span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="2">☕ Colazione</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">☕</span><span class="m-t">Colazione</span><span class="m-k">385 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="fkcal"><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Avena Pro (Fiorentini)</span></span><span class="fkcal"><span class="f-kcal">161</span><span class="kcal-u">Kc</span></span><span class="fporz">40 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">8,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">23,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Miele</span></span><span class="fkcal"><span class="f-kcal">34</span><span class="kcal-u">Kc</span></span><span class="fporz">1 cucchiaino · 10 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0</span><span class="u">G</span><span class="sep">·</span><span class="mv">8,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Fiocchi di latte 2%</span></span><span class="fkcal"><span class="f-kcal">70</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mirtilli</span></span><span class="fkcal"><span class="f-kcal">74</span><span class="kcal-u">Kc</span></span><span class="fporz">80 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">1,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">0</span><span class="u">G</span><span class="sep">·</span><span class="mv">18,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🥪 Pranzo</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🥪</span><span class="m-t">Pranzo</span><span class="m-k">617 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍚</span><span class="f-lead-txt" tabindex="0"><span class="fname">Riso cotto</span></span><span class="fkcal"><span class="f-kcal">195</span><span class="kcal-u">Kc</span></span><span class="fporz">150 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">42,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Petto di pollo</span></span><span class="fkcal"><span class="f-kcal">204</span><span class="kcal-u">Kc</span></span><span class="fporz">170 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">38,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,6</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata verde</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio e.v.o. (5 cucchiaini)</span></span><span class="fkcal"><span class="f-kcal">203</span><span class="kcal-u">Kc</span></span><span class="fporz">22,5 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">20,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🥤 Shaker</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🥤</span><span class="m-t">Shaker</span><span class="m-k">213 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Latte parz. scremato (Lidl)</span></span><span class="fkcal"><span class="f-kcal">141</span><span class="kcal-u">Kc</span></span><span class="fporz">300 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">14,7</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Proteine in polvere (DigeZyme)</span></span><span class="fkcal"><span class="f-kcal">72</span><span class="kcal-u">Kc</span></span><span class="fporz">20 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">13,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,7</span><span class="u">G</span><span class="sep">·</span><span class="mv">2,9</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🍽️ Cena</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🍽️</span><span class="m-t">Cena</span><span class="m-k">517 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥫</span><span class="f-lead-txt" tabindex="0"><span class="fname">Tonno al naturale (Findus)</span></span><span class="fkcal"><span class="f-kcal">188</span><span class="kcal-u">Kc</span></span><span class="fporz">140 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">43,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥔</span><span class="f-lead-txt" tabindex="0"><span class="fname">Patate al forno</span></span><span class="fkcal"><span class="f-kcal">193</span><span class="kcal-u">Kc</span></span><span class="fporz">250 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">5,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">42,5</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata verde</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio e.v.o. (3 cucchiaini)</span></span><span class="fkcal"><span class="f-kcal">122</span><span class="kcal-u">Kc</span></span><span class="fporz">13,5 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">12,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 731</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>139,1 g</b> P <small>32%</small></span>
+                <span class="mc g"><span class="sd"></span><b>48,9 g</b> G <small>25%</small></span>
+                <span class="mc c"><span class="sd"></span><b>166,8 g</b> C <small>39%</small></span>
+              </div>
+            </div>
+          </details>
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Gio <span class="dc-letter" title="Giorno B">B</span></span>
+              <span class="dc-date">08 / 10</span>
+              <span class="dc-kcal">1 741<small> kcal</small></span>
+              <span class="dc-meals"><span>☕ <span class="ml-k">385</span></span><span>🥪 <span class="ml-k">613</span></span><span>🥤 <span class="ml-k">213</span></span><span>🍽️ <span class="ml-k">531</span></span></span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="2">☕ Colazione</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">☕</span><span class="m-t">Colazione</span><span class="m-k">385 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="fkcal"><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Avena Pro (Fiorentini)</span></span><span class="fkcal"><span class="f-kcal">161</span><span class="kcal-u">Kc</span></span><span class="fporz">40 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">8,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">23,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Miele</span></span><span class="fkcal"><span class="f-kcal">34</span><span class="kcal-u">Kc</span></span><span class="fporz">1 cucchiaino · 10 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0</span><span class="u">G</span><span class="sep">·</span><span class="mv">8,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Fiocchi di latte 2%</span></span><span class="fkcal"><span class="f-kcal">70</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mirtilli</span></span><span class="fkcal"><span class="f-kcal">74</span><span class="kcal-u">Kc</span></span><span class="fporz">80 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">1,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">0</span><span class="u">G</span><span class="sep">·</span><span class="mv">18,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🥪 Pranzo</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🥪</span><span class="m-t">Pranzo</span><span class="m-k">613 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍞</span><span class="f-lead-txt" tabindex="0"><span class="fname">Pane di segale</span></span><span class="fkcal"><span class="f-kcal">258</span><span class="kcal-u">Kc</span></span><span class="fporz">2 fette · 112 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">8,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">57,7</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Fesa di tacchino (Rovagnati)</span></span><span class="fkcal"><span class="f-kcal">179</span><span class="kcal-u">Kc</span></span><span class="fporz">210 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">33,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">6,5</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata verde</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio e.v.o. (4 cucchiaini)</span></span><span class="fkcal"><span class="f-kcal">162</span><span class="kcal-u">Kc</span></span><span class="fporz">18 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">16,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🥤 Shaker</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🥤</span><span class="m-t">Shaker</span><span class="m-k">213 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Latte parz. scremato (Lidl)</span></span><span class="fkcal"><span class="f-kcal">141</span><span class="kcal-u">Kc</span></span><span class="fporz">300 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">14,7</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Proteine in polvere (DigeZyme)</span></span><span class="fkcal"><span class="f-kcal">72</span><span class="kcal-u">Kc</span></span><span class="fporz">20 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">13,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,7</span><span class="u">G</span><span class="sep">·</span><span class="mv">2,9</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🍽️ Cena</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🍽️</span><span class="m-t">Cena</span><span class="m-k">531 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Petto di pollo</span></span><span class="fkcal"><span class="f-kcal">240</span><span class="kcal-u">Kc</span></span><span class="fporz">200 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">45,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥔</span><span class="f-lead-txt" tabindex="0"><span class="fname">Patate al forno</span></span><span class="fkcal"><span class="f-kcal">154</span><span class="kcal-u">Kc</span></span><span class="fporz">200 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">34,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata verde</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio e.v.o. (3 cucchiaini)</span></span><span class="fkcal"><span class="f-kcal">122</span><span class="kcal-u">Kc</span></span><span class="fporz">13,5 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">12,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 741</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>139,2 g</b> P <small>32%</small></span>
+                <span class="mc g"><span class="sd"></span><b>47,4 g</b> G <small>24%</small></span>
+                <span class="mc c"><span class="sd"></span><b>179,8 g</b> C <small>41%</small></span>
+              </div>
+            </div>
+          </details>
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Ven <span class="dc-letter" title="Giorno A">A</span></span>
+              <span class="dc-date">09 / 10</span>
+              <span class="dc-kcal">1 731<small> kcal</small></span>
+              <span class="dc-meals"><span>☕ <span class="ml-k">385</span></span><span>🥪 <span class="ml-k">617</span></span><span>🥤 <span class="ml-k">213</span></span><span>🍽️ <span class="ml-k">517</span></span></span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="2">☕ Colazione</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">☕</span><span class="m-t">Colazione</span><span class="m-k">385 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="fkcal"><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Avena Pro (Fiorentini)</span></span><span class="fkcal"><span class="f-kcal">161</span><span class="kcal-u">Kc</span></span><span class="fporz">40 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">8,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">23,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Miele</span></span><span class="fkcal"><span class="f-kcal">34</span><span class="kcal-u">Kc</span></span><span class="fporz">1 cucchiaino · 10 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0</span><span class="u">G</span><span class="sep">·</span><span class="mv">8,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Fiocchi di latte 2%</span></span><span class="fkcal"><span class="f-kcal">70</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mirtilli</span></span><span class="fkcal"><span class="f-kcal">74</span><span class="kcal-u">Kc</span></span><span class="fporz">80 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">1,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">0</span><span class="u">G</span><span class="sep">·</span><span class="mv">18,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🥪 Pranzo</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🥪</span><span class="m-t">Pranzo</span><span class="m-k">617 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍚</span><span class="f-lead-txt" tabindex="0"><span class="fname">Riso cotto</span></span><span class="fkcal"><span class="f-kcal">195</span><span class="kcal-u">Kc</span></span><span class="fporz">150 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">42,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Petto di pollo</span></span><span class="fkcal"><span class="f-kcal">204</span><span class="kcal-u">Kc</span></span><span class="fporz">170 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">38,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,6</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata verde</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio e.v.o. (5 cucchiaini)</span></span><span class="fkcal"><span class="f-kcal">203</span><span class="kcal-u">Kc</span></span><span class="fporz">22,5 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">20,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🥤 Shaker</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🥤</span><span class="m-t">Shaker</span><span class="m-k">213 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Latte parz. scremato (Lidl)</span></span><span class="fkcal"><span class="f-kcal">141</span><span class="kcal-u">Kc</span></span><span class="fporz">300 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">14,7</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Proteine in polvere (DigeZyme)</span></span><span class="fkcal"><span class="f-kcal">72</span><span class="kcal-u">Kc</span></span><span class="fporz">20 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">13,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,7</span><span class="u">G</span><span class="sep">·</span><span class="mv">2,9</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🍽️ Cena</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🍽️</span><span class="m-t">Cena</span><span class="m-k">517 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥫</span><span class="f-lead-txt" tabindex="0"><span class="fname">Tonno al naturale (Findus)</span></span><span class="fkcal"><span class="f-kcal">188</span><span class="kcal-u">Kc</span></span><span class="fporz">140 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">43,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥔</span><span class="f-lead-txt" tabindex="0"><span class="fname">Patate al forno</span></span><span class="fkcal"><span class="f-kcal">193</span><span class="kcal-u">Kc</span></span><span class="fporz">250 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">5,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">42,5</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata verde</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio e.v.o. (3 cucchiaini)</span></span><span class="fkcal"><span class="f-kcal">122</span><span class="kcal-u">Kc</span></span><span class="fporz">13,5 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">12,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 731</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>139,1 g</b> P <small>32%</small></span>
+                <span class="mc g"><span class="sd"></span><b>48,9 g</b> G <small>25%</small></span>
+                <span class="mc c"><span class="sd"></span><b>166,8 g</b> C <small>39%</small></span>
+              </div>
+            </div>
+          </details>
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Sab <span class="dc-letter" title="Giorno B">B</span></span>
+              <span class="dc-date">10 / 10</span>
+              <span class="dc-kcal">1 741<small> kcal</small></span>
+              <span class="dc-meals"><span>☕ <span class="ml-k">385</span></span><span>🥪 <span class="ml-k">613</span></span><span>🥤 <span class="ml-k">213</span></span><span>🍽️ <span class="ml-k">531</span></span></span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="2">☕ Colazione</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">☕</span><span class="m-t">Colazione</span><span class="m-k">385 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="fkcal"><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Avena Pro (Fiorentini)</span></span><span class="fkcal"><span class="f-kcal">161</span><span class="kcal-u">Kc</span></span><span class="fporz">40 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">8,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">23,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Miele</span></span><span class="fkcal"><span class="f-kcal">34</span><span class="kcal-u">Kc</span></span><span class="fporz">1 cucchiaino · 10 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0</span><span class="u">G</span><span class="sep">·</span><span class="mv">8,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Fiocchi di latte 2%</span></span><span class="fkcal"><span class="f-kcal">70</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mirtilli</span></span><span class="fkcal"><span class="f-kcal">74</span><span class="kcal-u">Kc</span></span><span class="fporz">80 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">1,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">0</span><span class="u">G</span><span class="sep">·</span><span class="mv">18,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🥪 Pranzo</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🥪</span><span class="m-t">Pranzo</span><span class="m-k">613 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍞</span><span class="f-lead-txt" tabindex="0"><span class="fname">Pane di segale</span></span><span class="fkcal"><span class="f-kcal">258</span><span class="kcal-u">Kc</span></span><span class="fporz">2 fette · 112 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">8,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">57,7</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Fesa di tacchino (Rovagnati)</span></span><span class="fkcal"><span class="f-kcal">179</span><span class="kcal-u">Kc</span></span><span class="fporz">210 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">33,6</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">6,5</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata verde</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio e.v.o. (4 cucchiaini)</span></span><span class="fkcal"><span class="f-kcal">162</span><span class="kcal-u">Kc</span></span><span class="fporz">18 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">16,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🥤 Shaker</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🥤</span><span class="m-t">Shaker</span><span class="m-k">213 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Latte parz. scremato (Lidl)</span></span><span class="fkcal"><span class="f-kcal">141</span><span class="kcal-u">Kc</span></span><span class="fporz">300 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">14,7</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Proteine in polvere (DigeZyme)</span></span><span class="fkcal"><span class="f-kcal">72</span><span class="kcal-u">Kc</span></span><span class="fporz">20 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">13,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,7</span><span class="u">G</span><span class="sep">·</span><span class="mv">2,9</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🍽️ Cena</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🍽️</span><span class="m-t">Cena</span><span class="m-k">531 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Petto di pollo</span></span><span class="fkcal"><span class="f-kcal">240</span><span class="kcal-u">Kc</span></span><span class="fporz">200 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">45,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥔</span><span class="f-lead-txt" tabindex="0"><span class="fname">Patate al forno</span></span><span class="fkcal"><span class="f-kcal">154</span><span class="kcal-u">Kc</span></span><span class="fporz">200 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">34,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata verde</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio e.v.o. (3 cucchiaini)</span></span><span class="fkcal"><span class="f-kcal">122</span><span class="kcal-u">Kc</span></span><span class="fporz">13,5 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">12,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 741</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>139,2 g</b> P <small>32%</small></span>
+                <span class="mc g"><span class="sd"></span><b>47,4 g</b> G <small>24%</small></span>
+                <span class="mc c"><span class="sd"></span><b>179,8 g</b> C <small>41%</small></span>
+              </div>
+            </div>
+          </details>
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Dom <span class="dc-letter" title="Giorno A">A</span></span>
+              <span class="dc-date">11 / 10</span>
+              <span class="dc-kcal">1 731<small> kcal</small></span>
+              <span class="dc-meals"><span>☕ <span class="ml-k">385</span></span><span>🥪 <span class="ml-k">617</span></span><span>🥤 <span class="ml-k">213</span></span><span>🍽️ <span class="ml-k">517</span></span></span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="2">☕ Colazione</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">☕</span><span class="m-t">Colazione</span><span class="m-k">385 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="fkcal"><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Avena Pro (Fiorentini)</span></span><span class="fkcal"><span class="f-kcal">161</span><span class="kcal-u">Kc</span></span><span class="fporz">40 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">8,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">23,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Miele</span></span><span class="fkcal"><span class="f-kcal">34</span><span class="kcal-u">Kc</span></span><span class="fporz">1 cucchiaino · 10 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0</span><span class="u">G</span><span class="sep">·</span><span class="mv">8,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Fiocchi di latte 2%</span></span><span class="fkcal"><span class="f-kcal">70</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mirtilli</span></span><span class="fkcal"><span class="f-kcal">74</span><span class="kcal-u">Kc</span></span><span class="fporz">80 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">1,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">0</span><span class="u">G</span><span class="sep">·</span><span class="mv">18,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🥪 Pranzo</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🥪</span><span class="m-t">Pranzo</span><span class="m-k">617 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍚</span><span class="f-lead-txt" tabindex="0"><span class="fname">Riso cotto</span></span><span class="fkcal"><span class="f-kcal">195</span><span class="kcal-u">Kc</span></span><span class="fporz">150 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">42,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Petto di pollo</span></span><span class="fkcal"><span class="f-kcal">204</span><span class="kcal-u">Kc</span></span><span class="fporz">170 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">38,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,6</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata verde</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio e.v.o. (5 cucchiaini)</span></span><span class="fkcal"><span class="f-kcal">203</span><span class="kcal-u">Kc</span></span><span class="fporz">22,5 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">20,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🥤 Shaker</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🥤</span><span class="m-t">Shaker</span><span class="m-k">213 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Latte parz. scremato (Lidl)</span></span><span class="fkcal"><span class="f-kcal">141</span><span class="kcal-u">Kc</span></span><span class="fporz">300 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">14,7</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Proteine in polvere (DigeZyme)</span></span><span class="fkcal"><span class="f-kcal">72</span><span class="kcal-u">Kc</span></span><span class="fporz">20 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">13,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,7</span><span class="u">G</span><span class="sep">·</span><span class="mv">2,9</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🍽️ Cena</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🍽️</span><span class="m-t">Cena</span><span class="m-k">517 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥫</span><span class="f-lead-txt" tabindex="0"><span class="fname">Tonno al naturale (Findus)</span></span><span class="fkcal"><span class="f-kcal">188</span><span class="kcal-u">Kc</span></span><span class="fporz">140 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">43,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥔</span><span class="f-lead-txt" tabindex="0"><span class="fname">Patate al forno</span></span><span class="fkcal"><span class="f-kcal">193</span><span class="kcal-u">Kc</span></span><span class="fporz">250 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">5,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">42,5</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata verde</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio e.v.o. (3 cucchiaini)</span></span><span class="fkcal"><span class="f-kcal">122</span><span class="kcal-u">Kc</span></span><span class="fporz">13,5 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">12,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 731</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>139,1 g</b> P <small>32%</small></span>
+                <span class="mc g"><span class="sd"></span><b>48,9 g</b> G <small>25%</small></span>
+                <span class="mc c"><span class="sd"></span><b>166,8 g</b> C <small>39%</small></span>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 

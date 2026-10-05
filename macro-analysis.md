@@ -50,7 +50,7 @@
 | Guinness draught | 330 ml | 116 | 0 | 0 | 3 | photo `birra_guinness.jpg` (26/09) — 116 kcal / 11 g alcohol / 35 kcal per 100 ml |
 | Lidl crispy slice (fetta croccante) | 100 g | 439 | 16.0 | 10.0 | 68.0 | photo `fetta_croccante.jpg` (28/09) — porzione 16,5 g: 72 kcal / 2,6 P / 1,7 F / 11,0 C |
 | Whey protein (DigeZyme, proteine in polvere) | 100 g | 358 | 66.9 | 3.47 | 14.59 | photo `whey_proteine.jpg` (28/09) — **NUOVA marca**: diversa dalla whey generica (400/83 P) usata fino a oggi |
-| Fiocchi di latte 2% (quark) | 100 g | 67 | 12.0 | 0.9 | 2.8 | photo `fiocchi_di_latte.jpg` (30/09) |
+| ~~Fiocchi di latte 2% (quark)~~ → **correzione 12/10: non esiste** | — | — | — | — | — | eliminato: l'alimento del template A/B è **Fage 2%** (riga qui sopra) |
 | Stick di pollo (Lidl, surgelati) | 100 g | 199 | 12.0 | 10.0 | 15.0 | photo `stick_di_pollo.jpg` (01/10) — 2,4 G sat, 1 G zuccheri, 0,6 G fibre, 1,6 g sale |
 | Rings di pollo (AIA, surgelati) | 100 g | 253 | 17.0 | 13.0 | 17.0 | photo `rings_di_pollo.jpg` (01/10) — 1,2 G sat, 0,9 G zuccheri, 1,5 g sale |
 | Fesa di tacchino (Rovagnati, cotto) | 100 g | 85 | 16.0 | 1.0 | 3.1 | photo `fesa_di_tacchino.jpg` (01/10) — pacco 120 g, 0,4 G sat, 1 G zuccheri, 1,8 g sale |
