@@ -21,18 +21,21 @@
   section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz1"],
   section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz2"],
   section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz3"],
-  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz4"]{
+  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz4"],
+  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz5"]{
     background:var(--accent);border-color:var(--accent);color:#fff;
   }
   section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz1"]::before,
   section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz2"]::before,
   section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz3"]::before,
-  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz4"]::before{background:#fff;}
+  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz4"]::before,
+  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz5"]::before{background:#fff;}
   .pz-panel{display:none;}
   section#bodycomp input#pz1:checked ~ .pz-zone .pz1,
   section#bodycomp input#pz2:checked ~ .pz-zone .pz2,
   section#bodycomp input#pz3:checked ~ .pz-zone .pz3,
-  section#bodycomp input#pz4:checked ~ .pz-zone .pz4{display:block;}
+  section#bodycomp input#pz4:checked ~ .pz-zone .pz4,
+  section#bodycomp input#pz5:checked ~ .pz-zone .pz5{display:block;}
   /* chip differenza (Δ) */
   .stat .delta{margin-top:8px;font-size:11.5px;font-weight:700;font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:5px;}
   .stat .delta i{font-style:normal;font-size:9px;}
@@ -764,11 +767,11 @@
     <h1>Z<span class="stroke">ad</span></h1>
     <p class="sub">Protocollo di allenamento settimanale, dati antropometrici e diario alimentare. Documento condiviso per l'analisi nutrizionale.</p>
     <div class="hero-chips">
-      <span class="chip"><span class="dot" style="background:var(--accent)"></span>Misurazione <b>02 / 10 / 2026</b></span>
+      <span class="chip"><span class="dot" style="background:var(--accent)"></span>Misurazione <b>09 / 10 / 2026</b></span>
       <!-- NB: i chip hero riflettono SEMPRE l'ultima pesatura (non reagiscono alle tab) -->
-      <span class="chip"><span class="dot" style="background:var(--accent2)"></span>Peso <b>79.30 kg</b></span>
-      <span class="chip"><span class="dot" style="background:var(--blue)"></span>BMI <b>25.9</b></span>
-      <span class="chip"><span class="dot" style="background:var(--green)"></span>Grasso corporeo <b>26.1%</b></span>
+      <span class="chip"><span class="dot" style="background:var(--accent2)"></span>Peso <b>78.90 kg</b></span>
+      <span class="chip"><span class="dot" style="background:var(--blue)"></span>BMI <b>25.8</b></span>
+      <span class="chip"><span class="dot" style="background:var(--green)"></span>Grasso corporeo <b>25.9%</b></span>
       <span class="chip"><span class="dot" style="background:var(--dim)"></span>Obiettivo <b>in definizione</b></span>
     </div>
   </div>
@@ -936,7 +939,7 @@
       <span class="num">04</span>
       <h2>Composizione Corporea</h2>
       <div class="rule"></div>
-      <span class="tag">Bilancia RENPHO · 02/10/2026</span>
+      <span class="tag">Bilancia RENPHO · 09/10/2026</span>
     </div>
 
     <!--
@@ -953,20 +956,74 @@
     <input type="radio" name="pz" id="pz2">
     <input type="radio" name="pz" id="pz3">
     <input type="radio" name="pz" id="pz4">
+    <input type="radio" name="pz" id="pz5">
 
     <div class="pz-tabs">
-      <label for="pz1">Pesatura · Sab 02/10/2026 (4)</label>
-      <label for="pz2">Archivio · Ven 25/09/2026 (3)</label>
-      <label for="pz3">Archivio · Ven 18/09/2026 (2)</label>
-      <label for="pz4">Archivio · Ven 11/09/2026 (1)</label>
+      <label for="pz1">Pesatura · Lun 09/10/2026 (5)</label>
+      <label for="pz2">Archivio · Sab 02/10/2026 (4)</label>
+      <label for="pz3">Archivio · Ven 25/09/2026 (3)</label>
+      <label for="pz4">Archivio · Ven 18/09/2026 (2)</label>
+      <label for="pz5">Archivio · Ven 11/09/2026 (1)</label>
     </div>
 
     <div class="pz-zone">
 
-      <!-- ===== PZ1 — pesatura ATTIVA (02/10/2026, valori dal report RENPHO) ===== -->
+      <!-- ===== PZ1 — pesatura ATTIVA (09/10/2026, valori dal report RENPHO) ===== -->
       <div class="pz-panel pz1">
         <div class="pz-summary">
-          <span class="ps-title">Pesatura attiva · Sabato 02/10/2026</span>
+          <span class="ps-title">Pesatura attiva · Lunedì 09/10/2026</span>
+          <span class="ps-note">5a settimana di tracking</span>
+          <span class="ps-delta">Δ Peso −0.40 kg vs. 02/10</span>
+        </div>
+        <div class="stats-grid">
+      <div class="stat"><div class="k">Peso</div><div class="v">78.90<small> kg</small></div><div class="s"><span class="st sopra">Sopra la media</span></div><div class="delta down"><i>▼</i> −0.40 kg</div></div>
+      <div class="stat"><div class="k">BMI</div><div class="v">25.8</div><div class="s"><span class="st sopra">Sopra la media</span></div><div class="delta down"><i>▼</i> −0.1</div></div>
+      <div class="stat"><div class="k">Grasso corporeo</div><div class="v">25.9<small> %</small></div><div class="s"><span class="st alto">Alto</span></div><div class="delta down"><i>▼</i> −0.2 %</div></div>
+      <div class="stat"><div class="k">Massa muscolare</div><div class="v">55.55<small> kg</small></div><div class="s"><span class="st nella">Nella media</span></div><div class="delta down"><i>▼</i> −0.12 kg</div></div>
+      <div class="stat"><div class="k">BMR</div><div class="v">1627<small> kcal</small></div><div class="s"><span class="st sotto">Sotto la media</span></div><div class="delta down"><i>▼</i> −8 kcal</div></div>
+      <div class="stat"><div class="k">Età metabolica</div><div class="v">35</div><div class="s"><span class="st sopra">Sopra la media</span></div><div class="delta flat">— 0 anni</div></div>
+    </div>
+
+    <table class="comp">
+      <thead>
+        <tr><th>Parametro</th><th>Valore</th><th>Stato</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="param">Peso</td><td class="val">78.90<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+        <tr><td class="param">BMI<small>Indice massa corporea</small></td><td class="val">25.8</td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+        <tr><td class="param">Percentuale di grasso corporeo</td><td class="val">25.9<span class="u">%</span></td><td class="stat-col"><span class="st alto">Alto</span></td></tr>
+        <tr><td class="param">Massa grassa corporea</td><td class="val">20.44<span class="u">kg</span></td><td class="stat-col"><span class="st alto">Alto</span></td></tr>
+        <tr><td class="param">Grasso sottocutaneo</td><td class="val">23.0<span class="u">%</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+        <tr><td class="param">Grasso viscerale</td><td class="val">9</td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Percentuale muscolare</td><td class="val">70.4<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Massa muscolare</td><td class="val">55.55<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Percentuale muscolo-scheletrica</td><td class="val">47.7<span class="u">%</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
+        <tr><td class="param">Massa muscolare scheletrica</td><td class="val">37.64<span class="u">kg</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
+        <tr><td class="param">Percentuale ossea</td><td class="val">3.7<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Massa ossea</td><td class="val">2.91<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Peso corporeo senza grassi</td><td class="val">58.46<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+        <tr><td class="param">Età metabolica</td><td class="val">35</td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+        <tr><td class="param">BMR<small>Metabolismo basale</small></td><td class="val">1627<span class="u">kcal</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
+        <tr><td class="param">Percentuale di acqua corporea</td><td class="val">53.5<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Massa di acqua corporea</td><td class="val">42.21<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Percentuale proteica</td><td class="val">16.9<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Massa proteica</td><td class="val">13.33<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+      </tbody>
+    </table>
+    <div class="pz-hist">
+      <b>Archivio pesature</b>
+      <span>Pesatura 4 · <span class="hv">Sabato 02/10/2026</span> · <span class="hv">79.30 kg</span></span>
+      <span>Pesatura 3 · <span class="hv">Venerdì 25/09/2026</span> · <span class="hv">79.50 kg</span></span>
+      <span>Pesatura 2 · <span class="hv">Venerdì 18/09/2026</span> · <span class="hv">79.30 kg</span></span>
+      <span>Pesatura 1 · <span class="hv">Venerdì 11/09/2026</span> · <span class="hv">80.75 kg</span></span>
+      <label for="pz2">Vedi storico →</label>
+    </div>
+      </div>
+
+      <!-- ===== PZ2 — ARCHIVIO: 4ª pesatura (02/10/2026, valori dal report RENPHO) ===== -->
+      <div class="pz-panel pz2">
+        <div class="pz-summary">
+          <span class="ps-title">Archivio · 4ª pesatura · Sabato 02/10/2026</span>
           <span class="ps-note">4a settimana di tracking</span>
           <span class="ps-delta">Δ Peso −0.20 kg vs. 25/09</span>
         </div>
@@ -985,7 +1042,7 @@
       </thead>
       <tbody>
         <tr><td class="param">Peso</td><td class="val">79.30<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
-        <tr><td class="param">BMI<small>Indice massa corporea</small></td><td class="val">25.9</td><td><span class="st sopra">Sopra la media</span></td></tr>
+        <tr><td class="param">BMI<small>Indice massa corporea</small></td><td class="val">25.9</td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
         <tr><td class="param">Percentuale di grasso corporeo</td><td class="val">26.1<span class="u">%</span></td><td class="stat-col"><span class="st alto">Alto</span></td></tr>
         <tr><td class="param">Massa grassa corporea</td><td class="val">20.70<span class="u">kg</span></td><td class="stat-col"><span class="st alto">Alto</span></td></tr>
         <tr><td class="param">Grasso sottocutaneo</td><td class="val">23.2<span class="u">%</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
@@ -1010,12 +1067,12 @@
       <span>Pesatura 3 · <span class="hv">Venerdì 25/09/2026</span> · <span class="hv">79.50 kg</span></span>
       <span>Pesatura 2 · <span class="hv">Venerdì 18/09/2026</span> · <span class="hv">79.30 kg</span></span>
       <span>Pesatura 1 · <span class="hv">Venerdì 11/09/2026</span> · <span class="hv">80.75 kg</span></span>
-      <label for="pz2">Vedi storico →</label>
+      <label for="pz3">Vedi storico →</label>
     </div>
       </div>
 
-      <!-- ===== PZ2 — ARCHIVIO: 3ª pesatura (25/09/2026, valori dal report RENPHO) ===== -->
-      <div class="pz-panel pz2">
+      <!-- ===== PZ3 — ARCHIVIO: 3ª pesatura (25/09/2026, valori dal report RENPHO) ===== -->
+      <div class="pz-panel pz3">
         <div class="pz-summary">
           <span class="ps-title">Archivio · 3ª pesatura · Venerdì 25/09/2026</span>
           <span class="ps-note">3a settimana di tracking</span>
@@ -1062,12 +1119,12 @@
       <b>Archivio pesature</b>
       <span>Pesatura 2 · <span class="hv">Venerdì 18/09/2026</span> · <span class="hv">79.30 kg</span></span>
       <span>Pesatura 1 · <span class="hv">Venerdì 11/09/2026</span> · <span class="hv">80.75 kg</span></span>
-      <label for="pz3">Vedi storico →</label>
+      <label for="pz4">Vedi storico →</label>
     </div>
       </div>
 
-      <!-- ===== PZ3 — ARCHIVIO: 2ª pesatura (18/09/2026) ===== -->
-      <div class="pz-panel pz3">
+      <!-- ===== PZ4 — ARCHIVIO: 2ª pesatura (18/09/2026) ===== -->
+      <div class="pz-panel pz4">
         <div class="pz-summary">
           <span class="ps-title">Archivio · 2ª pesatura · Venerdì 18/09/2026</span>
           <span class="ps-note">2a settimana di tracking</span>
@@ -1110,12 +1167,12 @@
         <div class="pz-hist">
           <b>Archivio pesature</b>
           <span>Pesatura 1 · <span class="hv">Venerdì 11/09/2026</span> · <span class="hv">80.75 kg</span></span>
-          <label for="pz4">Vedi storico →</label>
+          <label for="pz5">Vedi storico →</label>
         </div>
       </div>
 
-      <!-- ===== PZ4 — ARCHIVIO: 1ª pesatura (11/09/2026) ===== -->
-      <div class="pz-panel pz4">
+      <!-- ===== PZ5 — ARCHIVIO: 1ª pesatura (11/09/2026) ===== -->
+      <div class="pz-panel pz5">
         <div class="pz-summary">
           <span class="ps-title">Archivio · 1ª pesatura · Venerdì 11/09/2026</span>
           <span class="ps-note">Nessuna pesatura precedente</span>
@@ -1157,6 +1214,8 @@
         </table>
         <div class="pz-hist">
           <b>Archivio pesature</b>
+          <span>Pesatura 4 · <span class="hv">Sabato 02/10/2026</span> · <span class="hv">79.30 kg</span></span>
+          <span>Pesatura 3 · <span class="hv">Venerdì 25/09/2026</span> · <span class="hv">79.50 kg</span></span>
           <span>Pesatura 2 · <span class="hv">18/09/2026</span> · <span class="hv">79.30 kg</span></span>
           <label for="pz2">← Torna all'ultima pesatura</label>
         </div>
@@ -3778,7 +3837,7 @@
 <footer>
   <div class="wrap">
     <span><b>Zad</b> · Scheda allenamento, body composition &amp; diario alimentazione</span>
-    <span>Dati bilancia: 11/09, 18/09, 25/09 e 02/10/2026 · Diario: fino a Dom 11/10 (sett. 4 = schema A/B) · Documento per analisi nutrizionale</span>
+    <span>Dati bilancia: 11/09, 18/09, 25/09, 02/10 e 09/10/2026 · Diario: fino a Dom 11/10 (sett. 4 = schema A/B) · Documento per analisi nutrizionale</span>
   </div>
 </footer>
 
