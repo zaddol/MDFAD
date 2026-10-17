@@ -109,6 +109,7 @@ and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screens
 - **Anticipo pasti: il giorno può avere solo i pasti già mangati** (es. venerdì 25/09: colazione, pranzo, spuntino — nessuna cena anticipata). La cena si registra il giorno dopo, appena comunicata.
 - **Macros = P · G · C (Proteine · Grassi · Carboidrati), ALWAYS in that order** — NOT P·F·C. "F" is the legacy code name for fat (`.f-macros`, `fporz`, `f-lead`… keep those class names, they're CSS internals); every **visible** label (`.f-macros` unit letters, `dc-macro`, chat tables) must show **P · G · C**.
 - `::-webkit-details-marker{display:none}` on day-card summaries (native marker replaced by `.dc-chev`).
+- **Nomi dei giorni della settimana: verificare sempre con calendario, non a memoria** (errore 17/10: 09/10 e 02/10 erano venerdì, non Lun/Sab — i giorni precedenti al 12/10 non erano mai stati mostrati con nome, quindi l'errore non era visibile finché non sono stati scritti nel pz-hist dei nuovi pesi).
 
 ## Food table structure (diary)
 
