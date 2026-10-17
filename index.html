@@ -22,20 +22,23 @@
   section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz2"],
   section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz3"],
   section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz4"],
-  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz5"]{
+  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz5"],
+  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz6"]{
     background:var(--accent);border-color:var(--accent);color:#fff;
   }
   section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz1"]::before,
   section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz2"]::before,
   section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz3"]::before,
   section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz4"]::before,
-  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz5"]::before{background:#fff;}
+  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz5"]::before,
+  section#bodycomp input[name="pz"]:checked ~ .pz-tabs label[for="pz6"]::before{background:#fff;}
   .pz-panel{display:none;}
   section#bodycomp input#pz1:checked ~ .pz-zone .pz1,
   section#bodycomp input#pz2:checked ~ .pz-zone .pz2,
   section#bodycomp input#pz3:checked ~ .pz-zone .pz3,
   section#bodycomp input#pz4:checked ~ .pz-zone .pz4,
-  section#bodycomp input#pz5:checked ~ .pz-zone .pz5{display:block;}
+  section#bodycomp input#pz5:checked ~ .pz-zone .pz5,
+  section#bodycomp input#pz6:checked ~ .pz-zone .pz6{display:block;}
   /* chip differenza (Δ) */
   .stat .delta{margin-top:8px;font-size:11.5px;font-weight:700;font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:5px;}
   .stat .delta i{font-style:normal;font-size:9px;}
@@ -299,6 +302,7 @@
   .st.nella{color:var(--green);background:rgba(57,192,122,.12);border:1px solid rgba(57,192,122,.3);}
   .st.sotto{color:var(--blue);background:rgba(58,160,255,.12);border:1px solid rgba(58,160,255,.3);}
   .st.sopra{color:var(--amber);background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.3);}
+  .st.eccel{color:var(--green);background:rgba(57,192,122,.12);border:1px solid rgba(57,192,122,.3);}
   .st.alto{color:var(--red);background:rgba(255,90,90,.12);border:1px solid rgba(255,90,90,.3);}
 
   table.comp{
@@ -767,11 +771,11 @@
     <h1>Z<span class="stroke">ad</span></h1>
     <p class="sub">Protocollo di allenamento settimanale, dati antropometrici e diario alimentare. Documento condiviso per l'analisi nutrizionale.</p>
     <div class="hero-chips">
-      <span class="chip"><span class="dot" style="background:var(--accent)"></span>Misurazione <b>09 / 10 / 2026</b></span>
+      <span class="chip"><span class="dot" style="background:var(--accent)"></span>Misurazione <b>17 / 10 / 2026</b></span>
       <!-- NB: i chip hero riflettono SEMPRE l'ultima pesatura (non reagiscono alle tab) -->
-      <span class="chip"><span class="dot" style="background:var(--accent2)"></span>Peso <b>78.90 kg</b></span>
-      <span class="chip"><span class="dot" style="background:var(--blue)"></span>BMI <b>25.8</b></span>
-      <span class="chip"><span class="dot" style="background:var(--green)"></span>Grasso corporeo <b>25.9%</b></span>
+      <span class="chip"><span class="dot" style="background:var(--accent2)"></span>Peso <b>77.70 kg</b></span>
+      <span class="chip"><span class="dot" style="background:var(--blue)"></span>BMI <b>25.4</b></span>
+      <span class="chip"><span class="dot" style="background:var(--green)"></span>Grasso corporeo <b>25.4%</b></span>
       <span class="chip"><span class="dot" style="background:var(--dim)"></span>Obiettivo <b>in definizione</b></span>
     </div>
   </div>
@@ -939,7 +943,7 @@
       <span class="num">04</span>
       <h2>Composizione Corporea</h2>
       <div class="rule"></div>
-      <span class="tag">Bilancia RENPHO · 09/10/2026</span>
+      <span class="tag">Bilancia RENPHO · 17/10/2026</span>
     </div>
 
     <!--
@@ -952,14 +956,16 @@
       - l'ultima pesatura è SEMPRE pz1 (in cima, checked); le precedenti = archivio in ordine cronologico inverso
       - le .delta sulle stat mostrano la variazione rispetto alla pesatura precedente (verde = down su peso/grasso/muscoli, rosso = up; grigio = invariato)
     -->
-    <input type="radio" name="pz" id="pz1" checked>
+    <input type="radio" name="pz" id="pz1">
     <input type="radio" name="pz" id="pz2">
     <input type="radio" name="pz" id="pz3">
     <input type="radio" name="pz" id="pz4">
     <input type="radio" name="pz" id="pz5">
+    <input type="radio" name="pz" id="pz6" checked>
 
     <div class="pz-tabs">
-      <label for="pz1">Pesatura · Lun 09/10/2026 (5)</label>
+      <label for="pz6">Pesatura · Sab 17/10/2026 (6)</label>
+      <label for="pz1">Archivio · Lun 09/10/2026 (5)</label>
       <label for="pz2">Archivio · Sab 02/10/2026 (4)</label>
       <label for="pz3">Archivio · Ven 25/09/2026 (3)</label>
       <label for="pz4">Archivio · Ven 18/09/2026 (2)</label>
@@ -968,10 +974,63 @@
 
     <div class="pz-zone">
 
-      <!-- ===== PZ1 — pesatura ATTIVA (09/10/2026, valori dal report RENPHO) ===== -->
+      <!-- ===== PZ6 — pesatura ATTIVA (17/10/2026, valori dal report RENPHO) ===== -->
+      <div class="pz-panel pz6">
+        <div class="pz-summary">
+          <span class="ps-title">Pesatura attiva · Sabato 17/10/2026</span>
+          <span class="ps-note">6a settimana di tracking</span>
+          <span class="ps-delta">Δ Peso −1.20 kg vs. 09/10</span>
+        </div>
+        <div class="stats-grid">
+      <div class="stat"><div class="k">Peso</div><div class="v">77.70<small> kg</small></div><div class="s"><span class="st sopra">Sopra la media</span></div><div class="delta down"><i>▼</i> −1.20 kg</div></div>
+      <div class="stat"><div class="k">BMI</div><div class="v">25.4</div><div class="s"><span class="st sopra">Sopra la media</span></div><div class="delta down"><i>▼</i> −0.4</div></div>
+      <div class="stat"><div class="k">Grasso corporeo</div><div class="v">25.4<small> %</small></div><div class="s"><span class="st alto">Alto</span></div><div class="delta down"><i>▼</i> −0.5 %</div></div>
+      <div class="stat"><div class="k">Massa muscolare</div><div class="v">55.09<small> kg</small></div><div class="s"><span class="st nella">Nella media</span></div><div class="delta down"><i>▼</i> −0.46 kg</div></div>
+      <div class="stat"><div class="k">BMR</div><div class="v">1609<small> kcal</small></div><div class="s"><span class="st sotto">Sotto la media</span></div><div class="delta down"><i>▼</i> −18 kcal</div></div>
+      <div class="stat"><div class="k">Età metabolica</div><div class="v">34</div><div class="s"><span class="st eccel">Eccellente</span></div><div class="delta down"><i>▼</i> −1 anno</div></div>
+    </div>
+
+    <table class="comp">
+      <thead>
+        <tr><th>Parametro</th><th>Valore</th><th>Stato</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="param">Peso</td><td class="val">77.70<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+        <tr><td class="param">BMI<small>Indice massa corporea</small></td><td class="val">25.4</td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+        <tr><td class="param">Percentuale di grasso corporeo</td><td class="val">25.4<span class="u">%</span></td><td class="stat-col"><span class="st alto">Alto</span></td></tr>
+        <tr><td class="param">Massa grassa corporea</td><td class="val">19.74<span class="u">kg</span></td><td class="stat-col"><span class="st alto">Alto</span></td></tr>
+        <tr><td class="param">Grasso sottocutaneo</td><td class="val">22.6<span class="u">%</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+        <tr><td class="param">Grasso viscerale</td><td class="val">8</td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Percentuale muscolare</td><td class="val">70.9<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Massa muscolare</td><td class="val">55.09<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Percentuale muscolo-scheletrica</td><td class="val">48.1<span class="u">%</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
+        <tr><td class="param">Massa muscolare scheletrica</td><td class="val">37.37<span class="u">kg</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
+        <tr><td class="param">Percentuale ossea</td><td class="val">3.7<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Massa ossea</td><td class="val">2.87<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Peso corporeo senza grassi</td><td class="val">57.96<span class="u">kg</span></td><td class="stat-col"><span class="st sopra">Sopra la media</span></td></tr>
+        <tr><td class="param">Età metabolica</td><td class="val">34</td><td class="stat-col"><span class="st eccel">Eccellente</span></td></tr>
+        <tr><td class="param">BMR<small>Metabolismo basale</small></td><td class="val">1609<span class="u">kcal</span></td><td class="stat-col"><span class="st sotto">Sotto la media</span></td></tr>
+        <tr><td class="param">Percentuale di acqua corporea</td><td class="val">53.9<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Massa di acqua corporea</td><td class="val">41.88<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Percentuale proteica</td><td class="val">17.0<span class="u">%</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+        <tr><td class="param">Massa proteica</td><td class="val">13.21<span class="u">kg</span></td><td class="stat-col"><span class="st nella">Nella media</span></td></tr>
+      </tbody>
+    </table>
+    <div class="pz-hist">
+      <b>Archivio pesature</b>
+      <span>Pesatura 5 · <span class="hv">Lunedì 09/10/2026</span> · <span class="hv">78.90 kg</span></span>
+      <span>Pesatura 4 · <span class="hv">Sabato 02/10/2026</span> · <span class="hv">79.30 kg</span></span>
+      <span>Pesatura 3 · <span class="hv">Venerdì 25/09/2026</span> · <span class="hv">79.50 kg</span></span>
+      <span>Pesatura 2 · <span class="hv">Venerdì 18/09/2026</span> · <span class="hv">79.30 kg</span></span>
+      <span>Pesatura 1 · <span class="hv">Venerdì 11/09/2026</span> · <span class="hv">80.75 kg</span></span>
+      <label for="pz1">Vedi storico →</label>
+    </div>
+      </div>
+
+      <!-- ===== PZ1 — ARCHIVIO: 5ª pesatura (09/10/2026, valori dal report RENPHO) ===== -->
       <div class="pz-panel pz1">
         <div class="pz-summary">
-          <span class="ps-title">Pesatura attiva · Lunedì 09/10/2026</span>
+          <span class="ps-title">Archivio · 5ª pesatura · Lunedì 09/10/2026</span>
           <span class="ps-note">5a settimana di tracking</span>
           <span class="ps-delta">Δ Peso −0.40 kg vs. 02/10</span>
         </div>
@@ -1214,10 +1273,12 @@
         </table>
         <div class="pz-hist">
           <b>Archivio pesature</b>
+          <span>Pesatura 6 · <span class="hv">Sabato 17/10/2026</span> · <span class="hv">77.70 kg</span></span>
+          <span>Pesatura 5 · <span class="hv">Lunedì 09/10/2026</span> · <span class="hv">78.90 kg</span></span>
           <span>Pesatura 4 · <span class="hv">Sabato 02/10/2026</span> · <span class="hv">79.30 kg</span></span>
           <span>Pesatura 3 · <span class="hv">Venerdì 25/09/2026</span> · <span class="hv">79.50 kg</span></span>
-          <span>Pesatura 2 · <span class="hv">18/09/2026</span> · <span class="hv">79.30 kg</span></span>
-          <label for="pz2">← Torna all'ultima pesatura</label>
+          <span>Pesatura 2 · <span class="hv">Venerdì 18/09/2026</span> · <span class="hv">79.30 kg</span></span>
+          <label for="pz6">← Torna all'ultima pesatura</label>
         </div>
       </div>
 
@@ -3734,8 +3795,8 @@
       <div class="wk-panel wk5">
         <div class="wk-summary">
           <span class="ws-title">Settimana 5 · 12–18 / 10 / 2026</span>
-          <span class="ws-days">1 / 7 giorni registrati</span>
-          <span class="ws-total">Totale sett. ≈ 1 731 kcal</span>
+          <span class="ws-days">4 / 7 giorni registrati</span>
+          <span class="ws-total">Totale sett. ≈ 6 831 kcal</span>
         </div>
         <div class="wk-grid">
           <details class="day-card">
@@ -3828,10 +3889,180 @@
               </div>
             </div>
           </details>
-          <div class="day-card empty"><span class="dc-day">Mar</span><span class="dc-date">13 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Mer</span><span class="dc-date">14 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Gio</span><span class="dc-date">15 / 10</span><span class="dc-dash">—</span></div>
-          <div class="day-card empty"><span class="dc-day">Ven</span><span class="dc-date">16 / 10</span><span class="dc-dash">—</span></div>
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Mar</span>
+              <span class="dc-date">13 / 10</span>
+              <span class="dc-kcal">1 700<small> kcal</small></span>
+              <span class="dc-meals"><span>🍽️ <span class="ml-k">1 700</span></span></span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="2">🍽️ Pasti non registrati</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🍽️</span><span class="m-t">Pasti non registrati</span><span class="m-k">1 700 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍽️</span><span class="f-lead-txt" tabindex="0"><span class="fname">Totale giornaliero (non dettagliato)</span></span><span class="fkcal"><span class="f-kcal">1 700</span><span class="kcal-u">Kc</span></span><span class="fporz">giorno intero</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">120</span><span class="u">P</span><span class="sep">·</span><span class="mv">40</span><span class="u">G</span><span class="sep">·</span><span class="mv">120</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 700</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>120 g</b> P <small>28%</small></span>
+                <span class="mc g"><span class="sd"></span><b>40 g</b> G <small>21%</small></span>
+                <span class="mc c"><span class="sd"></span><b>120 g</b> C <small>28%</small></span>
+              </div>
+            </div>
+          </details>
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Mer</span>
+              <span class="dc-date">14 / 10</span>
+              <span class="dc-kcal">1 700<small> kcal</small></span>
+              <span class="dc-meals"><span>🍽️ <span class="ml-k">1 700</span></span></span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="2">🍽️ Pasti non registrati</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🍽️</span><span class="m-t">Pasti non registrati</span><span class="m-k">1 700 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍽️</span><span class="f-lead-txt" tabindex="0"><span class="fname">Totale giornaliero (non dettagliato)</span></span><span class="fkcal"><span class="f-kcal">1 700</span><span class="kcal-u">Kc</span></span><span class="fporz">giorno intero</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">120</span><span class="u">P</span><span class="sep">·</span><span class="mv">40</span><span class="u">G</span><span class="sep">·</span><span class="mv">120</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 700</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>120 g</b> P <small>28%</small></span>
+                <span class="mc g"><span class="sd"></span><b>40 g</b> G <small>21%</small></span>
+                <span class="mc c"><span class="sd"></span><b>120 g</b> C <small>28%</small></span>
+              </div>
+            </div>
+          </details>
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Gio</span>
+              <span class="dc-date">15 / 10</span>
+              <span class="dc-kcal">1 700<small> kcal</small></span>
+              <span class="dc-meals"><span>🍽️ <span class="ml-k">1 700</span></span></span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="2">🍽️ Pasti non registrati</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🍽️</span><span class="m-t">Pasti non registrati</span><span class="m-k">1 700 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍽️</span><span class="f-lead-txt" tabindex="0"><span class="fname">Totale giornaliero (non dettagliato)</span></span><span class="fkcal"><span class="f-kcal">1 700</span><span class="kcal-u">Kc</span></span><span class="fporz">giorno intero</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">120</span><span class="u">P</span><span class="sep">·</span><span class="mv">40</span><span class="u">G</span><span class="sep">·</span><span class="mv">120</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 700</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>120 g</b> P <small>28%</small></span>
+                <span class="mc g"><span class="sd"></span><b>40 g</b> G <small>21%</small></span>
+                <span class="mc c"><span class="sd"></span><b>120 g</b> C <small>28%</small></span>
+              </div>
+            </div>
+          </details>
+          <details class="day-card">
+            <summary>
+              <span class="dc-day">Ven <span class="dc-letter" title="Stessa giornata di Lun 12/10">= Lun</span></span>
+              <span class="dc-date">16 / 10</span>
+              <span class="dc-kcal">1 731<small> kcal</small></span>
+              <span class="dc-meals"><span>☕ <span class="ml-k">385</span></span><span>🥪 <span class="ml-k">617</span></span><span>🥤 <span class="ml-k">213</span></span><span>🍽️ <span class="ml-k">517</span></span></span>
+              <span class="dc-chev">▼</span>
+            </summary>
+            <div class="dc-detail">
+              <table class="foods">
+                <colgroup><col style="width:47%"><col style="width:53%"></colgroup>
+                <tbody>
+                  <tr class="meal-row"><td colspan="2">☕ Colazione</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">☕</span><span class="m-t">Colazione</span><span class="m-k">385 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Kefir</span></span><span class="fkcal"><span class="f-kcal">46</span><span class="kcal-u">Kc</span></span><span class="fporz">100 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">4,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Avena Pro (Fiorentini)</span></span><span class="fkcal"><span class="f-kcal">161</span><span class="kcal-u">Kc</span></span><span class="fporz">40 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">8,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">23,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Miele</span></span><span class="fkcal"><span class="f-kcal">34</span><span class="kcal-u">Kc</span></span><span class="fporz">1 cucchiaino · 10 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0</span><span class="u">G</span><span class="sep">·</span><span class="mv">8,6</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Fage 2%</span></span><span class="fkcal"><span class="f-kcal">70</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,0</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Mirtilli</span></span><span class="fkcal"><span class="f-kcal">74</span><span class="kcal-u">Kc</span></span><span class="fporz">80 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">1,2</span><span class="u">P</span><span class="sep">·</span><span class="mv">0</span><span class="u">G</span><span class="sep">·</span><span class="mv">18,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🥪 Pranzo</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🥪</span><span class="m-t">Pranzo</span><span class="m-k">617 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍚</span><span class="f-lead-txt" tabindex="0"><span class="fname">Riso cotto</span></span><span class="fkcal"><span class="f-kcal">195</span><span class="kcal-u">Kc</span></span><span class="fporz">150 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">4,2</span><span class="u">P</span><span class="sep">-·</span><span class="mv">0,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">42,8</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🍗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Petto di pollo</span></span><span class="fkcal"><span class="f-kcal">204</span><span class="kcal-u">Kc</span></span><span class="fporz">170 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">38,3</span><span class="u">P</span><span class="sep">·</span><span class="mv">2,6</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata verde</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio e.v.o. (5 cucchiaini)</span></span><span class="fkcal"><span class="f-kcal">203</span><span class="kcal-u">Kc</span></span><span class="fporz">22,5 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">20,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🥤 Shaker</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🥤</span><span class="m-t">Shaker</span><span class="m-k">213 kcal</span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Latte parz. scremato (Lidl)</span></span><span class="fkcal"><span class="f-kcal">141</span><span class="kcal-u">Kc</span></span><span class="fporz">300 ml</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">9,9</span><span class="u">P</span><span class="sep">·</span><span class="mv">4,8</span><span class="u">G</span><span class="sep">·</span><span class="mv">14,7</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">☕</span><span class="f-lead-txt" tabindex="0"><span class="fname">Proteine in polvere (DigeZyme)</span></span><span class="fkcal"><span class="f-kcal">72</span><span class="kcal-u">Kc</span></span><span class="fporz">20 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">13,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,7</span><span class="u">G</span><span class="sep">·</span><span class="mv">2,9</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr class="meal-row"><td colspan="2">🍽️ Cena</td></tr>
+                  <tr class="m-mini"><td colspan="2"><span class="m-ico">🍽️</span><span class="m-t">Cena</span><span class="m-k">517 kcal</span></span></td></tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥫</span><span class="f-lead-txt" tabindex="0"><span class="fname">Tonno al naturale (Findus)</span></span><span class="fkcal"><span class="f-kcal">188</span><span class="kcal-u">Kc</span></span><span class="fporz">140 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">43,4</span><span class="u">P</span><span class="sep">·</span><span class="mv">1,5</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥔</span><span class="f-lead-txt" tabindex="0"><span class="fname">Patate al forno</span></span><span class="fkcal"><span class="f-kcal">193</span><span class="kcal-u">Kc</span></span><span class="fporz">250 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">5,0</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,3</span><span class="u">G</span><span class="sep">·</span><span class="mv">42,5</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🥗</span><span class="f-lead-txt" tabindex="0"><span class="fname">Insalata verde</span></span><span class="fkcal"><span class="f-kcal">15</span><span class="kcal-u">Kc</span></span><span class="fporz">100 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0,7</span><span class="u">P</span><span class="sep">·</span><span class="mv">0,1</span><span class="u">G</span><span class="sep">·</span><span class="mv">3,0</span><span class="u">C</span></span></td>
+                  </tr>
+                  <tr>
+                    <td><div class="f-item"><span class="f-lead"><span class="ficon">🫒</span><span class="f-lead-txt" tabindex="0"><span class="fname">Olio e.v.o. (3 cucchiaini)</span></span><span class="fkcal"><span class="f-kcal">122</span><span class="kcal-u">Kc</span></span><span class="fporz">13,5 g</span></span></div></td>
+                    <td class="f-mcol"><span class="f-macros"><span class="mv">0</span><span class="u">P</span><span class="sep">·</span><span class="mv">12,2</span><span class="u">G</span><span class="sep">·</span><span class="mv">0</span><span class="u">C</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dc-macro">
+                <span class="mc k"><span class="sd"></span><b>1 731</b> kcal</span>
+                <span class="mc p"><span class="sd"></span><b>139,1 g</b> P <small>32%</small></span>
+                <span class="mc g"><span class="sd"></span><b>48,9 g</b> G <small>25%</small></span>
+                <span class="mc c"><span class="sd"></span><b>166,8 g</b> C <small>39%</small></span>
+              </div>
+            </div>
+          </details>
           <div class="day-card empty"><span class="dc-day">Sab</span><span class="dc-date">17 / 10</span><span class="dc-dash">—</span></div>
           <div class="day-card empty"><span class="dc-day">Dom</span><span class="dc-date">18 / 10</span><span class="dc-dash">—</span></div>
         </div>
@@ -3846,7 +4077,7 @@
 <footer>
   <div class="wrap">
     <span><b>Zad</b> · Scheda allenamento, body composition &amp; diario alimentazione</span>
-    <span>Dati bilancia: 11/09, 18/09, 25/09, 02/10 e 09/10/2026 · Diario: fino a Lun 12/10 (sett. 5 = schema A/B) · Documento per analisi nutrizionale</span>
+    <span>Dati bilancia: 11/09, 18/09, 25/09, 02/10, 09/10 e 17/10/2026 · Diario: fino a Ven 16/10 (sett. 5 = schema A/B) · Documento per analisi nutrizionale</span>
   </div>
 </footer>
 

@@ -199,6 +199,7 @@ and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screens
 | 3 | 25/09/2026 | 79.50 | 26.0 | 26.1 | 20.75 | 70.2 | 55.81 | 1640 | 35 |
 | 4 | 02/10/2026 | 79.30 | 25.9 | 26.1 | 20.70 | 70.2 | 55.67 | 1635 | 35 |
 | 5 | 09/10/2026 | 78.90 | 25.8 | 25.9 | 20.44 | 70.4 | 55.55 | 1627 | 35 |
+| 6 | 17/10/2026 | 77.70 | 25.4 | 25.4 | 19.74 | 70.9 | 55.09 | 1609 | 34 |
 
 > Nota 29/09: il giorno può essere **parziale** (solo i pasti già mangati) — es. Mar 29/09: colazione + pranzo registrati, spuntino serale e cena in attesa. La card del giorno mostra i soli pasti comunicati; il `dc-macro` usa `—` per le % kcal (senza giorno completo le percenti sono ingannevoli).
 
@@ -207,6 +208,8 @@ and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screens
 Δ 3→4: peso −0.20 kg · BMI −0.1 · % grasso 0.0 · massa grassa −0.05 kg · % muscolo 0.0 · massa muscolare −0.14 kg · BMR −5 kcal · età metabolica 0
 
 Δ 4→5: peso −0.40 kg · BMI −0.1 · % grasso −0.2 · massa grassa −0.26 kg · % muscolo +0.2 · massa muscolare −0.12 kg · BMR −8 kcal · età metabolica 0
+
+Δ 5→6: peso −1.20 kg · BMI −0.4 · % grasso −0.5 · massa grassa −0.70 kg · % muscolo +0.5 · massa muscolare −0.46 kg · BMR −18 kcal · età metabolica −1 (34)
 
 ## Weigh-in workflow — adding a new weigh-in (weekly cadence)
 > Source: scale app screenshot saved in `photos/weighin_XX_YY.jpg`. This is the "how": the VALUES live in the "Weigh-in archive" table (above) and in the HTML file, NOT in `macro-analysis.md`.

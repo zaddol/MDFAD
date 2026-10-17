@@ -362,7 +362,34 @@ Fonte: latte Lidl (47 kcal/100 ml, etichetta) · DigeZyme (358/66,9/3,47/14,59, 
 | **Total** | **~1 731** | **~139.1** | **~48.9** | **~166.8** |
 
 % kcal: P 32% · G 25% · C 39% — ~21.9 kcal/kg · ~1.76 g P/kg
-Fonte: replica esatta del Lun 05/10 (Template A, schema A/B v3 — `calc_template.py`). Notes: giornata ripetuta identicamente al 05/10 (Template A). Giorno a 1 731 kcal: sopra il tetto di 1 700 di ~31 kcal, 139,1 g P = 1,76 g/kg (target 140 g quasi raggiunto). Kcal/kg 21,9: in target ~21. **Totale settimana 5 (1/7 giorni): ≈ 1 731 kcal.**
+Fonte: replica esatta del Lun 05/10 (Template A, schema A/B v3 — `calc_template.py`). Notes: giornata ripetuta identicamente al 05/10 (Template A). Giorno a 1 731 kcal: sopra il tetto di 1 700 di ~31 kcal, 139,1 g P = 1,76 g/kg (target 140 g quasi raggiunto). Kcal/kg 21,9: in target ~21.
+
+### Mar 13/10/2026 · Mer 14/10/2026 · Gio 15/10/2026 — **pasti non registrati (valori indicativi forniti dall'utente)**
+> I tre giorni (13, 14 e 15/10) non sono stati dettagliati pasto per pasto; l'utente ha indicato il totale indicativo per ciascun giorno: **1 700 kcal · 120 g P · 40 g G · 120 g C** (stesso valore per tutti e tre).
+
+| Day | kcal | P (g) | G (g) | C (g) |
+|---|---|---|---|---|
+| Mar 13/10 | ~1 700 | ~120 | ~40 | ~120 |
+| Mer 14/10 | ~1 700 | ~120 | ~40 | ~120 |
+| Gio 15/10 | ~1 700 | ~120 | ~40 | ~120 |
+| **Total (3 giorni)** | **~5 100** | **~360** | **~120** | **~360** |
+
+% kcal (per giorno): P 28% · G 21% · C 28% — ~21.6 kcal/kg · ~1.52 g P/kg
+Fonte: valori indicativi forniti dall'utente (17/10) — niente analisi per alimento.
+
+### Ven 16/10/2026 (giornata Template A — replica esatta del Lun 12/10)
+> Il 16/10 è stato ripetuto identico il Lun 12/10 (Template A, schema A/B) → **1 731 kcal, 139,1 g P, 48,9 g G, 166,8 g C**. Pasti reali: colazione 385 kcal (kefir 100 ml + Avena Pro 40 g + miele 10 g + Fage 2% 100 g + mirtilli 80 g) · pranzo 617 kcal (riso cotto 150 g + petto di pollo 170 g + insalata + olio 22,5 g) · shaker 213 kcal (latte Lidl 300 ml + DigeZyme 20 g) · cena 517 kcal (tonno Findus 140 g + patate al forno 250 g + insalata + olio 13,5 g). See also Lun 12/10 above.
+
+| Meal | kcal | P (g) | G (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast (colazione Template A) | 385 | — | — | — |
+| Lunch (pranzo Template A) | 617 | — | — | — |
+| Snack (shaker) | 213 | — | — | — |
+| Dinner (cena Template A) | 517 | — | — | — |
+| **Total** | **~1 731** | **~139.1** | **~48.9** | **~166.8** |
+
+% kcal: P 32% · G 25% · C 39% — ~21.9 kcal/kg · ~1.76 g P/kg
+Fonte: replica esatta del Lun 12/10 (Template A). **Totale settimana 5 (4/7 giorni): ≈ 6 831 kcal** (1 731 + 1 700 + 1 700 + 1 700 + 1 731).
 
 ## Template A/B v3 — opzione A: ~1 730-1 740 kcal · P ≈ 139 g · grassi ~47-49 g
 
