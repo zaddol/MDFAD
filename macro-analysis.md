@@ -391,6 +391,20 @@ Fonte: valori indicativi forniti dall'utente (17/10) — niente analisi per alim
 % kcal: P 32% · G 25% · C 39% — ~21.9 kcal/kg · ~1.76 g P/kg
 Fonte: replica esatta del Lun 12/10 (Template A). **Totale settimana 5 (4/7 giorni): ≈ 6 831 kcal** (1 731 + 1 700 + 1 700 + 1 700 + 1 731).
 
+### Sab 17/10/2026
+**Food**: Kefir 100 ml · Bacon affumicato 4 fette (19 g) · Uova strapazzate 3 (187 g) · Pane di segale 1 fetta (43 g) · Burro 10 g (per cucinare) · Fesa di tacchino (Rovagnati) 220 g · Insalata verde 100 g · Prugne 3 (120 g) · Olio e.v.o. 4 cucchiaini (18 g) · Latte parz. scremato (Lidl) 300 ml · Proteine in polvere (DigeZyme) 30 g · Tonno al naturale (Findus) 140 g · Patate al forno 250 g · Olio e.v.o. 4 cucchiaini (18 g)
+
+| Meal | kcal | P (g) | G (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast (colazione) | 448 | 37.6 | 19.4 | 27.9 |
+| Lunch (pranzo) | 419 | 36.5 | 18.7 | 22.4 |
+| Snack (spuntino) | 248 | 30.0 | 5.8 | 19.1 |
+| Dinner (cena) | 542 | 48.4 | 18.0 | 42.5 |
+| **Total** | **~1 657** | **~152.5** | **~61.9** | **~111.9** |
+
+% kcal: P 37% · G 34% · C 27% — ~21.3 kcal/kg · ~1.96 g P/kg
+Fonte: bacon (525 kcal / 55 P / 42 G / 1,2 C per 100 g, etichetta) · burro 81 G/100 g · uova 70 kcal/pezzo · pane di segale 230 kcal / 7,5 P / 1,8 G / 51,5 C per 100 g · prugne 46 kcal / 10,5 C per 100 g · olio 4 cc = 18 g = 162 kcal / 16,2 G (aggiunto 17/10 a pranzo e cena). **Totale settimana 5 (5/7 giorni): ≈ 8 488 kcal** (1 731 + 1 700 + 1 700 + 1 700 + 1 731 + 1 657).
+
 ## Template A/B v3 — opzione A: ~1 730-1 740 kcal · P ≈ 139 g · grassi ~47-49 g
 
 > Giorno A e Giorno B usano **alimenti diversi** ma raggiungono le **stesse kcal (~1 730) e le stesse proteine (≈ 139 g)**. Numeri = output diretto di  (regola 25/09, mai aritmetica a mano), peso di riferimento 79 kg.
