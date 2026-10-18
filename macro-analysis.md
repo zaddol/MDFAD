@@ -405,6 +405,23 @@ Fonte: replica esatta del Lun 12/10 (Template A). **Totale settimana 5 (4/7 gior
 % kcal: P 37% · G 34% · C 27% — ~21.3 kcal/kg · ~1.96 g P/kg
 Fonte: bacon (525 kcal / 55 P / 42 G / 1,2 C per 100 g, etichetta) · burro 81 G/100 g · uova 70 kcal/pezzo · pane di segale 230 kcal / 7,5 P / 1,8 G / 51,5 C per 100 g · prugne 46 kcal / 10,5 C per 100 g · olio 4 cc = 18 g = 162 kcal / 16,2 G (aggiunto 17/10 a pranzo e cena). **Totale settimana 5 (5/7 giorni): ≈ 8 488 kcal** (1 731 + 1 700 + 1 700 + 1 700 + 1 731 + 1 657).
 
+## Sun 18/10/2026 (week 5 day 7 — full day, day off)
+
+| Meal | kcal | P (g) | G (g) | C (g) |
+|---|---|---|---|---|
+| Breakfast | 266 | 21.2 | 2.8 | 39.4 |
+| Post-workout snack | — (salted) | — | — | — |
+| Lunch | 805 | 79.2 | 70.4 | 52.7 |
+| Snack | 64 | 1.6 | 0.4 | 8.4 |
+| Dinner | 619 | 54.3 | 19.8 | 42.5 |
+| **Total** | **1 754** | **156.2** | **96.9** | **143.0** |
+
+Kcal split: P 36% · G 50% · C 33% · 22.6 kcal/kg · P 2.01 g/kg (77.70 kg, weigh-in 17/10).
+
+**Food**: Avena (Fiorentini, comune) 40 g · Yogurt greco 0% (Fage) 150 g · Mirtilli 36 g · Spuntino post-workout: — (saltato) · Bun 2 pz (70 g) · Hamburger di manzo (cotto) 240 g · Insalata e pomodoro ~100 g · Onion rings fritti 6 pz · Olio e.v.o. 4 cucchiaini (18 g) a pranzo + 4 cucchiaini (18 g) a cena · Cappuccino (latte parz. scremato) ~110 ml + zucchero 5 g · Petto di pollo 220 g · Patate (cotte) 250 g
+
+Fonte: avena comune (380 kcal/100 g: 13 P / 7 G / 66 C — stime standard) · Fage 0% greco (54 kcal / 10,3 P / 0 G / 3 C per 100 g — come Fage 2% con grassi azzerati) · mirtilli (92 kcal/100 g) · **bun (stima 280 kcal/100 g: 19,6 P / 7 G / 45,3 C — panino da hamburger, senza etichetta)** · **hamburger di manzo cotto (stima 200 kcal / 26 P / 16 G / 0 C per 100 g — stessa stima 26/09 e 01/10)** · insalata/pomodoro (stima 15 kcal/100 g) · **onion rings fritti (stima 240 kcal/100 g: 4 P / 18 G / 30 C — 6 pz ≈ 60 g, senza etichetta)** · **olio e.v.o. 900 kcal/100 g (100 G)** · cappuccino (espresso 30 ml + latte parz. scremato Lidl 80 ml) · zucchero (387 kcal/100 g) · petto di pollo (120 kcal/100 g: 22,5 P / 1,5 G) · patate cotte (77 kcal/100 g: 1,9 P / 0,1 G / 17 C). Notes: spuntino post-workout saltato (day off, nessun allenamento). Giorno a **1 754 kcal**: ~54 kcal sopra il tetto di 1 700 — grassi **96,9 g (50% kcal)** a causa di hamburger 38,4 g G + onion rings 10,8 g G + olio 32,4 g G (4 cucchiaini a pranzo e 4 a cena). P **156,2 g = 2,01 g/kg** (target 140 g superato di +16,2 g: hamburger 62,4 g P + pollo 49,5 g P). Kcal/kg 22,6: sopra il target ~21. **Totale settimana 5: ≈ 10 242 kcal (7/7 giorni).**
+
 ## Template A/B v3 — opzione A: ~1 730-1 740 kcal · P ≈ 139 g · grassi ~47-49 g
 
 > Giorno A e Giorno B usano **alimenti diversi** ma raggiungono le **stesse kcal (~1 730) e le stesse proteine (≈ 139 g)**. Numeri = output diretto di  (regola 25/09, mai aritmetica a mano), peso di riferimento 79 kg.
