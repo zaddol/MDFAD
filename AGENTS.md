@@ -181,9 +181,30 @@ and shoot the copy (NOT the original file). **Clean up `tmp-*` files and screens
 ### Diary
 - 5 tabs Week 1–5 (extendable: duplicate radio + label + panel `.wkN` + CSS rules). Day-card placeholders show `DD/MM`.
 - **Tab order (convention, fixed in this instance)**: week tabs in the order **current first** (leftmost, `checked`, with a `CORRENTE` badge via `<span class="wcur">`), then future weeks in chronological order, and **past weeks last** (dimmed, with a `PASSATA` badge via `<span class="wpast">` + `.wk-past` class on the label). When a new current week starts: move `checked` to the new radio, add its `wcur` badge rule, remove `wcur` from the old label, add `class="wk-past"` + `.wpast` badge to the old label, append its pill at the end of `.wk-tabs`, and add `wk-past` to the old panel's div (opacity .85 + dashed borders). CSS: `.wk-tabs .wk-past{opacity:.55;background:var(--bg2);}`, `#wkN:checked ~ .wk-tabs .wk-past{opacity:1;}` (for each past radio), `.wk-panel.wk-past{opacity:.85;}` + dashed borders on `.wk-summary`/`.day-card`.
-- Each week: `.wk-summary` (`.ws-days` + `.ws-total`) + `.wk-grid` (7 columns → 4 on tablet → 1 on phone).
+- Each week: `.wk-summary` (`.ws-days` + `.ws-total`) + `.wk-grid` (7 columns → 4 on tablet → 1 on phone). **`.ws-total` mostra SOLO le kcal totali (≈ NNNN kcal) — mai P/G/C.**
 - Filled day: `<details class="day-card">`; to fill: `<div class="day-card empty">`.
 - `table.foods` tables have NO `<thead>` and use `<colgroup><col style="width:47%"><col style="width:53%"></colgroup>` (2 columns).
+
+### Archive of past weeks (CSS-only, zero JS)
+>Introduced 19/10: the cycle rotates and completed weeks move to an archive instead of piling up tabs.
+
+- `<details class="hist-zone" id="archivio-settimane">` at the END of `section#diario`, **closed by default**. Summary bar: `⏮ ARCHIVIO SETTIMANE PASSATE` + range ("Sett. 1–5 · 14/09 – 18/10/2026") + "Clic per aprire / chiudere" + chevron. `.hist-zone{border:1px dashed var(--line2)}`.
+- Inside `.hz-body`: a **separate radio group** `name="arch"` (`arch1` checked … `archN`) that are **sibling** elements of `.arch-tabs` and `.arch-zone` (same `:checked ~` mechanic as wk/pz carousels, nested inside the details).
+- CSS: `#archN:checked ~ .arch-tabs label[for="archN"]{…}` (pill active) + `#archN:checked ~ .arch-zone .wkAN{display:block;}` (panel visible). `.arch-tabs` = small pills like `.wk-tabs`.
+- **Archive panels use class `wkA1`–`wkAN` (NOT `wkN`)** — renaming avoids collision with main CSS `#wkN:checked ~ .diet-zone .wkN`. Archive panels keep the `wk-past` styling (dashed borders, dimmed).
+- `.hist-zone .wk-grid{grid-template-columns:repeat(2,1fr)}` (2 cols; 1 col @480px) — narrower because of the details inset.
+- Archive panels are **frozen historical data**: never edit them except to append new weeks.
+
+### Cycle rotation workflow (at the end of each 5-week cycle)
+> Example done on 19/10: wk1–wk5 (14/09 – 18/10) → archive; new cycle starts.
+
+1. **Last week (wk5) → archive**: its panel content goes into a NEW archive panel `wkA6` (with `wk-past` class) at the END of `.arch-zone` + `.hz-zone`; new radio `arch6` (NOT checked unless it's the only/latest visible? no — `arch1` stays checked = oldest… actually order: archive tabs go **oldest → newest**, `arch1` = oldest, checked default = `arch1`). Add label `Sett. 6 · DD/MM – DD/MM / YYYY` to `.arch-tabs` + CSS rules `#arch6:checked ~ …`.
+2. **New main panels**: wk1..wk5 all become EMPTY weeks (`day-card empty`, dates from the new cycle, `.ws-days` 0/7, `.ws-total` 0 kcal) OR — if the user wants — the new wk1 is **pre-filled** with the last week's meals (dates updated, day names verified against calendar).
+3. **Tabs**: all 5 main labels get new dates; `checked` + `wcur` badge on `wk1`; no `wk-past`/`wpast` on any main label.
+4. **Archive summary bar**: update the range ("Sett. 1–6 · 14/09 – DD/MM / YYYY").
+5. **Footer**: update the diary line ("Diario: dal Lun DD/MM (archivio sett. 1–6: …)").
+6. **Validate** `node _validate_mechanics.js index.html` + Playwright screenshot at 3 breakpoints.
+7. **Update `macro-analysis.md`** if the template weeks change.
 
 ### Weigh-ins
 - pz1 = latest weigh-in (checked, on top, with Δ vs previous); pz2… = reverse chronological archive (no deltas).
